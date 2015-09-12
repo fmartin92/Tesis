@@ -1,0 +1,44 @@
+\documentclass[11pt, a4paper]{book}
+
+\usepackage{mathpazo}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{stmaryrd} %double brackets
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\kQ}{k\langle Q\rangle}
+\newcommand{\KQ}{k\langle\langle Q\rangle\rangle}
+\newcommand{\cyc}{\mathrm{cyc}}
+
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{exmp}{Example}[section]
+
+\begin{document}
+
+\input{./preliminaries.tex}
+
+\begin{thebibliography}{99}
+\bibitem{rota80}
+  Gian-Carlo Rota, Bruce Sagan and Paul R. Stein,
+  \emph{A Cyclic Derivative in Noncommutative Algebra},
+  Journal of Algebra,
+  \bf{64},
+  54--75,
+  1980.
+\end{thebibliography}
+
+\end{document}
