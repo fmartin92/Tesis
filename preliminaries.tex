@@ -5,7 +5,27 @@ A \emph{quiver} is a quadruple $Q=(Q_0, Q_1, s,t)$, where $Q_0$ and $Q_1$ are fi
 $t(\alpha)\in Q_0$. We will usually abbreviate the fact that an arrow $\alpha\in Q_1$ has source $a$ and target $b$ using the notation $\alpha:a\to b$. We will also omit mentioning $s$ and $t$ explicitly when they are clear from context.
 
 One can represent a quiver graphically as an oriented graph allowing loops and multiple arrows between the same pair of vertices. The following are some examples of quivers:
-\textcolor{red}{ejemplo con loops}
+\[
+\begin{tikzpicture}[->, node distance=1cm, thick, auto]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm]
+\tikzset{every loop/.style={looseness=15}}
+\node (a) at (0:1) {};
+\node (b) at (120:1) {};
+\node (c) at (240:1) {};
+\path (a) edge [bend right] (b)
+(b) edge [bend right] (c)
+(c) edge [bend right] (a)
+(a) edge [in=15, out=-15, loop] (a)
+(b) edge [in=135, out=105, loop] (b)
+(c) edge [in=255, out=225, loop] (c);
+\node (d) [right=of a,xshift=2cm] {};
+\node (e) [right=of d] {};
+\foreach \from/\to in {d/e, e/d}
+\draw (d.40) -- (e.140);
+\draw (e) -- (d);
+\draw (d.320) -- (e.220);
+\end{tikzpicture}
+\]
 \[
 \begin{tikzpicture}[->,node distance=1cm, thick]
 \tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm]
@@ -21,17 +41,28 @@ One can represent a quiver graphically as an oriented graph allowing loops and m
 \draw [->] (\from) -- (\to);
 \end{tikzpicture}
 \]
-Let $Q=(Q_0, Q_1, s, t)$ be a quiver and consider the $k$-vector spaces $R=k^{Q_0}$ and $A=k^{Q_1}$, which we will call the \emph{vertex span} and \emph{arrow span} of $Q$, respectively. The space $R$ is a commutative $k$-algebra with the product given by pointwise multiplication. Thus, we can consider an $R$-bimodule structure on $A$ given as follows: if $r\in Q_0$, $\alpha\in Q_1$ then we define $r\alpha = \delta_{r,t(\alpha)} \alpha$ and analogously $\alpha r = \delta_{r, s(\alpha)}\alpha$, and extend the action linearly. That is, a vertex $r$ acts as the identity on the left (right) of an arrow $\alpha$ if the target (source) of $\alpha$ is $r$, and otherwise acts as zero. The \emph{path algebra} $\kQ$ associated to the quiver $Q$ is the graded tensor algebra
+Let $Q=(Q_0, Q_1, s, t)$ be a quiver and consider the $k$-vector spaces $R=k^{Q_0}$ and $A=k^{Q_1}$, which we will call the \emph{vertex span} and \emph{arrow span} of $Q$, respectively. The space $R$ is a commutative $k$-algebra with the product given by pointwise multiplication. Thus, we can consider an $R$-bimodule structure on $A$ given as follows: if $r\in Q_0$, $\alpha\in Q_1$ then we define $r\alpha = \delta_{r,t(\alpha)} \alpha$ and analogously $\alpha r = \delta_{r, s(\alpha)}\alpha$, and extend the action linearly. Therefore, a vertex $r$ acts as the identity on the left (right) of an arrow $\alpha$ if the target (source) of $\alpha$ is $r$, and otherwise acts as zero. The \emph{path algebra} $\kQ$ associated to the quiver $Q$ is the graded tensor algebra
 $$\kQ = \bigoplus_{n=0}^\infty A^{\otimes_R n},$$
-where we set $A^{\otimes_R 0}=R$. For the sake of simplicity we will usually notate $A^{\otimes_R n}$ as $A^n$ and an elementary tensor $\alpha_n\otimes\dots\otimes \alpha_1$ as $\alpha_n\dots\alpha_1$. Notice that a non-zero element of the form $\alpha_n\dots\alpha_1$ consists of a sequence of \emph{concatenable} arrows $\alpha_i$, that is, arrows such that $s(\alpha_{i+1})=t(\alpha_i)$. We will call such an element a \emph{path of length n}. It is worth observing that the collection of all paths of length $n$ form a basis of $A^n$ as a $k$-vector space. Since $Q_0$ is a basis of $A^0=R$, we will consider elements of $Q_0$ as \emph{paths of length 0}, which we will usually call \emph{trivial} or \emph{stationary} paths. Considering $Q_0$ and $Q_1$ are in bijection with paths of length 0 and 1 respectively, we will denote the set of paths of length $n$ as $Q_n$ and the set of all paths as $Q_*$. We can now define source and target functions $s,t:Q_*\to Q_0$ as follows: if $u=\alpha_n\dots\alpha_0\in Q_n$ with $n>0$, then $s(u)=s(\alpha_0)$ and $t(u)=t(\alpha_n)$. Otherwise, if $u=r\in Q_0$ then $s(u)=t(u)=r$. Thus, one easily checks that if $a,b\in Q_0$, the space spanned by paths with source $a$ and target $b$ is exactly $b\kQ a$.
+where we set $A^{\otimes_R 0}=R$. For the sake of simplicity we will usually notate $A^{\otimes_R n}$ as $A^n$ and an elementary tensor $\alpha_n\otimes\dots\otimes \alpha_1$ as $\alpha_n\dots\alpha_1$. Notice that a non-zero element of the form $\alpha_n\dots\alpha_1$ consists of a sequence of \emph{concatenable} arrows $\alpha_i$, that is, arrows such that $s(\alpha_{i+1})=t(\alpha_i)$. We will call such an element a \emph{path of length n}. It is worth observing that the collection of all paths of length $n$ form a basis of $A^n$ as a $k$-vector space. Since $Q_0$ is a basis of $A^0=R$, we will refer to elements of $Q_0$ as \emph{paths of length 0}, which we will usually call \emph{trivial} or \emph{stationary} paths. Considering $Q_0$ and $Q_1$ are in bijection with paths of length 0 and 1 respectively, we will denote the set of paths of length $n$ as $Q_n$ and the set of all paths as $Q_*$. We can now define source and target functions $s,t:Q_*\to Q_0$ as follows: if $u=\alpha_n\dots\alpha_0\in Q_n$ with $n>0$, then $s(u)=s(\alpha_0)$ and $t(u)=t(\alpha_n)$. Otherwise, if $u=r\in Q_0$ then $s(u)=t(u)=r$. Thus, one easily checks that if $a,b\in Q_0$, the space spanned by paths with source $a$ and target $b$ is exactly $b\kQ a$.
 
-\textcolor{red}{propiedad universal}
+The path algebra satisfies the following useful universal property:
 
-Let us consider some examples:
+\begin{prop} Let $Q$ be a quiver and $\Lambda$ be an associative $k$-algebra with unit. Suppose $f_0:Q_0\to \Lambda$, $f_1:Q_1\to\Lambda$ are maps satisfying:
+\begin{enumerate}
+\item $\sum_{r\in Q_0} f_0(r)=1$.
+\item If $a\in Q_0$, then $f_0^2(a)=f_0(a)$.
+\item If $a\neq b\in Q_0$, then $f_0(a)f_0(b)=0$.
+\item If $\alpha:a\to b$ is an arrow in $Q_1$, then $f_1(\alpha) = f_0(b) f_1(\alpha) f_0(a)$.
+\end{enumerate}
+Then, there exists a unique $k$-algebra morphism $f:\kQ\to \Lambda$ extending $f_0$ and $f_1$.
+\end{prop}
+\begin{proof} If $n\geq 1$, define $f(\alpha_n\dots\alpha_1)=f_1(\alpha_n)\dots f_1(\alpha_0)$ and let $f(r)=f_0(r)$ for $r\in Q_0$. As the set of all paths forms a basis of $\kQ$ as a vector space, this defines a $k$-linear map $f:\kQ\to \Lambda$. Condition 1 guarantees that such a map preserves the unit and conditions 2, 3 and 4 guarantee that it preserves products involving stationary paths. Since by definition $f$ preserves products of non-trivial paths, we conclude that $f$ is a $k$-algebra morphism extending $f_0$ and $f_1$. As for uniqueness, consider another extension $g:\kQ\to\Lambda$. Since $g$ is a $k$-algebra morphism, we have that $g(\alpha_n\dots\alpha_1)= g(\alpha_n)\dots g(\alpha_1)= f_1(\alpha_n)\dots f_1(\alpha_1)=f(\alpha_n\dots\alpha_1)$ for $n\geq 1$ and $g(r)=f_0(r)=f(r)$ for all $r\in Q_0$. Thus $g$ agrees with $f$ in a basis, and so $g=f$ as wanted.
+\end{proof}
+Let us now consider some examples:
 \begin{exmp} Let $Q$ be the quiver with vertices $\{1,\dots,n\}$ and no arrows:
 \[
 \begin{tikzpicture}[node distance=1cm, auto, thick]
-\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
 \node (1) {1};
 \node (2) [right=of 1] {2};
 \node (3) [right=of 2] {3};
@@ -46,7 +77,7 @@ The path algebra $\kQ$ is then isomorphic to $k^n = ke_1\oplus\dots\oplus ke_n$,
 \[
 \begin{tikzpicture}[->, thick]
 \tikzset{every loop/.style={looseness=15}}
-\node[circle, fill=gray!30, minimum size=.5cm]  (1) {1};
+\node[circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]  (1) {1};
 \path (1) edge [loop above] node {$\alpha$} (1);
 \end{tikzpicture}
 \]
@@ -56,7 +87,7 @@ The path algebra $\kQ$ has a basis given by $\{e_a, \alpha, \alpha^2, \dots\}$. 
 \[
 \begin{tikzpicture}[->, auto, thick]
 \tikzset{every loop/.style={looseness=15}}
-\node[circle, fill=gray!30, minimum size=.5cm]  (1) {1};
+\node[circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]  (1) {1};
 \node[circle, fill=white] (2) at +(270: 1) {...};
 \path (1) edge [loop left] node {$\alpha_5$} (1);
 \path (1) edge [loop above] node {$\alpha_3$} (1);
@@ -80,25 +111,26 @@ Let $Q$ be a quiver and $\kQ$ its associated path algebra. Then $\kQ$ is finite-
 Conversely, if $Q$ contains a cycle $u$, then $\{u,u^2,u^3,\dots\}$ is an infinite linearly independent set, and so $\kQ$ is infinite-dimensional.
 \end{proof}
 
-We now define the \emph{complete path algebra} $\KQ$ associated to a quiver $Q$ as
+\begin{section}{The Jacobian algebra of a quiver with potential}
+
+\textcolor{red}{motivación}
+
+Maintaining our previous notation, we now define the \emph{complete path algebra} $\KQ$ associated to a quiver $Q$ as
 $$\KQ = \prod_{n=0}^\infty A^n,$$
 that is, elements of $\KQ$ are possibly infinitely supported linear combinations of paths in $Q_*$ and the product on $\KQ$ is just the natural extension of the product on $\kQ$.
 
 \textcolor{red}{todo este párrafo debería explicarse mejor una vez que esté hecha la parte del lema topológico} The path algebra $\kQ$ admits a $k$-algebra ultranorm $\vert \cdot \vert: \kQ\to [0, \infty)$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. We call this the \emph{$\mathfrak{m}$-adic ultranorm} on $\kQ$. One can check that the complete path algebra $\KQ$ is in fact the completion of the path algebra $\kQ$ with respect to the $\mathfrak{m}$-adic ultranorm.
 
-\begin{exmp}Let $Q$ be an acyclic quiver. As we proved in \eqref{acyclic-fin-dim}, the associated path algebra $\kQ$ is finite-dimensional, and so $A^n=0$ for big enough $n$. Therefore, $\bigoplus A^n=\prod A^n$ and so the path algebra coincides with its completion.
+\begin{exmp}Let $Q$ be an acyclic quiver. As we proved in \eqref{acyclic-fin-dim}, the associated path algebra $\kQ$ is finite-dimensional, and so $A^n=0$ for big enough $n$. Therefore, $\bigoplus A^n=\prod A^n$ and thus the path algebra coincides with its completion.
 \end{exmp}
 
-\begin{exmp}Let $Q$ be the quiver from \eqref{several-loops}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between their respective completions $\KQ\simeq k\langle\langle x_1,\dots,x_n\rangle\rangle$, where the right-hand side term is the algebra of non-commutative formal power series in $n$ variables.
+\begin{exmp}Let $Q$ be the quiver from \eqref{several-loops}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between the respective completions $\KQ\simeq k\langle\langle x_1,\dots,x_n\rangle\rangle$, where the right-hand side term denotes the algebra of non-commutative formal power series in $n$ variables.
 \end{exmp}
 \end{section}
 
-\begin{section}{The Jacobian algebra of a quiver with potential}
-\textcolor{red}{motivación}
-
 Let $Q$ be a quiver and $\KQ=\prod A^n$ its complete path algebra. For $n\geq 1$, we define the \emph{cyclic part} of $A^n$ as
 $$A^n_{\cyc} = \bigoplus_{r\in Q_0} rA^nr,$$
-that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed \textcolor{red}{probarlo} $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
+that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
 $$\KQ_{\cyc}=\prod_{n=1}^\infty A^n_{\cyc}$$
 In other words, a potential is a possibly infinitely supported linear combination of cycles. We will call a pair $(Q,S)$ a \emph{quiver with potential}, or \emph{QP} for short.
 
@@ -108,15 +140,15 @@ and extended linearly and continuously.
 
 We are now able to introduce the \emph{Jacobian algebra} associated to a QP, which is the main object of study in this thesis. Given a QP $(Q,S)$, the \emph{Jacobian ideal} $J(S)$ is the closed ideal in $\KQ$ generated by the set of all cyclic derivatives of the potential, that is, $\{\delta_\alpha(S) : \alpha\in Q_1\}$. The Jacobian algebra $P(Q,S)$ is then the quotient $\KQ/J(S)$.
 
-\begin{exmp} Let $Q$ be the quiver from \eqref{one-loop}. As we have seen, the complete path algebra $\KQ$ is isomorphic to the algebra of formal power series $k\llbracket x\rrbracket$. Identifying $x$ with the only arrow in the quiver, we see that any potential for Q is of the form $\sum_{n=1}^\infty \lambda_n x^n$ for some choice of scalars $\lambda_n\in k$. For example, let us consider the potential $S=x^n$. Since $x$ is the only arrow in the quiver, we just have to compute $\partial_x(x^n)$, which turns out to be $nx^{n-1}$ (happily coinciding with the usual, commutative notion of derivation). Therefore, the Jacobian algebra is $k\llbracket x\rrbracket/(nx^{n-1})$, which is isomorphic to the truncated polynomial algebra $k[x]/(x^{n-1})$.
+\begin{exmp} As in \eqref{one-loop}, consider the quiver $Q$ with a single vertex and a unique arrow from that vertex to itself. As we have seen, the complete path algebra $\KQ$ is isomorphic to the algebra of formal power series $k\llbracket x\rrbracket$. Identifying $x$ with the only arrow in the quiver, we see that any potential for Q is of the form $\sum_{n=1}^\infty \lambda_n x^n$ for some choice of scalars $\lambda_n\in k$. For example, let us consider the potential $S=x^n$. Since $x$ is the only arrow in the quiver, we just have to compute $\partial_x(x^n)$, which turns out to be $nx^{n-1}$ (happily coinciding with the usual, commutative notion of derivation). Therefore, the Jacobian algebra is $k\llbracket x\rrbracket/(nx^{n-1})$, which is isomorphic to the truncated polynomial algebra $k[x]/(x^{n-1})$.
 \end{exmp}
 
-Two potentials $S$ and $S'$ are said to be \emph{cyclically equivalent} if their difference $S-S'$ lies in the closed $k$-subspace spanned by elements of the form $\alpha_n\dots\alpha_1 - \alpha_1\alpha_n\dots\alpha_2$, where $\alpha_n\dots\alpha_1$ is a cycle, or equivalently, if every term of $S$ is a cyclic permutation of the factors of a term of $S'$. \textcolor{red}{habría que definir term y factor o es claro?}. It is easily checked that if $S$ and $S'$ are cyclically equivalent, then $\partial_\alpha(S)$ is just a reordering of the summands of $\partial_\alpha(S')$, and so they coincide. This in turn implies that $S$ and $S'$ induce both the same Jacobian ideal and the same Jacobian algebra.
+Two potentials $S$ and $S'$ are said to be \emph{cyclically equivalent} if their difference $S-S'$ lies in the closed $k$-subspace spanned by elements of the form $\alpha_n\dots\alpha_1 - \alpha_1\alpha_n\dots\alpha_2$ where $\alpha_n\dots\alpha_1$ is a cycle, or equivalently, if every term of $S$ is a cyclic permutation of the factors of a term of $S'$. It is easily checked that if $S$ and $S'$ are cyclically equivalent, then $\partial_\alpha(S)$ is just a reordering of the summands of $\partial_\alpha(S')$, and so they coincide. This in turn implies that $S$ and $S'$ induce both the same Jacobian ideal and the same Jacobian algebra.
 
 \begin{exmp} Let $Q$ be the quiver with vertices 1 and 2, and arrows $\alpha:1\to 2$, $\beta:2\to1$:
 \[
 \begin{tikzpicture}[->,node distance=1cm, thick]
-\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
 \node (1) {1};
 \node (2) [right=of 1] {2};
 \foreach \from/\to in {2/1, 1/2}
