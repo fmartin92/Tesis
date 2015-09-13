@@ -113,13 +113,21 @@ Conversely, if $Q$ contains a cycle $u$, then $\{u,u^2,u^3,\dots\}$ is an infini
 
 \begin{section}{The Jacobian algebra of a quiver with potential}
 
-\textcolor{red}{motivación}
+\marginpar{\textcolor{red}{motivación}}
 
 Maintaining our previous notation, we now define the \emph{complete path algebra} $\KQ$ associated to a quiver $Q$ as
 $$\KQ = \prod_{n=0}^\infty A^n,$$
 that is, elements of $\KQ$ are possibly infinitely supported linear combinations of paths in $Q_*$ and the product on $\KQ$ is just the natural extension of the product on $\kQ$.
 
-\textcolor{red}{todo este párrafo debería explicarse mejor una vez que esté hecha la parte del lema topológico} The path algebra $\kQ$ admits a $k$-algebra ultranorm $\vert \cdot \vert: \kQ\to [0, \infty)$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. We call this the \emph{$\mathfrak{m}$-adic ultranorm} on $\kQ$. One can check that the complete path algebra $\KQ$ is in fact the completion of the path algebra $\kQ$ with respect to the $\mathfrak{m}$-adic ultranorm.
+\marginpar{\textcolor{red}{todo este párrafo debería explicarse mejor una vez que esté hecha la parte del lema topológico}}
+
+The path algebra $\kQ$ admits a $k$-algebra ultranorm $\vert \cdot \vert: \kQ\to [0, \infty)$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. We call this the \emph{$\mathfrak{m}$-adic ultranorm} on $\kQ$. One can check that the complete path algebra $\KQ$ is in fact the completion of the path algebra $\kQ$ with respect to the $\mathfrak{m}$-adic ultranorm.
+
+It is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
+
+\marginpar{\textcolor{red}{acá o bien en la parte del lema topológico habría que probar algunas propiedades básicas de la topología -- cuál es la noción de convergencia, etc.}}
+
+We now consider the completions of the examples of path algebras mentioned previously:
 
 \begin{exmp}Let $Q$ be an acyclic quiver. As we proved in \eqref{acyclic-fin-dim}, the associated path algebra $\kQ$ is finite-dimensional, and so $A^n=0$ for big enough $n$. Therefore, $\bigoplus A^n=\prod A^n$ and thus the path algebra coincides with its completion.
 \end{exmp}
@@ -128,7 +136,7 @@ that is, elements of $\KQ$ are possibly infinitely supported linear combinations
 \end{exmp}
 \end{section}
 
-Let $Q$ be a quiver and $\KQ=\prod A^n$ its complete path algebra. For $n\geq 1$, we define the \emph{cyclic part} of $A^n$ as
+Let $\KQ=\prod A^n$ be the complete path algebra associated to a quiver $Q$. For $n\geq 1$, we define the \emph{cyclic part} of $A^n$ as
 $$A^n_{\cyc} = \bigoplus_{r\in Q_0} rA^nr,$$
 that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
 $$\KQ_{\cyc}=\prod_{n=1}^\infty A^n_{\cyc}$$
@@ -160,5 +168,122 @@ Any potential for $Q$ is of the form $\sum_{n=1}^\infty \lambda_n (\alpha\beta)^
 \end{exmp}
 
 In the context of Jacobian algebras, having finite dimension is a highly desirable attribute. A usual method for proving this, as seen in the works of \cite{LF09, Lad12, TVD12}, consists in showing that enough cycles are contained in the Jacobian ideal, just as we did in the toy example above. We will make use of the diamond lemma in order to produce this kind of arguments in a streamlined fashion.
+\end{section}
+
+\begin{section}{QPs arising from triangulations of surfaces}
+In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation of a Riemann surface, which we now describe. In order to do this, we start with some basic definitions.
+
+A \emph{surface with marked points} $(\Sigma,M)$ is an ordered pair consisting of a compact, connected, oriented \textcolor{red}{Riemann?} surface $\Sigma$ with possibly non-empty boundary and a finite, non-empty collection $M$ of points (called \emph{marked points}) of the surface $\Sigma$ containing at least one point from each of its boundary components. Points in $M$ that belong to the interior of $\Sigma$ are called \emph{punctures}.
+
+An \emph{arc} on a surface with marked points $(\Sigma, M)$ is a curve $\gamma:[0,1]\to \Sigma$ such that:
+\begin{enumerate}
+\item Its endpoints lie in $M$.
+\item Its restriction to $(0,1)$ is injective and does not intersect $M$ or the boundary of $\Sigma$.
+\item Its image is not contractible into $M$ or onto the boundary of $\Sigma$.
+\end{enumerate}
+
+\begin{figure}[h]
+\[
+\begin{tikzpicture}[thick]
+\tikzstyle{every node} = [circle, fill=black, minimum size=.2cm, inner sep=0cm]
+\node (se1) at (0,0) {};
+\node (sw1) at (2,0) {}
+	edge (se1);
+\node (n1) at (1,1.73) {}
+	edge (se1)
+	edge (sw1);
+\node (c1) at (1,0.7) {}
+	edge (se1);
+
+\node (se2) at (3,0) {};
+\node (sw2) at (5,0) {}
+	edge (se2);
+\node (n2) at (4,1.73) {}
+	edge (se2)
+	edge (sw2)
+	edge [bend left] (se2);
+\node (c2) at (4,0.7) {};
+
+\node (se3) at (6,0) {}
+	edge [in=25, out=45, distance=1.1cm] (se3);
+\node (sw3) at (8,0) {}
+	edge (se3);
+\node (n3) at (7,1.73) {}
+	edge (se3)
+	edge (sw3);
+\node (c3) at (7,0.7) {};
+\end{tikzpicture}
+\]
+\caption{While the first is an arc of the punctured triangle, the last two are not, since they are contractible to the boundary or to the set of marked points, respectively.}
+\end{figure}
+
+We will consider arcs on a surface only up to isotopy relative to $M$. Two arcs will be said to be \emph{compatible} if there exist representatives in their corresponding relative isotopy classes such that they do not intersect in the interior of $\Sigma$. An \emph{ideal triangulation} for $(\Sigma, M)$ is then a maximal family of compatible arcs in $\Sigma$.
+\begin{figure}[h]
+\[
+\begin{tikzpicture}[thick]
+\tikzstyle{every node} = [circle, fill=black, minimum size=.2cm, inner sep=0cm]
+\node (sw1) at (0,0) {};
+\node (nw1) at (0,2) {}
+	edge (sw1);
+\node (se1) at (2,0) {}
+	edge (sw1);
+\node (ne1) at (2,2) {}
+	edge (nw1)
+	edge (se1);
+\node (c1) at (1,1) {}
+	edge (sw1)
+	edge (nw1)
+	edge (se1)
+	edge (ne1);
+
+\node (sw2) at (3,0) {};
+\node (nw2) at (3,2) {}
+	edge (sw2);
+\node (se2) at (5,0) {}
+	edge (sw2)
+	edge [bend left] (nw2);
+\node (ne2) at (5,2) {}
+	edge (nw2)
+	edge (se2);
+\node (c2) at (4,1) {}
+	edge (nw2)
+	edge (se2)
+	edge (ne2);
+
+\node (sw3) at (6,0) {};
+\node (nw3) at (6,2) {}
+	edge (sw3);
+\node (se3) at (8,0) {}
+	edge (sw3)
+	edge [bend left] (nw3)
+	edge [bend right] (nw3);
+\node (ne3) at (8,2) {}
+	edge (nw3)
+	edge (se3);
+\node (c3) at (7,1) {}
+	edge (nw3)
+	edge (se3);
+
+\node (sw4) at (9,0) {};
+\node (nw4) at (9,2) {}
+	edge (sw4);
+\node (se4) at (11,0) {}
+	edge (sw4)
+	edge [bend left] (nw4)
+	edge [bend right] (nw4)
+	edge [in=150, out=120,distance=2.4cm] (se4);
+\node (ne4) at (11,2) {}
+	edge (nw4)
+	edge (se4);
+\node (c4) at (10,1) {}
+	edge (se4);
+\end{tikzpicture}
+\]
+\caption{Some ideal triangulations of the square with one puncture.}
+\end{figure}
+
+\marginpar{\textcolor{red}{ubicar mejor las figuras}}
+Such a triangulation divides the surface $\Sigma$ into \emph{ideal triangles}. Ideal triangulations are more general than usual triangulations, since they also admit configurations in which two triangles share more than one side. Also, the three sides of an ideal triangles may not be distinct. In that case we will say such an ideal triangle is \emph{self-folded}.
+%\marginpar{\textcolor{red}{quizás acá haya que excluir algunas superficies por motivos técnicos}}
 \end{section}
 \end{chapter}
