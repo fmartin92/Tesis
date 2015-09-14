@@ -138,7 +138,7 @@ We now consider the completions of the examples of path algebras mentioned previ
 
 Let $\KQ=\prod A^n$ be the complete path algebra associated to a quiver $Q$. For $n\geq 1$, we define the \emph{cyclic part} of $A^n$ as
 $$A^n_{\cyc} = \bigoplus_{r\in Q_0} rA^nr,$$
-that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
+that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed \marginpar{\textcolor{red}{por qué $\KQ_{\cyc}$ es cerrado?}} $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
 $$\KQ_{\cyc}=\prod_{n=1}^\infty A^n_{\cyc}$$
 In other words, a potential is a possibly infinitely supported linear combination of cycles. We will call a pair $(Q,S)$ a \emph{quiver with potential}, or \emph{QP} for short.
 
@@ -167,13 +167,20 @@ Two potentials $S$ and $S'$ are said to be \emph{cyclically equivalent} if their
 Any potential for $Q$ is of the form $\sum_{n=1}^\infty \lambda_n (\alpha\beta)^n + \mu_n (\beta\alpha)^n$ for some scalars $\lambda_n, \mu_n\in k$. For instance, the cyclically equivalent potentials $S=(\alpha\beta)^n$ and $S'=(\beta\alpha)^n$ give rise to the same Jacobian ideal, which is $(\partial_\alpha(S), \partial_\beta(S)) = (n(\beta\alpha)^{n-1}\beta, n(\alpha\beta)^{n-1}\alpha)$. As any path of length at least $n$ has either $(\beta\alpha)^{n-1}\beta$ or $(\alpha\beta)^{n-1}\alpha$ as factors, the Jacobian ideal contains $A^d$ for $d\geq n$. Therefore, the Jacobian algebra $P(Q,S)$ turns out to be finite-dimensional.
 \end{exmp}
 
-In the context of Jacobian algebras, having finite dimension is a highly desirable attribute. A usual method for proving this, as seen in the works of \cite{LF09, Lad12, TVD12}, consists in showing that enough cycles are contained in the Jacobian ideal, just as we did in the toy example above. We will make use of the diamond lemma in order to produce this kind of arguments in a streamlined fashion.
+In the context of Jacobian algebras, having finite dimension is a highly desirable attribute. A usual method for proving this, as seen in the works of \cites{LF09, Lad12, TVD12}, consists in showing that enough cycles are contained in the Jacobian ideal, just as we did in the toy example above. We will make use of the diamond lemma in order to produce this kind of arguments in a streamlined fashion.
 \end{section}
 
-\begin{section}{QPs arising from triangulations of surfaces}
-In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation of a Riemann surface, which we now describe. In order to do this, we start with some basic definitions.
+\begin{section}{Ideal triangulations of surfaces}
+In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation of a \textcolor{red}{Riemann?} surface. In order to do this, we start with some basic definitions regarding our geometric objects.
 
-A \emph{surface with marked points} $(\Sigma,M)$ is an ordered pair consisting of a compact, connected, oriented \textcolor{red}{Riemann?} surface $\Sigma$ with possibly non-empty boundary and a finite, non-empty collection $M$ of points (called \emph{marked points}) of the surface $\Sigma$ containing at least one point from each of its boundary components. Points in $M$ that belong to the interior of $\Sigma$ are called \emph{punctures}.
+Throughout the text, we will refer to compact, connected, oriented \textcolor{red}{2-manifolds/Riemann surfaces?} with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:\marginpar{la definición de genus debería ir fuera de la prop?}
+
+\begin{prop}\label{surf-classification} Let $\Sigma$ be a surface with a number $b$ of boundary components. Then $\Sigma$ is homeomorphic to either a sphere with $b$ open disks removed or to a $g$-holed torus with $b$ open disks removed. We call the number $g$ the \emph{genus} of the surface and set $g=0$ in the spherical case.
+\end{prop}
+\begin{proof} See \cite[Section 10]{Mas77}.
+\end{proof}
+
+A \emph{surface with marked points} $(\Sigma,M)$ is an ordered pair consisting of a surface $\Sigma$ and a finite, non-empty collection $M$ of points (called \emph{marked points}) of $\Sigma$ containing at least one point from each of its boundary components. Points in $M$ that belong to the interior of $\Sigma$ are called \emph{punctures}.
 
 An \emph{arc} on a surface with marked points $(\Sigma, M)$ is a curve $\gamma:[0,1]\to \Sigma$ such that:
 \begin{enumerate}
@@ -181,7 +188,6 @@ An \emph{arc} on a surface with marked points $(\Sigma, M)$ is a curve $\gamma:[
 \item Its restriction to $(0,1)$ is injective and does not intersect $M$ or the boundary of $\Sigma$.
 \item Its image is not contractible into $M$ or onto the boundary of $\Sigma$.
 \end{enumerate}
-
 \begin{figure}[h]
 \[
 \begin{tikzpicture}[thick]
@@ -218,7 +224,7 @@ An \emph{arc} on a surface with marked points $(\Sigma, M)$ is a curve $\gamma:[
 \end{figure}
 
 We will consider arcs on a surface only up to isotopy relative to $M$. Two arcs will be said to be \emph{compatible} if there exist representatives in their corresponding relative isotopy classes such that they do not intersect in the interior of $\Sigma$. An \emph{ideal triangulation} for $(\Sigma, M)$ is then a maximal family of compatible arcs in $\Sigma$.
-\begin{figure}[h]
+\begin{figure}[h] \label{square-triangs}
 \[
 \begin{tikzpicture}[thick]
 \tikzstyle{every node} = [circle, fill=black, minimum size=.2cm, inner sep=0cm]
@@ -281,9 +287,58 @@ We will consider arcs on a surface only up to isotopy relative to $M$. Two arcs 
 \]
 \caption{Some ideal triangulations of the square with one puncture.}
 \end{figure}
+\marginpar{\textcolor{red}{las figuras estan bien puestas pero habria que revisar si despues de mover cosas siguen bien...}}
 
-\marginpar{\textcolor{red}{ubicar mejor las figuras}}
-Such a triangulation divides the surface $\Sigma$ into \emph{ideal triangles}. Ideal triangulations are more general than usual triangulations, since they also admit configurations in which two triangles share more than one side. Also, the three sides of an ideal triangles may not be distinct. In that case we will say such an ideal triangle is \emph{self-folded}.
-%\marginpar{\textcolor{red}{quizás acá haya que excluir algunas superficies por motivos técnicos}}
+An ideal triangulation divides the surface $\Sigma$ into \emph{ideal triangles}. As we can see in \eqref{square-triangs}, such triangulations are more general than the usual ones, since they admit configurations in which two triangles share more than one side. Even more, the three sides of an ideal triangle may not be distinct. In that case we say that the triangle is \emph{self-folded}.
+\begin{figure}[h]
+\[
+\begin{tikzpicture}[thick]
+\tikzstyle{every node} = [circle, fill=black, minimum size=.2cm, inner sep=0cm]
+\node (se1) at (0,0) {};
+\node (sw1) at (2,0) {}
+	edge (se1);
+\node (n1) at (1,1.73) {}
+	edge (se1)
+	edge (sw1);
+\node (cbase1) at (4,0) {};
+\node [draw,circle through=(cbase1), fill=none] at (4,1) {};
+\node (cbase2) at (7,0) {};
+\node (cmid2) at (7,1) {}
+	edge (cbase2);
+\node [draw,circle through=(cbase2), fill=none] at (7,1) {};
+\end{tikzpicture}
+\]
+\caption{The three possible kinds of ideal triangles: the usual \emph{triangle} and the self-folded ones, which are the \emph{monogon} and the \emph{digon}.}
+\end{figure}
+
+As one may observe, every ideal triangulation of the square pictured in \eqref{square-triangs} \marginpar{\textcolor{red}{la numeración de las figuras debería seguir la de las props}} consists of exactly 4 arcs. Indeed, the number of arcs in a triangulation is an invariant of the marked surface, which we call its \emph{rank}. More precisely, we have:
+
+\begin{prop}[{\cite[Proposition 2.10]{FST08}}] Any ideal triangulation of a surface with marked points $(\Sigma, M)$ consists of exactly
+$$n=6g+3b+3p+c-6$$
+arcs, where $g$ is the genus of the surface $\Sigma$, $b$ is its number of boundary components, $p$ is the number of punctures and $c$ is the number of marked points lying on the boundary.
+\end{prop}
+\begin{proof} One can show using the classification theorem \eqref{surf-classification} that the Euler characteristic of a surface $\Sigma$ of genus $g$ with $b$ boundary components is
+\begin{equation}\label{euler-ch1}
+\chi(\Sigma)=2-2g-b
+\end{equation}
+\marginpar{revisá el argumento}On the other hand, we can compute the Euler characteristic of the surface regarding an ideal triangulation as a cellular decomposition. Since an ideal triangulation is a maximal collection of compatible arcs, any marked point must be a vertex of the decomposition and so we have $v = c + p$ vertices. As for edges, we have $n$ of them in the interior of the surface and $c$ of them in the boundary, which amounts to $e = n + c$. Finally, we know that each face is triangular, that any edge in the interior of the surface belongs to two different faces, and that edges in the boundary belong to only one face. Therefore, by counting faces we arrive at $3f = 2n+c$. Putting it all together, we get that
+\begin{equation}\label{euler-ch2}
+\chi(\Sigma)=v-e+f=(c+p)-(n+c)+\left(\frac{2}{3}n+\frac{1}{3} c\right)=p+\frac{1}{3}(c-n)
+\end{equation}
+\marginpar{\textcolor{red}{las ecuaciones también están mal numeradas}}The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.
+\end{proof}
+
+From now on, we will assume that our surface $(\Sigma, M)$ is none of the following:
+\begin{enumerate}
+\item A sphere with one, two or three punctures.
+\item An unpunctured or once-punctured monogon.
+\item An unpunctured digon.
+\item An unpunctured triangle.
+\end{enumerate}
+The reason for these exclusions is that the listed surfaces either have no non-trivial triangulations or only have pathological ones. In fact, we have the following result:
+
+\begin{prop}[{\cite[Proposition 2.13]{FST08}}] Let $(\Sigma, M)$ be any surface with marked points not on the list above. Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
+\end{prop}
+
 \end{section}
 \end{chapter}

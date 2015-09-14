@@ -14,13 +14,12 @@
 \usepackage{titlesec} %reasonable chapter headings
 \usepackage{stmaryrd} %double brackets
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning}
+\usetikzlibrary{arrows,positioning,through}
 
 \titleformat{\chapter}[display]
-  {\normalfont\bfseries}{}{0pt}{\Huge}
+  {\normalfont\bfseries}{}{0pt}{\Huge} %this eliminates the 'Chapter n' heading
 
-\hypersetup{linkcolor=teal,
-citecolor=teal}
+\hypersetup{linkcolor=teal, citecolor=teal}
 
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -40,52 +39,6 @@ citecolor=teal}
 \begin{document}
 
 \input{./preliminaries.tex}
-
-\begin{bibdiv}
-\begin{biblist}[\normalsize]
-\bib{LF09}{article}{
-   author={Labardini-Fragoso, Daniel},
-   title={Quivers with potentials associated to triangulated surfaces},
-   journal={Proc. Lond. Math. Soc. (3)},
-   volume={98},
-   date={2009},
-   number={3},
-   pages={797--839},
-   issn={0024-6115},
-   review={\MR{2500873 (2010b:16033)}},
-   doi={10.1112/plms/pdn051},
-}
-
-\bib{Lad12}{article}{
-   author={Ladkani, Sefi},
-   title={On Jacobian algebras from closed surfaces},
-   date={2012},
-   eprint={arXiv:1207.3778 [math.RT]}
-}
-
-\bib{RSS80}{article}{
-   author={Rota, Gian-Carlo},
-   author={Sagan, Bruce},
-   author={Stein, Paul R.},
-   title={A cyclic derivative in noncommutative algebra},
-   journal={J. Algebra},
-   volume={64},
-   date={1980},
-   number={1},
-   pages={54--75},
-   issn={0021-8693},
-   review={\MR{575782 (82b:05017)}},
-   doi={10.1016/0021-8693(80)90133-7},
-}
-
-\bib{TVD12}{article}{
-   author={Trepode, Sonia},
-   author={Valdivieso-Díaz, Yadira}
-   title={On finite dimensional Jacobian Algebras},
-   date={2012},
-   eprint={arXiv:1207.1917v4 [math.RT]}
-}
-\end{biblist}
-\end{bibdiv}
+\input{./bibliography.tex}
 
 \end{document}
