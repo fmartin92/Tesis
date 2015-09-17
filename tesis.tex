@@ -16,6 +16,9 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning,through}
 
+\usepackage{chngcntr}
+\counterwithout{equation}{section} %this fixes equation numbering
+
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\Huge} %this eliminates the 'Chapter n' heading
 
