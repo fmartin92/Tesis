@@ -12,7 +12,7 @@ A \emph{loop} $f$ on a surface $\Sigma$ is a smooth embedding $f:S^1\to \Sigma$.
 \caption{A handle.}
 \end{figure}
 
-\begin{prop} Let $\Sigma$ be a surface of genus $g$. There exist finite families $\{r_i\}$ and $\{b_j\}$ of loops on $\Sigma$ such that:
+\begin{prop}\label{surface-loops} Let $\Sigma$ be a surface of genus $g$. There exist finite families $R=\{r_i\}$ and $B=\{b_j\}$ of loops on $\Sigma$ such that:
 \begin{enumerate}
 \item Two loops in the same family are disjoint.
 \item Any point of the surface belongs to at most two loops.
@@ -111,11 +111,12 @@ The following is an outline for the construction of the previous figure for gene
 \begin{enumerate}
 \item Place the $g-1$ holes in a straight line inside the disk.
 \item Connect the boundary of the left and rightmost holes to the boundary of the disk using 4 red arcs, mimicking the figure.
-\item Cycle through the holes from left to right. If the current hole has a neighboring hole to its right, draw 4 red arcs connecting them.
+\item Cycle through the holes from left to right. If the current hole has a neighboring hole to its right, draw 4 red arcs connecting their boundaries.
 \end{enumerate}
 
-Notice that after gluing the handles, both the red and the blue arcs are now loops. We now consider the families $\{r_i\}$ and $\{b_j\}$, consisting of the red and blue loops respectively. Inspecting the figures, we see that conditions 1 and 2 are both satisfied. Finally, it remains to check condition 3. Since we have already seen that each handle is split up into disks, it suffices to check this for the \textcolor{red}{holed} disk, and once again this is easily seen from the drawing.
+Notice that after gluing the handles, both the red and the blue arcs are now loops. We now consider the families $\{r_i\}$ and $\{b_j\}$, consisting of the red and blue loops respectively. Inspecting the figures, we see that conditions 1 and 2 are both satisfied. Finally, it remains to check condition 3. Since we have already seen that each handle is split up into disks in the discussion of the case g=1, it suffices to check this for the \textcolor{red}{holed} disk, and once again this is easily seen from the drawing.
 \end{proof}
+
 
 A \emph{band} on a surface $\Sigma$ is a finite sequence $\{C_1, \dots, C_n\}$, where each $S_i$ is a quadrilateral on $\Sigma$ subdivided by one of its main diagonals, arranged as in one of the following two figures:
 
@@ -159,6 +160,207 @@ A \emph{band} on a surface $\Sigma$ is a finite sequence $\{C_1, \dots, C_n\}$, 
 \end{tikzpicture}
 \]
 
-Notice that in both cases the choice of diagonal is consistent throughout the band. We will say a band is \emph{positively oriented} if it is arranged as in the first figure and \emph{negatively oriented} otherwise. We require that the only adjacency relations between quadrilaterals in a band are the ones expressed by the figures, so in particular bands have well-defined top and bottom sides.
+Notice that in both cases the choice of diagonal is consistent throughout the band. We will say a band is \emph{positively oriented} if it is arranged as in the first figure and \emph{negatively oriented} otherwise. We require that the only adjacency relations between quadrilaterals in a band are the ones expressed by the figures, so in particular bands have well-defined top and bottom sides. We remark that two differently oriented bands may intersect as the following figure shows:
+
+\[
+\label{band-intersection}
+\begin{tikzpicture}
+\draw (-4,-1) -- (4,-1);
+\draw (-4,1) -- (4,1);
+\draw (-1,4) -- (-1,-4);
+\draw (1,-4) -- (1,4);
+\foreach \x in {-3,-1,...,3}
+{
+\draw (\x,-1) -- (\x, 1);
+\draw (-1,\x) -- (1,\x);
+}
+\foreach \x in {-3,-1,1}
+{
+\draw (\x,-1) -- (\x+2,1);
+\draw (-1,\x) -- (1,\x+2);
+}
+\end{tikzpicture}
+\]
+
+Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{r_i\}$ and $B=\{b_j\}$ on $\Sigma$ satisfying the conditions stated in proposition \ref{surface-loops}. We can now pick suitably small tubular neighborhoods of each loop and place a positively (resp. negatively) oriented band over each neighborhood corresponding to a loop in $R$ (resp. $B$). Conditions 1 and 2 of proposition \ref{surface-loops} guarantee that all intersections between bands resemble that of figure \ref{band-intersection}. Condition 3 guarantees that each connected component of the complement of the bands is a polygon. We will refer to these polygons as \emph{regions}. Therefore, the collection of bands and regions actually define a polygonal subdivision of $\Sigma$. \textcolor{red}{For technical reasons that will be clearer later, we will require each band to have at least 3 quadrilaterals between any pair of intersections with other bands. This can be easily achieved by refining the division of the band if necessary.} From now on we fix a subdivision as described above for each genus $g$ and call the associated Jacobian algebra $A_g$.
+
+\begin{figure}[h]
+\[
+\begin{tikzpicture}
+%aristas
+\draw (-5, .75) -- (5, .75);
+\draw (-5, -.75) -- (5, -.75);
+\draw (-5, -5.25) -- (5, -5.25);
+\draw (-5, -6.75) -- (5, -6.75);
+\draw (-2.25, -8.25) -- (-2.25, 2.25);
+\draw (-3.75, -8.25) -- (-3.75, 2.25);
+\draw (2.25, -8.25) -- (2.25, 2.25);
+\draw (3.75, -8.25) -- (3.75, 2.25);
+
+\foreach \x in {-3.75,-2.25,...,3.75}
+{
+\draw (\x, .75) -- (\x, -.75);
+\draw (\x, -5.25) -- (\x, -6.75);
+}
+
+\foreach \x in {-6.75,-5.25,...,1.75}
+{
+\draw (-3.75, \x) -- (-2.25, \x);
+\draw (3.75, \x) -- (2.25, \x);
+}
+
+\foreach \x in {-3.75,-2.25,...,2.25}
+{
+\draw (\x, -.75) -- (\x+1.5, .75);
+\draw (\x, -6.75) -- (\x+1.5, -5.25);
+}
+
+\foreach \x in {-6.75,-5.25,...,0.25}
+{
+\draw (-3.75, \x) -- (-2.25, \x+1.5);
+\draw (3.75, \x+1.5) -- (2.25, \x);
+}
+
+%flechas del quiver
+\foreach \x in {-3.75,-2.25,...,2.25}
+{
+\draw[->, red] (\x+0.85, -0.65) -- (\x+1.4, -0.05);
+\draw[->, red] (\x+1.4, 0) -- (\x+0.85, 0);
+\draw[->, red] (\x+0.75, -0.1) -- (\x+0.75, -0.65);
+\draw[->, red] (\x+0.85, -6.65) -- (\x+1.4, -6.05);
+\draw[->, red] (\x+1.4, -6) -- (\x+0.85, -6);
+\draw[->, red] (\x+0.75, -6.1) -- (\x+0.75, -6.65);
+
+\draw[->, red] (\x+0.75, 0.1) -- (\x+0.75, 0.65);
+\draw[->, red] (\x+0.65, 0.65) -- (\x+0.1, 0.1);
+\draw[->, red] (\x+0.1, 0) -- (\x+0.65, 0);
+\draw[->, red] (\x+0.75, -5.9) -- (\x+0.75, -5.35);
+\draw[->, red] (\x+0.65, -5.35) -- (\x+0.1, -5.9);
+\draw[->, red] (\x+0.1, -6) -- (\x+0.65, -6);
+}
+
+\foreach \x in {-0.75,-2.25,-3.75}
+{
+\draw[->, red] (-2.35, \x-0.75) -- (-2.9, \x-0.75);
+\draw[->, red] (-3, \x-0.85) -- (-3, \x-1.4);
+\draw[->, red] (-2.9, \x-1.4) -- (-2.35, \x-0.85);
+\draw[->, red] (3.65, \x-0.75) -- (3.1, \x-0.75);
+\draw[->, red] (3, \x-0.85) -- (3, \x-1.4);
+\draw[->, red] (3.1, \x-1.4) -- (3.65, \x-0.85);
+
+\draw[->, red] (-3, \x-0.65) -- (-3, \x-0.1);
+\draw[->, red] (-3.1, \x-0.1) -- (-3.65, \x-0.65);
+\draw[->, red] (-3.65, \x-0.75) -- (-3.1, \x-0.75);
+\draw[->, red] (3, \x-0.65) -- (3, \x-0.1);
+\draw[->, red] (2.9, \x-0.1) -- (2.35, \x-0.65);
+\draw[->, red] (2.35, \x-0.75) -- (2.9, \x-0.75);
+}
+
+\draw[<-, red] (-1.4, -0.85) to [bend right] (-0.1, -0.85);
+\draw[<-, red] (0.1, -0.85) to [bend right] (1.4, -0.85);
+\draw[->,  red] (-1.4, -5.15) to [bend left] (-0.1, -5.15);
+\draw[->, red] (0.1, -5.15) to [bend left] (1.4, -5.15);
+
+\draw[->, red] (-2.15, -1.65) to [bend left] (-2.15, -2.9);
+\draw[->, red] (-2.15, -3.1) to [bend left] (-2.15, -4.35);
+\draw[<-, red] (2.15, -1.65) to [bend right] (2.15, -2.9);
+\draw[<-, red] (2.15, -3.1) to [bend right] (2.15, -4.35);
+
+\draw[->, red] (-1.6, -0.85) to [bend left] (-2.15, -1.45);
+\draw[->, red] (-2.15, -4.55) to [bend left] (-1.6, -5.15);
+\draw[<-, red] (1.6, -0.85) to [bend right] (2.15, -1.45);
+\draw[<-, red] (2.15, -4.55) to [bend right] (1.6, -5.15);
+\end{tikzpicture}
+\]
+\caption{The configuration of the associated quiver around a region.}
+\end{figure}
+We now turn to the study of some relations that hold in $A_g$, that will enable us to prove its finite-dimensionality.
+
+\begin{lemma}\label{band-sides} Any path in $A_g$ passing through vertices of both sides of a band is zero.
+\end{lemma}
+\begin{proof} Throughout this and the following proofs, we will only consider our bands to be positively oriented, since the analogous statements for negatively oriented bands are proved in a similar fashion. We name the arrows in the quiver as in the following figure:
+
+\[
+\begin{tikzpicture}[text width=1.5mm, font=\footnotesize]
+\draw (-5, 0) -- (5, 0);
+\draw (-5, 2) -- (5, 2);
+\foreach \x in {-3,-1,...,3}
+\draw (\x, 0) -- (\x, 2);
+\foreach \x in {-3,-1,1}
+{
+\draw (\x,0) -- (\x+2, 2);
+\draw [->, red] (\x+1.9, 1) to node[above] {$b$} (\x+1.1, 1);
+\draw[->, red] (\x+1, 0.9) to node[left]{$f$} (\x+1, 0.1);
+\draw[->, red] (\x+1.1, 0.1) to node[right]{$a$} (\x+1.9, 0.9);
+\draw[->, red] (\x+1, 1.1) to node[right]{$c$} (\x+1, 1.9);
+\draw[->, red] (\x+0.9, 1.9) to node[left]{$d$} (\x+0.1, 1.1);
+\draw[->, red] (\x+0.1, 1) to node[below]{$e$} (\x+0.9, 1);
+}
+
+\draw[->, red, dashed] (-1.9, 2.1) to [bend left] node[above]{$x$} (-0.1, 2.1);
+\draw[->, red, dashed] (0.1, 2.1) to [bend left] node[above]{$x$} (2.1, 2.1);
+\draw[<-, red, dashed] (-1.9, -0.1) to [bend right] node[below]{$y$} (-0.1, -0.1);
+\draw[<-, red, dashed] (0.1, -0.1) to [bend right] node[below]{$y$} (2.1, -0.1);
+\end{tikzpicture}
+\]
+
+Since our quiver arises from a polygonal subdivision, we know that there's a cycle around each vertex,\marginpar{esto hay que probarlo en algún momento} and so each $x$ and each $y$ are paths of length at least 1. We mark those paths in the figure with a dashed arrow. We have given the same name to arrows occupying the same position in different squares, since this abuse of notation will be useful for calculation.
+
+Inspecting the figure we see that any path passing through vertices of both sides of the band must contain a path of the form $cba$ or $fed$ as factors. It suffices to check that both of them are zero in $A_g$.
+
+Let $P$ be the potential associated to our quiver. We have that $\partial_f(P) = ba + eay$, and so $ba  = -eay$ in $A_g$. Therefore, we have that $cba = -ceay$. Moreover, $\partial_d(P) = ce + xcb$, from which we deduce that $ce = -xcb$ in $A_g$. Putting all of this together, we get that $cba=-ceay=xcbay$ (one should note that the $cba$ factor in the right hand side of the equality consists of arrows placed on the square immediately left from the one where we started). Proceeding inductively we get $cba=x^ncbay^n$ for all positive $n$. Since $x$ and $y$ are paths of length at least $1$, this shows that $cba$ is equal to paths of arbitrarily high length. Therefore, we conclude that $cba=0$ in $A_g$. \marginpar{esto también hay que hacerlo...}
+
+An analogous argument shows that $fed=0$ in $A_g$ as well, concluding the proof. 
+\end{proof}
+We remark that the previous argument holds regardless of how the polygonal subdivision behaves outside of the band.
+
+\begin{lemma} Any sufficiently long path contained entirely in bands is zero in $A_g$.
+\end{lemma}
+\begin{proof} We first prove that any sufficiently long path cotained entirely in a single band is zero. As we have already seen, any path passing through vertices of both sides of the band is zero, so we will suppose without loss of generality that our path is placed on the upper part of the band. Mantaining the notation used on the proof of the previous lemma, this is equivalent to saying our path only has arrows $b, c, d$ or $e$ as factors.
+
+We start by studying paths containing a $3$-cycle as a prefix. The $3$-cycles $edc$ and $ced$ only prefix two paths of length 4, namely $cedc$ and $dced$. Since $\partial_e = dc + ayf$, the relation $dc = -ayf$ holds, and so $cedc=-ceayf=0$ and $dced=-ayfed=0$ by lemma \ref{band-sides}. Moreover, the $3$-cycle $dce$ only prefixes two paths of length 5, which are $cbdce$ and $cedce$. Clearly, $cedce=0$ since we have already shown that $cedc=0$, and using the relation $dc=-ayf$ we get $cbdce = - cbayfe=0$ once again by lemma \ref{band-sides}.
+
+Now we turn to paths containing a $3$-cycle as a suffix. Once again, the $3$-cycles $ced$ and $dce$ only suffix two paths of length 4, which are $cedc$ and $dced$, already shown to be zero previously. The $3$-cycle $edc$ is a suffix to only two paths of length 5, which are $edcbd$ and $edced$. We see that $edced=0$ since $dced=0$ and $edcbd=-eayfbd=0$ as we wanted.
+
+Therefore, any path in a band of length $>5$ containing a 3-cycle is zero, since we have shown these cycles only admit prefixes and suffixes of length at most 1.
+
+Now, a path of length $>5$ not containing a 3-cycle is either of the form $dcbdcb$, $bdcbdc$ or $cdbcbd$. All possibilites have $cbdc$ as a factor, which is clearly zero since $cbdc = -cbayf = 0$ by lemma \ref{band-sides}. Therefore, we conclude that any path of length $>5$ contained in a single band is zero.
+
+Finally, consider a path of length $>9$ contained in possibly different bands. If its first six arrows lie on the same band, the path is zero as seen previously. Otherwise, at most five of its first arrows lie on the same band and the sixth is then placed on a different band intersecting the original one, as seen in the following figure:
+
+\[
+\begin{tikzpicture}
+\draw (-3.5*1.25, 0) -- (1.5*1.25, 0);
+\draw (-3.5*1.25, -1.25) -- (1.5*1.25, -1.25);
+\draw (0,3.5*1.25) -- (0,-1.5*1.25);
+\draw (1.25,3.5*1.25) -- (1.25,-1.5*1.25);
+
+\foreach \x in {-3.75,-2.5,...,0}
+{
+\draw (\x,-1.25) -- (\x+1.25, 0);
+\draw (0, -\x) -- (1.25, -\x);
+\draw (\x,0) -- (\x, -1.25);
+}
+
+\foreach \x in {0,1.25,...,2.5}
+\draw (0, \x) -- (1.25, \x+1.25);
+
+\draw[->, red] (0.5*1.25, 1.5*1.25 - 0.1) -- (0.5*1.25, 1.25 + 0.1);
+\draw[->, red] (0.5*1.25 - 0.1, 1.25-0.1) -- (0.1, 0.5*1.25+0.1);
+\draw[->, red] (0.1, 0.5*1.25) -- (0.5*1.25 - 0.1, 0.5*1.25);
+\draw[->, red] (0.5*1.25, 0.5*1.25-0.1) -- (0.5*1.25, 0.1);
+\draw[->, red] (0.5*1.25 - 0.1, -0.1) -- (0.1, -0.5*1.25+0.1);
+\draw[->, red] (-0.1, -0.5*1.25) -- (-0.5*1.25+0.1, -0.5*1.25);
+\draw[->, red] (-0.5*1.25, -0.5*1.25+0.1) -- (-0.5*1.25, -0.1);
+\draw[->, red] (-0.5*1.25 - 0.1, -0.1) -- (-1.25 + 0.1, -0.5*1.25+0.1);
+\draw[->, red] (-1.25 -0.1, -0.5*1.25) -- (-1.5*1.25+0.1, -0.5*1.25);
+\end{tikzpicture}
+\]
+
+Since by hypothesis two intersections in the same band are distanced by at least \textcolor{red}{three} quadrilaterals, we conclude that at least the next \textcolor{red}{six} arrows belong to the same band. Therefore, any path of length $>9$ contained entirely in bands is zero in $A_g$, as we wanted.
+
+
+
+\end{proof}
 \end{section}
 \end{chapter}
