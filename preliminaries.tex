@@ -136,7 +136,7 @@ We now consider the completions of the examples of path algebras mentioned previ
 \begin{exmp}Let $Q$ be an acyclic quiver. As we proved in \ref{acyclic-fin-dim}, the associated path algebra $\kQ$ is finite-dimensional, and so $A^n=0$ for big enough $n$. Therefore, $\bigoplus A^n=\prod A^n$ and thus the path algebra coincides with its completion.
 \end{exmp}
 
-\begin{exmp}Let $Q$ be the quiver from \ref{several-loops}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between the respective completions $\KQ\simeq k\langle\langle x_1,\dots,x_n\rangle\rangle$, where the right-hand side term denotes the algebra of non-commutative formal power series in $n$ variables.
+\begin{exmp}Let $Q$ be the quiver from \ref{several-loops}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between the respective completions $\KQ\simeq k\langle\!\langle x_1,\dots,x_n\rangle\!\rangle$, where the right-hand side term denotes the algebra of non-commutative formal power series in $n$ variables.
 \end{exmp}
 \end{section}
 
@@ -163,7 +163,7 @@ We are now able to introduce the \emph{Jacobian algebra} associated to a QP, whi
 
 Two potentials $S$ and $S'$ are said to be \emph{cyclically equivalent} if their difference $S-S'$ lies in the closed $k$-subspace spanned by elements of the form $\alpha_n\dots\alpha_1 - \alpha_1\alpha_n\dots\alpha_2$ where $\alpha_n\dots\alpha_1$ is a cycle, or equivalently, if every term of $S$ is a cyclic permutation of the factors of a term of $S'$. It is easily checked that if $S$ and $S'$ are cyclically equivalent, then $\partial_\alpha(S)$ is just a reordering of the summands of $\partial_\alpha(S')$, and so they coincide. This in turn implies that $S$ and $S'$ induce both the same Jacobian ideal and the same Jacobian algebra.
 
-If $(Q,S)$ and $(Q', S')$ are QPs sharing the same set of vertices, we say that $(Q,S)$ is \emph{right-equivalent} to $(Q',S')$ if there exists a $k$-algebra isomorphism $\varphi:\KQ\to k\langle\langle Q'\rangle\rangle$ fixing the set of vertices and such that $\varphi(S)$ is cyclically equivalent to $S'$. This will be our concept of isomorphism for QPs, since a right-equivalence induces an isomorphism between the respective Jacobian algebras, as seen in Proposition 3.7 from \cite{DWZ08}.
+If $(Q,S)$ and $(Q', S')$ are QPs sharing the same set of vertices, we say that $(Q,S)$ is \emph{right-equivalent} to $(Q',S')$ if there exists a $k$-algebra isomorphism $\varphi:\KQ\to k\langle\!\langle Q'\rangle\!\rangle$ fixing the set of vertices and such that $\varphi(S)$ is cyclically equivalent to $S'$. This will be our concept of isomorphism for QPs, since a right-equivalence induces an isomorphism between the respective Jacobian algebras, as seen in Proposition 3.7 from \cite{DWZ08}.
 
 \begin{exmp} Let $Q$ be the quiver with vertices 1 and 2, and arrows $\alpha:1\to 2$, $\beta:2\to1$:
 \[
@@ -240,7 +240,6 @@ We will consider arcs on a surface only up to isotopy relative to $M$. Two arcs 
 \begin{figure}[h]
 \[
 \begin{tikzpicture}[thick]
-\label{square-triangs}
 \tikzstyle{every node} = [circle, fill=black, minimum size=.2cm, inner sep=0cm]
 \node (sw1) at (0,0) {};
 \node (nw1) at (0,2) {}
@@ -300,10 +299,10 @@ We will consider arcs on a surface only up to isotopy relative to $M$. Two arcs 
 \end{tikzpicture}
 \]
 \caption{Some ideal triangulations of the square with one puncture.}
+\label{square-triangs}
 \end{figure}
-\marginpar{\textcolor{red}{las figuras no quedan bien ubicadas}}
 
-An ideal triangulation divides the surface $\Sigma$ into \emph{ideal triangles}. As we can see in \ref{square-triangs}\marginpar{por algún motivo eqref muestra 1.3 en vez de 1.2...}, such triangulations are more general than the usual ones, since they admit configurations in which two triangles share more than one side. Even more, the three sides of an ideal triangle may not be distinct. In that case we say that the triangle is \emph{self-folded}.
+An ideal triangulation divides the surface $\Sigma$ into \emph{ideal triangles}. As we can see in \ref{square-triangs}, such triangulations are more general than the usual ones, since they admit configurations in which two triangles share more than one side. Even more, the three sides of an ideal triangle may not be distinct. In that case we say that the triangle is \emph{self-folded}.
 \begin{figure}[h]
 \[
 \begin{tikzpicture}[thick]
@@ -325,7 +324,7 @@ An ideal triangulation divides the surface $\Sigma$ into \emph{ideal triangles}.
 \caption{The three possible kinds of ideal triangles: the usual \emph{triangle} and the self-folded ones, which are the \emph{monogon} and the \emph{digon}.}
 \end{figure}
 
-As one may observe, every ideal triangulation of the square pictured in \ref{square-triangs} \marginpar{\textcolor{red}{la numeración de las figuras debería seguir la de las props?}} consists of exactly 4 arcs. Indeed, the number of arcs in a triangulation is an invariant of the marked surface, which we call its \emph{rank}. More precisely, we have:
+As one may observe, every ideal triangulation of the square pictured in \ref{square-triangs} consists of exactly 4 arcs. Indeed, the number of arcs in a triangulation is an invariant of the marked surface, which we call its \emph{rank}. More precisely, we have:
 
 \begin{prop}[{\cite[Proposition 2.10]{FST08}}] Any ideal triangulation of a surface with marked points $(\Sigma, M)$ consists of exactly
 \[
@@ -338,12 +337,14 @@ arcs, where $g$ is the genus of the surface $\Sigma$, $b$ is its number of bound
 \chi(\Sigma)=2-2g-b
 \end{equation}
 On the other hand, we can compute the Euler characteristic of the surface regarding an ideal triangulation as a cellular decomposition. Since an ideal triangulation is a maximal collection of compatible arcs, any marked point must be a vertex of the decomposition and so we have $v = c + p$ vertices. As for edges, we have $n$ of them in the interior of the surface and $c$ of them in the boundary, which amounts to $e = n + c$. Finally, we know that each face is triangular, that any edge in the interior of the surface belongs to two different faces, and that edges in the boundary belong to only one face. Therefore, by counting faces we arrive at $3f = 2n+c$. Putting it all together, we get that
-\begin{align*}\label{euler-ch2}
+\[
+\begin{aligned}\label{euler-ch2}
 \chi(\Sigma)&=v-e+f\\
 &=(c+p)-(n+c)+\left(\frac{2}{3}n+\frac{1}{3} c\right)\\
 &=p+\frac{1}{3}(c-n)
-\end{align*}\marginpar{eqref y align* no se llevan bien...}
-The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.
+\end{aligned}
+\]
+The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.\marginpar{arreglar la numeracion}
 \end{proof}
 
 From now on, we will assume that our surface $(\Sigma, M)$ is none of the following:

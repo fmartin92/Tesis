@@ -31,8 +31,30 @@
 \newcommand{\CC}{\mathbb{C}}
 
 \newcommand{\kQ}{k\langle Q\rangle}
-\newcommand{\KQ}{k\langle\langle Q\rangle\rangle}
+\newcommand{\KQ}{k\langle\!\langle Q\rangle\!\rangle}
 \newcommand{\cyc}{\mathrm{cyc}}
+
+\newcommand{\Square}[2]{
+\draw (-1+#1, -1+#2) to (-1+#1, 1+#2); %left vertical line
+\draw (1+#1, -1+#2) to (1+#1, 1+#2); %right vertical line
+\draw (-1+#1, 1+#2) to (1+#1, 1+#2); %top horizontal line
+\draw (-1+#1, -1+#2) to (1+#1, -1+#2); %bottom horizontal line
+\draw (-1+#1, -1+#2) to (1+#1, 1+#2); %diagonal
+}
+
+\newcommand{\ArrowedSquare}[2]{
+\draw (-1+#1, -1+#2) to (-1+#1, 1+#2); %left vertical line
+\draw (1+#1, -1+#2) to (1+#1, 1+#2); %right vertical line
+\draw (-1+#1, 1+#2) to (1+#1, 1+#2); %top horizontal line
+\draw (-1+#1, -1+#2) to (1+#1, -1+#2); %bottom horizontal line
+\draw (-1+#1, -1+#2) to (1+#1, 1+#2); %diagonal
+\draw[->, red, very thick] (0.1+#1, -0.9+#2) to (0.9+#1, -0.1+#2); %a
+\draw[->, red, very thick] (0.9+#1, #2) to (0.1+#1, #2); %b
+\draw[->, red, very thick] (#1, 0.1+#2) to (#1, 0.9+#2); %c
+\draw[->, red, very thick] (-0.1+#1, 0.9+#2) to (-0.9+#1, 0.1+#2); %d
+\draw[->, red, very thick] (-0.9+#1, #2) to (-0.1+#1, #2); %e
+\draw[->, red, very thick] (#1, -0.1+#2) to (#1, -0.9+#2); %f
+}
 
 \theoremstyle{plain}
 \newtheorem{prop}{Proposition}[chapter]

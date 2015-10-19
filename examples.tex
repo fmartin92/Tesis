@@ -33,19 +33,19 @@ For the cases in which $g>0$, we will make use of the handle decomposition we me
 
 \fill [black,opacity=.15] circle (2cm);
 
-\draw[red] (-3,1) -- (-1.73,1);
-\draw[red] (-3,-1) -- (-1.73,-1);
+\draw[red, very thick] (-3,1) -- (-1.73,1);
+\draw[red, very thick] (-3,-1) -- (-1.73,-1);
 
-\draw[red] (3,1) -- (1.73,1);
-\draw[red] (3,-1) -- (1.73,-1);
+\draw[red, very thick] (3,1) -- (1.73,1);
+\draw[red, very thick] (3,-1) -- (1.73,-1);
 
-\draw[red] (1,-3) -- (1,-1.73);
-\draw[red] (-1,-3) -- (-1,-1.73);
+\draw[red, very thick] (1,-3) -- (1,-1.73);
+\draw[red, very thick] (-1,-3) -- (-1,-1.73);
 
-\draw[red] (1,3) -- (1,1.73);
-\draw[red] (-1,3) -- (-1,1.73);
+\draw[red, very thick] (1,3) -- (1,1.73);
+\draw[red, very thick] (-1,3) -- (-1,1.73);
 
-\draw[blue] (0,0) circle (2cm);
+\draw[blue, very thick] (0,0) circle (2cm);
 \end{tikzpicture}
 \]
 \end{figure}
@@ -57,49 +57,47 @@ We first deal with the case in which $g=1$. If we glue such a handle to the boun
 \[
 \begin{tikzpicture}
 
-\draw[red] (-2.83,1) to [bend right=50] (-1,2.83);
-\draw[red] (2.83,1) to [bend left=50] (1,2.83);
-\draw[red] (2.83,-1) to [bend right=50] (1,-2.83);
-\draw[red] (-2.83,-1) to [bend left=50] (-1,-2.83);
+\draw[red, very thick] (-2.83,1) to [bend right=50] (-1,2.83);
+\draw[red, very thick] (2.83,1) to [bend left=50] (1,2.83);
+\draw[red, very thick] (2.83,-1) to [bend right=50] (1,-2.83);
+\draw[red, very thick] (-2.83,-1) to [bend left=50] (-1,-2.83);
 
-\draw[blue] (0,0) circle (3cm);
+\draw[blue, very thick] (0,0) circle (3cm);
 \end{tikzpicture}
 \]
 \end{figure}
 
 Once again, the intersection conditions are vacuous. Finally, we observe that the blue loop cuts the torus into a disk and a handle, so one can check condition $3$ in both objects separately. One sees at once that the disk gets cut up into 5 smaller disks, while the handle is divided into $3$ disks, as we wanted.
 
-\marginpar{a lo largo de esta seccion todas las refs a lemas están mal}
-
 While the solution to the case $g=1$ may be easier to draw directly on a square instead of considering a handle decomposition, the latter helps to illustrate the general case, which we now consider. For the case $g>1$, we regard our surface as a disk with $g-1$ holes, with a handle divided as in \ref{divided-handle} attached to its boundary and to each of its holes. We now exemplify the configuration on the \textcolor{red}{holed} disk for $g=4$:
 
 \begin{figure}[h]
 \[
 \begin{tikzpicture}
-\draw[red] (-5.44, 0.5) -- (-3.87, 0.5);
-\draw[red] (-5.44, -0.5) -- (-3.87, -0.5);
-\draw[red] (5.44, 0.5) -- (3.87, 0.5);
-\draw[red] (5.44, -0.5) -- (3.87, -0.5);
+\draw[red, very thick] (-5.44, 0.5) -- (-3.87, 0.5);
+\draw[red, very thick] (-5.44, -0.5) -- (-3.87, -0.5);
+\draw[red, very thick] (5.44, 0.5) -- (3.87, 0.5);
+\draw[red, very thick] (5.44, -0.5) -- (3.87, -0.5);
 
-\draw[red] (-3.5,0.87) -- (-3.5,2.7);
-\draw[red] (-3.5,-0.87) -- (-3.5,-2.7);
-\draw[red] (3.5,0.87) -- (3.5,2.7);
-\draw[red] (3.5,-0.87) -- (3.5,-2.7);
+\draw[red, very thick] (-3.5,0.87) -- (-3.5,2.7);
+\draw[red, very thick] (-3.5,-0.87) -- (-3.5,-2.7);
+\draw[red, very thick] (3.5,0.87) -- (3.5,2.7);
+\draw[red, very thick] (3.5,-0.87) -- (3.5,-2.7);
 
-\draw[red] (-2.137, 0.5) -- (-0.863, 0.5);
-\draw[red] (-2.137, -0.5) -- (-0.863, -0.5);
-\draw[red] (2.137, 0.5) -- (0.863, 0.5);
-\draw[red] (2.137, -0.5) -- (0.863, -0.5);
+\draw[red, very thick] (-2.137, 0.5) -- (-0.863, 0.5);
+\draw[red, very thick] (-2.137, -0.5) -- (-0.863, -0.5);
+\draw[red, very thick] (2.137, 0.5) -- (0.863, 0.5);
+\draw[red, very thick] (2.137, -0.5) -- (0.863, -0.5);
 
-\draw[red] (-2.5,0.87) to [bend left=40] (-0.5,0.87);
-\draw[red] (2.5,0.87) to [bend right=40] (0.5,0.87);
-\draw[red] (-2.5,-0.87) to [bend right=40] (-0.5,-0.87);
-\draw[red] (2.5,-0.87) to [bend left=40] (0.5,-0.87);
+\draw[red, very thick] (-2.5,0.87) to [bend left=40] (-0.5,0.87);
+\draw[red, very thick] (2.5,0.87) to [bend right=40] (0.5,0.87);
+\draw[red, very thick] (-2.5,-0.87) to [bend right=40] (-0.5,-0.87);
+\draw[red, very thick] (2.5,-0.87) to [bend left=40] (0.5,-0.87);
 
-\draw[blue] (0,0) ellipse (5.5cm and 3.5cm);
-\draw[blue] (0,0) circle (1cm);
-\draw[blue] (-3,0) circle (1cm);
-\draw[blue] (3,0) circle (1cm);
+\draw[blue, very thick] (0,0) ellipse (5.5cm and 3.5cm);
+\draw[blue, very thick] (0,0) circle (1cm);
+\draw[blue, very thick] (-3,0) circle (1cm);
+\draw[blue, very thick] (3,0) circle (1cm);
 \fill [black,opacity=.15] (-3,0) circle (1cm);
 \fill [black,opacity=.15] (0,0) circle (1cm);
 \fill [black,opacity=.15] (3,0) circle (1cm);
@@ -117,9 +115,7 @@ The following is an outline for the construction of the previous figure for gene
 Notice that after gluing the handles, both the red and the blue arcs are now loops. We now consider the families $\{r_i\}$ and $\{b_j\}$, consisting of the red and blue loops respectively. Inspecting the figures, we see that conditions 1 and 2 are both satisfied. Finally, it remains to check condition 3. Since we have already seen that each handle is split up into disks in the discussion of the case $g=1$, it suffices to check this for the \textcolor{red}{holed} disk, and once again this is easily seen from the drawing.
 \end{proof}
 
-
-A \emph{band} on a surface $\Sigma$ is a finite sequence $\{C_1, \dots, C_n\}$, where each $S_i$ is a quadrilateral on $\Sigma$ subdivided by one of its main diagonals, arranged as in one of the following two figures:
-
+A \emph{band} on a surface $\Sigma$ is a finite sequence $\{C_1, \dots, C_n\}$, where each $S_i$ is a square on $\Sigma$ subdivided by one of its main diagonals, arranged as in one of the following two figures:
 \[
 \begin{tikzpicture}
 \draw (-5,1) -- (5,1);
@@ -139,7 +135,6 @@ A \emph{band} on a surface $\Sigma$ is a finite sequence $\{C_1, \dots, C_n\}$, 
 \node at (5,-1.4) {$\dots$};
 \end{tikzpicture}
 \]
-
 \[
 \begin{tikzpicture}
 \draw (-5,1) -- (5,1);
@@ -160,116 +155,69 @@ A \emph{band} on a surface $\Sigma$ is a finite sequence $\{C_1, \dots, C_n\}$, 
 \end{tikzpicture}
 \]
 
-Notice that in both cases the choice of diagonal is consistent throughout the band. We will say a band is \emph{positively oriented} if it is arranged as in the first figure and \emph{negatively oriented} otherwise. We require that the only adjacency relations between quadrilaterals in a band are the ones expressed by the figures, so in particular bands have well-defined top and bottom sides. We remark that two differently oriented bands may intersect as the following figure shows:
-
-\[
-\label{band-intersection}
-\begin{tikzpicture}
-\draw (-4,-1) -- (4,-1);
-\draw (-4,1) -- (4,1);
-\draw (-1,4) -- (-1,-4);
-\draw (1,-4) -- (1,4);
-\foreach \x in {-3,-1,...,3}
-{
-\draw (\x,-1) -- (\x, 1);
-\draw (-1,\x) -- (1,\x);
-}
-\foreach \x in {-3,-1,1}
-{
-\draw (\x,-1) -- (\x+2,1);
-\draw (-1,\x) -- (1,\x+2);
-}
-\end{tikzpicture}
-\]
-
-Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{r_i\}$ and $B=\{b_j\}$ on $\Sigma$ satisfying the conditions stated in proposition \ref{surface-loops}. We can now pick suitably small tubular neighborhoods of each loop and place a positively (resp. negatively) oriented band over each neighborhood corresponding to a loop in $R$ (resp. $B$). Conditions 1 and 2 of proposition \ref{surface-loops} guarantee that all intersections between bands resemble that of figure \ref{band-intersection}. Condition 3 guarantees that each connected component of the complement of the bands is a polygon. We will refer to these polygons as \emph{regions}. Therefore, the collection of bands and regions actually define a polygonal subdivision of $\Sigma$. \textcolor{red}{For technical reasons that will be clearer later, we will require each band to have at least 5 quadrilaterals between any pair of intersections with other bands. This can be easily achieved by refining the division of the band if necessary.} We will refer to this hypothesis as $(\diamond)$ throughout this section. From now on we fix a subdivision as described above for each genus $g$ and call its associated QP $(Q_g,P_g)$. The corresponding Jacobian algebra will be denoted $A_g$.
+Notice that in both cases the choice of diagonal is consistent throughout the band. We will say a band is \emph{positively oriented} if it is arranged as in the first figure and \emph{negatively oriented} otherwise. We require that the only adjacency relations between squares in a band are the ones expressed by the figures, so in particular bands have well-defined top and bottom sides. We remark that two differently oriented bands may intersect as the following figure shows: 
 
 \begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=.65]
+\foreach \x in {-4,-2,...,4}
+{
+\Square{\x}{0}
+\Square{0}{\x}
+}
+\draw (-1, -6) to (-1, -5);
+\draw (1, -6) to (1, -5);
+\draw (-1, 6) to (-1, 5);
+\draw (1, 6) to (1, 5);
+\draw (-6,-1) to (-5,-1);
+\draw (-6,1) to (-5,1);
+\draw (6,-1) to (5,-1);
+\draw (6,1) to (5,1);
+\end{tikzpicture}
+\caption{Two intersecting bands.}
+\label{band-intersection}
+\end{figure}
+
+Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{r_i\}$ and $B=\{b_j\}$ on $\Sigma$ satisfying the conditions stated in Proposition \ref{surface-loops}. We can now pick suitably small tubular neighborhoods of each loop and place a positively (resp. negatively) oriented band over each neighborhood corresponding to a loop in $R$ (resp. $B$). Conditions 1 and 2 of Proposition \ref{surface-loops} guarantee that all intersections between bands resemble that of figure \ref{band-intersection}. Condition 3 guarantees that each connected component of the complement of the bands is a polygon. We will refer to these polygons as \emph{regions}. Therefore, the collection of bands and regions actually define a polygonal subdivision of $\Sigma$. For technical reasons that will be clearer later, we will require each band to have at least 5 squares between any pair of intersections with other bands. This can be easily achieved by refining the division of the band if necessary. We will refer to this hypothesis as $(\diamond)$ throughout this section. From now on we fix a subdivision as described above for each genus $g$ and call its associated QP $(Q_g,P_g)$. The corresponding Jacobian algebra will be denoted $A_g$.
+
+\marginpar{por el momento la figura está a muy pequeña escala para no romper el formato de los párrafos que siguen}
+\begin{figure}[h]
 \[
-\begin{tikzpicture}
-%aristas
-\draw (-5, .75) -- (5, .75);
-\draw (-5, -.75) -- (5, -.75);
-\draw (-5, -5.25) -- (5, -5.25);
-\draw (-5, -6.75) -- (5, -6.75);
-\draw (-2.25, -8.25) -- (-2.25, 2.25);
-\draw (-3.75, -8.25) -- (-3.75, 2.25);
-\draw (2.25, -8.25) -- (2.25, 2.25);
-\draw (3.75, -8.25) -- (3.75, 2.25);
-
-\foreach \x in {-3.75,-2.25,...,3.75}
+\begin{tikzpicture}[scale=0.5]
+\foreach \x in {-6,-4,...,6}
 {
-\draw (\x, .75) -- (\x, -.75);
-\draw (\x, -5.25) -- (\x, -6.75);
+\ArrowedSquare{\x}{6}
+\ArrowedSquare{\x}{-6}
+\ArrowedSquare{6}{\x}
+\ArrowedSquare{-6}{\x}
 }
-
-\foreach \x in {-6.75,-5.25,...,1.75}
+\draw (-8,-7) to (-7,-7);
+\draw (-8,-5) to (-7,-5);
+\draw (8,-7) to (7,-7);
+\draw (8,-5) to (7,-5);
+\draw (-8,7) to (-7,7);
+\draw (-8,5) to (-7,5);
+\draw (8,7) to (7,7);
+\draw (8,5) to (7,5);
+\draw (-7,-8) to (-7,-7);
+\draw (-5,-8) to (-5,-7);
+\draw (-7,8) to (-7,7);
+\draw (-5,8) to (-5,7);
+\draw (7,-8) to (7,-7);
+\draw (5,-8) to (5,-7);
+\draw (7,8) to (7,7);
+\draw (5,8) to (5,7);
+\foreach \x in {-4,-2,...,2}
 {
-\draw (-3.75, \x) -- (-2.25, \x);
-\draw (3.75, \x) -- (2.25, \x);
+\draw[<-, red, very thick] (-6+1.1, \x + 0.1) to [bend right] (-6+1.1, \x + 1.9);
+\draw[->, red, very thick] (6-1.1, \x + 0.1) to [bend left] (6-1.1, \x + 1.9);
+\draw[->, red, very thick] (\x + 0.1,-6+1.1) to [bend left] (\x + 1.9,-6+1.1);
+\draw[<-, red, very thick] (\x + 0.1, 6-1.1) to [bend right] (\x + 1.9, 6-1.1);
 }
-
-\foreach \x in {-3.75,-2.25,...,2.25}
-{
-\draw (\x, -.75) -- (\x+1.5, .75);
-\draw (\x, -6.75) -- (\x+1.5, -5.25);
-}
-
-\foreach \x in {-6.75,-5.25,...,0.25}
-{
-\draw (-3.75, \x) -- (-2.25, \x+1.5);
-\draw (3.75, \x+1.5) -- (2.25, \x);
-}
-
-%flechas del quiver
-\foreach \x in {-3.75,-2.25,...,2.25}
-{
-\draw[->, red] (\x+0.85, -0.65) -- (\x+1.4, -0.05);
-\draw[->, red] (\x+1.4, 0) -- (\x+0.85, 0);
-\draw[->, red] (\x+0.75, -0.1) -- (\x+0.75, -0.65);
-\draw[->, red] (\x+0.85, -6.65) -- (\x+1.4, -6.05);
-\draw[->, red] (\x+1.4, -6) -- (\x+0.85, -6);
-\draw[->, red] (\x+0.75, -6.1) -- (\x+0.75, -6.65);
-
-\draw[->, red] (\x+0.75, 0.1) -- (\x+0.75, 0.65);
-\draw[->, red] (\x+0.65, 0.65) -- (\x+0.1, 0.1);
-\draw[->, red] (\x+0.1, 0) -- (\x+0.65, 0);
-\draw[->, red] (\x+0.75, -5.9) -- (\x+0.75, -5.35);
-\draw[->, red] (\x+0.65, -5.35) -- (\x+0.1, -5.9);
-\draw[->, red] (\x+0.1, -6) -- (\x+0.65, -6);
-}
-
-\foreach \x in {-0.75,-2.25,-3.75}
-{
-\draw[->, red] (-2.35, \x-0.75) -- (-2.9, \x-0.75);
-\draw[->, red] (-3, \x-0.85) -- (-3, \x-1.4);
-\draw[->, red] (-2.9, \x-1.4) -- (-2.35, \x-0.85);
-\draw[->, red] (3.65, \x-0.75) -- (3.1, \x-0.75);
-\draw[->, red] (3, \x-0.85) -- (3, \x-1.4);
-\draw[->, red] (3.1, \x-1.4) -- (3.65, \x-0.85);
-
-\draw[->, red] (-3, \x-0.65) -- (-3, \x-0.1);
-\draw[->, red] (-3.1, \x-0.1) -- (-3.65, \x-0.65);
-\draw[->, red] (-3.65, \x-0.75) -- (-3.1, \x-0.75);
-\draw[->, red] (3, \x-0.65) -- (3, \x-0.1);
-\draw[->, red] (2.9, \x-0.1) -- (2.35, \x-0.65);
-\draw[->, red] (2.35, \x-0.75) -- (2.9, \x-0.75);
-}
-
-\draw[<-, red] (-1.4, -0.85) to [bend right] (-0.1, -0.85);
-\draw[<-, red] (0.1, -0.85) to [bend right] (1.4, -0.85);
-\draw[->,  red] (-1.4, -5.15) to [bend left] (-0.1, -5.15);
-\draw[->, red] (0.1, -5.15) to [bend left] (1.4, -5.15);
-
-\draw[->, red] (-2.15, -1.65) to [bend left] (-2.15, -2.9);
-\draw[->, red] (-2.15, -3.1) to [bend left] (-2.15, -4.35);
-\draw[<-, red] (2.15, -1.65) to [bend right] (2.15, -2.9);
-\draw[<-, red] (2.15, -3.1) to [bend right] (2.15, -4.35);
-
-\draw[->, red] (-1.6, -0.85) to [bend left] (-2.15, -1.45);
-\draw[->, red] (-2.15, -4.55) to [bend left] (-1.6, -5.15);
-\draw[<-, red] (1.6, -0.85) to [bend right] (2.15, -1.45);
-\draw[<-, red] (2.15, -4.55) to [bend right] (1.6, -5.15);
+\draw[->, red, very thick] (-4-0.1, 6-1.1) to [bend left] (-6+1.1, 4+0.1);
+\draw[<-, red, very thick] (4+0.1, 6-1.1) to [bend right] (6-1.1, 4+0.1);
+\draw[<-, red, very thick] (6-1.1, -4-0.1) to [bend right] (4+0.1, -6+1.1);
+\draw[->, red, very thick] (-6+1.1, -4-0.1) to [bend left] (-4-0.1,-6+1.1);
 \end{tikzpicture}
 \]
 \caption{The configuration of the associated quiver $Q_g$ around a region.}
@@ -279,28 +227,27 @@ We now turn to the study of some relations that hold in $A_g$, that will enable 
 \begin{lemma}\label{band-sides} Any path in $A_g$ passing through vertices of both sides of a band is zero.
 \end{lemma}
 \begin{proof} Throughout this and the following proofs, we will only consider our bands to be positively oriented, since the analogous statements for negatively oriented bands are proved in a similar fashion. We name the arrows in the quiver as in the following figure:
-
 \[
 \begin{tikzpicture}[text width=1.5mm, font=\footnotesize]
-\draw (-5, 0) -- (5, 0);
-\draw (-5, 2) -- (5, 2);
+\draw (-4, 0) -- (4, 0);
+\draw (-4, 2) -- (4, 2);
 \foreach \x in {-3,-1,...,3}
 \draw (\x, 0) -- (\x, 2);
 \foreach \x in {-3,-1,1}
 {
 \draw (\x,0) -- (\x+2, 2);
-\draw [->, red] (\x+1.9, 1) to node[above] {$b$} (\x+1.1, 1);
-\draw[->, red] (\x+1, 0.9) to node[left]{$f$} (\x+1, 0.1);
-\draw[->, red] (\x+1.1, 0.1) to node[right]{$a$} (\x+1.9, 0.9);
-\draw[->, red] (\x+1, 1.1) to node[right]{$c$} (\x+1, 1.9);
-\draw[->, red] (\x+0.9, 1.9) to node[left]{$d$} (\x+0.1, 1.1);
-\draw[->, red] (\x+0.1, 1) to node[below]{$e$} (\x+0.9, 1);
+\draw [->, red, very thick] (\x+1.9, 1) to node[above] {$b$} (\x+1.1, 1);
+\draw[->, red, very thick] (\x+1, 0.9) to node[left]{$f$} (\x+1, 0.1);
+\draw[->, red, very thick] (\x+1.1, 0.1) to node[right]{$a$} (\x+1.9, 0.9);
+\draw[->, red, very thick] (\x+1, 1.1) to node[right]{$c$} (\x+1, 1.9);
+\draw[->, red, very thick] (\x+0.9, 1.9) to node[left]{$d$} (\x+0.1, 1.1);
+\draw[->, red, very thick] (\x+0.1, 1) to node[below]{$e$} (\x+0.9, 1);
 }
 
-\draw[->, red, dashed] (-1.9, 2.1) to [bend left] node[above]{$x$} (-0.1, 2.1);
-\draw[->, red, dashed] (0.1, 2.1) to [bend left] node[above]{$x$} (2.1, 2.1);
-\draw[<-, red, dashed] (-1.9, -0.1) to [bend right] node[below]{$y$} (-0.1, -0.1);
-\draw[<-, red, dashed] (0.1, -0.1) to [bend right] node[below]{$y$} (2.1, -0.1);
+\draw[->, red, dashed, very thick] (-1.9, 2.1) to [bend left] node[above]{$x$} (-0.1, 2.1);
+\draw[->, red, dashed, very thick] (0.1, 2.1) to [bend left] node[above]{$x$} (2.1, 2.1);
+\draw[<-, red, dashed, very thick] (-1.9, -0.1) to [bend right] node[below]{$y$} (-0.1, -0.1);
+\draw[<-, red, dashed, very thick] (0.1, -0.1) to [bend right] node[below]{$y$} (2.1, -0.1);
 \end{tikzpicture}
 \]
 
@@ -317,16 +264,15 @@ An analogous argument shows that $fed=0$ in $A_g$ as well, concluding the proof.
 \end{lemma}
 \begin{proof} We first prove that any sufficiently long path cotained entirely in a single band is zero. As we have already seen, any path passing through vertices of both sides of the band is zero, so we will suppose without loss of generality that our path is placed on the upper part of the band. Mantaining the notation used on the proof of the previous lemma, this is equivalent to saying our path only has arrows $b, c, d$ or $e$ as factors.
 
-We start by studying paths containing a $3$-cycle as a prefix. The $3$-cycles $edc$ and $ced$ only prefix two paths of length 4, namely $cedc$ and $dced$. Since $\partial_e(P_g) = dc + ayf$, the relation $dc = -ayf$ holds, and so $cedc=-ceayf=0$ and $dced=-ayfed=0$ by lemma \ref{band-sides}. Moreover, the $3$-cycle $dce$ only prefixes two paths of length 5, which are $cbdce$ and $cedce$. Clearly, $cedce=0$ since we have already shown that $cedc=0$, and using the relation $dc=-ayf$ we get $cbdce = - cbayfe=0$ once again by lemma \ref{band-sides}.
+We start by studying paths containing a $3$-cycle as a prefix. The $3$-cycles $edc$ and $ced$ only prefix two paths of length 4, namely $cedc$ and $dced$. Since $\partial_e(P_g) = dc + ayf$, the relation $dc = -ayf$ holds, and so $cedc=-ceayf=0$ and $dced=-ayfed=0$ by Lemma \ref{band-sides}. Moreover, the $3$-cycle $dce$ only prefixes two paths of length 5, which are $cbdce$ and $cedce$. Clearly, $cedce=0$ since we have already shown that $cedc=0$, and using the relation $dc=-ayf$ we get $cbdce = - cbayfe=0$ once again by Lemma \ref{band-sides}.
 
 Now we turn to paths containing a $3$-cycle as a suffix. Once again, the $3$-cycles $ced$ and $dce$ only suffix two paths of length 4, which are $cedc$ and $dced$, already shown to be zero previously. The $3$-cycle $edc$ is a suffix to only two paths of length 5, which are $edcbd$ and $edced$. We see that $edced=0$ since $dced=0$ and $edcbd=-eayfbd=0$ as we wanted.
 
 Therefore, any path in a band of length $>5$ containing a 3-cycle is zero, since we have shown these cycles only admit prefixes and suffixes of length at most 1.
 
-Now, a path of length $>5$ not containing a 3-cycle is either of the form $dcbdcb$, $bdcbdc$ or $cdbcbd$. All possibilites have $cbdc$ as a factor, which is clearly zero since $cbdc = -cbayf = 0$ by lemma \ref{band-sides}. Therefore, we conclude that any path of length $>5$ contained in a single band is zero.
+Now, a path of length $>5$ not containing a 3-cycle is either of the form $dcbdcb$, $bdcbdc$ or $cdbcbd$. All possibilites have $cbdc$ as a factor, which is clearly zero since $cbdc = -cbayf = 0$ by Lemma \ref{band-sides}. Therefore, we conclude that any path of length $>5$ contained in a single band is zero.
 
 Finally, consider a path of length $>9$ contained in possibly different bands. If its first six arrows lie on the same band, the path is zero as seen previously. Otherwise, at most five of its first arrows lie on the same band and the sixth is then placed on a different band intersecting the original one, as seen in the following figure:
-
 \[
 \begin{tikzpicture}
 \draw (-3.5*1.25, 0) -- (1.5*1.25, 0);
@@ -344,25 +290,24 @@ Finally, consider a path of length $>9$ contained in possibly different bands. I
 \foreach \x in {0,1.25,...,2.5}
 \draw (0, \x) -- (1.25, \x+1.25);
 
-\draw[->, red] (0.5*1.25, 1.5*1.25 - 0.1) -- (0.5*1.25, 1.25 + 0.1);
-\draw[->, red] (0.5*1.25 - 0.1, 1.25-0.1) -- (0.1, 0.5*1.25+0.1);
-\draw[->, red] (0.1, 0.5*1.25) -- (0.5*1.25 - 0.1, 0.5*1.25);
-\draw[->, red] (0.5*1.25, 0.5*1.25-0.1) -- (0.5*1.25, 0.1);
-\draw[->, red] (0.5*1.25 - 0.1, -0.1) -- (0.1, -0.5*1.25+0.1);
-\draw[->, red] (-0.1, -0.5*1.25) -- (-0.5*1.25+0.1, -0.5*1.25);
-\draw[->, red] (-0.5*1.25, -0.5*1.25+0.1) -- (-0.5*1.25, -0.1);
-\draw[->, red] (-0.5*1.25 - 0.1, -0.1) -- (-1.25 + 0.1, -0.5*1.25+0.1);
-\draw[->, red] (-1.25 -0.1, -0.5*1.25) -- (-1.5*1.25+0.1, -0.5*1.25);
+\draw[->, red, very thick] (0.5*1.25, 1.5*1.25 - 0.1) -- (0.5*1.25, 1.25 + 0.1);
+\draw[->, red, very thick] (0.5*1.25 - 0.1, 1.25-0.1) -- (0.1, 0.5*1.25+0.1);
+\draw[->, red, very thick] (0.1, 0.5*1.25) -- (0.5*1.25 - 0.1, 0.5*1.25);
+\draw[->, red, very thick] (0.5*1.25, 0.5*1.25-0.1) -- (0.5*1.25, 0.1);
+\draw[->, red, very thick] (0.5*1.25 - 0.1, -0.1) -- (0.1, -0.5*1.25+0.1);
+\draw[->, red, very thick] (-0.1, -0.5*1.25) -- (-0.5*1.25+0.1, -0.5*1.25);
+\draw[->, red, very thick] (-0.5*1.25, -0.5*1.25+0.1) -- (-0.5*1.25, -0.1);
+\draw[->, red, very thick] (-0.5*1.25 - 0.1, -0.1) -- (-1.25 + 0.1, -0.5*1.25+0.1);
+\draw[->, red, very thick] (-1.25 -0.1, -0.5*1.25) -- (-1.5*1.25+0.1, -0.5*1.25);
 \end{tikzpicture}
 \]
 
-Since by hypothesis $(\diamond)$ \marginpar{quizás podria haber un link a la def de $\diamond$}two intersections in the same band are distanced by at least \textcolor{red}{five} quadrilaterals, we conclude that at least the next \textcolor{red}{six} arrows belong to the same band. Therefore, any path of length $>9$ contained entirely in bands is zero in $A_g$, as we wanted.
+Since by hypothesis $(\diamond)$ \marginpar{quizás podria haber un link a la def de $\diamond$}two intersections in the same band are distanced by at least five squares, we conclude that at least the next six arrows belong to the same band. Therefore, any path of length $>9$ contained entirely in bands is zero in $A_g$, as we wanted.
 \end{proof}
 
 \begin{lemma}\label{long-region-paths} Any non-zero path entirely contained in an $n$-sided region is of length at most $3n-4$.
 \end{lemma}
 \begin{proof} We fix an $n$-sided region. Consider any band neighboring our region and pick any of its squares that is at least two squares away from an intersection with another band, which is always possible by hypothesis $(\diamond)$. Recalling the fact that our region induces an $n$-cycle in the quiver, we name the arrow starting at the square we picked as $x_0$. In general, given $j\in \ZZ/n\ZZ$ we call $x_j$ the arrow starting at the target of $x_{j-1}$. Keeping the previous notation for arrows contained in bands, our current situation is illustrated by this figure:
-
 \[
 \begin{tikzpicture}[text width=1.5mm, font=\footnotesize]
 \draw (-6, 0) -- (6, 0);
@@ -372,46 +317,47 @@ Since by hypothesis $(\diamond)$ \marginpar{quizás podria haber un link a la de
 \foreach \x in {-5,-3,...,3}
 {
 \draw (\x,0) -- (\x+2, 2);
-\draw [->, red] (\x+1.9, 1) to node[above] {$b$} (\x+1.1, 1);
-\draw[->, red] (\x+1, 0.9) to node[left]{$f$} (\x+1, 0.1);
-\draw[->, red] (\x+1.1, 0.1) to node[right]{$a$} (\x+1.9, 0.9);
-\draw[->, red] (\x+1, 1.1) to node[right]{$c$} (\x+1, 1.9);
-\draw[->, red] (\x+0.9, 1.9) to node[left]{$d$} (\x+0.1, 1.1);
-\draw[->, red] (\x+0.1, 1) to node[below]{$e$} (\x+0.9, 1);
+\draw [->, red, very thick] (\x+1.9, 1) to node[above] {$b$} (\x+1.1, 1);
+\draw[->, red, very thick] (\x+1, 0.9) to node[left]{$f$} (\x+1, 0.1);
+\draw[->, red, very thick] (\x+1.1, 0.1) to node[right]{$a$} (\x+1.9, 0.9);
+\draw[->, red, very thick] (\x+1, 1.1) to node[right]{$c$} (\x+1, 1.9);
+\draw[->, red, very thick] (\x+0.9, 1.9) to node[left]{$d$} (\x+0.1, 1.1);
+\draw[->, red, very thick] (\x+0.1, 1) to node[below]{$e$} (\x+0.9, 1);
 }
 
-\draw[->, red, dashed] (-5+1.1, 2.1) to [bend left] node[above]{$x_{n-2}$} (-5+2.9, 2.1);
-\draw[->, red, dashed] (-3+1.1, 2.1) to [bend left] node[above]{$x_{n-1}$} (-3+2.9, 2.1);
-\draw[->, red, dashed] (-1+1.1, 2.1) to [bend left] node[above]{$x_{0}$} (-1+2.9, 2.1);
-\draw[->, red, dashed] (1+1.1, 2.1) to [bend left] node[above]{$x_{1}$} (1+2.9, 2.1);
+\draw[->, red, dashed, very thick] (-5+1.1, 2.1) to [bend left] node[above]{$\mathclap{x_{n-2}}$} (-5+2.9, 2.1);
+\draw[->, red, dashed, very thick] (-3+1.1, 2.1) to [bend left] node[above]{$\mathclap{x_{n-1}}$} (-3+2.9, 2.1);
+\draw[->, red, dashed, very thick] (-1+1.1, 2.1) to [bend left] node[above]{$\mathclap{x_{0}}$} (-1+2.9, 2.1);
+\draw[->, red, dashed, very thick] (1+1.1, 2.1) to [bend left] node[above]{$\mathclap{x_{1}}$} (1+2.9, 2.1);
 \end{tikzpicture}
 \]
 
-\marginpar{hay que centrar los labels del dibujo}We now prove that the path $L=x_{n-1}x_{n-2}\dots x_2x_1x_{0}x_{n-1}\dots x_3x_2$ is zero. We have that $\partial_{x_0}(P_g)=x_{n-1}x_{n-2}\dots x_2x_1+cbd$ and $\partial_{x_1}(P_g)=x_{0}x_{n-1}\dots x_3x_2+cbd$. Therefore, the relations
+We now prove that the path $L=x_{n-1}x_{n-2}\dots x_2x_1x_{0}x_{n-1}\dots x_3x_2$ is zero. We have that $\partial_{x_0}(P_g)=x_{n-1}x_{n-2}\dots x_2x_1+cbd$ and $\partial_{x_1}(P_g)=x_{0}x_{n-1}\dots x_3x_2+cbd$. Therefore, the relations
 \begin{align*}
 x_{n-1}x_{n-2}\dots x_2x_1=-cbd\\
 x_{0}x_{n-1}\dots x_3x_2=-cbd
 \end{align*}
-hold in $A_g$. We stress that $cbd$ denotes a different path in each one of the two equations: they are similar paths contained in different squares. Using this relations, we see that $$ x_{n-1}x_{n-2}\dots x_2x_1x_{0}x_{n-1}\dots x_3x_2=-cbdx_{0}x_{n-1}\dots x_3x_2=cbdcbd,$$ and the latter is zero by lemma \ref{long-band-paths} since $cbdcbd$ is a path of length 6 lying on a single band. 
+hold in $A_g$. We stress that $cbd$ denotes a different path in each one of the two equations: they are similar paths contained in different squares. Using these relations, we see that $$x_{n-1}x_{n-2}\dots x_2x_1x_{0}x_{n-1}\dots x_3x_2=-cbdx_{0}x_{n-1}\dots x_3x_2=cbdcbd,$$ and the latter is zero by Lemma \ref{long-band-paths} since $cbdcbd$ is a path of length 6 lying on a single band. 
 
 Finally, since the longest path entirely contained in our region not having $L$ as a factor is
-$$x_{n-2}x_{n-1}\dots x_0x_{n-1}x_{n-2}\dots x_0x_{n-1}x_{n-2}\dots x_3,$$
-\marginpar{poner las longitudes con ganchitos}which is of length $3n-4$, the result follows.
+\[\underbrace{x_{n-2}x_{n-1}\dots x_0}_{\text{$n-1$ arrows}}\underbrace{x_{n-1}x_{n-2}\dots x_0}_{\text{$n$ arrows}}\underbrace{x_{n-1}x_{n-2}\dots x_3}_{\text{$n-3$ arrows}},\]
+which is of length $3n-4$, the result follows.
 \end{proof}
 
 \begin{lemma} \label{long-br-paths} Any sufficiently long path not having factors from two different regions is zero in $A_g$.
 \end{lemma}
 \begin{proof} We write our path as $B_{k+1}R_k\dots R_2 B_2 R_1 B_1$, where the paths $R_i$ are contained in a same region and the paths $B_j$ are non-trivial (except possibly for $B_1$ and $B_{k+1}$) and contained in bands.
 
-Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow belonging to the cycle associated to the region, which we will call $x_0$ following the notation employed in the proof of lemma \label{long-band-paths}.\marginpar{esto no está particularmente claro...} Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
-After applying this argument repeatedly, we can then suppose our path is of the form $B_2 R_1 B_1$. The proof now follows from lemmas \ref{long-band-paths} and \ref{long-region-paths}, since if our path is non-zero, then $|B_1|<10$, $|B_2|<10$ and $|R_1|<3n-3$, where $n$ is the number of sides of the region.
+Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow belonging to the cycle associated to the region, which we will call $x_0$ following the notation employed in the proof of Lemma \ref{long-band-paths}.\marginpar{esto no está particularmente claro...} Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
+After applying this argument repeatedly, we can then suppose our path is of the form $B_2 R_1 B_1$. The proof now follows from Lemmas \ref{long-band-paths} and \ref{long-region-paths}, since if our path is non-zero, then $|B_1|<10$, $|B_2|<10$ and $|R_1|<3n-3$, where $n$ is the number of sides of the region.
 \end{proof}
 
 After proving all these lemmas, the main result of this section now easily follows:
 
 \begin{thm} The algebra $A_g$ is finite-dimensional.
 \end{thm}
-\begin{proof} By lemma \ref{long-br-paths}, any sufficiently long path is zero if it does not have factors from two different regions, but any path that does must be zero (regardless of length) by lemma \ref{band-sides}, since it must cross a band. Therefore, any sufficiently long path is zero, and so $A_g$ is finite-dimensional.
+\begin{proof} By Lemma \ref{long-br-paths}, any sufficiently long path is zero if it does not have factors from two different regions, but any path that does must be zero (regardless of length) by Lemma \ref{band-sides}, since it must cross a band. Therefore, any sufficiently long path is zero, and so $A_g$ is finite-dimensional.
 \end{proof}
+
 \end{section}
 \end{chapter}
