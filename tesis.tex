@@ -39,6 +39,13 @@
 \draw (1+#1, -1+#2) to (1+#1, 1+#2); %right vertical line
 \draw (-1+#1, 1+#2) to (1+#1, 1+#2); %top horizontal line
 \draw (-1+#1, -1+#2) to (1+#1, -1+#2); %bottom horizontal line
+}
+
+\newcommand{\DSquare}[2]{
+\draw (-1+#1, -1+#2) to (-1+#1, 1+#2); %left vertical line
+\draw (1+#1, -1+#2) to (1+#1, 1+#2); %right vertical line
+\draw (-1+#1, 1+#2) to (1+#1, 1+#2); %top horizontal line
+\draw (-1+#1, -1+#2) to (1+#1, -1+#2); %bottom horizontal line
 \draw (-1+#1, -1+#2) to (1+#1, 1+#2); %diagonal
 }
 

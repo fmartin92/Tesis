@@ -162,8 +162,8 @@ Notice that in both cases the choice of diagonal is consistent throughout the ba
 \begin{tikzpicture}[scale=.65]
 \foreach \x in {-4,-2,...,4}
 {
-\Square{\x}{0}
-\Square{0}{\x}
+\DSquare{\x}{0}
+\DSquare{0}{\x}
 }
 \draw (-1, -6) to (-1, -5);
 \draw (1, -6) to (1, -5);
@@ -180,7 +180,7 @@ Notice that in both cases the choice of diagonal is consistent throughout the ba
 
 Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{r_i\}$ and $B=\{b_j\}$ on $\Sigma$ satisfying the conditions stated in Proposition \ref{surface-loops}. We can now pick suitably small tubular neighborhoods of each loop and place a positively (resp. negatively) oriented band over each neighborhood corresponding to a loop in $R$ (resp. $B$). Conditions 1 and 2 of Proposition \ref{surface-loops} guarantee that all intersections between bands resemble that of figure \ref{band-intersection}. Condition 3 guarantees that each connected component of the complement of the bands is a polygon. We will refer to these polygons as \emph{regions}. Therefore, the collection of bands and regions actually define a polygonal subdivision of $\Sigma$. For technical reasons that will be clearer later, we will require each band to have at least 5 squares between any pair of intersections with other bands. This can be easily achieved by refining the division of the band if necessary. We will refer to this hypothesis as $(\diamond)$ throughout this section. From now on we fix a subdivision as described above for each genus $g$ and call its associated QP $(Q_g,P_g)$. The corresponding Jacobian algebra will be denoted $A_g$.
 
-\marginpar{por el momento la figura está a muy pequeña escala para no romper el formato de los párrafos que siguen}
+\marginpar{todas las figuras grandes de esta sección están escaladas para no romper el formato de los párrafos que siguen}
 \begin{figure}[h]
 \[
 \begin{tikzpicture}[scale=0.5]
@@ -220,7 +220,7 @@ Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{
 \draw[->, red, very thick] (-6+1.1, -4-0.1) to [bend left] (-4-0.1,-6+1.1);
 \end{tikzpicture}
 \]
-\caption{The configuration of the associated quiver $Q_g$ around a region.}
+\caption{The configuration of the associated quiver $Q_g$ around a region satisfying $(\diamond)$.}
 \end{figure}
 We now turn to the study of some relations that hold in $A_g$, that will enable us to prove its finite-dimensionality.
 
@@ -358,6 +358,78 @@ After proving all these lemmas, the main result of this section now easily follo
 \end{thm}
 \begin{proof} By Lemma \ref{long-br-paths}, any sufficiently long path is zero if it does not have factors from two different regions, but any path that does must be zero (regardless of length) by Lemma \ref{band-sides}, since it must cross a band. Therefore, any sufficiently long path is zero, and so $A_g$ is finite-dimensional.
 \end{proof}
+\end{section}
 
+\begin{section}{A family of infinite-dimensional examples}
+We now turn to the study of another family of polygonal subdivisions, this time inducing infinite-dimensional algebras. 
+
+Let $n>2$. We say that a polygonal subdivision of a surface $\Sigma$ is \emph{$n$-regular} if all of its faces have exactly $n$ sides and exactly $n$ faces meet at every vertex. For example, a tetrahedron is a $3$-regular subdivision of the sphere, and the following figures induce $4$-regular subdivisions of the torus after identifying the opposing sides of each square:
+\[
+\begin{tikzpicture}[scale=1.2, very thick]
+\Square{-3}{0}
+\Square{0}{0}
+\Square{3}{0}
+\draw (-3,-1) to (-3,1);
+\draw (-4,0) to (-2,0);
+
+\foreach \x in {-0.5,0,0.5}
+{
+\draw (\x, -1) to (\x, 1);
+\draw (-1, \x) to (1, \x);
+}
+
+\foreach \x in {-0.75,-0.5, ..., 0.75}
+{
+\draw (3+\x, -1) to (3+\x, 1);
+\draw (2, \x) to (4, \x);
+}
+\end{tikzpicture}
+\]
+Obviously, in this way one can produce an infinite number of these examples on the torus.
+
+The existence of an $n$-regular subdivision imposes strong conditions on the surface. In fact, suppose we have an $n$-regular subdivision of a surface and let $v, e$ and $f$ denote its number of vertices, edges and faces respectively. Since every face contains exactly $n$ vertices and every vertex belongs to exactly $n$ faces, we have that $v=f$. Moreover, every face contains $n$ edges and any edge belongs to exactly 2 faces, so $e=nf/2$.
+Recalling the fact that the Euler characteristic of a surface of genus $g$ is $2-2g$, we have that $2-2g=v-e+f=(2-n/2)f$, or equivalently $4g-4 = (n-4)f$. If $n=4$, the right hand vanishes, and so $g=1$. Therefore, the only surface that can admit a $4$-regular subdivision is the torus (and in fact we have already shown there are an infinite number of them).
+
+Suppose now that $n\neq 4$. Then \[f=\frac{4g-4}{n-4},\] and so $g$ must be such that this quotient is integral. Moreover, since $n$ faces meet at every vertex, there must be at the very least $n$ faces, and so $n(n-4)\leq 4(g-1)$. Therefore, we have that $g\in \Omega(n^2)$.\marginpar{no se si vale la pena observar esto}
+
+All of these are \emph{necessary} conditions for an $n$-regular subdivision to exist. Although at first they may appear to be too restrictive, in fact there exist surfaces $\Sigma_n$ admitting $n$-regular subdivisions for all $n>2$. \marginpar{\textcolor{red}{completar esto cuando lo tengamos, si es que es cierto :)}}
+
+Our main interest in the concept of $n$-regularity lies in the following fact:
+
+\begin{thm} The Jacobian algebra associated to an $n$-regular subdivision of a surface is infinite-dimensional.
+\end{thm}
+\begin{proof} Let $(Q,P)$ be the quiver with potential associated to the subdivision, $I$ the ideal in $\kQ$ spanned by the cyclic derivatives of the potential $P$ and $J$ the closure of $I$ in $\KQ$. The inclusion $i:\kQ\to \KQ$ induces a monomorphism $i:\kQ/I \to \KQ/J$, so it suffices to see that $\kQ/I$ is infinite-dimensional. \marginpar{no recuerdo por qué valía esto}
+
+Any arrow $x$ in the quiver is a factor of exactly two cycles in $P$: one of them is contained in the same face of the subdivision as $x$ and the other surrounds a vertex and is composed of arrows lying in different faces.\marginpar{esto hay que probarlo con más detalle en los preliminares} The condition of $n$-regularity forces these two cycles to be of length $n$, and so $\partial_x(P)= a+b$, with $a$ and $b$ paths of length $n-1$. Therefore, $I$ is an homogeneous ideal, since it is spanned by homogeneous elements, and so $\kQ/I$ inherits a grading from $\kQ$. \marginpar{quedó medio chueca la figura siguiente:}
+\begin{figure}[h]
+\[
+\begin{tikzpicture}[scale=0.5]
+\draw (-3,1) to (3,1);
+\draw (-3, -1) to (3, -1);
+\draw (-1, -3) to (-1, 3);
+\draw (1, -3) to (1, 3);
+\draw[very thick, ->] (0.9, 0.1) to (0, 0.9);
+\draw[red, very thick, ->] (-0.1, 0.9) to (-0.9, 0);
+\draw[red, very thick, ->] (-0.9, -0.1) to (0, -0.9);
+\draw[red, very thick, ->] (0.1, -0.9) to (0.9, 0);
+\draw[blue, very thick, ->] (0.1, 1.1) to (0.9, 2);
+\draw[blue, very thick, ->] (1.1, 1.9) to (1.9, 1.1);
+\draw[blue, very thick, ->] (1.9, 0.9) to (1.1, 0.1);
+\end{tikzpicture}
+\]
+\begin{caption}{Any cyclic derivative of the potential $P$ associated to a 4-regular subdivision turns out to be of the form $\textcolor{red}{a} + \textcolor{blue}{b}$, with both $\textcolor{red}{a}$ and $\textcolor{blue}{b}$ of length 3.}
+\end{caption}
+\end{figure}
+
+The path algebra $\kQ$, regarded as a $k$-vector space, admits a direct sum decomposition $A\oplus B$, where $A$ is the subspace spanned by paths 
+
+$(\clubsuit)$ containing either $n-1$ consecutive arrows belonging to the same face or $n-1$ consecutive arrows surrounding the same vertex of the subdivision as factors \marginpar{arreglar el formato, debería ir en un párrafo aparte con un entorno especial, al igual que $(\diamond)$}
+
+and $B$ is the subspace spanned by paths not satisfying $(\clubsuit)$. One immediately checks that $A$ is actually an ideal in $\kQ$. Even more, since every cyclic derivative is the sum of two paths satisfying $(\clubsuit)$, we have that $I\subseteq A$. Therefore, any non-zero path $c\in B$ is not contained in $I$, and in turn is not zero in $\kQ/I$.
+
+Suppose now that $X$ is an infinite subset of $B$ composed of non-zero paths, all of different lengths. Since paths are homogeneous elements of $\kQ$ and $I$ is an homogeneous ideal, the projection of a path into $\kQ/I$ is an homogeneous element too. Therefore, the projection of $X$ to $\kQ/I$ is an infinite linearly independent set, since it is composed of non-zero homogeneous elements, each belonging to a different \textcolor{red}{why?} homogeneous component. So finally, all that remains to show is that one can actually produce such a set $X$.
+
+\textcolor{red}{Para fabricar $X$ primero construimos un ciclo en $B$ y después simplemente tomamos sus potencias. Para armar un ciclo, tomo un camino construido de la siguiente manera: parto de una cara y me muevo dos flechas dentro de la cara, después salgo y recorro dos flechas dentro de una cara adyacente, nuevamente salgo y recorro otras dos y así siguiendo. Como el quiver es finito, eventualmente voy a obtener un ciclo con este procedimiento, y por construcción verifica que está en $B$. El problema es que el punto donde se pegan el principio y el final del ciclo pueden pertenecer a la misma cara (o rodear el mismo vértice) y así tener hasta 4 caminos consecutivos en la misma cara. Por lo tanto al tomar potencias me salgo de $B$ si $n<6$. Esto se puede arreglar a mano en el caso del toro por ejemplo, porque uno puede exhibir un $X$ específico (las potencias del zigzag), pero estaría bueno dar una construcción general. Además, ningún $X$ puede producirse para el tetraedro, porque no hay caminos de longitud $>2$ ahí que no verifiquen $(\clubsuit)$.}
+\end{proof}
 \end{section}
 \end{chapter}
