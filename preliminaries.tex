@@ -115,7 +115,7 @@ Conversely, if $Q$ contains a cycle $u$, then $\{u,u^2,u^3,\dots\}$ is an infini
 
 \begin{section}{The Jacobian algebra of a quiver with potential}
 
-\marginpar{\textcolor{red}{motivación}}
+\note{motivación}
 
 Maintaining our previous notation, we now define the \emph{complete path algebra} $\KQ$ associated to a quiver $Q$ as
 \[
@@ -123,13 +123,13 @@ Maintaining our previous notation, we now define the \emph{complete path algebra
 \]
 that is, elements of $\KQ$ are possibly infinitely supported linear combinations of paths in $Q_*$ and the product on $\KQ$ is just the natural extension of the product on $\kQ$.
 
-\marginpar{\textcolor{red}{todo este párrafo debería explicarse mejor una vez que esté hecha la parte del lema topológico}}
+\note{todo este párrafo debería explicarse mejor una vez que esté hecha la parte del lema topológico}
 
 The path algebra $\kQ$ admits a $k$-algebra ultranorm $\vert \cdot \vert: \kQ\to [0, \infty)$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. We call this the \emph{$\mathfrak{m}$-adic ultranorm} on $\kQ$. One can check that the complete path algebra $\KQ$ is in fact the completion of the path algebra $\kQ$ with respect to the $\mathfrak{m}$-adic ultranorm.
 
 It is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
 
-\marginpar{\textcolor{red}{acá o bien en la parte del lema topológico habría que probar algunas propiedades básicas de la topología -- cuál es la noción de convergencia, etc.}}
+\note{acá o bien en la parte del lema topológico habría que probar algunas propiedades básicas de la topología -- cuál es la noción de convergencia, etc.}
 
 We now consider the completions of the examples of path algebras mentioned previously:
 
@@ -144,7 +144,7 @@ Let $\KQ=\prod A^n$ be the complete path algebra associated to a quiver $Q$. For
 \[
 A^n_{\cyc} = \bigoplus_{r\in Q_0} rA^nr,
 \]
-that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed \marginpar{\textcolor{red}{por qué $\KQ_{\cyc}$ es cerrado?}} $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
+that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed \note{por qué $\KQ_{\cyc}$ es cerrado?} $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
 \[
 \KQ_{\cyc}=\prod_{n=1}^\infty A^n_{\cyc}
 \]
@@ -185,11 +185,11 @@ In the context of Jacobian algebras, having finite dimension is a highly desirab
 \begin{section}{Ideal triangulations of surfaces}
 In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation of a \textcolor{red}{Riemann?} surface. In order to do this, we start with some basic definitions regarding our geometric objects.
 
-Throughout the text, we will refer to compact, connected, oriented \textcolor{red}{2-manifolds/Riemann surfaces?} with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:\marginpar{la definición de genus debería ir fuera de la prop?}
+Throughout the text, we will refer to compact, connected, oriented \textcolor{red}{2-manifolds/Riemann surfaces?} with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:\note{la definición de genus debería ir fuera de la prop?}
 
 \begin{prop}\label{surf-classification} Let $\Sigma$ be a surface with a number $b$ of boundary components. Then $\Sigma$ is homeomorphic to either a sphere with $b$ open disks removed or to a $g$-holed torus with $b$ open disks removed. We call the number $g$ the \emph{genus} of the surface and set $g=0$ in the spherical case.
 \end{prop}
-\begin{proof} See \cite[Section 10]{Mas77}.
+\begin{proof} See \cite{Mas77}*{Section 10}.
 \end{proof}
 
 A \emph{surface with marked points} $(\Sigma,M)$ is an ordered pair consisting of a surface $\Sigma$ and a finite, non-empty collection $M$ of points (called \emph{marked points}) of $\Sigma$ containing at least one point from each of its boundary components. Points in $M$ that belong to the interior of $\Sigma$ are called \emph{punctures}.
@@ -326,7 +326,7 @@ An ideal triangulation divides the surface $\Sigma$ into \emph{ideal triangles}.
 
 As one may observe, every ideal triangulation of the square pictured in \ref{square-triangs} consists of exactly 4 arcs. Indeed, the number of arcs in a triangulation is an invariant of the marked surface, which we call its \emph{rank}. More precisely, we have:
 
-\begin{prop}[{\cite[Proposition 2.10]{FST08}}] Any ideal triangulation of a surface with marked points $(\Sigma, M)$ consists of exactly
+\begin{prop}[{\cite{FST08}*{Proposition 2.10}}] Any ideal triangulation of a surface with marked points $(\Sigma, M)$ consists of exactly
 \[
 n=6g+3b+3p+c-6
 \]
@@ -344,7 +344,7 @@ On the other hand, we can compute the Euler characteristic of the surface regard
 &=p+\frac{1}{3}(c-n)
 \end{aligned}
 \]
-The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.\marginpar{arreglar la numeracion}
+The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.\note{arreglar la numeracion}
 \end{proof}
 
 From now on, we will assume that our surface $(\Sigma, M)$ is none of the following:
@@ -356,42 +356,7 @@ From now on, we will assume that our surface $(\Sigma, M)$ is none of the follow
 \end{enumerate}
 The reason for these exclusions is that the listed surfaces either have no non-trivial triangulations or only have pathological ones. In fact, we have the following result:
 
-\begin{prop}[{\cite[Proposition 2.13]{FST08}}] Let $(\Sigma, M)$ be any surface with marked points not on the list above. Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
+\begin{prop}[{\cite{FST08}*{Proposition 2.13}}] Let $(\Sigma, M)$ be any surface with marked points not on the list above. Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
 \end{prop}
-
-\[
-\begin{tikzpicture}[thick]
-\tikzstyle{every node} = [circle, fill=gray, minimum size=.1cm, inner sep=0cm]
-\node (c) at (0,0) {};
-\node (n) at (0,4) {};
-\node (sw) at (210:4) {};
-\node (se) at (330:4) {};
-\draw[gray] (c) -- (sw)
-	(c) -- (n)
-	(c) -- (se)
-	(sw) to [bend right = 45] coordinate[midway](m1) (se)
-	(n) to [bend right = 45] coordinate[midway](m2) (sw)
-	(se) to [bend right = 45] coordinate[midway](m3) (n);
-\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
-\node (in) at (0,2) {};
-\node (isw) at (210:2) {};
-\node (ise) at (330:2) {};
-\node (os) at (m1) {};
-\node (onw) at (m2) {};
-\node (one) at (m3) {};
-\draw[->] (in) -- (onw);
-\draw[->] (onw) -- (isw);
-\draw[->] (isw) -- (in);
-\draw[->] (in) -- (ise);
-\draw[->] (ise) -- (isw);
-\draw[->] (ise) -- (one);
-\draw[->] (one) -- (in);
-\draw[->] (isw) -- (os);
-\draw[->] (os) -- (ise);
-\draw[->] (one) to [bend left=90, distance=100] (os);
-\draw[->] (onw) to [bend left=90, distance=100] (one);
-\draw[->] (os) to [bend left=90, distance=100] (onw);
-\end{tikzpicture}
-\]
 \end{section}
 \end{chapter}

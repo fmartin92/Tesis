@@ -180,7 +180,7 @@ Notice that in both cases the choice of diagonal is consistent throughout the ba
 
 Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{r_i\}$ and $B=\{b_j\}$ on $\Sigma$ satisfying the conditions stated in Proposition \ref{surface-loops}. We can now pick suitably small tubular neighborhoods of each loop and place a positively (resp. negatively) oriented band over each neighborhood corresponding to a loop in $R$ (resp. $B$). Conditions 1 and 2 of Proposition \ref{surface-loops} guarantee that all intersections between bands resemble that of figure \ref{band-intersection}. Condition 3 guarantees that each connected component of the complement of the bands is a polygon. We will refer to these polygons as \emph{regions}. Therefore, the collection of bands and regions actually define a polygonal subdivision of $\Sigma$. For technical reasons that will be clearer later, we will require each band to have at least 5 squares between any pair of intersections with other bands. This can be easily achieved by refining the division of the band if necessary. We will refer to this hypothesis as $(\diamond)$ throughout this section. From now on we fix a subdivision as described above for each genus $g$ and call its associated QP $(Q_g,P_g)$. The corresponding Jacobian algebra will be denoted $A_g$.
 
-\marginpar{todas las figuras grandes de esta sección están escaladas para no romper el formato de los párrafos que siguen}
+\note{todas las figuras grandes de esta sección están escaladas para no romper el formato de los párrafos que siguen}
 \begin{figure}[h]
 \[
 \begin{tikzpicture}[scale=0.5]
@@ -251,11 +251,11 @@ We now turn to the study of some relations that hold in $A_g$, that will enable 
 \end{tikzpicture}
 \]
 
-Since our quiver arises from a polygonal subdivision, we know that there is a cycle around each vertex,\marginpar{esto hay que probarlo en algún momento} and so each $x$ and each $y$ are paths of length at least 1. We mark those paths in the figure with a dashed arrow. We have given the same name to arrows occupying the same position in different squares, since this abuse of notation will be useful for calculation.
+Since our quiver arises from a polygonal subdivision, we know that there is a cycle around each vertex,\note{esto hay que probarlo en algún momento} and so each $x$ and each $y$ are paths of length at least 1. We mark those paths in the figure with a dashed arrow. We have given the same name to arrows occupying the same position in different squares, since this abuse of notation will be useful for calculation.
 
 Inspecting the figure we see that any path passing through vertices of both sides of the band must contain a path of the form $cba$ or $fed$ as factors. It suffices to check that both of them are zero in $A_g$.
 
-We have that $\partial_f(P_g) = ba + eay$, and so $ba  = -eay$ in $A_g$. Therefore, we have that $cba = -ceay$. Moreover, $\partial_d(P_g) = ce + xcb$, from which we deduce that $ce = -xcb$ in $A_g$. Putting all of this together, we get that $cba=-ceay=xcbay$ (one should note that the $cba$ factor in the right hand side of the equality consists of arrows placed on the square immediately left from the one where we started). Proceeding inductively we get $cba=x^ncbay^n$ for all positive $n$. Since $x$ and $y$ are paths of length at least $1$, this shows that $cba$ is equal to paths of arbitrarily high length. Therefore, we conclude that $cba=0$ in $A_g$. \marginpar{esto también hay que hacerlo...}
+We have that $\partial_f(P_g) = ba + eay$, and so $ba  = -eay$ in $A_g$. Therefore, we have that $cba = -ceay$. Moreover, $\partial_d(P_g) = ce + xcb$, from which we deduce that $ce = -xcb$ in $A_g$. Putting all of this together, we get that $cba=-ceay=xcbay$ (one should note that the $cba$ factor in the right hand side of the equality consists of arrows placed on the square immediately left from the one where we started). Proceeding inductively we get $cba=x^ncbay^n$ for all positive $n$. Since $x$ and $y$ are paths of length at least $1$, this shows that $cba$ is equal to paths of arbitrarily high length. Therefore, we conclude that $cba=0$ in $A_g$. \note{esto también hay que hacerlo...}
 
 An analogous argument shows that $fed=0$ in $A_g$ as well, concluding the proof. 
 \end{proof}
@@ -302,7 +302,7 @@ Finally, consider a path of length $>9$ contained in possibly different bands. I
 \end{tikzpicture}
 \]
 
-Since by hypothesis $(\diamond)$ \marginpar{quizás podria haber un link a la def de $\diamond$}two intersections in the same band are distanced by at least five squares, we conclude that at least the next six arrows belong to the same band. Therefore, any path of length $>9$ contained entirely in bands is zero in $A_g$, as we wanted.
+Since by hypothesis $(\diamond)$ \note{quizás podria haber un link a la def de $\diamond$}two intersections in the same band are distanced by at least five squares, we conclude that at least the next six arrows belong to the same band. Therefore, any path of length $>9$ contained entirely in bands is zero in $A_g$, as we wanted.
 \end{proof}
 
 \begin{lemma}\label{long-region-paths} Any non-zero path entirely contained in an $n$-sided region is of length at most $3n-4$.
@@ -348,7 +348,7 @@ which is of length $3n-4$, the result follows.
 \end{lemma}
 \begin{proof} We write our path as $B_{k+1}R_k\dots R_2 B_2 R_1 B_1$, where the paths $R_i$ are contained in a same region and the paths $B_j$ are non-trivial (except possibly for $B_1$ and $B_{k+1}$) and contained in bands.
 
-Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow belonging to the cycle associated to the region, which we will call $x_0$ following the notation employed in the proof of Lemma \ref{long-band-paths}.\marginpar{esto no está particularmente claro...} Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
+Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow belonging to the cycle associated to the region, which we will call $x_0$ following the notation employed in the proof of Lemma \ref{long-band-paths}.\note{esto no está particularmente claro...} Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
 After applying this argument repeatedly, we can then suppose our path is of the form $B_2 R_1 B_1$. The proof now follows from Lemmas \ref{long-band-paths} and \ref{long-region-paths}, since if our path is non-zero, then $|B_1|<10$, $|B_2|<10$ and $|R_1|<3n-3$, where $n$ is the number of sides of the region.
 \end{proof}
 
@@ -390,17 +390,17 @@ Obviously, in this way one can produce an infinite number of these examples on t
 The existence of an $n$-regular subdivision imposes strong conditions on the surface. In fact, suppose we have an $n$-regular subdivision of a surface and let $v, e$ and $f$ denote its number of vertices, edges and faces respectively. Since every face contains exactly $n$ vertices and every vertex belongs to exactly $n$ faces, we have that $v=f$. Moreover, every face contains $n$ edges and any edge belongs to exactly 2 faces, so $e=nf/2$.
 Recalling the fact that the Euler characteristic of a surface of genus $g$ is $2-2g$, we have that $2-2g=v-e+f=(2-n/2)f$, or equivalently $4g-4 = (n-4)f$. If $n=4$, the right hand vanishes, and so $g=1$. Therefore, the only surface that can admit a $4$-regular subdivision is the torus (and in fact we have already shown there are an infinite number of them).
 
-Suppose now that $n\neq 4$. Then \[f=\frac{4g-4}{n-4},\] and so $g$ must be such that this quotient is integral. Moreover, since $n$ faces meet at every vertex, there must be at the very least $n$ faces, and so $n(n-4)\leq 4(g-1)$. Therefore, we have that $g\in \Omega(n^2)$.\marginpar{no se si vale la pena observar esto}
+Suppose now that $n\neq 4$. Then \[f=\frac{4g-4}{n-4},\] and so $g$ must be such that this quotient is integral. Moreover, since $n$ faces meet at every vertex, there must be at the very least $n$ faces, and so $n(n-4)\leq 4(g-1)$. Therefore, we have that $g\in \Omega(n^2)$.\note{no se si vale la pena observar esto}
 
-All of these are \emph{necessary} conditions for an $n$-regular subdivision to exist. Although at first they may appear to be too restrictive, in fact there exist surfaces $\Sigma_n$ admitting $n$-regular subdivisions for all $n>2$. \marginpar{\textcolor{red}{completar esto cuando lo tengamos, si es que es cierto :)}}
+All of these are \emph{necessary} conditions for an $n$-regular subdivision to exist. Although at first they may appear to be too restrictive, in fact there exist surfaces $\Sigma_n$ admitting $n$-regular subdivisions for all $n>2$. \note{\textcolor{red}{completar esto cuando lo tengamos, si es que es cierto :)}}
 
 Our main interest in the concept of $n$-regularity lies in the following fact:
 
 \begin{thm} The Jacobian algebra associated to an $n$-regular subdivision of a surface is infinite-dimensional.
 \end{thm}
-\begin{proof} Let $(Q,P)$ be the quiver with potential associated to the subdivision, $I$ the ideal in $\kQ$ spanned by the cyclic derivatives of the potential $P$ and $J$ the closure of $I$ in $\KQ$. The inclusion $i:\kQ\to \KQ$ induces a monomorphism $i:\kQ/I \to \KQ/J$, so it suffices to see that $\kQ/I$ is infinite-dimensional. \marginpar{no recuerdo por qué valía esto}
+\begin{proof} Let $(Q,P)$ be the quiver with potential associated to the subdivision, $I$ the ideal in $\kQ$ spanned by the cyclic derivatives of the potential $P$ and $J$ the closure of $I$ in $\KQ$. The inclusion $i:\kQ\to \KQ$ induces a monomorphism $i:\kQ/I \to \KQ/J$, so it suffices to see that $\kQ/I$ is infinite-dimensional. \note{no recuerdo por qué valía esto}
 
-Any arrow $x$ in the quiver is a factor of exactly two cycles in $P$: one of them is contained in the same face of the subdivision as $x$ and the other surrounds a vertex and is composed of arrows lying in different faces.\marginpar{esto hay que probarlo con más detalle en los preliminares} The condition of $n$-regularity forces these two cycles to be of length $n$, and so $\partial_x(P)= a+b$, with $a$ and $b$ paths of length $n-1$. Therefore, $I$ is an homogeneous ideal, since it is spanned by homogeneous elements, and so $\kQ/I$ inherits a grading from $\kQ$. \marginpar{quedó medio chueca la figura siguiente:}
+Any arrow $x$ in the quiver is a factor of exactly two cycles in $P$: one of them is contained in the same face of the subdivision as $x$ and the other surrounds a vertex and is composed of arrows lying in different faces.\note{esto hay que probarlo con más detalle en los preliminares} The condition of $n$-regularity forces these two cycles to be of length $n$, and so $\partial_x(P)= a+b$, with $a$ and $b$ paths of length $n-1$. Therefore, $I$ is an homogeneous ideal, since it is spanned by homogeneous elements, and so $\kQ/I$ inherits a grading from $\kQ$. \note{quedó medio chueca la figura siguiente:}
 \begin{figure}[h]
 \[
 \begin{tikzpicture}[scale=0.5]
@@ -423,13 +423,126 @@ Any arrow $x$ in the quiver is a factor of exactly two cycles in $P$: one of the
 
 The path algebra $\kQ$, regarded as a $k$-vector space, admits a direct sum decomposition $A\oplus B$, where $A$ is the subspace spanned by paths 
 
-$(\clubsuit)$ containing either $n-1$ consecutive arrows belonging to the same face or $n-1$ consecutive arrows surrounding the same vertex of the subdivision as factors \marginpar{arreglar el formato, debería ir en un párrafo aparte con un entorno especial, al igual que $(\diamond)$}
+$(\clubsuit)$ containing either $n-1$ consecutive arrows belonging to the same face or $n-1$ consecutive arrows surrounding the same vertex of the subdivision as factors \note{arreglar el formato, debería ir en un párrafo aparte con un entorno especial, al igual que $(\diamond)$}
 
 and $B$ is the subspace spanned by paths not satisfying $(\clubsuit)$. One immediately checks that $A$ is actually an ideal in $\kQ$. Even more, since every cyclic derivative is the sum of two paths satisfying $(\clubsuit)$, we have that $I\subseteq A$. Therefore, any non-zero path $c\in B$ is not contained in $I$, and in turn is not zero in $\kQ/I$.
 
-Suppose now that $X$ is an infinite subset of $B$ composed of non-zero paths, all of different lengths. Since paths are homogeneous elements of $\kQ$ and $I$ is an homogeneous ideal, the projection of a path into $\kQ/I$ is an homogeneous element too. Therefore, the projection of $X$ to $\kQ/I$ is an infinite linearly independent set, since it is composed of non-zero homogeneous elements, each belonging to a different \textcolor{red}{why?} homogeneous component. So finally, all that remains to show is that one can actually produce such a set $X$.
+Suppose now that $X$ is an infinite subset of $B$ composed of non-zero paths, all of different lengths. Since paths are homogeneous elements of $\kQ$ and $I$ is an homogeneous ideal, the projection of a path into $\kQ/I$ is an homogeneous element too. Therefore, the projection of $X$ into $\kQ/I$ is an infinite linearly independent set, since it is composed of non-zero homogeneous elements, each belonging to a different \textcolor{red}{why?} homogeneous component. So finally, all that remains to show is that one can actually produce such a set $X$.
 
 \textcolor{red}{Para fabricar $X$ primero construimos un ciclo en $B$ y después simplemente tomamos sus potencias. Para armar un ciclo, tomo un camino construido de la siguiente manera: parto de una cara y me muevo dos flechas dentro de la cara, después salgo y recorro dos flechas dentro de una cara adyacente, nuevamente salgo y recorro otras dos y así siguiendo. Como el quiver es finito, eventualmente voy a obtener un ciclo con este procedimiento, y por construcción verifica que está en $B$. El problema es que el punto donde se pegan el principio y el final del ciclo pueden pertenecer a la misma cara (o rodear el mismo vértice) y así tener hasta 4 caminos consecutivos en la misma cara. Por lo tanto al tomar potencias me salgo de $B$ si $n<6$. Esto se puede arreglar a mano en el caso del toro por ejemplo, porque uno puede exhibir un $X$ específico (las potencias del zigzag), pero estaría bueno dar una construcción general. Además, ningún $X$ puede producirse para el tetraedro, porque no hay caminos de longitud $>2$ ahí que no verifiquen $(\clubsuit)$.}
+\end{proof}
+\end{section}
+
+\begin{section}{Pyramids}
+\note{los títulos de estas secciones dan lástima}
+A \emph{pyramid} is a polyhedron formed by placing a regular polygon (called the \emph{base}) and a single point (called the \emph{apex}) in different parallel planes, and then taking their convex hull. One immediately checks that if the base is an $n$-sided polygon, then the pyramid has exactly $n+1$ faces, $n$ of them triangles and the last one being the base itself.
+
+Any pyramid is a polygonal subdivision of the sphere, so we now study the properties of its associated Jacobian algebra. We first label the arrows in the associated quiver as in the following figure:
+\[\label{pyramid}
+\begin{tikzpicture}[scale=0.8]
+\foreach \x in {0,90,...,270}
+{
+\begin{scope}[rotate=\x]
+\draw (0,0) -- (4,0);
+\draw (0,0) -- (0,-4);
+\draw (4,0) -- (0,-4);
+\node at (0.8,-0.8) {\textcolor{red}{$b$}};
+\node at (1,-2.3) {\textcolor{red}{$c$}};
+\node at (2.3,-1) {\textcolor{red}{$d$}};
+\node at (0,-4.7) {\textcolor{red}{$a$}};
+\draw [<-, red, very thick] (0.1, -1.9) to (1.9, -0.1);
+\draw [<-, red, very thick] (2, -0.1) to  (2, -1.9);
+\draw [<-, red, very thick] (1.9, -2) to  (0.1, -2);
+\draw [<-, red, very thick] (-2, -2.1) to [bend right=90, looseness=2.5] (2, -2.1);
+\end{scope}
+}
+\end{tikzpicture}
+\]
+In this figure, we are drawing a pyramid having a square as a base. The 4-cycle placed outside of the square is the cycle corresponding to the base, and each 3-cycle inside of the square corresponds to a triangular face of the pyramid. We will name the arrows of the base as $a$ and the arrows surrounding the apex as $b$. The rest of the arrows corresponding to triangular faces are named $c$ and $d$ in such a way that $dcb$ is the only path of length 3 taking place in a single triangle.
+
+\begin{thm} Let $n>3$.\note{si no hacemos el tetraedro aparte hay que explicar por qué $n>3$} The Jacobian algebra  associated to a pyramid with an $n$-sided base is finite-dimensional iff $n$ is even.
+\end{thm}
+\begin{proof} We call $(Q,P)$ the QP associated to the pyramid and $A$ its Jacobian algebra. We will study $A$ making heavy use of the diamond lemma. To do so, we will order terms according first to length (longer terms being smaller) and then lexicographically from right to left. For instance, $a^5 \prec bd$ and $bda \prec b^3$. \note{en algún lado hay que contar por qué notar las flechas como lo hacemos no interfiere con el lema del diamante, porque por ej. $b^3$ denota a dos términos distintos dependiendo de donde se empiece. Una manera mas o menos fácil de arreglarlo es ponerle subíndices a todo e incluir los subíndices en el term order}Since there are only finitely many arrows in the quiver, there are only finitely many words of the same length, and so any infinite sequence of terms that is strictly decreasing with respect to the term order $\prec$ must have terms of arbitrary length. This proves that the term order $\prec$ satisfies the descending chain property in norm.
+
+We now have to find a confluent reduction system compatible with our term order. We start off by computing the cyclic derivatives of the potential $P$, which turn out to be:
+\begin{align*}
+\partial_a(P) &= a^{n-1} + cd\\
+\partial_b(P) &= b^{n-1} + dc\\
+\partial_c(P) &= bd + da\\
+\partial_d(P) &= ac + cb
+\end{align*}
+This suggests the following reduction system, which we will call $\Gamma$\note{ya usé $\Sigma$ para las superficies}:
+\begin{align*}
+cd &\leadsto -a^{n-1}\\
+dc &\leadsto -b^{n-1} \\
+bd &\leadsto -da\\
+ac &\leadsto -cb
+\end{align*}\note{etiquetarlas como $\partial_x$ de alguna manera}
+Every reduction rule is compatible with our term order, since the right hand side terms are either longer (since $n>3$) or of the same length but lexicographically smaller. Notice that the ideal $I_\Gamma$ generated by this reduction system is exactly the Jacobian ideal, so if the system turns out to be confluent, then the set of irreducible paths forms a basis for the Jacobian algebra $A$. The system $\Gamma$ presents only a few number of ambiguities, namely the ones arising from the monomials $cdc$, $dcd$, $bdc$ and $acd$. We now check if they are resolvable:
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$cdc$};
+\node (a2) at (2,1) {$-a^{n-1}c$};
+\node (b2) at (2,-1) {$-cb^{n-1}$};
+\node (a3) at (7,1) {$(-1)^n cb^{n-1}$};
+\draw[->] (1) to node[above, font=\footnotesize]{$\partial_a$} (a2);
+\draw[->] (1) to node[below, font=\footnotesize]{$\partial_b$} (b2);
+\draw[->] (a2) to node[above, font=\footnotesize]{$\partial_d$ ($n-1$ times)} (a3);
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$dcd$};
+\node (a2) at (2,1) {$-b^{n-1}d$};
+\node (b2) at (2,-1) {$-da^{n-1}$};
+\node (a3) at (7,1) {$(-1)^n da^{n-1}$};
+\draw[->] (1) to node[above, font=\footnotesize]{$\partial_b$} (a2);
+\draw[->] (1) to node[below, font=\footnotesize]{$\partial_a$} (b2);
+\draw[->] (a2) to node[above, font=\footnotesize]{$\partial_c$ ($n-1$ times)} (a3);
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$bdc$};
+\node (a2) at (2,1) {$-dac$};
+\node (b2) at (2,-1) {$-b^n$};
+\node (a3) at (4,1) {$dcb$};
+\node (a4) at (6,1) {$-b^n$};
+\draw[->] (1) to node[above, font=\footnotesize]{$\partial_c$} (a2);
+\draw[->] (1) to node[below, font=\footnotesize]{$\partial_b$} (b2);
+\draw[->] (a2) to node[above, font=\footnotesize]{$\partial_d$} (a3);
+\draw[->] (a3) to node[above, font=\footnotesize]{$\partial_b$} (a4);
+\end{tikzpicture}
+\]
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$acd$};
+\node (a2) at (2,1) {$-cbd$};
+\node (b2) at (2,-1) {$-a^n$};
+\node (a3) at (4,1) {$cda$};
+\node (a4) at (6,1) {$-a^n$};
+\draw[->] (1) to node[above, font=\footnotesize]{$\partial_d$} (a2);
+\draw[->] (1) to node[below, font=\footnotesize]{$\partial_a$} (b2);
+\draw[->] (a2) to node[above, font=\footnotesize]{$\partial_c$} (a3);
+\draw[->] (a3) to node[above, font=\footnotesize]{$\partial_a$} (a4);
+\end{tikzpicture}
+\]
+As we can see, the rewriting system $\Gamma$ turns out to be confluent iff $n$ is odd. In that case, we know that the set of irreducible terms forms a basis of the Jacobian algebra. Since paths of the form $a^k$ and $b^k$ are irreducible for any $k$, we conclude that the Jacobian algebra is infinite-dimensional for odd values of $n$.
+
+As for the even case, we may try to enlarge the set of rewriting rules as to make the system confluent. From our previous computation using our old rewriting system $\Gamma$, we know that $cb^{n-1}=da^{n-1}=0$. Moreover,  $0=dcb^{n-1}=-b^{2n-2}$ and  $0=cda^{n-1}=-a^{2n-2}$. Therefore, we may consider the rewriting system $\Gamma'$, composed of the old set of rewriting rules from $\Gamma$ and the following new rules:
+\begin{align*}
+da^{n-1} &\leadsto 0 \\
+cb^{n-1} &\leadsto 0\\
+a^{2n-2} &\leadsto 0\\
+b^{2n-2} &\leadsto 0
+\end{align*}
+We remark that this system is compatible with our term order. Moreover, the ideal $I_{\Gamma'}$ coincides with the Jacobian ideal as well, since the new rules come from identities holding in the Jacobian algebra $A$. Therefore, it suffices to check that $\Gamma'$ is indeed a confluent system in order to be in the hypotheses of the diamond lemma. The set of ambiguities is now slightly larger: it contains all of the old ones (which are now resolvable, thanks to the rules $da^{n-1} \leadsto 0$ and $cb^{n-1} \leadsto 0$) plus the ambiguities arising from the following set of monomials:
+\[bda^{n-1}, cda^{n-1}, acb^{n-1}, bcb^{n-1}, da^{n-1}c, cb^{n-1}d, da^{2n-2}, cb^{2n-2}, a^{2n-2}c, b^{2n-2}d\]
+After a straightforward but somewhat tedious check one sees that all of these ambiguities are resolvable (in fact, rather easily, since every term reduces to zero).\note{quizás valga la pena incluir la cuenta} Therefore, once again by the diamond lemma, we know that the set of irreducible pathss forms a basis for the Jacobian algebra $A$. We will now prove that there are no irreducible paths of length $>2n-2$, which in turns implies the finite-dimensionality of $A$.
+
+Indeed, suppose $x$ is a irreducible path starting with an $a$ arrow. As we see in the figure \ref{pyramid}, an $a$ arrow $a$ is only concatenable with another $a$ arrow or with a $d$ arrow. Since $da$ is a reducible path, it follows that any irreducible path starting with an $a$ arrow is of the form $a^k$, and since $a^{2n-2}$ is reducible, that $k<2n-2$. The same argument holds for paths starting with a $b$ arrow.
+
+Finally, we notice that an irreducible path starting with a $c$ arrow must be $c$ itself, since the only possible successors are $a$ or $d$, and both $ac$ and $dc$ are reducible. Using the same idea we see that $d$ is the only irreducible path starting with a $d$ arrow, and thus there is no irreducible path of length $>2n-2$, concluding the proof.
 \end{proof}
 \end{section}
 \end{chapter}

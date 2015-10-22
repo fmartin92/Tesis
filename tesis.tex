@@ -14,7 +14,7 @@
 \usepackage{titlesec} %reasonable chapter headings
 \usepackage{stmaryrd} %double brackets
 \usepackage{tikz}
-\usetikzlibrary{arrows,positioning,through}
+\usetikzlibrary{arrows,positioning,through,decorations.pathmorphing}
 
 \usepackage{chngcntr}
 \counterwithout{equation}{section} %this fixes equation numbering
@@ -23,6 +23,11 @@
   {\normalfont\bfseries}{}{0pt}{\Huge} %this eliminates the 'Chapter n' heading
 
 \hypersetup{linkcolor=teal, citecolor=teal}
+
+\def\noteson{%
+\gdef\note##1{\marginpar[##1]{##1}}}
+\gdef\notesoff{\gdef\note##1{}}
+\noteson
 
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -33,6 +38,7 @@
 \newcommand{\kQ}{k\langle Q\rangle}
 \newcommand{\KQ}{k\langle\!\langle Q\rangle\!\rangle}
 \newcommand{\cyc}{\mathrm{cyc}}
+
 
 \newcommand{\Square}[2]{
 \draw (-1+#1, -1+#2) to (-1+#1, 1+#2); %left vertical line
