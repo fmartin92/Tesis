@@ -1,0 +1,104 @@
+\begin{chapter}{The diamond lemma}
+Suppose $A$ is a $k$-algebra given by generators and relations, that is $A=\FA/R$ for some ideal $R$. A question that arises immediately is that of how to compute in $A$. Ideally, one should be able to provide a family of normal or canonical forms for monomials, such that every monomial is equal to a unique canonical form after passing to the quotient. In this way, one may compute the product of two monomials in $A$ by reducing them to their respective canonical forms, taking their product and reducing once again. This procedure may obviously be extended to arbitrary elements in $A$ by linearity.
+
+Notice that in order to be able to reduce elements into canonical forms, one should be able to test for equality in $A$; in particular, one should be able to distinguish if a certain element is zero or not. Experience tells us that this problem may very well be untractable: it is in fact the word problem for algebras, which is known to be undecidable in its full generality. \marginpar{insertar referencia y revisar}
+
+Nonetheless, under some relatively mild hypotheses on the ideal $R$, this kind of argument may be succesfully carried out. Essentially, one asks $R$ to define a confluent rewriting system for monomials. In that case, Bergman's diamond lemma, presented on his seminal paper \cite{Ber78}, states that not only there exists a set of normal forms, but that they actually form a basis for $A$ as a $k$-algebra.
+
+\begin{section}{Bergman's diamond lemma}
+ Let $X$ be a set and let $\mon$ denote the free monoid on $X$. A \emph{monomial order} on $\mon$ is a partial order $\preceq$ on $\mon$ such that:
+\begin{itemize}
+\item $1\preceq v$ for all $v\in \mon$, and
+\item for all $u,v,v',w\in \mon$, if $v\preceq v'$, then $uvw\preceq uv'w$.
+\end{itemize}
+\begin{exmp} Suppose $\leq$ is a total order on $X$. The \emph{graded lexicographical order}, or \emph{grlex} for short, is the monomial order $\preceq$ defined on $\mon$ as follows: given $u,v\in \mon$, we have $u\preceq v$ if
+\begin{itemize}
+\item $|u| < |v|$ or
+\item $|u| = |v|$ and $u=wau'$, $v=wbv'$, with $w,u',v'\in \mon$, $a,b\in X$ and $a\leq b$.
+\end{itemize}
+In other words, monomials are sorted first by length and then lexicographically according to the total order $\leq$.
+\end{exmp}
+
+A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_n\not \leq p_{n+1}$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_n \leq p_{n+1}$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
+
+\begin{lemma}\label{noeth} Let $(X,\leq)$ be a finite, totally ordered set. Then, the graded lexicographical order on $\mon$ satisfies the descending chain condition.
+\end{lemma}
+\begin{proof} Let $(x_n)$ be a decreasing sequence in $\mon$, $l$ be the length of $x_1$ and $k$ be the cardinality of $X$. There are exactly $k^d$ words in $\mon$ of length $d$, and since a word smaller than $x_1$ must be of length at most $d$, there are at most $j=\sum_{l=0}^d k^l$ words smaller than $x_1$. Since $j$ is a finite number, it follows that the sequence $(x_n)$ must eventually stabilize.
+\end{proof}
+
+A \emph{rewriting system} on $X$ is a subset $S\subseteq \mon \times k\mon$ such that for each $\sigma=(w_\sigma, f_\sigma)\in S$ we have $w_\sigma \neq f_\sigma$. Every $\sigma \in S$ is called a \emph{rewriting rule}, which we will sometimes denote $w_\sigma \rightsquigarrow f_\sigma$. If $u,v\in\mon$ and $\sigma\in S$ we call the triple $r=(u,\sigma,v)$ a \emph{basic reduction}. We denote the set of all basic reductions associated to a rewriting system $S$ as $B_S$ and call \emph{reductions} the elements of the free monoid $\langle B_S\rangle$.
+
+If $u\in\mon$, there exists a unique $k$-linear function $\cf_u:k\mon\to k$ such that $\cf_u(u)=1$ and $\cf_u(v)=0$ for all $v\in\mon$ such that $v\neq u$. If $x\in k\mon$, we call $\cf_u(x)$ the \emph{coefficient of $u$ in $x$}. Given a basic reduction $r=(u,\sigma,v)$, one can define an associated $k$-linear map $\hat{r}:k\mon\to k\mon$ such that, for every $x\in k\mon$,
+\[\hat{r}(x)=x-\cf_{u\sigma v}(x) u(w_\sigma - f_\sigma)v.\]
+Thus, the map $\hat{r}$ replaces the word $uw_\sigma v$ with $uf_\sigma v$ and leaves the rest of the terms of $x$ unchanged. The assignment $r\mapsto \hat{r}$ induces a monoid morphism $\langle B_S\rangle \to \End_k(k\mon)$; given any $r\in\langle B_S\rangle$, we will refer to its image via this morphism as $\hat{r}$. We say that $\hat{r}$ \emph{acts trivially on $x\in k\mon$} if $\hat{r}(x)=x$.
+
+An element $x\in k\mon$ is said to be:
+\begin{itemize}
+\item \emph{$S$-irreducible} if $\hat{r}(x)=x$ for any reduction $r\in\langle B_S\rangle$.
+\item \emph{reduction-finite under $S$} if every time $(r_n)$ is a sequence of reductions, there exists some $i_0$ such that for all $i\geq i_0$, $\hat{r_i}$ acts trivally on $({r_{i-1}}\dots r_1)\hat{}(x)$.\marginpar{arreglar formato}
+\item \emph{reduction-unique under $S$} if it is reduction-finite under $S$ and there exists some $r_S(x)\in k\mon$ such that if $\hat{r}(x)$ is $S$-irreducible, then $\hat{r}(x) = r_S(x)$.
+\end{itemize}
+
+Consider a 5-uple $\alpha=(\sigma, \tau, u,v,w)$ such that $\sigma,\tau\in S$ and $u,v,w\in \mon$. We say that $\alpha$ is an \emph{overlap ambiguity of $S$} if $u,v,w$ are words of positive length, $w_\sigma =uv$ and $w_\tau=vw$. Such an ambiguity is said to be \emph{resolvable} if there exist reductions $r,r'\in \langle B_S\rangle$ such that $\hat{r}(f_\sigma w)=\hat{r}'(uf_\tau)$. Otherwise, if $\sigma\neq \tau$, $w_\sigma=v$ and $w_\tau=uvw$ we say that $\alpha$ is an \emph{inclusion ambiguity of $S$}, and call it \emph{resolvable} if there exist reductions $r,r'\in \langle B_S\rangle$ such that $\hat{r}(uf_\sigma w)=\hat{r}'(f_\tau)$.
+
+A monomial order $\preceq$ over $\mon$ is said to be compatible with a rewriting system $S$ if for all $\sigma \in S$ we have that any monomial $u$ appearing as a term in $f_\sigma$ is such that $u\not\preceq w_\sigma$.\marginpar{formatear esta desigualdad y otra que aparece más arriba}
+
+After all these preliminary definitions, we are now able to formulate the main result in this section:
+
+\begin{thm}[Bergman's diamond lemma] Let $S$ be a rewriting system for $k\mon$ and $\preceq$ a monoid order on $\mon$ compatible with $S$ and satisfying the descending chain condition. Let $I_S$ be the ideal given by the relations induced by $S$, that is, $I_S=(w_\sigma-f_\sigma)_{\sigma\in S}$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item All ambiguities of $S$ are resolvable.
+\item All elements of $k\mon$ are reduction-unique under $S$.
+\item A set of representatives in $k\mon$ for the elements of the algebra $k\mon/I_S$ is given by the $k$-submodule $\irr$ spanned by the $S$-irreducible monomials of $\mon$.
+\end{enumerate}
+If any of these conditions hold, the rewriting system $S$ is said to be $\emph{confluent}$. In that case, there is a $k$-algebra isomorphism between $k\mon/I_S$ and $\irr$, where the latter is a $k$-algebra with product defined as $x\cdot y= r_S(xy)$.
+\end{thm}
+\begin{proof} See {\cite{Ber78}*{Theorem 1.2}}.
+\end{proof}
+
+Let us illustrate how the diamond lemma is used in some examples:
+
+\begin{exmp} Consider the polynomial algebra $A=k[x,y]$, which is presented by generators and relations as $A=k\langle x,y\rangle/(xy-yx)$. If we order our variables $x$ and $y$ such that $x<y$, then the associated graded lexicographical order on $\langle x,y\rangle$ satisfies the descending chain condition by \ref{noeth}. Consider the terms in the unique relation $xy-yx$ and sort them using the grlex order. We have that $xy\preceq yx$, and so the rewriting rule $\sigma=yx\rightsquigarrow xy$ is compatible with our chosen monomial order. Thus, the rewriting system $S$ consiting of the unique rewriting rule $\sigma$ is such that:
+\begin{itemize}
+\item the grlex order $\preceq$ is compatible with $S$,
+\item the associated ideal $I_S$ is $\langle xy-yx\rangle$,
+\item there are no ambiguities in $S$, since the monomial $yx$ does not overlap with itself in any non-trivial way.
+\end{itemize}
+Therefore, the diamond lemma guarantees that a basis for $k[x,y]$ is given by the $S$-irreducible monomials. Now, a monomial is $S$-irreducible iff it does not contain $yx$ as a factor, and thus the $S$-irreducible monomials are exactly the set $\{x^iy^j:i,j\in\NN_0\}$, that is, the set of ordered monomials.
+Moreover, taking an arbitrary element in $k\langle x,y\rangle$ into its corresponding normal form in $A$ is trivial: it suffices to order the letters in each monomial term lexicographically.
+\end{exmp}
+\begin{exmp} Consider the Weyl algebra $A_1 = k\langle x,y\rangle/(yx-xy-1)$. The reasoning carried out in the previous example holds almost verbatim: this time, our unique rewriting rule is $yx\rightsquigarrow xy + 1$, and once again there are no ambiguities. Therefore, the set of ordered monomials is a basis for $A_1$. Notice that taking an element into its irreducible normal form is not as easy as in the previous example. For instance, 
+\[y^2x\rightsquigarrow y(xy+1) = (yx)y +y \rightsquigarrow (xy+1)y + y =xy^2 +2y.\]
+The same thing happens for the quantum polynomial algebra $k\langle x,y\rangle/(xy-qyx)$, where $q\in k^*$. In that case, the unique rewriting rule is $yx\rightsquigarrow q^{-1}xy$, and once again the set of ordered monomials forms a basis.
+\end{exmp}
+\begin{exmp} Let us now consider an example in which ambiguities appear. Consider the polynomial algebra \[A=k[x,y,z]=k\langle x,y,z\rangle/(xy-yx, xz-zx, yz-zy).\]
+Once again we consider the standard lexicographical order $x<y<z$ and the induced grlex monomial order on $\langle x,y,z\rangle$. We may now produce a rule from each relation, by reducing the biggest term in it into the sum of the rest of the terms. In this case, we get the rules
+\begin{align*}
+\sigma_1 &= yx \rightsquigarrow xy\\
+\sigma_2 &= zx \rightsquigarrow xz\\
+\sigma_3 &= zy \rightsquigarrow yz
+\end{align*}
+Now, the rewriting system $S=\{\sigma_1, \sigma_2, \sigma_3\}$ is compatible with our monomial order and its associated ideal $I_S$ is exactly $(xy-yx, xz-zx, yz-zy)$. It remains to show that all of the ambiguities of $S$ are resolvable. There is in fact a unique overlap ambiguity, which is $(\sigma_3, \sigma_1, z, y, x)$, since the monomial $zyx$ may be reduced using both the reduction associated to $\sigma_1$ and the one associated to $\sigma_3$. The following diagram shows that this ambiguity is indeed resolvable and illustrates why the diamond lemma is called that way:
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$zyx$};
+\node (a1) at (-2,-2) {$yzx$};
+\node (a2) at (2,-2) {$zxy$};
+\node (b1) at (-2,-4) {$yxz$};
+\node (b2) at (2,-4) {$xzy$};
+\node (c) at (0,-6) {$xyz$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_3$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_1$} (a2);
+\draw[->] (a1) to node[left, font=\footnotesize]{$\sigma_2$} (b1);
+\draw[->] (a2) to node[right, font=\footnotesize]{$\sigma_2$} (b2);
+\draw[->] (b1) to node[left, font=\footnotesize]{$\sigma_1$} (c);
+\draw[->] (b2) to node[right, font=\footnotesize]{$\sigma_3$} (c);
+\end{tikzpicture}
+\]\marginpar{needs to be squigglified}
+
+Now that we have checked that the only ambiguity is resolvable, by the diamond lemma we know that the set of $S$-irreducible monomials form a basis for $k[x,y,z]$, and once again those turn out to be the set of ordered monomials $\{x^iy^jz^k:i,j,k\in\NN_0\}$. Similar arguments hold for polynomial algebras with an arbitrary number $n$ of variables, although the amount of ambiguities that one needs to deal with grows with $n$.
+\end{exmp}
+\textcolor{red}{falta un ejemplo en el que se resuelvan las ambiguedades al agrandar el juego de reglas, y contar cómo es el procedimiento en general}
+\end{section}
+\end{chapter}
