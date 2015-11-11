@@ -72,7 +72,7 @@ Moreover, taking an arbitrary element in $k\langle x,y\rangle$ into its correspo
 The same thing happens for the quantum polynomial algebra $k\langle x,y\rangle/(xy-qyx)$, where $q\in k^*$. In that case, the unique rewriting rule is $yx\rightsquigarrow q^{-1}xy$, and once again the set of ordered monomials forms a basis.
 \end{exmp}
 \begin{exmp} Let us now consider an example in which ambiguities appear. Consider the polynomial algebra \[A=k[x,y,z]=k\langle x,y,z\rangle/(xy-yx, xz-zx, yz-zy).\]
-Once again we consider the standard lexicographical order $x<y<z$ and the induced grlex monomial order on $\langle x,y,z\rangle$. We may now produce a rule from each relation, by reducing the biggest term in it into the sum of the rest of the terms. In this case, we get the rules
+Once again we consider the standard lexicographical order $x<y<z$ and the induced grlex monomial order on $\langle x,y,z\rangle$, which satisfies the descending chain condition. We may now produce a rule from each relation by reducing the biggest term in it into the other term. In this case, we get the rules
 \begin{align*}
 \sigma_1 &= yx \rightsquigarrow xy\\
 \sigma_2 &= zx \rightsquigarrow xz\\
@@ -99,6 +99,73 @@ Now, the rewriting system $S=\{\sigma_1, \sigma_2, \sigma_3\}$ is compatible wit
 
 Now that we have checked that the only ambiguity is resolvable, by the diamond lemma we know that the set of $S$-irreducible monomials form a basis for $k[x,y,z]$, and once again those turn out to be the set of ordered monomials $\{x^iy^jz^k:i,j,k\in\NN_0\}$. Similar arguments hold for polynomial algebras with an arbitrary number $n$ of variables, although the amount of ambiguities that one needs to deal with grows with $n$.
 \end{exmp}
-\textcolor{red}{falta un ejemplo en el que se resuelvan las ambiguedades al agrandar el juego de reglas, y contar cómo es el procedimiento en general}
+\begin{exmp} Consider the $k$-algebra $A=k\langle x,y,z\rangle/(xy-yx, yz-zy)$. As usual, we consider the usual lexicographical order $x<y<z$ and the grlex monomial order it induces on $\langle x,y,z\rangle$, which satisfies the descending chain condition. Once again, the relations $xy-yx$ and $yz-zy$ naturally induce the following rewriting rules:
+\begin{align*}
+\sigma_1 &= yx \rightsquigarrow xy\\
+\sigma_2 &= zy \rightsquigarrow yz\\
+\end{align*}
+Thus, the rewriting system $S=\{\sigma_1, \sigma_2\}$ is compatible with the grlex monomial order and the associated ideal $I_S$ is precisely $(xy-yx, yz-zy)$. All that remains to check is that all ambiguities are resolvable.
+
+In fact, there is only one ambiguity, which is $(\sigma_2,\sigma_1,z,y,x)$: in other words, the monomial $zyx$ may be reduced in two different ways, as the following diagram shows:
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$zyx$};
+\node (a1) at (-2,-2) {$yzx$};
+\node (a2) at (2,-2) {$zxy$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_2$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_1$} (a2);
+\end{tikzpicture}
+\]
+We now see that, since both $yzx$ and $zxy$ are $S$-irreducible, the ambiguity is in fact unresolvable. However, not all is lost: since the equality $yzx = zxy$ holds in $A$, we may include the rewriting rule $\sigma_3 = zxy \rightsquigarrow yzx$ in $S$ and still have $I_S = (xy-yx, yz-zy, yzx-zxy) = (xy-yx, yz-zy)$. The addition of rule $\sigma_3$ now resolves our previous ambiguity, since we have the diagram:
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$zyx$};
+\node (a1) at (-2,-2) {$yzx$};
+\node (a2) at (2,-2) {$zxy$};
+\node (b) at (0,-4) {$yzx$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_2$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_1$} (a2);
+\draw[->] (a2) to node[below, font=\footnotesize]{$\sigma_3$} (b);
+\draw[double] (a1) to (b);
+\end{tikzpicture}
+\]
+
+However, there is a new overlap ambiguity, namely $(\sigma_3, \sigma_1,zx,y,x)$. We have
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$zxyx$};
+\node (a1) at (-2,-2) {$yzx^2$};
+\node (a2) at (2,-2) {$zx^2y$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_3$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_1$} (a2);
+\end{tikzpicture}
+\]
+and once again we are stuck, since both $yzx^2$ and $zx^2y$ are $S$-irreducible. One may try to enlarge the current set of rewriting rules as to include the new rule $zx^2y \rightsquigarrow yzx^2$, but this will in turn create another unresolvable ambiguity.
+
+The problem is solved if we consider the rewriting system $S'$ composed of the rewriting rules:
+\begin{align*}
+\sigma &= yx \rightsquigarrow xy\\
+\tau_n &= zx^ny \rightsquigarrow yzx^n\\
+\end{align*}
+for all $n\in\NN_0$. As we can see, the rewriting system $S'$ is compatible with the grlex monomial order, and since the identities $zx^ny=yzx^n$ hold in $A$, we have that $I_{S'} = (xy-yx, yzx^n-zx^ny)=(xy-yx, yz-zy)$.\marginpar{explicar mejor por qué} The rules $\tau_j$ and $\tau_k$ do not overlap or contain each other for any choice of $j$ and $k$, so the only overlapping ambiguities are of the form $(\tau_n,\sigma,zx^n,y,x)$, for $n\in\NN_0$. We now check that these ambiguities are resolvable:
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$zx^nyx$};
+\node (a1) at (-2,-2) {$yzx^{n+1}$};
+\node (a2) at (2,-2) {$zx^{n+1}y$};
+\node (b) at (0,-4) {$yzx^{n+1}$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\tau_n$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma$} (a2);
+\draw[->] (a2) to node[below, font=\footnotesize]{$\tau_{n+1}$} (b);
+\draw[double] (a1) to (b);
+\end{tikzpicture}
+\]\marginpar{arreglar formato del dibujo}
+Therefore, the rewriting system is confluent, and so the set of $S'$-irreducible monomials form a basis for the algebra $A$. In this case, characterizing this set is not as easy as in the previous examples, since the rewriting system is considerably more complex. This, of course, reflects the fact that the basis has a richer combinatorial structure.\marginpar{describirlo explícitamente es molesto}
+\end{exmp}
+\textcolor{red}{falta un ejemplo en el que se resuelvan las ambiguedades al agrandar el juego de reglas usando sólo finitas reglas nuevas, y contar cómo es el procedimiento en general}
 \end{section}
 \end{chapter}
