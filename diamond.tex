@@ -1,7 +1,7 @@
 \begin{chapter}{The diamond lemma}
 Suppose $A$ is a $k$-algebra given by generators and relations, that is $A=\FA/R$ for some ideal $R$. A question that arises immediately is that of how to compute in $A$. Ideally, one should be able to provide a family of normal or canonical forms for monomials, such that every monomial is equal to a unique canonical form after passing to the quotient. In this way, one may compute the product of two monomials in $A$ by reducing them to their respective canonical forms, taking their product and reducing once again. This procedure may obviously be extended to arbitrary elements in $A$ by linearity.
 
-Notice that in order to be able to reduce elements into canonical forms, one should be able to test for equality in $A$; in particular, one should be able to distinguish if a certain element is zero or not. Experience tells us that this problem may very well be untractable: it is in fact the word problem for algebras, which is known to be undecidable in its full generality. \marginpar{insertar referencia y revisar}
+Notice that in order to be able to reduce elements into canonical forms, one should be able to test for equality in $A$; in particular, one should be able to distinguish if a certain element is zero or not. Experience tells us that this problem may very well be untractable: it is in fact the word problem for algebras, which is known to be undecidable in its full generality. \note{insertar referencia y revisar}
 
 Nonetheless, under some relatively mild hypotheses on the ideal $R$, this kind of argument may be succesfully carried out. Essentially, one asks $R$ to define a confluent rewriting system for monomials. In that case, Bergman's diamond lemma, presented on his seminal paper \cite{Ber78}, states that not only there exists a set of normal forms, but that they actually form a basis for $A$ as a $k$-algebra.
 
@@ -35,17 +35,17 @@ Thus, the map $\hat{r}$ replaces the word $uw_\sigma v$ with $uf_\sigma v$ and l
 An element $x\in k\mon$ is said to be:
 \begin{itemize}
 \item \emph{$S$-irreducible} if $\hat{r}(x)=x$ for any reduction $r\in\langle B_S\rangle$.
-\item \emph{reduction-finite under $S$} if every time $(r_n)$ is a sequence of reductions, there exists some $i_0$ such that for all $i\geq i_0$, $\hat{r_i}$ acts trivally on $({r_{i-1}}\dots r_1)\hat{}(x)$.\marginpar{arreglar formato}
+\item \emph{reduction-finite under $S$} if every time $(r_n)$ is a sequence of reductions, there exists some $i_0$ such that for all $i\geq i_0$, $\hat{r_i}$ acts trivally on $({r_{i-1}}\dots r_1)\hat{}(x)$.\note{arreglar formato}
 \item \emph{reduction-unique under $S$} if it is reduction-finite under $S$ and there exists some $r_S(x)\in k\mon$ such that if $\hat{r}(x)$ is $S$-irreducible, then $\hat{r}(x) = r_S(x)$.
 \end{itemize}
 
 Consider a 5-uple $\alpha=(\sigma, \tau, u,v,w)$ such that $\sigma,\tau\in S$ and $u,v,w\in \mon$. We say that $\alpha$ is an \emph{overlap ambiguity of $S$} if $u,v,w$ are words of positive length, $w_\sigma =uv$ and $w_\tau=vw$. Such an ambiguity is said to be \emph{resolvable} if there exist reductions $r,r'\in \langle B_S\rangle$ such that $\hat{r}(f_\sigma w)=\hat{r}'(uf_\tau)$. Otherwise, if $\sigma\neq \tau$, $w_\sigma=v$ and $w_\tau=uvw$ we say that $\alpha$ is an \emph{inclusion ambiguity of $S$}, and call it \emph{resolvable} if there exist reductions $r,r'\in \langle B_S\rangle$ such that $\hat{r}(uf_\sigma w)=\hat{r}'(f_\tau)$.
 
-A monomial order $\preceq$ over $\mon$ is said to be compatible with a rewriting system $S$ if for all $\sigma \in S$ we have that any monomial $u$ appearing as a term in $f_\sigma$ is such that $u\not\preceq w_\sigma$.\marginpar{formatear esta desigualdad y otra que aparece más arriba}
+A monomial order $\preceq$ over $\mon$ is said to be compatible with a rewriting system $S$ if for all $\sigma \in S$ we have that any monomial $u$ appearing as a term in $f_\sigma$ is such that $u\not\preceq w_\sigma$.\note{formatear esta desigualdad y otra que aparece más arriba}
 
 After all these preliminary definitions, we are now able to formulate the main result in this section:
 
-\begin{thm}[Bergman's diamond lemma] Let $S$ be a rewriting system for $k\mon$ and $\preceq$ a monoid order on $\mon$ compatible with $S$ and satisfying the descending chain condition. Let $I_S$ be the ideal given by the relations induced by $S$, that is, $I_S=(w_\sigma-f_\sigma)_{\sigma\in S}$. Then the following conditions are equivalent:
+\begin{thm}[Bergman's diamond lemma] Let $S$ be a rewriting system for $X$ and $\preceq$ a monoid order on $\mon$ compatible with $S$ and satisfying the descending chain condition. Let $I_S$ be the ideal given by the relations induced by $S$, that is, $I_S=(w_\sigma-f_\sigma)_{\sigma\in S}$. Then the following conditions are equivalent:
 \begin{enumerate}
 \item All ambiguities of $S$ are resolvable.
 \item All elements of $k\mon$ are reduction-unique under $S$.
@@ -95,14 +95,14 @@ Now, the rewriting system $S=\{\sigma_1, \sigma_2, \sigma_3\}$ is compatible wit
 \draw[->] (b1) to node[left, font=\footnotesize]{$\sigma_1$} (c);
 \draw[->] (b2) to node[right, font=\footnotesize]{$\sigma_3$} (c);
 \end{tikzpicture}
-\]\marginpar{needs to be squigglified}
+\]\note{needs to be squigglified}
 
 Now that we have checked that the only ambiguity is resolvable, by the diamond lemma we know that the set of $S$-irreducible monomials form a basis for $k[x,y,z]$, and once again those turn out to be the set of ordered monomials $\{x^iy^jz^k:i,j,k\in\NN_0\}$. Similar arguments hold for polynomial algebras with an arbitrary number $n$ of variables, although the amount of ambiguities that one needs to deal with grows with $n$.
 \end{exmp}
 \begin{exmp} Consider the $k$-algebra $A=k\langle x,y,z\rangle/(xy-yx, yz-zy)$. As usual, we consider the usual lexicographical order $x<y<z$ and the grlex monomial order it induces on $\langle x,y,z\rangle$, which satisfies the descending chain condition. Once again, the relations $xy-yx$ and $yz-zy$ naturally induce the following rewriting rules:
 \begin{align*}
 \sigma_1 &= yx \rightsquigarrow xy\\
-\sigma_2 &= zy \rightsquigarrow yz\\
+\sigma_2 &= zy \rightsquigarrow yz
 \end{align*}
 Thus, the rewriting system $S=\{\sigma_1, \sigma_2\}$ is compatible with the grlex monomial order and the associated ideal $I_S$ is precisely $(xy-yx, yz-zy)$. All that remains to check is that all ambiguities are resolvable.
 
@@ -148,9 +148,9 @@ and once again we are stuck, since both $yzx^2$ and $zx^2y$ are $S$-irreducible.
 The problem is solved if we consider the rewriting system $S'$ composed of the rewriting rules:
 \begin{align*}
 \sigma &= yx \rightsquigarrow xy\\
-\tau_n &= zx^ny \rightsquigarrow yzx^n\\
+\tau_n &= zx^ny \rightsquigarrow yzx^n
 \end{align*}
-for all $n\in\NN_0$. As we can see, the rewriting system $S'$ is compatible with the grlex monomial order, and since the identities $zx^ny=yzx^n$ hold in $A$, we have that $I_{S'} = (xy-yx, yzx^n-zx^ny)=(xy-yx, yz-zy)$.\marginpar{explicar mejor por qué} The rules $\tau_j$ and $\tau_k$ do not overlap or contain each other for any choice of $j$ and $k$, so the only overlapping ambiguities are of the form $(\tau_n,\sigma,zx^n,y,x)$, for $n\in\NN_0$. We now check that these ambiguities are resolvable:
+for all $n\in\NN_0$. As we can see, the rewriting system $S'$ is compatible with the grlex monomial order, and since the identities $zx^ny=yzx^n$ hold in $A$, we have that $I_{S'} = (xy-yx, yzx^n-zx^ny)=(xy-yx, yz-zy)$.\note{explicar mejor por qué} The rules $\tau_j$ and $\tau_k$ do not overlap or contain each other for any choice of $j$ and $k$, so the only overlapping ambiguities are of the form $(\tau_n,\sigma,zx^n,y,x)$, for $n\in\NN_0$. We now check that these ambiguities are resolvable:
 \[
 \begin{tikzpicture}
 \node (1) at (0,0) {$zx^nyx$};
@@ -163,9 +163,83 @@ for all $n\in\NN_0$. As we can see, the rewriting system $S'$ is compatible with
 \draw[->] (a2) to node[below, font=\footnotesize]{$\tau_{n+1}$} (b);
 \draw[double] (a1) to (b);
 \end{tikzpicture}
-\]\marginpar{arreglar formato del dibujo}
-Therefore, the rewriting system is confluent, and so the set of $S'$-irreducible monomials form a basis for the algebra $A$. In this case, characterizing this set is not as easy as in the previous examples, since the rewriting system is considerably more complex. This, of course, reflects the fact that the basis has a richer combinatorial structure.\marginpar{describirlo explícitamente es molesto}
+\]\note{arreglar formato del dibujo}
+Therefore, the rewriting system is confluent, and so the set of $S'$-irreducible monomials form a basis for the algebra $A$. In this case, characterizing this set is not as easy as in the previous examples, since the rewriting system is considerably more complex. This, of course, reflects the fact that the basis has a richer combinatorial structure.\note{describirlo explícitamente es molesto}
 \end{exmp}
-\textcolor{red}{falta un ejemplo en el que se resuelvan las ambiguedades al agrandar el juego de reglas usando sólo finitas reglas nuevas, y contar cómo es el procedimiento en general}
+
+We now summarize our usual method to produce confluent rewriting systems:
+
+\begin{heur} Let $A=k\langle x_1,\dots,x_n\rangle/(r_1,\dots,r_m)$ be a $k$-algebra given by generators and relations. The lexicographic order $x_1<\dots<x_n$ induces a grlex monomial order $\preceq$ on $\langle x_1,\dots,x_n\rangle$, which satisfies the descending chain condition by Lemma \ref{noeth}. We can produce a rewriting system following these steps:
+\begin{enumerate}
+\item Write each relation $r_i$ as
+\[r_i = \lambda_{i,1}w_{i,1} + \lambda_{i,2} w_{i,2} + \dots + \lambda_{i,k_i} w_{i, k_i},\]
+where $w_{i,j}\in \langle x_1,\dots,x_n\rangle$, $\lambda_{i,j}\in k$ and $w_{i,1}\succeq w_{i,2}\succeq\dots\succeq w_{i,k_i}$.
+\item Consider the rules
+\[\sigma_i = w_{i,1} \rightsquigarrow -\lambda_{i,1}^{-1}\lambda_{i,2}w_{i,2}-\dots-\lambda_{i,1}^{-1}\lambda_{i,k_i}w_{i,k_i}\]
+which are all compatible with the monomial order $\preceq$ and are such that the rewriting system $S=\{\sigma_i\}$ induces the ideal $I_S=(r_1,\dots,r_m)$.
+\item If all ambiguities arising from this rewriting system are resolvable, we are done. Otherwise, given an unresovable ambiguity $(\sigma_i, \sigma_j, u,v,w)$, reduce both $r_i(uv)w$ and $ur_j(vw)$ into irreducible elements, which we will call $a$ and $b$ respectively. We have that $a-b\in I_S$, and so \[A=k\langle x_1,\dots,x_n\rangle/(r_1,\dots,r_m)=k\langle x_1,\dots,x_n\rangle/(r_1,\dots,r_m, a-b).\]
+Treating $a-b$ as another relation, we can follow the steps 1 and 2 as to produce a new rule that will solve the previous ambiguity, but may generate new ones.
+\item Repeat step 3 until the system is confluent.
+\end{enumerate}
+This procedure, of course, does not \emph{always} work, but is good enough as to solve most of the cases that arise throughout this thesis.
+\end{heur}
+\end{section}
+\begin{section}{A diamond lemma for path algebras}
+As seen in the previous section, Bergman's diamond lemma applies over quotients of free algebras. However, we will only apply it on a particular family of algebras, namely quotients of path algebras. As though obviously path algebras are themselves quotients of free algebras, applying Bergman's diamond lemma can be quite cumbersome. For example, consider the following quiver, which we will name $Q$:
+\[
+\begin{tikzpicture}[->,node distance=1cm, thick]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
+\node (1) at (0,0) {$u$};
+\node (2) at (2,0) {$v$};
+\draw (1) -- (2) node[midway, above, fill=white] {$\alpha$};
+\end{tikzpicture}
+\]
+The path algebra $\kQ$ may be described as the quotient of the free algebra $k\langle u,v,\alpha\rangle$ by the ideal
+\[(\underbrace{uv, vu, u^2-u, v^2-v, u+v-1}_{\substack{\text{$u$ and $v$ are idempotent orthogonal}\\\text{elements of sum $1$}}}, \underbrace{\alpha^2, \alpha u-\alpha, v\alpha-\alpha, \alpha v,u\alpha }_{\substack{\text{relations forced by the way arrows}\\\text{and vertices concatenate}}})\]
+Even in a quiver as simple as $Q$ and without introducing further relations in the path algebra, a lot of rewriting rules and ambiguities arise. Therefore, it makes sense to produce a specialized version of the diamond lemma in order to deal with this particular case in a more efficient manner, in a similar vein as \cite{FFG93}.
+
+\textcolor{red}{enunciar lema}
+
+\begin{exmp} Consider the quiver $Q$ given by the following diagram:
+\[
+\begin{tikzpicture}[->,node distance=1cm, thick]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
+\node (1) at (0,0) {$u$};
+\node (2) at (2,2) {$v$};
+\node (3) at (2,-2) {$w$};
+\node (4) at (4,0) {$x$};
+\node (5) at (6.82,0) {$y$};
+\tikzstyle{every node} = []
+\draw (1) -- (2) node[midway, above] {$\alpha$};
+\draw (2) -- (4) node[midway, above] {$\beta$};
+\draw (1) -- (3) node[midway, below] {$\gamma$};
+\draw (3) -- (4) node[midway, below] {$\delta$};
+\draw (4) -- (5) node[midway, above] {$\varepsilon$};
+\end{tikzpicture}
+\]
+We will make use of the diamond lemma to produce a basis for the algebra $A=\kQ/(\delta\gamma-\beta\alpha, \varepsilon\beta, \varepsilon\delta)$. The usual grlex ordering induced by the lexicographical order suggests the rewriting rules:
+\begin{align*}
+\sigma_1 &= \delta\gamma \rightsquigarrow \beta\alpha\\
+\sigma_2 &= \varepsilon\beta \rightsquigarrow 0\\
+\sigma_3 &= \varepsilon\delta \rightsquigarrow 0
+\end{align*}\note{quedaron mal alineadas}
+Thus, the rewriting system $S=\{\sigma_1,\sigma_2,\sigma_3\}$ presents a unique ambiguity, which is $(\sigma_3,\sigma_1, \varepsilon,\delta,\gamma)$. The following diagram shows that this ambiguity is resolvable:
+\[
+\begin{tikzpicture}
+\node (1) at (0,0) {$\varepsilon\delta\gamma$};
+\node (a1) at (-2,-2) {$0$};
+\node (a2) at (2,-2) {$\varepsilon\beta\alpha$};
+\node (b) at (0,-4) {$0$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_3$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_1$} (a2);
+\draw[->] (a2) to node[below, font=\footnotesize]{$\sigma_2$} (b);
+\draw[double] (a1) to (b);
+\end{tikzpicture}
+\]
+Therefore, the rewriting system $S$ is confluent, and then our algebra $A$ has a basis given by the $S$-irreducible paths, which are
+\[\{e_u, e_v, e_w, e_x, e_y, \alpha,\beta,\gamma,\delta,\varepsilon, \beta\alpha \},\]
+where $e_a$ stands for the stationary path at the vertex $a$.
+\end{exmp}
 \end{section}
 \end{chapter}
