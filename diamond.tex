@@ -19,7 +19,7 @@ Nonetheless, under some relatively mild hypotheses on the ideal $R$, this kind o
 In other words, monomials are sorted first by length and then lexicographically according to the total order $\leq$.
 \end{exmp}
 
-A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_n\not \leq p_{n+1}$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_n \leq p_{n+1}$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
+A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_{n+1}\not \leq p_n$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_{n+1} \leq p_n$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
 
 \begin{lemma}\label{noeth} Let $(X,\leq)$ be a finite, totally ordered set. Then, the graded lexicographical order on $\mon$ satisfies the descending chain condition.
 \end{lemma}
@@ -45,7 +45,7 @@ A monomial order $\preceq$ over $\mon$ is said to be compatible with a rewriting
 
 After all these preliminary definitions, we are now able to formulate the main result in this section:
 
-\begin{thm}[Bergman's diamond lemma] Let $S$ be a rewriting system for $X$ and $\preceq$ a monoid order on $\mon$ compatible with $S$ and satisfying the descending chain condition. Let $I_S$ be the ideal given by the relations induced by $S$, that is, $I_S=(w_\sigma-f_\sigma)_{\sigma\in S}$. Then the following conditions are equivalent:
+\begin{thm}[Bergman's diamond lemma] Let $X$ be a set, $S$ be a rewriting system for $X$ and $\preceq$ a monoid order on $\mon$ compatible with $S$ and satisfying the descending chain condition. Let $I_S$ be the ideal given by the relations induced by $S$, that is, $I_S=(w_\sigma-f_\sigma)_{\sigma\in S}$. Then the following conditions are equivalent:
 \begin{enumerate}
 \item All ambiguities of $S$ are resolvable.
 \item All elements of $k\mon$ are reduction-unique under $S$.
@@ -96,7 +96,6 @@ Now, the rewriting system $S=\{\sigma_1, \sigma_2, \sigma_3\}$ is compatible wit
 \draw[->] (b2) to node[right, font=\footnotesize]{$\sigma_3$} (c);
 \end{tikzpicture}
 \]\note{needs to be squigglified}
-
 Now that we have checked that the only ambiguity is resolvable, by the diamond lemma we know that the set of $S$-irreducible monomials form a basis for $k[x,y,z]$, and once again those turn out to be the set of ordered monomials $\{x^iy^jz^k:i,j,k\in\NN_0\}$. Similar arguments hold for polynomial algebras with an arbitrary number $n$ of variables, although the amount of ambiguities that one needs to deal with grows with $n$.
 \end{exmp}
 \begin{exmp} Consider the $k$-algebra $A=k\langle x,y,z\rangle/(xy-yx, yz-zy)$. As usual, we consider the usual lexicographical order $x<y<z$ and the grlex monomial order it induces on $\langle x,y,z\rangle$, which satisfies the descending chain condition. Once again, the relations $xy-yx$ and $yz-zy$ naturally induce the following rewriting rules:
@@ -198,7 +197,16 @@ The path algebra $\kQ$ may be described as the quotient of the free algebra $k\l
 \[(\underbrace{uv, vu, u^2-u, v^2-v, u+v-1}_{\substack{\text{$u$ and $v$ are idempotent orthogonal}\\\text{elements of sum $1$}}}, \underbrace{\alpha^2, \alpha u-\alpha, v\alpha-\alpha, \alpha v,u\alpha }_{\substack{\text{relations forced by the way arrows}\\\text{and vertices concatenate}}})\]
 Even in a quiver as simple as $Q$ and without introducing further relations in the path algebra, a lot of rewriting rules and ambiguities arise. Therefore, it makes sense to produce a specialized version of the diamond lemma in order to deal with this particular case in a more efficient manner, in a similar vein as \cite{FFG93}.
 
-\textcolor{red}{enunciar lema}
+Given a quiver $Q$, a \emph{rewriting system} on $Q$ is a subset $S\subseteq Q_*\times \kQ$, where $Q_*$ stands for the set of all paths on $Q$. A \emph{path order} on $Q_*$ is a partial order $\preceq$ on $Q_*$ such that if $v$ and $v'$ are parallel paths (that is, they share the same source and target) and $v\preceq v'$, then $uvw\preceq uv'w$ for all $u,w\in Q_*$ with appropriate source and target. All other previous definitions translate almost verbatim to this new setting. We now are able to formulate our specialized version of the diamond lemma:
+
+\begin{thm}\label{quiver-diamond-lemma} Let $Q$ be a quiver, $S$ be a rewriting system for $Q$ and $\preceq$ a path order on $Q_*$ compatible with $S$ and satisfying the descending chain condition. Let $I_S$ be the ideal given by the relations induced by $S$, that is, $I_S=(w_\sigma-f_\sigma)_{\sigma\in S}$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item All ambiguities of $S$ are resolvable.
+\item All elements of $\kQ$ are reduction-unique under $S$.
+\item A set of representatives in $\kQ$ for the elements of the algebra $\kQ/I_S$ is given by the $k$-submodule $\kQ_{\mathrm{irr}}$ spanned by the $S$-irreducible paths of $Q_*$.
+\end{enumerate}
+If any of these conditions hold, the rewriting system $S$ is said to be $\emph{confluent}$. In that case, there is a $k$-algebra isomorphism between $\kQ/I_S$ and $\kQ_{\mathrm{irr}}$, where the latter is a $k$-algebra with product defined as $x\cdot y= r_S(xy)$.
+\end{thm}\note{chequear el enunciado}
 
 \begin{exmp} Consider the quiver $Q$ given by the following diagram:
 \[
@@ -240,6 +248,76 @@ Thus, the rewriting system $S=\{\sigma_1,\sigma_2,\sigma_3\}$ presents a unique 
 Therefore, the rewriting system $S$ is confluent, and then our algebra $A$ has a basis given by the $S$-irreducible paths, which are
 \[\{e_u, e_v, e_w, e_x, e_y, \alpha,\beta,\gamma,\delta,\varepsilon, \beta\alpha \},\]
 where $e_a$ stands for the stationary path at the vertex $a$.
+\end{exmp}
+\begin{exmp} Let $Q$ be the following quiver:
+\[
+\begin{tikzpicture}[->,node distance=1cm, thick]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
+\node (1) at (0,0) {$u$};
+\node (2) at (2,2) {$v$};
+\node (3) at (2,-2) {$w$};
+\node (4) at (4,0) {$x$};
+\node (5) at (6.82,0) {$y$};
+\tikzstyle{every node} = []
+\draw (1) -- (2) node[midway, above] {$\alpha$};
+\draw (2) -- (4) node[midway, above] {$\beta$};
+\draw (1) -- (3) node[midway, below] {$\gamma$};
+\draw (3) -- (4) node[midway, below] {$\delta$};
+\draw (4.20) -- (5.160) node[midway, above] {$\varepsilon$};
+\draw (4.340) -- (5.200) node[midway, below] {$\zeta$};
+\end{tikzpicture}
+\]
+Consider the algebra $A=\kQ/(\delta\gamma-\beta\alpha, \varepsilon\beta, \zeta\delta)$. Following our usual procedure, we first consider the rewriting system $S$ given by the rules
+\begin{align*}
+\sigma_1 &= \delta\gamma \rightsquigarrow \beta\alpha\\
+\sigma_2 &= \varepsilon\beta \rightsquigarrow 0\\
+\sigma_3 &= \zeta\delta \rightsquigarrow 0
+\end{align*}\note{de nuevo mal alineadas}
+\end{exmp}
+In this case, the rewriting system is not confluent, since the ambiguity $(\sigma_3, \sigma_1, \zeta, \delta, \gamma)$ is unresolvable. However, after enlarging the system as to contain the rule
+\[\sigma_4 = \zeta\beta\alpha\rightsquigarrow 0,\]
+we achieve confluence. Thus, a basis is given by the $S$-irreducible monomials.
+\end{section}
+
+\begin{section}{A topological diamond lemma}
+As Jacobian algebras are quotients of completed path algebras by closed ideals, one needs to further specialize the diamond lemma in order to account for issues of convergence, as carried out in the works \cite{Hel02} and \cite{SAV15}.
+
+Most of the terminology needed to introduce this last version of the lemma has already been presented; we will only need to provide a slight variation on the descending chain condition. We say that a monomial order $\preceq$ satisfies the \emph{descending chain condition in norm} if every sequence $(x_n)$ of monomials in $\mon$ such that $x_{n+1}\not\preceq x_n$\note{formato} for all $n\geq 0$ converges to zero in $k\llangle X\rrangle$.
+
+\begin{thm} Let $X$ be a set, $S$ be a rewriting system for $X$ and $\preceq$ a monoid order on $\mon$ compatible with $S$ and satisfying the descending chain condition in norm. Let $I_S$ be the closed ideal given by the relations induced by $S$, that is, $I_S=\overline{(w_\sigma-f_\sigma)}_{\sigma\in S}$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item All ambiguities of $S$ are resolvable.
+\item All elements of $k\llangle X\rrangle$ are reduction-unique under $S$.
+\item A set of representatives in $k\llangle X\rrangle$ for the elements of the algebra $k\llangle X\rrangle/I_S$ is given by the closed $k$-submodule $k\llangle X\rrangle_{\mathrm{irr}}$ spanned by the $S$-irreducible monomials of $\mon$.
+\end{enumerate}
+Once again, if any of these conditions hold, the rewriting system $S$ is said to be $\emph{confluent}$, and in that case  there is a $k$-algebra isomorphism between $k\llangle X\rrangle/I_S$ and $k\llangle X\rrangle_{\mathrm{irr}}$, where the latter is a $k$-algebra with product defined as $x\cdot y= r_S(xy)$.
+\end{thm}
+
+A similar statement may be carried out for quotients of completed path algebras. Indeed, one may modify the statement of Theorem \ref{quiver-diamond-lemma} replacing "descending chain condition" by "descending chain condition in norm" and all algebraic objects by their complete counterparts (algebras and their completions, ideals and closed ideals, submodules and closed submodules, etc.) to obtain the result.
+
+Given a total order $\leq$ on a set $X$, the \emph{reverse graded lexicographical order}, or \emph{grevlex} for short, is the monomial order $\preceq$ defined on $\mon$ as follows: given $u,v\in \mon$, we have $u\preceq v$ if
+\begin{itemize}
+\item $|u| > |v|$ or
+\item $|u| = |v|$ and $u=wau'$, $v=wbv'$, with $w,u',v'\in \mon$, $a,b\in X$ and $a\leq b$.
+\end{itemize}
+Therefore, monomials are sorted first by length (but this time longer terms are smaller with respect to $\preceq$) and then lexicographically according to the total order $\leq$. Analogously one defines the grevlex order for paths on a quiver. This will be our preferred order when dealing with completions, since we have that:
+
+\begin{lemma}\label{noeth} Let $(X,\leq)$ be a finite, totally ordered set. Then, the grevlex order on $\mon$ satisfies the descending chain condition in norm.
+\end{lemma}
+\begin{proof} Let $(x_n)$ be a strictly decreasing sequence in $\mon$ and $k$ be the cardinality of $X$. There are exactly $j=\sum_{l=0}^d k^l$ words in $\mon$ of length at most $d$, and so $x_{j+1}$ must be of length at least $d+1$, since the sequence $(x_n)$ is strictly decreasing. Thus, in $k\llangle X\rrangle$ we have that $\Vert x_{n}\Vert\leq e^{-d-1}$ for all $n\geq j+1$ and so $x_n\rightarrow 0$ as we wanted.
+\end{proof}
+
+Once again, an analogous result holds for quivers and complete path algebras.
+
+\begin{exmp} In general, given an ideal $I$, the algebras $k\langle X\rangle/I$ and its completed counterpart $k\llangle X\rrangle/\overline{I}$ may be quite different. For instance, consider the ideal $I=(x^2-x)$ in $k\langle x \rangle$. We may form the algebras $A=k\langle x\rangle/I$ and $B=k\llangle x\rrangle/\overline{I}$.
+
+Since the ideal $(x^2-x)=(x)\cap(x-1)$ and the ideals $(x)$ and $(x-1)$ are coprime, by the chinese remainder theorem we have that
+\[A=\frac{k\langle x\rangle}{(x^2-x)}\simeq \frac{k\langle x\rangle}{(x)} \times \frac{k\langle x\rangle}{(x-1)}\simeq k\times k.\]
+We now study $B$ using the diamond lemma. The rewriting system $S=\{x\rightsquigarrow x^2\}$ is compatible with the reverse graded path order and is obviously confluent, since the monomial $x$ does not overlap with itself in any non-trivial way. We see that the only $S$-irreducible monomials are the constant ones, and so a basis for $B$ is given by $\{[1]\}$, and thus $B\simeq k$.
+
+More generally, if $I=(x^n-x)$, we have that
+\[\frac{k\langle x\rangle}{(x^n-x)} \simeq \frac{k\langle x\rangle}{(x)}\times \frac{k\langle x\rangle}{(x^{n-1}-1)}\simeq k \times \frac{k\langle x\rangle}{(x^{n-1})},\]
+which is an $n$-dimensional algebra, while in the completed case we have that $k\llangle x\rrangle/\overline{I}\simeq k$ by the same reasoning as above, since the rewriting system $S=\{x\rightsquigarrow x^n\}$ is confluent.
 \end{exmp}
 \end{section}
 \end{chapter}
