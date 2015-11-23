@@ -112,24 +112,15 @@ Let $Q$ be a quiver and $\kQ$ its associated path algebra. Then $\kQ$ is finite-
 
 Conversely, if $Q$ contains a cycle $u$, then $\{u,u^2,u^3,\dots\}$ is an infinite linearly independent set, and so $\kQ$ is infinite-dimensional.
 \end{proof}
+\end{section}
 
-\begin{section}{The Jacobian algebra of a quiver with potential}
+\begin{section}{Completions}
+\note{estoy mintiendo al no hablar de topologia sobre $k$?}
+Given a quiver $Q$, the path algebra $\kQ$ admits a $k$-algebra norm $\vert \cdot \vert$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. In fact, this is not just a norm but an \emph{ultranorm}, which means we have a stronger triangle inequality, namely \[|x+y|\leq \max\{|x|,|y|\}.\] This norm plays nicely with multiplication as well, since \[|xy|=e^{-\nu(xy)}=e^{-\nu(x)-\nu(y)} = e^{-\nu(x)}e^{-\nu(y)}=|x|\cdot|y|.\]
 
-\note{motivación}
+It is thus straightforward to check that the $k$-algebra operations of $\kQ$ are continuous in the topology induced by this ultranorm. These operations extend to the completion of $\kQ$ as a metric space, making it a $k$-algebra itself, which we will call the \emph{complete path algebra} $\KQ$.
 
-Maintaining our previous notation, we now define the \emph{complete path algebra} $\KQ$ associated to a quiver $Q$ as
-\[
-\KQ = \prod_{n=0}^\infty A^n,
-\]
-that is, elements of $\KQ$ are possibly infinitely supported linear combinations of paths in $Q_*$ and the product on $\KQ$ is just the natural extension of the product on $\kQ$.
-
-\note{todo este párrafo debería explicarse mejor una vez que esté hecha la parte del lema topológico}
-
-The path algebra $\kQ$ admits a $k$-algebra ultranorm $\vert \cdot \vert: \kQ\to [0, \infty)$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. We call this the \emph{$\mathfrak{m}$-adic ultranorm} on $\kQ$. One can check that the complete path algebra $\KQ$ is in fact the completion of the path algebra $\kQ$ with respect to the $\mathfrak{m}$-adic ultranorm.
-
-It is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
-
-\note{acá o bien en la parte del lema topológico habría que probar algunas propiedades básicas de la topología -- cuál es la noción de convergencia, etc.}
+Suppose $(x_n)$ is a Cauchy sequence in $\kQ$. If $x_n=\sum_{u\in Q_*} \lambda_u^n u$, we have that the sequence $(\lambda_u^n)$ is eventually constant, since $|x_n-x_m|<e^{-|u|}$ for big enough $n,m$. Therefore, we may identify the Cauchy sequence $(x_n)$ with its termwise limit $x=\sum_{u\in Q_*} \lambda_u u$, where \textcolor{red}{$\lambda_u^n \to \lambda_u$}. One can now check that $\KQ$ may be identified with the $k$-algebra $\prod_{n=0}^\infty A^n$, where, as before, $A^n$ stands for the $k$-vector spanned by paths of length $n$. The norm $|\cdot|$ extends naturally to this algebra, and it is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
 
 We now consider the completions of the examples of path algebras mentioned previously:
 
@@ -138,8 +129,18 @@ We now consider the completions of the examples of path algebras mentioned previ
 
 \begin{exmp}Let $Q$ be the quiver from \ref{several-loops}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between the respective completions $\KQ\simeq k\langle\!\langle x_1,\dots,x_n\rangle\!\rangle$, where the right-hand side term denotes the algebra of non-commutative formal power series in $n$ variables.
 \end{exmp}
+
+The construction we carried out on $\kQ$ relied on the fact that it is a metric space. With greater generality, one may construct the completion of a topological $k$-algebra, as described in \cite{AM69} and \cite{Bou98}. While the result is the same for $\kQ$, we chose to work with the metric space structure since the construction is much less technically involved in that case.
+
+We end this section with a trivial remark that will be used extensively later:
+
+\begin{obs}\label{arbitrarily-long} Let $I$ be a closed ideal in $\KQ$. Suppose $x$ is a path such that, for all $n\in \NN$, there exists a path $x_n$ of length at least $n$ such that $x=x_n$ in $\KQ/I$. Then, $x=0$ in $\KQ/I$.
+\end{obs}
+\begin{proof} Let $(x_n)$ be a sequence of paths such that $x=x_n$ in $\KQ/I$ and $x_n$ is of length at least $n$. Then $x-x_n\in I$ and since $|x_n|\leq e^{-n}\to 0$ we have that $x-x_n\to x$. Since the ideal $I$ is closed and the sequence $(x-x_n)$ is contained in $I$, we have that $x\in I$ and therefore $x=0$ in $\KQ/I$.
+\end{proof}
 \end{section}
 
+\begin{section}{The Jacobian algebra of a quiver with potential}
 Let $\KQ=\prod A^n$ be the complete path algebra associated to a quiver $Q$. For $n\geq 1$, we define the \emph{cyclic part} of $A^n$ as
 \[
 A^n_{\cyc} = \bigoplus_{r\in Q_0} rA^nr,
@@ -356,7 +357,83 @@ From now on, we will assume that our surface $(\Sigma, M)$ is none of the follow
 \end{enumerate}
 The reason for these exclusions is that the listed surfaces either have no non-trivial triangulations or only have pathological ones. In fact, we have the following result:
 
-\begin{prop}[{\cite{FST08}*{Proposition 2.13}}] Let $(\Sigma, M)$ be any surface with marked points not on the list above. Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
+\begin{prop}[{\cite{FST08}*{Proposition 2.13}}]\label{no-self-folds} Let $(\Sigma, M)$ be any surface with marked points not on the list above. Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
 \end{prop}
+\end{section}
+
+\begin{section}{The QP associated to an ideal triangulation}
+We will now introduce a way to produce a QP out of an ideal triangulation, so one may speak of the Jacobian algebra associated to the triangulation.
+
+Taking Proposition \ref{no-self-folds} into account, we will restrict ourselves to the case where no self-folded triangles appear. Although there is a general mechanism to produce QPs from arbitrary triangulations, as described in Section 3 from \cite{LF09}, technical difficulties arise when dealing with self-folded triangles.
+
+Let $T$ be an ideal triangulation of a surface with marked points $(\Sigma, M)$ involving no self-folded triangles. We construct a quiver $Q$ following these steps:
+\begin{enumerate}
+\item Draw a vertex $v_i$ for each edge $e_i$ in the triangulation $T$ that does not belong to the boundary of $\Sigma$.
+\item Draw an arrow between two vertices $v_i, v_j$ if $e_i$ and $e_j$ are edges of the same triangle.
+\item \textcolor{red}{Orient/orientate} all arrows according to the already existing orientation on the surface.
+\end{enumerate}
+
+Note that every triangle without edges on the boundary of the surface adds a 3-cycle to the quiver. We define the potential $P$ as the sum of all of these 3-cyles, plus all other cycles that circle a puncture. Notice that the potential is well defined up to cyclic equivalence. Thus, it makes sense to speak of the Jacobian algebra associated to the ideal triangulation $T$.
+
+\begin{exmp} Consider the following triangulation of the torus with a single puncture:
+\marginpar{marcar que los lados opuestos estan identificados}
+\[
+\begin{tikzpicture}[scale=1.2]
+\DSquare{0}{0}
+\end{tikzpicture}
+\]
+We follow the steps outlined above to obtain the following configuration:
+\[
+\begin{tikzpicture}[scale=1.2]
+\ArrowedSquare{0}{0}
+\end{tikzpicture}
+\]
+Keep in mind that, since opposing sides of the square are identified, the two triangles of the triangulation share all of their sides, and so this is actually a quiver with three vertices, which we will call $Q$ and draw as:
+\[
+\begin{tikzpicture}[scale=1.2, ->, thick]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
+\node (1) at (-1.5,0) {1};
+\node (2) at (1.5, 0) {2};
+\node (3) at (0, 2) {3};
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.01cm, inner sep=.001cm, fill=white]
+\draw (1.20) -- (2.160) node[midway, above] {$\alpha_1$};
+\draw  (1.340) -- (2.200) node[midway, below] {$\alpha_2$};
+\draw  (2.100) -- (3.330) node at (1,1.3) {$\beta_2$};
+\draw  (2.140) -- (3.290) node at (0.4, 0.9) {$\beta_1$};
+\draw  (3.270) -- (1.40) node at (-1,1.3) {$\gamma_2$};
+\draw  (3.230) -- (1.80) node at (-0.4, 0.9) {$\gamma_1$};
+\end{tikzpicture}
+\]
+Here we have two 3-cycles arising from the two triangles, which are $\gamma_1\beta_1\alpha_1$ and $\gamma_2\beta_2\alpha_2$, and a single 6-cycle that goes around the puncture, which is $\gamma_2\beta_2\alpha_2\gamma_1\beta_1\alpha_1$. Therefore, the associated potential is
+\[P = \gamma_1\beta_1\alpha_1+\gamma_2\beta_2\alpha_2+\gamma_2\beta_2\alpha_2\gamma_1\beta_1\alpha_1.\]
+\end{exmp}
+\begin{exmp} Let us now consider a triangulation of a surface with non-empty boundary. The following is a triangulation of the square with a single puncture:
+\[
+\begin{tikzpicture}[scale=0.8]
+\draw (-2,-2) to (-2,2);
+\draw (-2,2) to (2,2);
+\draw (2,2) to (2,-2);
+\draw (2,-2) to (-2,-2);
+\draw (-2,-2) to (2,2);
+\draw (-2,2) to (2,-2);
+\end{tikzpicture}
+\]
+Every triangle shares an edge with the boundary of the square, so each triangle accounts for only one arrow:
+\[
+\begin{tikzpicture}[scale=0.8]
+\draw (-2,-2) to (-2,2);
+\draw (-2,2) to (2,2);
+\draw (2,2) to (2,-2);
+\draw (2,-2) to (-2,-2);
+\draw (-2,-2) to (2,2);
+\draw (-2,2) to (2,-2);
+\draw[->, red, very thick] (-1,0.9) to node[left] {$a$} (-1, -0.9);
+\draw[->, red, very thick] (-0.9,-1) to node[below] {$b$} (0.9, -1);
+\draw[->, red, very thick] (1,-0.9) to node[right] {$c$} (1, 0.9);
+\draw[->, red, very thick] (0.9, 1) to node[above] {$d$} (-0.9, 1);
+\end{tikzpicture}
+\]
+Since there are no 3-cycles coming from any triangle, the potential $P$ consists simply of the 4-cycle that circles the puncture, which is $dcba$.
+\end{exmp}
 \end{section}
 \end{chapter}
