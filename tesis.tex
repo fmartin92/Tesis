@@ -14,6 +14,7 @@
 \usepackage{titlesec} %reasonable chapter headings
 \usepackage{stmaryrd} %double brackets
 \usepackage{tikz}
+\usepackage[toc,page]{appendix}
 \usetikzlibrary{arrows,positioning,through,decorations.pathmorphing}
 
 \usepackage{chngcntr}
@@ -91,6 +92,8 @@
 \input{./preliminaries.tex}
 \input{./diamond.tex}
 \input{./examples.tex}
+\begin{appendix}
+\input{./appendix.tex}
+\end{appendix}
 \input{./bibliography.tex}
-
 \end{document}

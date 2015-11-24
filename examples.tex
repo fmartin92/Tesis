@@ -1,5 +1,52 @@
 \begin{chapter}{Some examples}
-After introducing a method to produce a QP associated to an arbitrary polygonal subdivision of a surface, a natural question arises: is the associated Jacobian algebra always finite-dimensional? As shown in \cite{Lad12}, this is indeed the case for triangulations of closed surfaces. In this section, we will show that this is not true for arbitrary subdivisions. In fact, we will produce examples of both finite and infinite-dimensional algebras arising from subdivisions of closed surfaces of every genus.
+We have now introduced all of the definitions and tools needed to start studying Jacobian algebras arising from triangulations of surfaces. Perhaps the simplest invariant one can study is the dimension of said objects. As shown in \cite{Lad12}, all Jacobian algebras arising from surfaces with empty boundary are finite-dimensional, with perhaps the exception of the sphere with 4 punctures, which is not discussed\note{quizás incluir en un footnote que también considera potenciales con otros escalares...}. Therefore, one may ask if the result does not hold in that case or if only Ladkani's proof does not apply but the result holds nevertheless. This lead us to studying the tetrahedron, which is a \emph{nice} triangulation of the sphere with 4 punctures, in the sense that it does not involve self-folded triangles.
+
+\begin{section}{The tetrahedron}
+We start by constructing the quiver associated to the tetrahedron, which looks like this:
+\[
+\begin{tikzpicture}[thick]
+\tikzstyle{every node} = [circle, fill=gray, minimum size=.1cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[gray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->] (isw) -- (in);
+\draw[->] (in) -- (ise);
+\draw[->] (ise) -- (isw);
+\draw[->] (ise) -- (one);
+\draw[->] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+In the figure, the edges of the triangulation are gray, while arrows in the quiver are black. The outermost 3-cycle corresponds to the bottom face of the tetrahedron.\note{explicar por qué es así el dibujo} The potential, as we may recall from the Preliminaries section, is the sum of the four 3-cycles coming from the triangular faces of the tetrahedron and the four 3-cycles around each puncture of the sphere.
+
+While this triangulation is very simple, studying its associated Jacobian algebra can be quite troublesome. Our strategy is to name all arrows, sort paths using the grevlex order and try to apply the diamond lemma in order to produce a basis for it. However, the fact that there are 12 edges in the quiver makes calculation by hand difficult. Since every edge induces a different cyclic derivative, and therefore a different relation in the Jacobian algebra, we have 12 rewriting rules that overlap themselves in various ways. Therefore, it is not clear at all if the system is confluent or not, and checking that would imply a sizeable number of verifications. Moreover, if it turns out \emph{not} to be confluent, we may apply Heuristic \ref{heuristic} as to enlarge the rule set and try to achieve confluence, but this only increases the number of verifications one needs to perform.
+
+The problem is then too large to deal with by hand, but it looks reasonable enough to try to solve it using a computer. Perhaps, the most suitable software package for this is \texttt{bergman} (freely available at \url{http://servus.math.su.se/bergman/}), which is a general purpose Gröbner basis calculator for the non-commutative setting. However, while \texttt{bergman} operates with arbitrary quotients of free algebras, we are dealing with a very specialized problem: our algebra is a quotient of a complete path algebra. Imitating the process we described in Section \ref{path-diamond}, we can present complete path algebras as quotients of the completion of free algebras, but this introduces a huge number of relations that greatly slows down computation. Thus it makes sense to program our own piece of software to deal with this particular situation.
+
+We chose \texttt{SAGE} (freely available at \url{http://www.sagemath.org/}) as a framework to develop our program, since it has an extensive general purpose library. On a more particular note, it also includes a comprehensive directed graphs library that makes it easier for us to input and work with our quiver.
+
+A description of our algorithms and the code itself are presented in detail in the Appendix \ref{appendix}. We will now make use of our software to study the Jacobian algebra associated to the tetrahedron.
+\end{section}
 \begin{section}{A family of finite-dimensional examples}
 
 We start by showing that surfaces of any genus admit a particular decomposition into disjoint disks.
