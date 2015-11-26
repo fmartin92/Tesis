@@ -41,12 +41,97 @@ In the figure, the edges of the triangulation are gray, while arrows in the quiv
 
 While this triangulation is very simple, studying its associated Jacobian algebra can be quite troublesome. Our strategy is to name all arrows, sort paths using the grevlex order and try to apply the diamond lemma in order to produce a basis for it. However, the fact that there are 12 edges in the quiver makes calculation by hand difficult. Since every edge induces a different cyclic derivative, and therefore a different relation in the Jacobian algebra, we have 12 rewriting rules that overlap themselves in various ways. Therefore, it is not clear at all if the system is confluent or not, and checking that would imply a sizeable number of verifications. Moreover, if it turns out \emph{not} to be confluent, we may apply Heuristic \ref{heuristic} as to enlarge the rule set and try to achieve confluence, but this only increases the number of verifications one needs to perform.
 
-The problem is then too large to deal with by hand, but it looks reasonable enough to try to solve it using a computer. Perhaps, the most suitable software package for this is \texttt{bergman} (freely available at \url{http://servus.math.su.se/bergman/}), which is a general purpose Gröbner basis calculator for the non-commutative setting. However, while \texttt{bergman} operates with arbitrary quotients of free algebras, we are dealing with a very specialized problem: our algebra is a quotient of a complete path algebra. Imitating the process we described in Section \ref{path-diamond}, we can present complete path algebras as quotients of the completion of free algebras, but this introduces a huge number of relations that greatly slows down computation. Thus it makes sense to program our own piece of software to deal with this particular situation.
+The problem is then too large to deal with by hand, but it looks reasonable enough to try to solve it using a computer. Perhaps, the most suitable existing software package for this is \texttt{bergman} (freely available at \url{http://servus.math.su.se/bergman/}), which is a general purpose Gröbner basis calculator for the non-commutative setting. However, while \texttt{bergman} operates with arbitrary quotients of free algebras, we are dealing with a very specialized problem: our algebra is a quotient of a complete path algebra. Imitating the process we described in Section \ref{path-diamond}, we can present complete path algebras as quotients of the completion of free algebras, but this introduces a huge number of relations that greatly slows down computation. Thus it makes sense to program our own piece of software to deal with this particular situation.
 
 We chose \texttt{SAGE} (freely available at \url{http://www.sagemath.org/}) as a framework to develop our program, since it has an extensive general purpose library. On a more particular note, it also includes a comprehensive directed graphs library that makes it easier for us to input and work with our quiver.
 
-A description of our algorithms and the code itself are presented in detail in the Appendix \ref{appendix}. We will now make use of our software to study the Jacobian algebra associated to the tetrahedron.
+A description of our algorithms and the code itself are presented in detail in Appendix \ref{appendix}. We will now make use of our software to study the Jacobian algebra associated to the tetrahedron.
+
+We start by inputting our triangulation; the program will then produce the associated QP, label the vertices of the quiver and then generate the rewriting system induced by the grevlex order. Then, the system will be tested for confluence and, if that is not the case, will enlarge the set of rules as described in Heuristic \ref{heuristic} until confluence is achieved. The output reads:\note{mencionar por qué no hace falta considerar la parte topológica}
+\begin{lstlisting}
+>>> tetrahedron = Rewriting_System(graphs.TetrahedralGraph())
+Total rules: 12
+\end{lstlisting}
+As we anticipated, there are 12 rewriting rules, but the program finishes its execution without adding more of them, which means the obvious rewriting system is indeed confluent. We now display the labeling of the vertices of the quiver the program produced and the 12 rules:
+\begin{lstlisting}
+>>> tetrahedron.quiver.show()
+\end{lstlisting}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{tetra_quiver.png}
+\end{figure}\note{el quiver debería salir inmediatamente después de quiver.show()}
+Notice that this is exactly the same quiver as we have drawn before. We will call it $Q$.
+\begin{lstlisting}
+>>> tetrahedron.all_rules
+{(0, 1, 2): (0, 4, 2),
+ (0, 1, 5): (0, 4, 5),
+ (1, 2, 0): (1, 5, 0),
+ (1, 2, 3): (1, 5, 3),
+ (2, 0, 1): (2, 3, 1),
+ (2, 0, 4): (2, 3, 4),
+ (3, 1, 2): (3, 4, 2),
+ (3, 1, 5): (3, 4, 5),
+ (4, 2, 0): (4, 5, 0),
+ (4, 2, 3): (4, 5, 3),
+ (5, 0, 1): (5, 3, 1),
+ (5, 0, 4): (5, 3, 4)}
+\end{lstlisting}
+Paths are described as lists of vertices, meant to be read from left to right. For instance, $(0,1,2)$ is the path of length 2 obtained by concatenating the arrow with source 0 and target 1 to the arrow with source 1 and target 2. Rewriting rules are described as pairs of paths, where the leftmost path is the one that is replaced by the rightmost. For instance, following our previous notation, the rule $(0, 1, 2): (0, 4, 2)$ may be represented as $(0,1,2) \rightsquigarrow (0,4,2)$.
+
+Since the rewriting system is confluent, a basis for the Jacobian algebra is given by the set of irreducible paths, which are exactly the ones that do not contain any of the 12 paths that appear in the left side of the rewriting system. We will now draw a different quiver, called $Q'$, having the arrows of our old quiver as vertices and we will place an arrow joining two of them if the path of length 2 formed by concatenating those arrows is irreducible:
+
+\[
+\begin{tikzpicture}[->, thick, scale=1.3]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.04cm]
+\node (1) at (90:1.2) {$(3,4)$};
+\node (2) at (210:1.2) {$(4,5)$};
+\node (3) at (330:1.2) {$(5,3)$};
+\node (4) at (10:3) {$(3,1)$};
+\node (5) at (50:3) {$(2,3)$};
+\node (6) at (130:3) {$(4,2)$};
+\node (7) at (170:3) {$(0,4)$};
+\node (8) at (250:3) {$(5,0)$};
+\node (9) at (290:3) {$(1,5)$};
+\node (10) at (90:3) {$(0,1)$};
+\node (11) at (210:3) {$(1,2)$};
+\node (12) at (330:3) {$(2,0)$};
+\tikzstyle{every node} = []
+\draw (1) -- (2);
+\draw (2) -- (3);
+\draw (3) -- (1);
+\draw (3) -- (4);
+\draw (5) -- (4);
+\draw (5) -- (1);
+\draw (1) -- (6);
+\draw (7) -- (6);
+\draw (7) -- (2);
+\draw (9) -- (8);
+\draw (9) -- (3);
+\draw (2) -- (8);
+\end{tikzpicture}
+\]
+
+Any path in this new quiver represents a path in the original quiver $Q$ obtained by concatenating irreducible paths of length 2. Now, since the rewriting rules affect paths of length 2 only, we see that any path in the new quiver $Q'$ represents an irreducible element in the Jacobian algebra. As $Q'$ is not acyclic, we conclude that there are an infinite number of irreducible elements, and therefore the Jacobian algebra is infinite-dimensional.
+
+In fact, we can calculate a finer invariant. Given a graded algebra $A=\bigoplus_{n=0}^\infty A_n$, its \emph{Hilbert series} $h_A(t)$ is the ordinary generating function induced by the sequence $(\dim_k(A_n))$. In other words,
+\[h_A(t) = \sum_{n=0}^\infty \dim_k(A_n)\,t^n.\]
+Any path algebra is obviously graded by path length. Now, the Jacobian algebra associated to the tetrahedron (which we will call $A$ for the remainder of this section) is a quotient of a path algebra by an \emph{homogeneous} ideal, since the Jacobian ideal is generated by the 12 homogeneous binomials of degree 2 given by the rewriting rules shown above. Therefore, the original grading of the path algebra passes to the quotient and so $A$ itself is graded. 
+
+In the light of this fact, it makes sense to calculate its Hilbert series. We know that a basis for the homogeneous component of degree $n$ of $A$ is given by the set of irreducible paths of length $n$, so we just have to count them. Since the rewriting rules involve paths of length 2 only, all paths of length 0 and 1 are irreducible, and so $\dim_k(A_0)=6$ (the number of vertices in $Q$) and $\dim_k(A_1)=12$ (the number of arrows in $Q$). We know that $\dim_k(A_2)=12$ as well, since this is the number of arrows in the quiver $Q'$. In general, for $n\geq 3$, there are as many irreducible paths of length $n$ in $Q$ as paths of length $n-1$ in $Q'$. An easy counting argument shows that there are exactly 12 of them for all $n\geq 3$, since there are exactly 2 of them starting at each of the vertices $(0,4),(1,5), (2,3), (3,4), (4,5)$ and $(5,3)$ and none starting at any other vertices. Therefore, we conclude that the Hilbert series is
+\[h_A(t)=6+\sum_{n=1}^\infty 12 t^n.\]
+
+Our program can calculate this Hilbert series up to a specified maximum degree, by exhaustively generating the list of all paths of length $n$ and checking how many of them are irreducible. The program outputs
+\begin{lstlisting}
+>>> tetrahedron.hilbert_series(15)
+[6, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+\end{lstlisting}
+which agrees with our observations.
+
+We remark that, in general, the Jacobian ideal $I$ is not homogeneous, since relations may involve paths of different lengths, and so the Jacobian algebra $A=\KQ/I$ has no obvious grading. Nevertheless, it is still a filtered algebra (with the filtration induced, once again, by path length). Therefore, if we write the filtration $A_0\subseteq A_1\subseteq\dots\subseteq A$, we may still consider its \emph{associated graded algebra} $\gr(A)$, which is defined as
+\[\gr(A) = \bigoplus_{n=0}^\infty \frac{A_n}{A_{n-1}},\]
+with $A_{-1}=0$. Obviously, $\gr(A)$ is a graded $k$-algebra, and one may compute its Hilbert series just as we did in the tetrahedral case.
 \end{section}
+
 \begin{section}{A family of finite-dimensional examples}
 
 We start by showing that surfaces of any genus admit a particular decomposition into disjoint disks.
