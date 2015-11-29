@@ -3,7 +3,7 @@
 \label{appendix}
 We have developed a SAGE class to deal with the long and tedious process of checking the hypotheses of the diamond lemma, and to automatically generate bases and compute some invariants of the Jacobian algebra associated to a polygonal subdivision, with the only input being the subdivision itself. We now present the source code, which we will then discuss in more detail:
 \lstinputlisting{rewsystems.py}
-We will explain how the program works by following an example execution, in which we will compute some invariants of pyramids, as studied in Section \ref{pyramids}.
+We will explain how the program works by following an example execution, in which we will compute some invariants of pyramids, as studied in \hyperref[pyramids]{Section \ref*{pyramids}}.
 
 An instance of the \texttt{Rewriting\_System} class may be constructed either from an undirected graph representing a triangulation of the sphere or from a pair of a directed graph and a list, representing a quiver and a potential respectively. In the first case, the associated QP will be automatically generated. We only implemented this feature for triangluations of the sphere since it relies on finding a planar embedding of the graph on the surface, and \texttt{SAGE} only provides such an algorithm \textcolor{red}{for the sphere}.
 
@@ -25,18 +25,19 @@ sage: odd_pyramid.show()
 \centering
 \includegraphics[width=0.5\textwidth]{odd_pyramid.png}
 \end{figure}
-Before producing the rewriting system, let us explain how the class constructor works. As mentioned above, if the parameter given to the constructor was a graph representing a triangulation, the QP will be automatically generated. If the flag \texttt{add\_zero\_rules} is marked as \texttt{False}, the \texttt{rewriting\_rules()} method will produce the set of usual rewriting rules (the ones associated to the grevlex order) and perform Heuristic \ref{heuristic} indefinitely until confluence is achieved. In order to test confluence, for every ambiguity we reduce both of its branches a maximum of \texttt{ambiguity\_depth} times and compare if both branches eventually resolve to the same element.
+Before producing the rewriting system, let us explain how the class constructor works. As mentioned above, if the parameter given to the constructor was a graph representing a triangulation, the QP will be automatically generated. If the flag \texttt{add\_zero\_rules} is marked as \texttt{False}, the \texttt{rewriting\_rules()} method will produce the set of usual rewriting rules (the ones associated to the grevlex order) and perform \hyperref[heuristic]{Heuristic \ref*{heuristic}} indefinitely until confluence is achieved. In order to test confluence, for every ambiguity we reduce both of its branches a maximum of \texttt{ambiguity\_depth} times and compare if both branches eventually resolve to the same element.
 
 If \texttt{add\_zero\_rules} is set to \texttt{True}, the \textcolor{red}{not the same as implemented \texttt{zero\_rules()}} method will be executed before \texttt{rewriting\_rules()}. The \texttt{zero\_rules()} method performs the following heuristic:
-\begin{heur} As we have seen in Observation \ref{arbitrarily-long},  any path that may be prolonged to a path of arbitrarily high length is zero. Reductions of the form $x\rightsquigarrow 0$ are highly desirable, since the ambiguities they generate are usually simple to resolve. Obviously, if $x=0$, then $yxz=0$ for all $y,z$, and so we are interested in finding only the shortest paths that reduce to zero. Therefore, we perform the following steps:
+\begin{heur} As we have seen in \hyperref[arbitrarily-long]{Observation \ref*{arbitrarily-long}},  any path that may be prolonged to a path of arbitrarily high length is zero. Reductions of the form $x\rightsquigarrow 0$ are highly desirable, since the ambiguities they generate are usually simple to resolve. Obviously, if $x=0$, then $yxz=0$ for all $y,z$, and so we are interested in finding only the shortest paths that reduce to zero. Therefore, we perform the following steps:
 \begin{enumerate}
 \item Let $n=2$.
 \item Produce a list of all paths of length $n$.
 \item Apply rewriting rules to each path until either they are irreducible or they are longer than \texttt{zero\_depth}.
 \item If a path $x$ is equal to a path of length greater than \texttt{zero\_depth}, add the rewriting rule $x\rightsquigarrow 0$.
 \item If no path was found to reduce to zero, increase $n$ by 1 and repeat steps 2 to 5.
-This may be formalized by a \textcolor{red}{pumping lemma argument} if we choose a high enough value for \texttt{zero\_depth}.
 \end{enumerate}
+This may be formalized by a \textcolor{red}{pumping lemma argument} if we choose a high enough value for \texttt{zero\_depth}.
+
 We now generate the rewriting system associated to our pyramid:
 \end{heur}
 \begin{lstlisting}
@@ -94,7 +95,7 @@ sage: odd_rs.basis(5)[-1]
  [9, 4, 5, 0, 8],
  [9, 7, 3, 1, 6]]
 \end{lstlisting}
-The name of this method is \texttt{basis()} since the set of all irreducible paths of length $n$ is actually a basis of the homogeneous component of degree $n$ of the associated graded algebra, as we discussed in Section \ref{graded-alg}. We may compute its Hilbert series up to a certain degree as well:
+The name of this method is \texttt{basis()} since the set of all irreducible paths of length $n$ is actually a basis of the homogeneous component of degree $n$ of the associated graded algebra, as we discussed in \hyperref[graded-alg]{Section \ref*{graded-alg}}. We may compute its Hilbert series up to a certain degree as well:
 \begin{lstlisting}
 sage: odd_rs.hilbert_series(15)
 [10, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]

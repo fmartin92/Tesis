@@ -58,7 +58,7 @@ If any of these conditions hold, the rewriting system $S$ is said to be $\emph{c
 
 Let us illustrate how the diamond lemma is used in some examples:
 
-\begin{exmp} Consider the polynomial algebra $A=k[x,y]$, which is presented by generators and relations as $A=k\langle x,y\rangle/(xy-yx)$. If we order our variables $x$ and $y$ such that $x<y$, then the associated graded lexicographical order on $\langle x,y\rangle$ satisfies the descending chain condition by \ref{noeth}. Consider the terms in the unique relation $xy-yx$ and sort them using the grlex order. We have that $xy\preceq yx$, and so the rewriting rule $\sigma=yx\rightsquigarrow xy$ is compatible with our chosen monomial order. Thus, the rewriting system $S$ consiting of the unique rewriting rule $\sigma$ is such that:
+\begin{exmp} Consider the polynomial algebra $A=k[x,y]$, which is presented by generators and relations as $A=k\langle x,y\rangle/(xy-yx)$. If we order our variables $x$ and $y$ such that $x<y$, then the associated graded lexicographical order on $\langle x,y\rangle$ satisfies the descending chain condition by \hyperref[noeth]{Lemma \ref*{noeth}}. Consider the terms in the unique relation $xy-yx$ and sort them using the grlex order. We have that $xy\preceq yx$, and so the rewriting rule $\sigma=yx\rightsquigarrow xy$ is compatible with our chosen monomial order. Thus, the rewriting system $S$ consiting of the unique rewriting rule $\sigma$ is such that:
 \begin{itemize}
 \item the grlex order $\preceq$ is compatible with $S$,
 \item the associated ideal $I_S$ is $\langle xy-yx\rangle$,
@@ -168,7 +168,7 @@ Therefore, the rewriting system is confluent, and so the set of $S'$-irreducible
 
 We now summarize our usual method to produce confluent rewriting systems:
 
-\begin{heur}\label{heuristic} Let $A=k\langle x_1,\dots,x_n\rangle/(r_1,\dots,r_m)$ be a $k$-algebra given by generators and relations. The lexicographic order $x_1<\dots<x_n$ induces a grlex monomial order $\preceq$ on $\langle x_1,\dots,x_n\rangle$, which satisfies the descending chain condition by Lemma \ref{noeth}. We can produce a rewriting system following these steps:
+\begin{heur}\label{heuristic} Let $A=k\langle x_1,\dots,x_n\rangle/(r_1,\dots,r_m)$ be a $k$-algebra given by generators and relations. The lexicographic order $x_1<\dots<x_n$ induces a grlex monomial order $\preceq$ on $\langle x_1,\dots,x_n\rangle$, which satisfies the descending chain condition by \hyperref[noeth]{Lemma \ref*{noeth}}. We can produce a rewriting system following these steps:
 \begin{enumerate}
 \item Write each relation $r_i$ as
 \[r_i = \lambda_{i,1}w_{i,1} + \lambda_{i,2} w_{i,2} + \dots + \lambda_{i,k_i} w_{i, k_i},\]
@@ -294,7 +294,7 @@ Most of the terminology needed to introduce this last version of the lemma has a
 Once again, if any of these conditions hold, the rewriting system $S$ is said to be $\emph{confluent}$, and in that case  there is a $k$-algebra isomorphism between $k\llangle X\rrangle/I_S$ and $k\llangle X\rrangle_{\mathrm{irr}}$, where the latter is a $k$-algebra with product defined as $x\cdot y= r_S(xy)$.
 \end{thm}
 
-A similar statement for quotients of complete path algebras may be produced as well. Indeed, one may modify the statement of Theorem \ref{quiver-diamond-lemma} replacing "descending chain condition" by "descending chain condition in norm" and all algebraic objects by their complete counterparts (algebras and their completions, ideals and closed ideals, submodules and closed submodules, etc.) to obtain the result.
+A similar statement for quotients of complete path algebras may be produced as well. Indeed, one may modify the statement of \hyperref[quiver-diamond-lemma]{Theorem \ref*{quiver-diamond-lemma}} replacing "descending chain condition" by "descending chain condition in norm" and all algebraic objects by their complete counterparts (algebras and their completions, ideals and closed ideals, submodules and closed submodules, etc.) to obtain the result.
 
 Given a total order $\leq$ on a set $X$, the \emph{reverse graded lexicographical order}, or \emph{grevlex} for short, is the monomial order $\preceq$ defined on $\mon$ as follows: given $u,v\in \mon$, we have $u\preceq v$ if
 \begin{itemize}
@@ -303,7 +303,7 @@ Given a total order $\leq$ on a set $X$, the \emph{reverse graded lexicographica
 \end{itemize}
 Therefore, monomials are sorted first by length (but this time longer terms are smaller with respect to $\preceq$) and then lexicographically according to the total order $\leq$. Analogously one defines the grevlex order for paths on a quiver. This will be our preferred order when dealing with completions, since we have that:
 
-\begin{lemma}\label{noeth} Let $(X,\leq)$ be a finite, totally ordered set. Then, the grevlex order on $\mon$ satisfies the descending chain condition in norm.
+\begin{lemma}Let $(X,\leq)$ be a finite, totally ordered set. Then, the grevlex order on $\mon$ satisfies the descending chain condition in norm.
 \end{lemma}
 \begin{proof} Let $(x_n)$ be a strictly decreasing sequence in $\mon$ and $k$ be the cardinality of $X$. There are exactly $j=\sum_{l=0}^d k^l$ words in $\mon$ of length at most $d$, and so $x_{j+1}$ must be of length at least $d+1$, since the sequence $(x_n)$ is strictly decreasing. Thus, in $k\llangle X\rrangle$ we have that $\Vert x_{n}\Vert\leq e^{-d-1}$ for all $n\geq j+1$ and so $x_n\rightarrow 0$ as we wanted.
 \end{proof}
@@ -312,7 +312,7 @@ Once again, an analogous result holds for quivers and complete path algebras.
 
 \begin{exmp} In general, given an ideal $I$, the algebras $k\langle X\rangle/I$ and its completed counterpart $k\llangle X\rrangle/\overline{I}$ may be quite different. For instance, consider the ideal $I=(x^2-x)$ in $k\langle x \rangle$. We may form the algebras $A=k\langle x\rangle/I$ and $B=k\llangle x\rrangle/\overline{I}$.
 
-Since the ideal $(x^2-x)=(x)\cap(x-1)$ and the ideals $(x)$ and $(x-1)$ are coprime, by the chinese remainder theorem we have that
+Since we know that $(x^2-x)=(x)\cap(x-1)$ and the ideals $(x)$ and $(x-1)$ are coprime, by the chinese remainder theorem we have that
 \[A=\frac{k\langle x\rangle}{(x^2-x)}\simeq \frac{k\langle x\rangle}{(x)} \times \frac{k\langle x\rangle}{(x-1)}\simeq k\times k.\]
 We now study $B$ using the diamond lemma. The rewriting system $S=\{x\rightsquigarrow x^2\}$ is compatible with the reverse graded path order and is obviously confluent, since the monomial $x$ does not overlap with itself in any non-trivial way. We see that the only $S$-irreducible monomials are the constant ones, and so a basis for $B$ is given by $\{[1]\}$, and thus $B\simeq k$.
 

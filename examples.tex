@@ -40,15 +40,15 @@ We start by constructing the quiver associated to the tetrahedron, which looks l
 \]
 In the figure, the edges of the triangulation are gray, while arrows in the quiver are black. The outermost 3-cycle corresponds to the bottom face of the tetrahedron.\note{explicar por qué es así el dibujo} We observe that this quiver appears in {\cite{VD14}*{Example 1.4.4}}, as an example of what the author calls a quiver with an infinite \emph{cyclic sequence}\note{esto quizás está al pedo}. The potential, as we may recall from the Preliminaries section, is the sum of the four 3-cycles coming from the triangular faces of the tetrahedron and the four 3-cycles around each puncture of the sphere.
 
-While this triangulation is very simple, studying its associated Jacobian algebra can be quite troublesome. Our strategy is to name all arrows, sort paths using the grevlex order and try to apply the diamond lemma in order to produce a basis for it. However, the fact that there are 12 edges in the quiver makes calculation by hand difficult. Since every edge induces a different cyclic derivative, and therefore a different relation in the Jacobian algebra, we have 12 rewriting rules that overlap themselves in various ways. Therefore, it is not clear at all if the system is confluent or not, and checking that would imply a sizeable number of verifications. Moreover, if it turns out \emph{not} to be confluent, we may apply Heuristic \ref{heuristic} as to enlarge the rule set and try to achieve confluence, but this only increases the number of verifications one needs to perform.
+While this triangulation is very simple, studying its associated Jacobian algebra can be quite troublesome. Our strategy is to name all arrows, sort paths using the grevlex order and try to apply the diamond lemma in order to produce a basis for it. However, the fact that there are 12 edges in the quiver makes calculation by hand difficult. Since every edge induces a different cyclic derivative, and therefore a different relation in the Jacobian algebra, we have 12 rewriting rules that overlap themselves in various ways. Therefore, it is not clear at all if the system is confluent or not, and checking that would imply a sizeable number of verifications. Moreover, if it turns out \emph{not} to be confluent, we may apply \hyperref[heuristic]{Heuristic \ref*{heuristic}} as to enlarge the rule set and try to achieve confluence, but this only increases the number of verifications one needs to perform.
 
-The problem is then too large to deal with by hand, but it looks reasonable enough to try to solve it using a computer. Perhaps, the most suitable existing software package for this is \texttt{bergman} (freely available at \url{http://servus.math.su.se/bergman/}), which is a general purpose Gröbner basis calculator for the non-commutative setting. However, while \texttt{bergman} operates with arbitrary quotients of free algebras, we are dealing with a very specialized problem: our algebra is a quotient of a complete path algebra. Imitating the process we described in Section \ref{path-diamond}, we can present complete path algebras as quotients of the completion of free algebras, but this introduces a huge number of relations that greatly slows down computation. Thus it makes sense to program our own piece of software to deal with this particular situation.
+The problem is then too large to deal with by hand, but it looks reasonable enough to try to solve it using a computer. Perhaps, the most suitable existing software package for this is \texttt{bergman} (freely available at \url{http://servus.math.su.se/bergman/}), which is a general purpose Gröbner basis calculator for the non-commutative setting. However, while \texttt{bergman} operates with arbitrary quotients of free algebras, we are dealing with a very specialized problem: our algebra is a quotient of a complete path algebra. Imitating the process we described in \hyperref[path-diamond]{Section \ref*{path-diamond}}, we can present complete path algebras as quotients of the completion of free algebras, but this introduces a huge number of relations that greatly slows down computation. Thus it makes sense to program our own piece of software to deal with this particular situation.
 
 We chose \texttt{SAGE} (freely available at \url{http://www.sagemath.org/}) as a framework to develop our program, since it has an extensive general purpose library. On a more particular note, it also includes a comprehensive directed graphs library that makes it easier for us to input and work with our quiver.
 
-A description of our algorithms and the code itself are presented in detail in Appendix \ref{appendix}. We will now make use of our software to study the Jacobian algebra associated to the tetrahedron.
+A description of our algorithms and the code itself are presented in detail in \hyperref[appendix]{Appendix \ref*{appendix}}. We will now make use of our software to study the Jacobian algebra associated to the tetrahedron.
 
-We start by inputting our triangulation; the program will then produce the associated QP, label the vertices of the quiver and then generate the rewriting system induced by the grevlex order. Then, the system will be tested for confluence and, if that is not the case, will enlarge the set of rules as described in Heuristic \ref{heuristic} until confluence is achieved. The output reads:\note{mencionar por qué no hace falta considerar la parte topológica}
+We start by inputting our triangulation; the program will then produce the associated QP, label the vertices of the quiver and then generate the rewriting system induced by the grevlex order. Then, the system will be tested for confluence and, if that is not the case, will enlarge the set of rules as described in \hyperref[heuristic]{Heuristic \ref*{heuristic}} until confluence is achieved. The output reads:\note{mencionar por qué no hace falta considerar la parte topológica}
 \begin{lstlisting}
 sage: tetrahedron = Rewriting_System(graphs.TetrahedralGraph())
 Total rules: 12
@@ -202,7 +202,7 @@ We first deal with the case in which $g=1$. If we glue such a handle to the boun
 
 Once again, the intersection conditions are vacuous. Finally, we observe that the blue loop cuts the torus into a disk and a handle, so one can check condition $3$ in both objects separately. One sees at once that the disk gets cut up into 5 smaller disks, while the handle is divided into $3$ disks, as we wanted.
 
-While the solution to the case $g=1$ may be easier to draw directly on a square instead of considering a handle decomposition, the latter helps to illustrate the general case, which we now consider. For the case $g>1$, we regard our surface as a disk with $g-1$ holes, with a handle divided as in \ref{divided-handle} attached to its boundary and to each of its holes. We now exemplify the configuration on the \textcolor{red}{holed} disk for $g=4$:
+While the solution to the case $g=1$ may be easier to draw directly on a square instead of considering a handle decomposition, the latter helps to illustrate the general case, which we now consider. For the case $g>1$, we regard our surface as a disk with $g-1$ holes, with a handle divided as in \hyperref[divided-handle]{Figure \ref*{divided-handle}}\note{el link esta mal numerado, y en general los links no enlazan a la posición correcta en la página donde apuntan} attached to its boundary and to each of its holes. We now exemplify the configuration on the \textcolor{red}{holed} disk for $g=4$:
 
 \begin{figure}[h]
 \[
@@ -311,12 +311,17 @@ Notice that in both cases the choice of diagonal is consistent throughout the ba
 \label{band-intersection}
 \end{figure}
 
-Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{r_i\}$ and $B=\{b_j\}$ on $\Sigma$ satisfying the conditions stated in Proposition \ref{surface-loops}. We can now pick suitably small tubular neighborhoods of each loop and place a positively (resp. negatively) oriented band over each neighborhood corresponding to a loop in $R$ (resp. $B$). Conditions 1 and 2 of Proposition \ref{surface-loops} guarantee that all intersections between bands resemble that of figure \ref{band-intersection}. Condition 3 guarantees that each connected component of the complement of the bands is a polygon. We will refer to these polygons as \emph{regions}. Therefore, the collection of bands and regions actually define a polygonal subdivision of $\Sigma$. For technical reasons that will be clearer later, we will require each band to have at least 5 squares between any pair of intersections with other bands. This can be easily achieved by refining the division of the band if necessary. We will refer to this hypothesis as $(\diamond)$ throughout this section. From now on we fix a subdivision as described above for each genus $g$ and call its associated QP $(Q_g,P_g)$. The corresponding Jacobian algebra will be denoted $A_g$.
+Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{r_i\}$ and $B=\{b_j\}$ on $\Sigma$ satisfying the conditions stated in \hyperref[surface-loops]{Proposition \ref*{surface-loops}}. We can now pick suitably small tubular neighborhoods of each loop and place a positively (resp. negatively) oriented band over each neighborhood corresponding to a loop in $R$ (resp. $B$). Conditions 1 and 2 of \hyperref[surface-loops]{Proposition \ref*{surface-loops}} guarantee that all intersections between bands resemble that of \hyperref[band-intersection]{Figure \ref*{band-intersection}}. Condition 3 guarantees that each connected component of the complement of the bands is a polygon. We will refer to these polygons as \emph{regions}. Therefore, the collection of bands and regions actually define a polygonal subdivision of $\Sigma$. For technical reasons that will be clearer later, we will require each band
+\[
+\label{diamondhyp}
+\claim{to have at least 5 squares between any pair of intersections with other bands.}\tag{$\diamond$}
+\]
+This can be easily achieved by refining the division of the band if necessary. From now on we fix a subdivision as described above for each genus $g$ and call its associated QP $(Q_g,P_g)$. The corresponding Jacobian algebra will be denoted $A_g$.
 
 \note{todas las figuras grandes de esta sección están escaladas para no romper el formato de los párrafos que siguen}
 \begin{figure}[h]
 \[
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.7]
 \foreach \x in {-6,-4,...,6}
 {
 \ArrowedSquare{\x}{6}
@@ -353,7 +358,7 @@ Given a surface $\Sigma$ of arbitrary genus, we consider families of loops $R=\{
 \draw[->, red, very thick] (-6+1.1, -4-0.1) to [bend left] (-4-0.1,-6+1.1);
 \end{tikzpicture}
 \]
-\caption{The configuration of the associated quiver $Q_g$ around a region satisfying $(\diamond)$.}
+\caption{The configuration of the associated quiver $Q_g$ around a region satisfying \hyperref[diamondhyp]{$(\diamond)$}.}
 \end{figure}
 We now turn to the study of some relations that hold in $A_g$, that will enable us to prove its finite-dimensionality.
 
@@ -388,7 +393,7 @@ Since our quiver arises from a polygonal subdivision, we know that there is a cy
 
 Inspecting the figure we see that any path passing through vertices of both sides of the band must contain a path of the form $cba$ or $fed$ as factors. It suffices to check that both of them are zero in $A_g$.
 
-We have that $\partial_f(P_g) = ba + eay$, and so $ba  = -eay$ in $A_g$. Therefore, we have that $cba = -ceay$. Moreover, $\partial_d(P_g) = ce + xcb$, from which we deduce that $ce = -xcb$ in $A_g$. Putting all of this together, we get that $cba=-ceay=xcbay$ (one should note that the $cba$ factor in the right hand side of the equality consists of arrows placed on the square immediately left from the one where we started). Proceeding inductively we get $cba=x^ncbay^n$ for all positive $n$. Since $x$ and $y$ are paths of length at least $1$, this shows that $cba$ is equal to paths of arbitrarily high length. Therefore, by Observation \ref{arbitrarily-long}, we conclude that $cba=0$ in $A_g$.
+We have that $\partial_f(P_g) = ba + eay$, and so $ba  = -eay$ in $A_g$. Therefore, we have that $cba = -ceay$. Moreover, $\partial_d(P_g) = ce + xcb$, from which we deduce that $ce = -xcb$ in $A_g$. Putting all of this together, we get that $cba=-ceay=xcbay$ (one should note that the $cba$ factor in the right hand side of the equality consists of arrows placed on the square immediately left from the one where we started). Proceeding inductively we get $cba=x^ncbay^n$ for all positive $n$. Since $x$ and $y$ are paths of length at least $1$, this shows that $cba$ is equal to paths of arbitrarily high length. Therefore, by \hyperref[arbitrarily-long]{Observation \ref*{arbitrarily-long}}, we conclude that $cba=0$ in $A_g$.
 
 An analogous argument shows that $fed=0$ in $A_g$ as well, concluding the proof. 
 \end{proof}
@@ -397,13 +402,13 @@ An analogous argument shows that $fed=0$ in $A_g$ as well, concluding the proof.
 \end{lemma}
 \begin{proof} We first prove that any sufficiently long path cotained entirely in a single band is zero. As we have already seen, any path passing through vertices of both sides of the band is zero, so we will suppose without loss of generality that our path is placed on the upper part of the band. Mantaining the notation used on the proof of the previous lemma, this is equivalent to saying our path only has arrows $b, c, d$ or $e$ as factors.
 
-We start by studying paths containing a $3$-cycle as a prefix. The $3$-cycles $edc$ and $ced$ only prefix two paths of length 4, namely $cedc$ and $dced$. Since $\partial_e(P_g) = dc + ayf$, the relation $dc = -ayf$ holds, and so $cedc=-ceayf=0$ and $dced=-ayfed=0$ by Lemma \ref{band-sides}. Moreover, the $3$-cycle $dce$ only prefixes two paths of length 5, which are $cbdce$ and $cedce$. Clearly, $cedce=0$ since we have already shown that $cedc=0$, and using the relation $dc=-ayf$ we get $cbdce = - cbayfe=0$ once again by Lemma \ref{band-sides}.
+We start by studying paths containing a $3$-cycle as a prefix. The $3$-cycles $edc$ and $ced$ only prefix two paths of length 4, namely $cedc$ and $dced$. Since $\partial_e(P_g) = dc + ayf$, the relation $dc = -ayf$ holds, and so $cedc=-ceayf=0$ and $dced=-ayfed=0$ by \hyperref[band-sides]{Lemma \ref*{band-sides}}. Moreover, the $3$-cycle $dce$ only prefixes two paths of length 5, which are $cbdce$ and $cedce$. Clearly, $cedce=0$ since we have already shown that $cedc=0$, and using the relation $dc=-ayf$ we get $cbdce = - cbayfe=0$ once again by \hyperref[band-sides]{Lemma \ref*{band-sides}}.
 
 Now we turn to paths containing a $3$-cycle as a suffix. Once again, the $3$-cycles $ced$ and $dce$ only suffix two paths of length 4, which are $cedc$ and $dced$, already shown to be zero previously. The $3$-cycle $edc$ is a suffix to only two paths of length 5, which are $edcbd$ and $edced$. We see that $edced=0$ since $dced=0$ and $edcbd=-eayfbd=0$ as we wanted.
 
 Therefore, any path in a band of length $>5$ containing a 3-cycle is zero, since we have shown these cycles only admit prefixes and suffixes of length at most 1.
 
-Now, a path of length $>5$ not containing a 3-cycle is either of the form $dcbdcb$, $bdcbdc$ or $cdbcbd$. All possibilites have $cbdc$ as a factor, which is clearly zero since $cbdc = -cbayf = 0$ by Lemma \ref{band-sides}. Therefore, we conclude that any path of length $>5$ contained in a single band is zero.
+Now, a path of length $>5$ not containing a 3-cycle is either of the form $dcbdcb$, $bdcbdc$ or $cdbcbd$. All possibilites have $cbdc$ as a factor, which is clearly zero since $cbdc = -cbayf = 0$ by \hyperref[band-sides]{Lemma \ref*{band-sides}}. Therefore, we conclude that any path of length $>5$ contained in a single band is zero.
 
 Finally, consider a path of length $>9$ contained in possibly different bands. If its first six arrows lie on the same band, the path is zero as seen previously. Otherwise, at most five of its first arrows lie on the same band and the sixth is then placed on a different band intersecting the original one, as seen in the following figure:
 \[
@@ -435,12 +440,12 @@ Finally, consider a path of length $>9$ contained in possibly different bands. I
 \end{tikzpicture}
 \]
 
-Since by hypothesis $(\diamond)$ \note{quizás podria haber un link a la def de $\diamond$}two intersections in the same band are distanced by at least five squares, we conclude that at least the next six arrows belong to the same band. Therefore, any path of length $>9$ contained entirely in bands is zero in $A_g$, as we wanted.
+Since by hypothesis \hyperref[diamondhyp]{$(\diamond)$} two intersections in the same band are distanced by at least five squares, we conclude that at least the next six arrows belong to the same band. Therefore, any path of length $>9$ contained entirely in bands is zero in $A_g$, as we wanted.
 \end{proof}
 
 \begin{lemma}\label{long-region-paths} Any non-zero path entirely contained in an $n$-sided region is of length at most $3n-4$.
 \end{lemma}
-\begin{proof} We fix an $n$-sided region. Consider any band neighboring our region and pick any of its squares that is at least two squares away from an intersection with another band, which is always possible by hypothesis $(\diamond)$. Recalling the fact that our region induces an $n$-cycle in the quiver, we name the arrow starting at the square we picked as $x_0$. In general, given $j\in \ZZ/n\ZZ$ we call $x_j$ the arrow starting at the target of $x_{j-1}$. Keeping the previous notation for arrows contained in bands, our current situation is illustrated by this figure:
+\begin{proof} We fix an $n$-sided region. Consider any band neighboring our region and pick any of its squares that is at least two squares away from an intersection with another band, which is always possible by hypothesis \hyperref[diamondhyp]{$(\diamond)$}. Recalling the fact that our region induces an $n$-cycle in the quiver, we name the arrow starting at the square we picked as $x_0$. In general, given $j\in \ZZ/n\ZZ$ we call $x_j$ the arrow starting at the target of $x_{j-1}$. Keeping the previous notation for arrows contained in bands, our current situation is illustrated by this figure:
 \[
 \begin{tikzpicture}[text width=1.5mm, font=\footnotesize]
 \draw (-6, 0) -- (6, 0);
@@ -470,7 +475,7 @@ We now prove that the path $L=x_{n-1}x_{n-2}\dots x_2x_1x_{0}x_{n-1}\dots x_3x_2
 x_{n-1}x_{n-2}\dots x_2x_1=-cbd\\
 x_{0}x_{n-1}\dots x_3x_2=-cbd
 \end{align*}
-hold in $A_g$. We stress that $cbd$ denotes a different path in each one of the two equations: they are similar paths contained in different squares. Using these relations, we see that $$x_{n-1}x_{n-2}\dots x_2x_1x_{0}x_{n-1}\dots x_3x_2=-cbdx_{0}x_{n-1}\dots x_3x_2=cbdcbd,$$ and the latter is zero by Lemma \ref{long-band-paths} since $cbdcbd$ is a path of length 6 lying on a single band. 
+hold in $A_g$. We stress that $cbd$ denotes a different path in each one of the two equations: they are similar paths contained in different squares. Using these relations, we see that $$x_{n-1}x_{n-2}\dots x_2x_1x_{0}x_{n-1}\dots x_3x_2=-cbdx_{0}x_{n-1}\dots x_3x_2=cbdcbd,$$ and the latter is zero by \hyperref[long-band-paths]{Lemma \ref*{long-band-paths}} since $cbdcbd$ is a path of length 6 lying on a single band. 
 
 Finally, since the longest path entirely contained in our region not having $L$ as a factor is
 \[\underbrace{x_{n-2}x_{n-1}\dots x_0}_{\text{$n-1$ arrows}}\underbrace{x_{n-1}x_{n-2}\dots x_0}_{\text{$n$ arrows}}\underbrace{x_{n-1}x_{n-2}\dots x_3}_{\text{$n-3$ arrows}},\]
@@ -481,15 +486,15 @@ which is of length $3n-4$, the result follows.
 \end{lemma}
 \begin{proof} We write our path as $B_{k+1}R_k\dots R_2 B_2 R_1 B_1$, where the paths $R_i$ are contained in a same region and the paths $B_j$ are non-trivial (except possibly for $B_1$ and $B_{k+1}$) and contained in bands.
 
-Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow belonging to the cycle associated to the region, which we will call $x_0$ following the notation employed in the proof of Lemma \ref{long-band-paths}.\note{esto no está particularmente claro...} Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
-After applying this argument repeatedly, we can then suppose our path is of the form $B_2 R_1 B_1$. The proof now follows from Lemmas \ref{long-band-paths} and \ref{long-region-paths}, since if our path is non-zero, then $|B_1|<10$, $|B_2|<10$ and $|R_1|<3n-3$, where $n$ is the number of sides of the region.
+Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow belonging to the cycle associated to the region, which we will call $x_0$ following the notation employed in the proof of \hyperref[long-band-paths]{Lemma \ref*{long-band-paths}}.\note{esto no está particularmente claro...} Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
+After applying this argument repeatedly, we can then suppose our path is of the form $B_2 R_1 B_1$. The proof now follows from \hyperref[long-band-paths]{Lemmas \ref*{long-band-paths}} and \ref{long-region-paths}, since if our path is non-zero, then $|B_1|<10$, $|B_2|<10$ and $|R_1|<3n-3$, where $n$ is the number of sides of the region.
 \end{proof}
 
 After proving all these lemmas, the main result of this section now easily follows:
 
 \begin{thm} The algebra $A_g$ is finite-dimensional.
 \end{thm}
-\begin{proof} By Lemma \ref{long-br-paths}, any sufficiently long path is zero if it does not have factors from two different regions, but any path that does must be zero (regardless of length) by Lemma \ref{band-sides}, since it must cross a band. Therefore, any sufficiently long path is zero, and so $A_g$ is finite-dimensional.
+\begin{proof} By \hyperref[long-br-paths]{Lemma \ref*{long-br-paths}}, any sufficiently long path is zero if it does not have factors from two different regions, but any path that does must be zero (regardless of length) by \hyperref[band-sides]{Lemma \ref*{band-sides}}, since it must cross a band. Therefore, any sufficiently long path is zero, and so $A_g$ is finite-dimensional.
 \end{proof}
 \end{section}
 
@@ -536,10 +541,10 @@ Our main interest in the concept of $n$-regularity lies in the following fact:
 \end{thm}
 \begin{proof} We will first prove the case where $n>3$. Let $(Q,P)$ be the quiver with potential associated to the subdivision, $I$ the ideal in $\kQ$ spanned by the cyclic derivatives of the potential $P$ and $J$ the closure of $I$ in $\KQ$. The inclusion $i:\kQ\to \KQ$ induces a monomorphism $i:\kQ/I \to \KQ/J$, so it suffices to see that $\kQ/I$ is infinite-dimensional. \note{no recuerdo por qué valía esto}
 
-Any arrow $x$ in the quiver is a factor of exactly two cycles in $P$: one of them is contained in the same face of the subdivision as $x$ and the other surrounds a vertex and is composed of arrows lying in different faces.\note{esto hay que probarlo con más detalle en los preliminares} The condition of $n$-regularity forces these two cycles to be of length $n$, and so $\partial_x(P)= a+b$, with $a$ and $b$ paths of length $n-1$. Therefore, $I$ is an homogeneous ideal, since it is spanned by homogeneous elements, and so $\kQ/I$ inherits a grading from $\kQ$. \note{quedó medio chueca la figura siguiente:}
+Any arrow $x$ in the quiver is a factor of exactly two cycles in $P$: one of them is contained in the same face of the subdivision as $x$ and the other surrounds a vertex and is composed of arrows lying in different faces.\note{esto hay que probarlo con más detalle en los preliminares} The condition of $n$-regularity forces these two cycles to be of length $n$, and so $\partial_x(P)= a+b$, with $a$ and $b$ paths of length $n-1$. Therefore, $I$ is an homogeneous ideal, since it is spanned by homogeneous elements, and so $\kQ/I$ inherits a grading from $\kQ$.
 \begin{figure}[h]
 \[
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=1]
 \draw (-3,1) to (3,1);
 \draw (-3, -1) to (3, -1);
 \draw (-1, -3) to (-1, 3);
@@ -558,16 +563,16 @@ Any arrow $x$ in the quiver is a factor of exactly two cycles in $P$: one of the
 \end{figure}
 
 The path algebra $\kQ$, regarded as a $k$-vector space, admits a direct sum decomposition $A\oplus B$, where $A$ is the subspace spanned by paths 
-
-$(\clubsuit)$ containing either $n-1$ consecutive arrows belonging to the same face or $n-1$ consecutive arrows surrounding the same vertex of the subdivision as factors \note{arreglar el formato, debería ir en un párrafo aparte con un entorno especial, al igual que $(\diamond)$}
-
+\[
+\claim{containing either $n-1$ consecutive arrows belonging to the same face or $n-1$ consecutive arrows surrounding the same vertex of the subdivision as factors}\tag{$\clubsuit$}
+\]
 and $B$ is the subspace spanned by paths not satisfying $(\clubsuit)$. One immediately checks that $A$ is actually an ideal in $\kQ$. Even more, since every cyclic derivative is the sum of two paths satisfying $(\clubsuit)$, we have that $I\subseteq A$. Therefore, any non-zero path $c\in B$ is not contained in $I$, and in turn is not zero in $\kQ/I$.
 
 Suppose now that $X$ is an infinite subset of $B$ composed of non-zero paths, all of different lengths. Since paths are homogeneous elements of $\kQ$ and $I$ is an homogeneous ideal, the projection of a path into $\kQ/I$ is an homogeneous element too. Therefore, the projection of $X$ into $\kQ/I$ is an infinite linearly independent set, since it is composed of non-zero homogeneous elements, each belonging to a different \textcolor{red}{why?} homogeneous component. So finally, all that remains to show is that one can actually produce such a set $X$.
 
 Choose any path of length 2 contained in a single face and name it $x_2$. Recall that one may concatenate any path with exactly two arrows: one which lies on the same face as the last one and one which does not. If the two last arrows of $x_k$ lie on the same face, let $x_{k+1}$ be the path obtained from $x_k$ by concatenating the arrow lying on a different face. Otherwise, let $x_{k+1}$ be the path obtained from $x_k$ by concatenating the arrow lying on the same face as $x_k$'s last arrow. Since this process may be carried out indefinitely, we obtain a sequence $X=(x_k)_{k\geq 2}$ of paths, all of them of different lengths. Notice that every path $x_k$ is contained in $B$, since by construction it contains at most 2 consecutive arrows on the same face or around the same vertex, and $n-1 > 2$ since $n>3$. In fact, this construction can not be carried out if $n=3$, since in that case $B$ is the $k$-vector space spanned by paths of length $0$ and $1$.
 
-This settles the case $n>3$ and now turn to the study of the case $n=3$. By Equation \eqref{euler-regular}, we know that $f=(4g-4)/(3-4)= 4-4g$. Since the number of faces in the subdivision must be positive, it follows that $g=0$, and so a 3-regular division of a surface must necessarily be a triangulation of a sphere consisting of 4 faces, or in other words a tetrahedron. We have already determined that the Jacobian algebra associated to the tetrahedron is infinite-dimensional in Section \ref{tetra}, and so the proof is now complete.
+This settles the case $n>3$ and now turn to the study of the case $n=3$. By \hyperref[euler-regular]{Equation (\ref*{euler-regular})}, we know that $f=(4g-4)/(3-4)= 4-4g$. Since the number of faces in the subdivision must be positive, it follows that $g=0$, and so a 3-regular division of a surface must necessarily be a triangulation of a sphere consisting of 4 faces, or in other words a tetrahedron. We have already determined that the Jacobian algebra associated to the tetrahedron is infinite-dimensional in \hyperref[tetra]{Section \ref*{tetra}}, and so the proof is now complete.
 \end{proof}
 \end{section}
 
@@ -577,7 +582,8 @@ This settles the case $n>3$ and now turn to the study of the case $n=3$. By Equa
 A \emph{pyramid} is a polyhedron formed by placing a regular polygon (called the \emph{base}) and a single point (called the \emph{apex}) in different parallel planes, and then taking their convex hull. One immediately checks that if the base is an $n$-sided polygon, then the pyramid has exactly $n+1$ faces, $n$ of them triangles and the last one being the base itself.
 
 Any pyramid is a polygonal subdivision of the sphere, so we now study the properties of its associated Jacobian algebra. We first label the arrows in the associated quiver as in the following figure:
-\[\label{pyramid}
+\begin{figure}[h]
+\[
 \begin{tikzpicture}[scale=0.8]
 \foreach \x in {0,90,...,270}
 {
@@ -597,11 +603,14 @@ Any pyramid is a polygonal subdivision of the sphere, so we now study the proper
 }
 \end{tikzpicture}
 \]
-In this figure, we are drawing a pyramid having a square as a base. The 4-cycle placed outside of the square is the cycle corresponding to the base, and each 3-cycle inside of the square corresponds to a triangular face of the pyramid. We will name the arrows of the base as $a$ and the arrows surrounding the apex as $b$. The rest of the arrows corresponding to triangular faces are named $c$ and $d$ in such a way that $dcb$ is the only path of length 3 taking place in a single triangle.
+\caption{The quiver arising from a pyramid with a square base.}
+\label{pyramid}
+\end{figure}
+The 4-cycle placed outside of the square is the cycle corresponding to the base, and each 3-cycle inside of the square corresponds to a triangular face of the pyramid. We will name the arrows of the base as $a$ and the arrows surrounding the apex as $b$. The rest of the arrows corresponding to triangular faces are named $c$ and $d$ in such a way that $dcb$ is the only path of length 3 taking place in a single triangle.
 
 \begin{thm} Let $n\geq 3$. The Jacobian algebra associated to a pyramid with an $n$-sided base is finite-dimensional iff $n$ is even.
 \end{thm}
-\begin{proof} The case $n=3$ has already been covered in Section \ref{tetra}, since a pyramid with a 3-sided base is just a tetrahedron. Therefore, we will suppose that $n> 3$.
+\begin{proof} The case $n=3$ has already been covered in \hyperref[tetra]{Section \ref*{tetra}}, since a pyramid with a 3-sided base is just a tetrahedron. Therefore, we will suppose that $n> 3$.
 
 We call $(Q,P)$ the QP associated to the pyramid and $A$ its Jacobian algebra. We will study $A$ making heavy use of the diamond lemma. To do so, we will order terms according first to length (longer terms being smaller) and then lexicographically from right to left. For instance, $a^5 \prec bd$ and $bda \prec b^3$. \note{en algún lado hay que contar por qué notar las flechas como lo hacemos no interfiere con el lema del diamante, porque por ej. $b^3$ denota a dos términos distintos dependiendo de donde se empiece. Una manera mas o menos fácil de arreglarlo es ponerle subíndices a todo e incluir los subíndices en el term order}Since there are only finitely many arrows in the quiver, there are only finitely many words of the same length, and so any infinite sequence of terms that is strictly decreasing with respect to the term order $\prec$ must have terms of arbitrary length. This proves that the term order $\prec$ satisfies the descending chain property in norm.
 
@@ -612,13 +621,13 @@ We now have to find a confluent reduction system compatible with our term order.
 \partial_c(P) &= bd + da\\
 \partial_d(P) &= ac + cb
 \end{align*}
-This suggests the following reduction system, which we will call $\Gamma$\note{ya usé $\Sigma$ para las superficies}:
+This suggests the following reduction system, which we will call $\Gamma$:
 \begin{align*}
-cd &\leadsto -a^{n-1}\\
-dc &\leadsto -b^{n-1} \\
-bd &\leadsto -da\\
-ac &\leadsto -cb
-\end{align*}\note{etiquetarlas como $\partial_x$ de alguna manera}
+cd &\leadsto -a^{n-1}\tag{$\partial_a$}\\
+dc &\leadsto -b^{n-1}\tag{$\partial_b$}\\
+bd &\leadsto -da\tag{$\partial_c$}\\
+ac &\leadsto -cb\tag{$\partial_d$}
+\end{align*}
 Every reduction rule is compatible with our term order, since the right hand side terms are either longer (since $n>3$) or of the same length but lexicographically smaller. Notice that the ideal $I_\Gamma$ generated by this reduction system is exactly the Jacobian ideal, so if the system turns out to be confluent, then the set of irreducible paths forms a basis for the Jacobian algebra $A$. The system $\Gamma$ presents only a few number of ambiguities, namely the ones arising from the monomials $cdc$, $dcd$, $bdc$ and $acd$. We now check if they are resolvable:
 \[
 \begin{tikzpicture}
@@ -681,7 +690,7 @@ We remark that this system is compatible with our term order. Moreover, the idea
 \[bda^{n-1}, cda^{n-1}, acb^{n-1}, dcb^{n-1}, da^{n-1}c, cb^{n-1}d, da^{2n-2}, cb^{2n-2}, a^{2n-2}c, b^{2n-2}d\]
 After a straightforward but somewhat tedious check one sees that all of these ambiguities are resolvable (in fact, rather easily, since every term reduces to zero).\note{quizás valga la pena incluir la cuenta} Therefore, once again by the diamond lemma, we know that the set of irreducible paths forms a basis for the Jacobian algebra $A$. We will now prove that there are no irreducible paths of length $>2n-2$, which in turn implies the finite-dimensionality of $A$.
 
-Indeed, suppose $x$ is an irreducible path starting with an $a$ arrow. As we see in the figure \ref{pyramid}, an $a$ arrow is only concatenable with another $a$ arrow or with a $d$ arrow. Since $da$ is a reducible path, it follows that any irreducible path starting with an $a$ arrow is of the form $a^k$, and since $a^{2n-2}$ is reducible, that $k<2n-2$. The same argument holds for paths starting with a $b$ arrow.
+Indeed, suppose $x$ is an irreducible path starting with an $a$ arrow. As we see in \hyperref[pyramid]{Figure \ref*{pyramid}}, an $a$ arrow is only concatenable with another $a$ arrow or with a $d$ arrow. Since $da$ is a reducible path, it follows that any irreducible path starting with an $a$ arrow is of the form $a^k$, and since $a^{2n-2}$ is reducible, that $k<2n-2$. The same argument holds for paths starting with a $b$ arrow.
 
 Finally, we notice that an irreducible path starting with a $c$ arrow must be $c$ itself, since the only possible successors are $a$ or $d$, and both $ac$ and $dc$ are reducible. Using the same idea we see that $d$ is the only irreducible path starting with a $d$ arrow, and thus there is no irreducible path of length $>2n-2$, concluding the proof.
 \end{proof}

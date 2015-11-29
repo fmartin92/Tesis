@@ -16,6 +16,7 @@
 \usepackage{tikz}
 \usepackage[toc,page]{appendix}
 \usepackage{listings}
+\usepackage{showlabels}
 \lstset{language=Python,
 backgroundcolor=\color{gray!20},
 numberstyle=\footnotesize,
@@ -25,7 +26,7 @@ keywordstyle=\bfseries\color{blue},
 commentstyle=\itshape\color{purple},
 %identifierstyle=\color{blue},
 stringstyle=\color{orange}}
-\usetikzlibrary{arrows,positioning,through,decorations.pathmorphing}
+\usetikzlibrary{arrows,positioning,through,decorations.pathmorphing, decorations.markings}
 
 \usepackage{chngcntr}
 \counterwithout{equation}{section} %this fixes equation numbering
@@ -59,6 +60,9 @@ stringstyle=\color{orange}}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\gr}{gr}
 
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
 
 \newcommand{\Square}[2]{
 \draw (-1+#1, -1+#2) to (-1+#1, 1+#2); %left vertical line
@@ -87,6 +91,13 @@ stringstyle=\color{orange}}
 \draw[->, red, very thick] (-0.1+#1, 0.9+#2) to (-0.9+#1, 0.1+#2); %d
 \draw[->, red, very thick] (-0.9+#1, #2) to (-0.1+#1, #2); %e
 \draw[->, red, very thick] (#1, -0.1+#2) to (#1, -0.9+#2); %f
+}
+
+\newcommand\claim[2][.8]{%
+  \begin{minipage}{#1\displaywidth}%
+  \itshape
+  #2
+  \end{minipage}%
 }
 
 \theoremstyle{plain}
