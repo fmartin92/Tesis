@@ -11,6 +11,7 @@ Nonetheless, under some relatively mild hypotheses on the ideal $R$, this kind o
 \item $1\preceq v$ for all $v\in \mon$, and
 \item for all $u,v,v',w\in \mon$, if $v\preceq v'$, then $uvw\preceq uv'w$.
 \end{itemize}
+We will use the notation $u\prec v$ for strict inequalities.
 \begin{exmp} Suppose $\leq$ is a total order on $X$. The \emph{graded lexicographical order}, or \emph{grlex} for short, is the monomial order $\preceq$ defined on $\mon$ as follows: given $u,v\in \mon$, we have $u\preceq v$ if
 \begin{itemize}
 \item $|u| < |v|$ or
@@ -19,7 +20,7 @@ Nonetheless, under some relatively mild hypotheses on the ideal $R$, this kind o
 In other words, monomials are sorted first by length and then lexicographically according to the total order $\leq$.
 \end{exmp}
 
-A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_{n+1}\not \leq p_n$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_{n+1} \leq p_n$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
+A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_{n+1}< p_n$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_{n+1} \leq p_n$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
 
 \begin{lemma}\label{noeth} Let $(X,\leq)$ be a finite, totally ordered set. Then, the graded lexicographical order on $\mon$ satisfies the descending chain condition.
 \end{lemma}
@@ -35,13 +36,13 @@ Thus, the map $\hat{r}$ replaces the word $uw_\sigma v$ with $uf_\sigma v$ and l
 An element $x\in k\mon$ is said to be:
 \begin{itemize}
 \item \emph{$S$-irreducible} if $\hat{r}(x)=x$ for any reduction $r\in\langle B_S\rangle$.
-\item \emph{reduction-finite under $S$} if every time $(r_n)$ is a sequence of reductions, there exists some $i_0$ such that for all $i\geq i_0$, $\hat{r_i}$ acts trivally on $({r_{i-1}}\dots r_1)\hat{}(x)$.\note{arreglar formato}
+\item \emph{reduction-finite under $S$} if every time $(r_n)$ is a sequence of reductions, there exists some $i_0$ such that $\hat{r_i}$ acts trivally on $\widehat{({r_{i-1}}\dots r_1)}(x)$ for all $i\geq i_0$.
 \item \emph{reduction-unique under $S$} if it is reduction-finite under $S$ and there exists some $r_S(x)\in k\mon$ such that if $\hat{r}(x)$ is $S$-irreducible, then $\hat{r}(x) = r_S(x)$.
 \end{itemize}
 
 Consider a 5-uple $\alpha=(\sigma, \tau, u,v,w)$ such that $\sigma,\tau\in S$ and $u,v,w\in \mon$. We say that $\alpha$ is an \emph{overlap ambiguity of $S$} if $u,v,w$ are words of positive length, $w_\sigma =uv$ and $w_\tau=vw$. Such an ambiguity is said to be \emph{resolvable} if there exist reductions $r,r'\in \langle B_S\rangle$ such that $\hat{r}(f_\sigma w)=\hat{r}'(uf_\tau)$. Otherwise, if $\sigma\neq \tau$, $w_\sigma=v$ and $w_\tau=uvw$ we say that $\alpha$ is an \emph{inclusion ambiguity of $S$}, and call it \emph{resolvable} if there exist reductions $r,r'\in \langle B_S\rangle$ such that $\hat{r}(uf_\sigma w)=\hat{r}'(f_\tau)$.
 
-A monomial order $\preceq$ over $\mon$ is said to be compatible with a rewriting system $S$ if for all $\sigma \in S$ we have that any monomial $u$ appearing as a term in $f_\sigma$ is such that $u\not\preceq w_\sigma$.\note{formatear esta desigualdad y otra que aparece más arriba}
+A monomial order $\preceq$ over $\mon$ is said to be compatible with a rewriting system $S$ if for all $\sigma \in S$ we have that any monomial $u$ appearing as a term in $f_\sigma$ is such that $u \prec w_\sigma$.
 
 After all these preliminary definitions, we are now able to formulate the main result in this section:
 
@@ -283,7 +284,7 @@ we achieve confluence. Thus, a basis is given by the $S$-irreducible monomials.
 \begin{section}{A topological diamond lemma}
 As Jacobian algebras are quotients of completed path algebras by closed ideals, one needs to further specialize the diamond lemma in order to account for issues of convergence, as carried out in the works \cite{Hel02} and \cite{SAV15}.
 
-Most of the terminology needed to introduce this last version of the lemma has already been presented; we will only need to provide a slight variation on the descending chain condition. We say that a monomial order $\preceq$ satisfies the \emph{descending chain condition in norm} if every sequence $(x_n)$ of monomials in $\mon$ such that $x_{n+1}\not\preceq x_n$\note{formato} for all $n\geq 0$ converges to zero in $k\llangle X\rrangle$.
+Most of the terminology needed to introduce this last version of the lemma has already been presented; we will only need to provide a slight variation on the descending chain condition. We say that a monomial order $\preceq$ satisfies the \emph{descending chain condition in norm} if every sequence $(x_n)$ of monomials in $\mon$ such that $x_{n+1}\prec x_n$ for all $n\geq 0$ converges to zero in $k\llangle X\rrangle$.
 
 \begin{thm} Let $X$ be a set, $S$ be a rewriting system for $X$ and $\preceq$ a monoid order on $\mon$ compatible with $S$ and satisfying the descending chain condition in norm. Let $I_S$ be the closed ideal given by the relations induced by $S$, that is, $I_S=\overline{(w_\sigma-f_\sigma)}_{\sigma\in S}$. Then the following conditions are equivalent:
 \begin{enumerate}
@@ -303,7 +304,7 @@ Given a total order $\leq$ on a set $X$, the \emph{reverse graded lexicographica
 \end{itemize}
 Therefore, monomials are sorted first by length (but this time longer terms are smaller with respect to $\preceq$) and then lexicographically according to the total order $\leq$. Analogously one defines the grevlex order for paths on a quiver. This will be our preferred order when dealing with completions, since we have that:
 
-\begin{lemma}Let $(X,\leq)$ be a finite, totally ordered set. Then, the grevlex order on $\mon$ satisfies the descending chain condition in norm.
+\begin{lemma}\label{noeth-norm}Let $(X,\leq)$ be a finite, totally ordered set. Then, the grevlex order on $\mon$ satisfies the descending chain condition in norm.
 \end{lemma}
 \begin{proof} Let $(x_n)$ be a strictly decreasing sequence in $\mon$ and $k$ be the cardinality of $X$. There are exactly $j=\sum_{l=0}^d k^l$ words in $\mon$ of length at most $d$, and so $x_{j+1}$ must be of length at least $d+1$, since the sequence $(x_n)$ is strictly decreasing. Thus, in $k\llangle X\rrangle$ we have that $\Vert x_{n}\Vert\leq e^{-d-1}$ for all $n\geq j+1$ and so $x_n\rightarrow 0$ as we wanted.
 \end{proof}

@@ -338,14 +338,12 @@ arcs, where $g$ is the genus of the surface $\Sigma$, $b$ is its number of bound
 \chi(\Sigma)=2-2g-b
 \end{equation}
 On the other hand, we can compute the Euler characteristic of the surface regarding an ideal triangulation as a cellular decomposition. Since an ideal triangulation is a maximal collection of compatible arcs, any marked point must be a vertex of the decomposition and so we have $v = c + p$ vertices. As for edges, we have $n$ of them in the interior of the surface and $c$ of them in the boundary, which amounts to $e = n + c$. Finally, we know that each face is triangular, that any edge in the interior of the surface belongs to two different faces, and that edges in the boundary belong to only one face. Therefore, by counting faces we arrive at $3f = 2n+c$. Putting it all together, we get that
-\[
-\begin{aligned}\label{euler-ch2}
+\begin{align*}\label{euler-ch2}
 \chi(\Sigma)&=v-e+f\\
-&=(c+p)-(n+c)+\left(\frac{2}{3}n+\frac{1}{3} c\right)\\
+&=(c+p)-(n+c)+\left(\frac{2}{3}n+\frac{1}{3} c\right)\addtocounter{equation}{1}\tag{\theequation}\\
 &=p+\frac{1}{3}(c-n)
-\end{aligned}
-\]
-The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.\note{arreglar la numeracion}
+\end{align*}
+The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.
 \end{proof}
 
 From now on, we will assume that our surface $(\Sigma, M)$ is none of the following:
@@ -361,7 +359,7 @@ The reason for these exclusions is that the listed surfaces either have no non-t
 \end{prop}
 \end{section}
 
-\begin{section}{The QP associated to an ideal triangulation}
+\begin{section}{The QP associated to an ideal triangulation}\label{qp}
 We will now introduce a way to produce a QP out of an ideal triangulation, so one may speak of the Jacobian algebra associated to the triangulation.
 
 Taking \hyperref[no-self-folds]{Proposition \ref*{no-self-folds}} into account, we will restrict ourselves to the case where no self-folded triangles appear. Although there is a general mechanism to produce QPs from arbitrary triangulations, as described in Section 3 from \cite{LF09}, technical difficulties arise when dealing with self-folded triangles.

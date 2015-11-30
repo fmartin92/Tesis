@@ -1,11 +1,11 @@
-\begin{chapter}{A path algebra SAGE class}
+\begin{chapter}{A path algebra SageMath class}
 \note{to do: encontrar un titulo real para esto}
 \label{appendix}
-We have developed a SAGE class to deal with the long and tedious process of checking the hypotheses of the diamond lemma, and to automatically generate bases and compute some invariants of the Jacobian algebra associated to a polygonal subdivision, with the only input being the subdivision itself. We now present the source code, which we will then discuss in more detail:
+We have developed a \texttt{SageMath} class to deal with the long and tedious process of checking the hypotheses of the diamond lemma, and to automatically generate bases and compute some invariants of the Jacobian algebra associated to a polygonal subdivision, with the only input being the subdivision itself. We now present the source code, which we will then discuss in more detail:
 \lstinputlisting{rewsystems.py}
 We will explain how the program works by following an example execution, in which we will compute some invariants of pyramids, as studied in \hyperref[pyramids]{Section \ref*{pyramids}}.
 
-An instance of the \texttt{Rewriting\_System} class may be constructed either from an undirected graph representing a triangulation of the sphere or from a pair of a directed graph and a list, representing a quiver and a potential respectively. In the first case, the associated QP will be automatically generated. We only implemented this feature for triangluations of the sphere since it relies on finding a planar embedding of the graph on the surface, and \texttt{SAGE} only provides such an algorithm \textcolor{red}{for the sphere}.
+An instance of the \texttt{Rewriting\_System} class may be constructed either from an undirected graph representing a triangulation of the sphere or from a pair of a directed graph and a list, representing a quiver and a potential respectively. In the first case, the associated QP will be automatically generated. We only implemented this feature for triangulations of the sphere since it relies on finding a planar embedding of the graph on the surface, and \texttt{SageMath} only provides such an algorithm \textcolor{red}{for the sphere}.
 
 We would like to generate the rewriting system associated to a pyramid with an odd-sided base. In order to do that, the following snippet produces a pyramid with an $n$-sided base:
 \begin{lstlisting}
@@ -37,9 +37,9 @@ If \texttt{add\_zero\_rules} is set to \texttt{True}, the \textcolor{red}{not th
 \item If no path was found to reduce to zero, increase $n$ by 1 and repeat steps 2 to 5.
 \end{enumerate}
 This may be formalized by a \textcolor{red}{pumping lemma argument} if we choose a high enough value for \texttt{zero\_depth}.
+\end{heur}
 
 We now generate the rewriting system associated to our pyramid:
-\end{heur}
 \begin{lstlisting}
 sage: odd_rs = Rewriting_System(odd_pyramid)
 16 rules added.
@@ -69,7 +69,7 @@ sage: odd_rs.potential
  [5, 1, 4, 5],
  [6, 2, 7, 3, 1, 6]]
 \end{lstlisting}
-As we can see, there are five 3-cycles coming from the triangular faces, a 5-cycle from the pentagonal face, five 3-cycles from punctures where three faces meet and another 5-cycle from the puncture corresponding to the apex of the pyramid.
+As the output shows, there are five 3-cycles coming from the triangular faces, a 5-cycle from the pentagonal face, five 3-cycles from punctures where three faces meet and another 5-cycle from the puncture corresponding to the apex of the pyramid.
 
 \note{mostrar también las reglas de reescritura?}We may now compute the set of all irreducible paths up to a certain length. This is performed by just filtering the list of all paths. For instance, we may produce the list of all irreducible paths of length 4:
 \begin{lstlisting}

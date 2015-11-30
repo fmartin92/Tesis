@@ -17,6 +17,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage{listings}
 \usepackage{showlabels}
+
 \lstset{language=Python,
 backgroundcolor=\color{gray!20},
 numberstyle=\footnotesize,
@@ -40,6 +41,8 @@ stringstyle=\color{orange}}
 \gdef\note##1{\marginpar[##1]{##1}}}
 \gdef\notesoff{\gdef\note##1{}}
 \noteson
+
+\renewcommand\bibname{References}
 
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -118,5 +121,8 @@ stringstyle=\color{orange}}
 \begin{appendix}
 \input{./appendix.tex}
 \end{appendix}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
 \input{./bibliography.tex}
 \end{document}
