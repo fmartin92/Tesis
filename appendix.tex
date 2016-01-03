@@ -5,7 +5,7 @@ We have developed a \texttt{SageMath} class to deal with the long and tedious pr
 \lstinputlisting{rewsystems.py}
 We will explain how the program works by following an example execution, in which we will compute some invariants of pyramids, as studied in \hyperref[pyramids]{Section \ref*{pyramids}}.
 
-An instance of the \texttt{Rewriting\_System} class may be constructed either from an undirected graph representing a triangulation of the sphere or from a pair of a directed graph and a list, representing a quiver and a potential respectively. In the first case, the associated QP will be automatically generated. We only implemented this feature for triangulations of the sphere since it relies on finding a planar embedding of the graph on the surface, and \texttt{SageMath} only provides such an algorithm \textcolor{red}{for the sphere}.
+An instance of the \texttt{Rewriting\_System} class may be constructed either from an undirected graph \textcolor{red}{reimplementarlo (o no); eso y los xrange} representing a triangulation of the sphere or from a pair of a directed graph and a list, representing a quiver and a potential respectively. In the first case, the associated QP will be automatically generated. We only implemented this feature for triangulations of the sphere since it relies on finding a planar embedding of the graph on the surface, and \texttt{SageMath} only provides such an algorithm \textcolor{red}{for the sphere}.
 
 We would like to generate the rewriting system associated to a pyramid with an odd-sided base. In order to do that, the following snippet produces a pyramid with an $n$-sided base:
 \begin{lstlisting}

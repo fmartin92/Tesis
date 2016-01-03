@@ -1,0 +1,108 @@
+\begin{chapter}{Invariants}
+In the previous chapter, we produced confluent rewriting systems for several Jacobian algebras. As we have noted, such a rewriting system provides a basis for the algebra as a $k$-vector space, which is given by the irreducible monomials. In this chapter, we will make use of these bases to compute some invariants of the families of algebras considered previously.
+\begin{section}{The center}
+\textcolor{red}{TODO}
+\end{section}
+\begin{section}{Derivations}
+Let $A$ be a $k$-algebra. A \emph{derivation} of $A$ is a $k$-linear morphism $f:A\to A$ satisfying the \emph{Leibniz rule}
+\[f(ab)=f(a)b+af(b).\]
+The set of derivations of $A$, which we will denote as $D(A)$, is a Lie algebra with Lie bracket given by the commutator
+\[[f,g] = f\circ g - g\circ f.\]
+Recall that, given a quiver $Q$, we denote its vertex span $k^{Q_0}$ as $R$. Since a Jacobian algebra $A$ is an $R$-bimodule, it makes sense to consider the Lie subalgebra of $R$-linear derivations of $A$, which we will denote $D_R(A)$. The following easy observations will greatly simplify our work:
+\begin{obs}\label{derivation-quotient} Let $A$ be a $k$-algebra and $I\subseteq A$ an ideal. If $f$ is a derivation of $A$ such that $f(I)\subseteq I$, then the induced linear map $\hat{f}:A/I\to A/I$ is a derivation of $A/I$. Moreover, if $R$ is a set of generators for $I$, it suffices to see that $f(R)\subseteq I$ to show that $f(I)\subseteq I$.
+\end{obs}
+\begin{proof} Since $f(I)\subseteq I$, the ideal $I$ is contained in the kernel of $\pi\circ f:A\to A/I$, where $\pi$ denotes the natural projection. Thus there is a well defined linear map $\hat{f}:A/I\to A/I$ which obviously satisfies the Leibniz rule, since $f$ does.
+
+As for the second assertion, suppose $x\in I$. Then $x=\sum_{i=1}^n a_ir_ib_i$, where $r_i\in R$ and $a_i, b_j\in A$. Therefore, the Leibniz rule implies that
+\[f(x) = \sum_{i=1}^n f(a_ir_ib_i)=\sum_{i=1}^n \left(f(a_i)r_ib_i + a_if(r_i)b_i + a_ir_if(b_i)\right)\in I\]
+since by hypothesis $f(R)\subseteq I$.
+\end{proof}
+\begin{obs}\label{derivation-vertices} Let $v\in R$ be a stationary path in a Jacobian algebra $A$. If $f$ is an $R$-linear derivation of $A$, then $f(v)=0$.
+\end{obs}
+\begin{proof} Using the Leibniz rule, the $R$-linearity of $f$ and the fact that $v=v^2$, we have that
+\[f(v)= f(v^2)= f(v)v + vf(v)=f(v^2)+ f(v^2)=2f(v^2)=2f(v)\]
+and so $f(v)=0$.
+\end{proof}
+\begin{obs}\label{endpoints} Let $B$ be a path basis for a Jacobian algebra $A$. If $f$ is an $R$-linear derivation of $A$ and $p\in B$, then $f(p)$ is a linear combination of elements of $B$ only involving paths sharing the same endpoints as $p$.
+\end{obs}
+\begin{proof} Since $B$ is a basis for $A$, we have that
+\[f(p) = \sum_{q\in B} \lambda_q q\]
+for some scalars $\lambda_q\in k$. Let $x, y\in R$ be the source and the target of $p$, respectively. Then
+\[\sum_{q\in B} \lambda_q q=f(p)=f(ypx) = yf(p)x =\sum_{q\in B} \lambda_q yqx,\]
+and so $\lambda_q=0$ if $q$ has different endpoints than $p$.
+\end{proof}
+From now on, we will refer to $R$-linear derivations plainly as derivations.
+\begin{subsection}{Pyramids with an even-sided base}
+Let $n$ be an even number greater than 3. In \hyperref[pyramids]{Section \ref*{pyramids}}, we proved that the Jacobian algebra $A$ associated with a pyramid having an $n$-sided base is finite-dimensional. Following the notation used in that section, a basis of irreducible monomials for the rewriting system we found is given by
+\[B=\{e_v,a^k,b^k,cb^j, da^j\},\] 
+where $v$ runs through the set of vertices $Q_0$, $1\leq k\leq 2n-3$ and $0\leq j\leq n-2$. Once again, we are abusing notation, since for instance $a$ denotes several different paths of length 1. For simplicity, we will only study derivations $f$ that assign the same value to all paths sharing the same name. Thus, we may speak of the value of $f(a)$ in an unambigous manner.
+
+If $f$ is such a derivation of $A$, then by \hyperref[endpoints]{Observation \ref*{endpoints}} we have that
+\begin{align*}
+f(a) &= \alpha a + \hat\alpha a^{n+1}\\
+f(b) &= \beta b + \hat\beta b^{n+1}\\
+f(c) &= \gamma c \\
+f(d) &= \delta d,
+\end{align*}
+where all greek letters are scalars in $k$. We recall that the following relations generate the Jacobian ideal $I$:
+\begin{align}
+a^{n+1}+cd\\
+b^{n+1}+dc\\
+bd+da\\
+ac+cb
+\end{align}
+By relation (1) and the Leibniz rule, we have that
+\begin{align*}-(\gamma+\delta)cd&= -f(c)d - cf(d)\\
+&= f(-cd)\\
+&=f(a^{n+1})\\
+&=\sum_{m=0}^{n} a^mf(a)a^{n-m}\\
+&=\sum_{m=0}^{n} a^m(\alpha a + \hat\alpha a^{n+1}) a^{n-m}\\
+&=(n+1)(\alpha a^{n+1} + \hat\alpha a^{2n+2})\\
+&=(n+1)\alpha a^{n+1}\\
+&=-(n+1)\alpha cd,
+\end{align*}
+and so $\gamma+\delta = (n+1)\alpha$. Reasoning analogously using relation (2), we conclude that $\gamma+\delta = (n+1)\beta$, and thus $\alpha=\beta$.
+
+Relation (3) implies
+\begin{align*}-(\beta+\delta)bd &=-(\beta+\delta)bd - \hat\beta bd^{n+1}\\
+&=-f(b)d - bf(d)\\
+&=f(-bd)\\
+&=f(da)\\
+&=f(d)a+df(a)\\
+&=(\delta+\alpha)da + \hat\alpha da^{n+1}\\
+&=(\delta+\alpha)da\\
+&=-(\delta+\alpha)bd,
+\end{align*}
+and thus we get the equation $\alpha=\beta$ again. Relation (4) implies the same identity as well.
+
+Now, if $g$ is a derivation of $\kQ$ satisfying equations \textcolor{red}{incluir link a $g(a)=\alpha a + \hat\alpha a^{n+1}...$}, its values on $a,b,c$ and $d$ completely determine it, since any path is either a stationary map (which is mapped to zero by \hyperref[derivation-vertices]{Observation \ref*{derivation-vertices}}) or equal to a unique product of $a,b,c$ and $d$, and thus its image is uniquely determined by the Leibniz rule. Moreover, as we have just seen, if $\alpha=\beta$ and $\gamma+\delta=(n+1)\alpha$ then the image of a set of generators of $I$ by $g$ is contained in $I$, and so $g$ induces a derivation of the Jacobian algebra \note{decir por qué esta bien hacerlo desde el álgebra sin completar} by \hyperref[derivation-quotient]{Observation \ref*{derivation-quotient}}.
+
+We now write the values of a generic derivation of the form we described in terms of the basis $B$:
+\begin{align*}
+g(e_v) &= 0\\
+g(a^k) &=\sum_{m=0}^{k-1} a^mg(a)a^{k-1-m}=k(\alpha a^k + \hat\alpha a^{n+k}) \\
+g(b^k) &=\sum_{m=0}^{k-1}b^mg(b)b^{k-1-m}=k(\alpha b^k + \hat\beta b^{n+k})\\
+g(cb^j) &= g(c)b^j + cg(b^j) = (\gamma+j\alpha) cb^j \\
+g(da^j) &= g(d)a^j + dg(a^j) = (\delta+j\alpha) da^j = \left((n+j+1)\alpha-\gamma\right)da^j
+\end{align*}
+It is clear that these derivations \textcolor{red}{make up} a vector space $V$ of dimension 4. A basis for this space is given by $\{\alpha^*, \gamma^*, \hat\alpha^*, \hat\beta^*\}$, where $\alpha^*$ stands for the map defined by setting $\alpha=1$ and $\hat\alpha=\beta=\gamma=0$, and the other maps are defined analogously. We now write down the image of the basis $B$ in terms of these maps to ease computation:
+\begin{center}
+\begin{tabular}{ c | c | c | c | c }
+	& 	$\alpha^*$ 		& $\gamma^*$	& $\hat\alpha^*$	& $\hat\beta^*$	\\
+\hline
+$e_v$ & 	0 			& 0 			& 0			& 0 \\
+$a^k$ & 	$ka^k$ 		& 0			& $ka^{n+k}$	& 0 \\
+$b^k$ & 	$kb^k$ 		& 0			& 0			& $kb^{n+k}$ \\
+$cb^j$ & 	$jcb^j$ 		& $cb^j$		& 0			& 0 \\
+$da^j$ & 	$(n+j+1)da^j$	& $-da^j$		& 0			& 0 
+\end{tabular}
+\end{center}
+
+From this table we see that $B$ is a basis of eigenvectors for both $\alpha^*$ and $\gamma^*$, and thus these two maps commute. Moreover, $\langle a^k\rangle \oplus \langle b^k\rangle \oplus \langle e_v, cb^j, da^j\rangle$ is a decomposition of $A$ into both $\gamma^*$, $\hat\alpha^*$ and $\hat\beta^*$-invariant subspaces, and so these three maps commute with each other as well. These facts imply the vanishing of the brackets $[\alpha^*,\gamma^*]$,  $[\gamma^*, \hat\alpha^*]$, $[\gamma^*, \hat\beta^*]$ and $[\hat\alpha^*, \hat\beta^*]$. By direct computation \note{explicitar la cuenta?} using the table we see that $[\alpha^*,\hat\alpha^*]=n\hat\alpha^*$ and $[\alpha^*,\hat\beta^*]=n\hat\beta^*$. Therefore, $V$ is actually closed under the Lie bracket and so is a 4-dimensional Lie subalgebra of the algebra of derivations of $A$.
+
+In fact, we may further characterize the Lie structure on $V$. Given Lie algebras $L_1$ and $L_2$ and an action by derivations $\cdot$ of $L_1$ on $L_2$, the \emph{semi-direct product $L_1\ltimes L_2$} is the $k$-vector space $L_1 \oplus L_2$ with Lie bracket given by
+\[[(x_1,x_2), (y_1,y_2)] = ([x_1,y_1], [x_2,y_2]+x_1\cdot y_2 - y_1\cdot x_2).\]
+It is now easy to see that $V$ is a semi-direct product of the abelian Lie algebras $\langle \alpha^*\rangle$ and $\langle \gamma^*, \hat\alpha^*, \hat\beta^*\rangle$, where $\alpha^*$ acts trivially over $\gamma^*$ and by multiplication by $n$ over $\hat\alpha^*$ and $\hat\beta^*$.
+\end{subsection}
+\end{section}
+\end{chapter}
