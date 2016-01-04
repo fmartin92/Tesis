@@ -729,4 +729,133 @@ Total rules: 53
 \end{lstlisting}
 As we can see, these results agree with our computations.
 \end{section}
+\begin{section}{Prisms and antiprisms}
+In this section we will introduce two families of convex polyhedra, which are polygonal subdivisions of the sphere. We will then show confluent rewriting systems for their respective Jacobian algebras, so as to have more examples in which we may compute invariants in the following chapter.
+
+A \emph{prism} is a polyhedron composed of two parallel copies of an $n$-sided polygon, which we will call \emph{base faces}, joined by parallelograms.
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.5\textwidth]{prism.png}
+\caption{A prism with a pentagonal base.}
+\end{figure}
+
+We now give a labeling of the arrows in the quiver associated to a prism, similar to the one we produced for pyramids, in order to help us simplify the description of the rewriting system:
+
+\note{acomodar los labels de la figura}
+\[
+\begin{tikzpicture}[text width=1.5mm, font=\footnotesize]
+\draw (-4, 0) -- (4, 0);
+\draw (-4, 2) -- (4, 2);
+\foreach \x in {-3,-1,...,3}
+\draw (\x, 0) -- (\x, 2);
+\foreach \x in {-3,-1,1}
+{
+\draw[->, red, very thick] (\x+1.1, 0.1) to node[right]{$c$} (\x+1.9, 0.9);
+\draw[->, red, very thick] (\x+1.9, 1.1) to node[right]{$d$} (\x+1.1, 1.9);
+\draw[->, red, very thick] (\x+0.9, 1.9) to node[left]{$e$} (\x+0.1, 1.1);
+\draw[->, red, very thick] (\x+0.1, 0.9) to node[left]{$f$} (\x+0.9, 0.1);
+}
+\draw[->, red, very thick] (-5+1.1, 0.1) to node[right]{$c$} (-5+1.9, 0.9);
+\draw[->, red, very thick] (-5+1.9, 1.1) to node[right]{$d$} (-5+1.1, 1.9);
+\draw[->, red, very thick] (3+0.9, 1.9) to node[left]{$e$} (3+0.1, 1.1);
+\draw[->, red, very thick] (3+0.1, 0.9) to node[left]{$f$} (3+0.9, 0.1);
+
+\foreach \x in {-4,-2,...,2}
+{
+\draw[->, red, very thick] (\x+0.1, 2.1) to [bend left] node[above]{$a$} (\x+1.9, 2.1);
+\draw[<-, red, very thick] (\x+0.1, -0.1) to [bend right] node[below]{$b$} (\x+1.9, -0.1);
+}
+\end{tikzpicture}
+\]
+
+We have drawn the prism as a planar figure in which the left and right sides are identified. In the drawing, the black edges represent the edges of the prism and the red arrows are the ones from the associated quiver. Arrows labeled $a$ (resp. $b$) correspond to the $n$-cycle inside the top (resp. bottom) base face. The arrows corresponding to 4-cycles inside parallelograms are labeled as $c$, $d$, $e$ or $f$, in such a way that a 4-cycle having a vertex from the top base as source is labeled $dcfe$.
+
+After naming the arrows in this way, a confluent rewriting system for the associated Jacobian algebra in the case $n>3$ is given by the rules:
+\begin{align*}
+de &\rightsquigarrow -a^{n-1} 	& dcfe &\rightsquigarrow a^n \\
+fc &\rightsquigarrow -b^{n-1}	& fedc &\rightsquigarrow b^n \\
+ad &\rightsquigarrow -dcf		& cfed &\rightsquigarrow edcf \\
+bf &\rightsquigarrow -fed  	& a^{n+1} &\rightsquigarrow 0 \\
+ea &\rightsquigarrow -cfe 		& b^{n+1} &\rightsquigarrow 0 \\
+cb &\rightsquigarrow -edc  	& \, & \,
+\end{align*}
+As one may easily check, all cycles in the quiver are reducible, except for $a^n$, $b^n$ and $edcf$. Nevertheless, all powers of these cycles are reducible, and so the Jacobian algebra is finite-dimensional. In fact, once again we may count the number of irreducible monomials as to find the Hilbert polynomial of the associated graded object, which turns out to be
+\[3n + 6n(t+t^2+t^3) + 3nt^4 + 2n(t^5+t^6+\dots+t^n).\]
+
+Our second family of polyhedra is the family of \emph{antiprisms}, which are once again composed of two parallel copies of an $n$-sided polygon, but this time they are joined by triangles.
+
+\begin{figure}[h]
+\centering
+	\includegraphics[width=0.5\textwidth]{antiprism.png}
+\caption{Top view of an antiprism with square base.}
+\end{figure}
+
+Our labeling of the arrows in the quiver will be:
+
+
+\[
+\begin{tikzpicture}[text width=1.5mm, font=\footnotesize]
+\draw (-4, 0) -- (4, 0);
+\draw (-4, 2) -- (4, 2);
+\foreach \x in {-4,-2,...,2}
+{
+\draw (\x, 2) -- (\x+1, 0);
+\draw (\x+1, 0) -- (\x+2, 2);
+}
+\foreach \x in {-3,-1,...,1}
+{
+\draw[<-, red, very thick] (\x+0.1, 2.1) to [bend left] node[above]{$a$} (\x+1.9, 2.1);
+\draw[->, red, very thick] (\x+0.6, 1) to node[above]{$e$} (\x+1.4, 1);
+\draw[->, red, very thick] (\x+0.6, 0.9) to node[left]{$d$} (\x+1, 0.1);
+\draw[->, red, very thick] (\x+1.1, 0.1) to node[right]{$c$} (\x+1.4, 0.9);
+}
+
+\foreach \x in {-4,-2,...,2}
+{
+\draw[->, red, very thick] (\x+0.1, -0.1) to [bend right] node[below]{$b$} (\x+1.9, -0.1);
+\draw[<-, red, very thick] (\x+0.6, 1) to node[below]{$h$} (\x+1.4, 1);
+\draw[->, red, very thick] (\x+0.6, 1.1) to node[left]{$f$} (\x+1, 1.9);
+\draw[->, red, very thick] (\x+1.1, 1.9) to node[right]{$g$} (\x+1.4, 1.1);
+}
+\end{tikzpicture}
+\]
+\note{acá también, labels corridos}
+
+Once again, the polyhedron is assembled by identifying the left and right sides of the figure. Arrows labeled $a$ (resp $b$) correspond to the top (resp. bottom) $n$-cycle. Arrows inside a triangle sharing a side with the top (resp. bottom) face are labeled $f$, $g$ or $h$ (resp. $c$, $d$, $e$), in such a way that a 3-cycle having a vertex from the top (resp. bottom) face as source is labeled $fhg$ (resp. $ced$).
+
+If $n>3$, a confluent rewriting system for the Jacobian algebra associated to an antiprism with an $n$-sided base is given by:
+
+\begin{align*}
+feg &\rightsquigarrow -a^{n-1} 	& hdbc &\rightsquigarrow egaf \\
+chd &\rightsquigarrow -b^{n-1}	& gafe &\rightsquigarrow dbch \\
+ed &\rightsquigarrow -hbd		& ga^{n-1} &\rightsquigarrow 0 \\
+ce &\rightsquigarrow -bch  	& a^{n-1}f &\rightsquigarrow 0 \\
+dc &\rightsquigarrow -gaf 		& db^{n-1} &\rightsquigarrow 0 \\
+hg &\rightsquigarrow -ega  	& b^{n-1}c &\rightsquigarrow 0 \\
+fh &\rightsquigarrow -afe  	& a^{2n-2} &\rightsquigarrow 0 \\
+gf &\rightsquigarrow -dbc  	& b^{2n-2} &\rightsquigarrow 0 \\
+\end{align*}
+
+Although it is not as easy as with prisms, it is still straightforward to check that all squares of cycles are reducible, and therefore the Jacobian algebra turns out to be finite-dimensional as well. It is tedious but straight-forward to enumerate all of the irreducible monomials,\note{lo podría incluir si vale la pena, total ya lo tengo calculado} and with this information we compute the Hilbert polynomial of the associated graded object, which is
+\begin{align*}
+4n&+8nt+10nt^2+12nt^3+14nt^4+16nt^5+18n(t^6+t^7+\dots+t^{n-1})\\
+&+14nt^n+8nt^{n+1}+4nt^{n+2}+2n(t^{n+3}+t^{n+4}+\dots+t^{2n-3}).
+\end{align*}
+
+As usual, we check this computation against the output of our software:
+\begin{lstlisting}
+sage: Rewriting_System(prism(7), True).hilbert_series(9)
+105 rules added.
+Total rules: 231
+[21, 42, 42, 42, 21, 14, 14, 14, 0]
+
+sage: Rewriting_System(antiprism(7), True).hilbert_series(13)
+98 rules added.
+48 rules added.
+Total rules: 230
+[28, 56, 70, 84, 98, 112, 126, 98, 56, 28, 14, 14, 0]
+\end{lstlisting}
+Note that we set the parameter \texttt{zero\_rules\_flag} as \texttt{True}, since there are rules in the rewriting system which are induced by the topology (namely, there are paths that reduce to zero since they may be extended to arbitrarily high lengths).
+\end{section}
 \end{chapter}
