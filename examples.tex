@@ -485,7 +485,7 @@ An analogous argument shows that $fed=0$ in $A_g$ as well, concluding the proof.
 
 \begin{lemma}\label{long-band-paths} Any sufficiently long path contained entirely in bands is zero in $A_g$. More precisely, any non-zero path contained in a single band (resp. several bands) is of length at most 5 (resp. 9).
 \end{lemma}
-\begin{proof} We first prove that any sufficiently long path cotained entirely in a single band is zero. As we have already seen, any path passing through vertices of both sides of the band is zero, so we will suppose without loss of generality that our path is placed on the upper part of the band. Mantaining the notation used on the proof of the previous lemma, this is equivalent to saying our path only has arrows $b, c, d$ or $e$ as factors.
+\begin{proof} We first prove that any sufficiently long path contained entirely in a single band is zero. As we have already seen, any path passing through vertices of both sides of the band is zero, so we will suppose without loss of generality that our path is placed on the upper part of the band. Mantaining the notation used on the proof of the previous lemma, this is equivalent to saying our path only has arrows $b, c, d$ or $e$ as factors.
 
 We start by studying paths containing a $3$-cycle as a prefix. The $3$-cycles $edc$ and $ced$ only prefix two paths of length 4, namely $cedc$ and $dced$. Since $\partial_e(P_g) = dc + ayf$, the relation $dc = -ayf$ holds, and so $cedc=-ceayf=0$ and $dced=-ayfed=0$ by \hyperref[band-sides]{Lemma \ref*{band-sides}}. Moreover, the $3$-cycle $dce$ only prefixes two paths of length 5, which are $cbdce$ and $cedce$. Clearly, $cedce=0$ since we have already shown that $cedc=0$, and using the relation $dc=-ayf$ we get $cbdce = - cbayfe=0$ once again by \hyperref[band-sides]{Lemma \ref*{band-sides}}.
 
@@ -780,7 +780,7 @@ bf &\rightsquigarrow -fed  	& a^{n+1} &\rightsquigarrow 0 \\
 ea &\rightsquigarrow -cfe 		& b^{n+1} &\rightsquigarrow 0 \\
 cb &\rightsquigarrow -edc  	& \, & \,
 \end{align*}
-As one may easily check, all cycles in the quiver are reducible, except for $a^n$, $b^n$ and $edcf$. Nevertheless, all powers of these cycles are reducible, and so the Jacobian algebra is finite-dimensional. In fact, once again we may count the number of irreducible monomials as to find the Hilbert polynomial of the associated graded object, which turns out to be
+As one may easily check, all cycles in the quiver are reducible, except for $a^n$, $b^n$ and $edcf$. Nevertheless, all powers of these cycles are reducible, and so the Jacobian algebra is finite-dimensional. In fact, once again we may count the number of irreducible monomials as to find the Hilbert series of the associated graded object, which turns out to be
 \[3n + 6n(t+t^2+t^3) + 3nt^4 + 2n(t^5+t^6+\dots+t^n).\]
 
 Our second family of polyhedra is the family of \emph{antiprisms}, which are once again composed of two parallel copies of an $n$-sided polygon, but this time they are joined by triangles.
@@ -837,7 +837,7 @@ fh &\rightsquigarrow -afe  	& a^{2n-2} &\rightsquigarrow 0 \\
 gf &\rightsquigarrow -dbc  	& b^{2n-2} &\rightsquigarrow 0 \\
 \end{align*}
 
-Although it is not as easy as with prisms, it is still straightforward to check that all squares of cycles are reducible, and therefore the Jacobian algebra turns out to be finite-dimensional as well. It is tedious but straight-forward to enumerate all of the irreducible monomials,\note{lo podría incluir si vale la pena, total ya lo tengo calculado} and with this information we compute the Hilbert polynomial of the associated graded object, which is
+Although it is not as easy as with prisms, it is still straightforward to check that all squares of cycles are reducible, and therefore the Jacobian algebra turns out to be finite-dimensional as well. It is tedious but straight-forward to enumerate all of the irreducible monomials,\note{lo podría incluir si vale la pena, total ya lo tengo calculado} and with this information we compute the Hilbert series of the associated graded object, which is
 \begin{align*}
 4n&+8nt+10nt^2+12nt^3+14nt^4+16nt^5+18n(t^6+t^7+\dots+t^{n-1})\\
 &+14nt^n+8nt^{n+1}+4nt^{n+2}+2n(t^{n+3}+t^{n+4}+\dots+t^{2n-3}).

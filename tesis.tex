@@ -17,6 +17,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage{listings}
 \usepackage{showlabels}
+%\usepackage{geometry}
 
 \lstset{language=Python,
 backgroundcolor=\color{gray!20},
@@ -45,7 +46,8 @@ stringstyle=\color{orange}}
 \renewcommand\bibname{References}
 
 \newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ZZ}{
+\mathbb{Z}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
@@ -61,7 +63,9 @@ stringstyle=\color{orange}}
 \newcommand{\rrangle}{\rangle\!\rangle}
 
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Inn}{Inn}
 
 \tikzset{->-/.style={decoration={
   markings,
@@ -111,7 +115,6 @@ stringstyle=\color{orange}}
 \theoremstyle{definition}
 \newtheorem{exmp}[prop]{Example}
 \newtheorem{heur}[prop]{Heuristic}
-
 
 \begin{document}
 \tableofcontents
