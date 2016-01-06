@@ -186,12 +186,14 @@ In the context of Jacobian algebras, having finite dimension is a highly desirab
 \begin{section}{Ideal triangulations of surfaces}
 In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation (and more generally, on a arbitrary polygonal subdivision) of a \textcolor{red}{Riemann?} surface. In order to do this, we start with some basic definitions regarding our geometric objects.
 
-Throughout the text, we will refer to compact, connected, oriented \textcolor{red}{2-manifolds/Riemann surfaces?} with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:\note{la definición de genus debería ir fuera de la prop?}
+Throughout the text, we will refer to compact, connected, oriented \textcolor{red}{2-manifolds/Riemann surfaces?} with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:
 
-\begin{prop}\label{surf-classification} Let $\Sigma$ be a surface with a number $b$ of boundary components. Then $\Sigma$ is homeomorphic to either a sphere with $b$ open disks removed or to a $g$-holed torus with $b$ open disks removed. We call the number $g$ the \emph{genus} of the surface and set $g=0$ in the spherical case.
+\begin{prop}\label{surf-classification} Let $\Sigma$ be a surface with a number $b$ of boundary components. Then $\Sigma$ is homeomorphic to either a sphere with $b$ open disks removed or to a $g$-holed torus with $b$ open disks removed.
 \end{prop}
 \begin{proof} See \cite{Mas77}*{Section 10}.
 \end{proof}
+
+The number $g$ appearing in the statement of the previous theorem is called the \emph{genus} of the surface, which we will set as $g=0$ in the spherical case.
 
 A \emph{surface with marked points} $(\Sigma,M)$ is an ordered pair consisting of a surface $\Sigma$ and a finite, non-empty collection $M$ of points (called \emph{marked points}) of $\Sigma$ containing at least one point from each of its boundary components. Points in $M$ that belong to the interior of $\Sigma$ are called \emph{punctures}.
 
@@ -346,32 +348,34 @@ On the other hand, we can compute the Euler characteristic of the surface regard
 The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.
 \end{proof}
 
-From now on, we will assume that our surface $(\Sigma, M)$ is none of the following:
+Most surfaces may be triangulated without using self-folded triangles. In fact, we have the following result:
+
+\begin{prop}[{\cite{FST08}*{Proposition 2.13}}]\label{no-self-folds} Let $(\Sigma, M)$ be any surface with marked points different from:
 \begin{enumerate}
 \item A sphere with one, two or three punctures.
 \item An unpunctured or once-punctured monogon.
 \item An unpunctured digon.
 \item An unpunctured triangle.
 \end{enumerate}
-The reason for these exclusions is that the listed surfaces either have no non-trivial triangulations or only have pathological ones. In fact, we have the following result:
-
-\begin{prop}[{\cite{FST08}*{Proposition 2.13}}]\label{no-self-folds} Let $(\Sigma, M)$ be any surface with marked points not on the list above. Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
+Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
 \end{prop}
 \end{section}
 
 \begin{section}{The QP associated to an ideal triangulation}\label{qp}
 We will now introduce a way to produce a QP out of an ideal triangulation, so one may speak of the Jacobian algebra associated to the triangulation.
 
-Taking \hyperref[no-self-folds]{Proposition \ref*{no-self-folds}} into account, we will restrict ourselves to the case where no self-folded triangles appear. Although there is a general mechanism to produce QPs from arbitrary triangulations, as described in Section 3 from \cite{LF09}, technical difficulties arise when dealing with self-folded triangles.
+Taking \hyperref[no-self-folds]{Proposition \ref*{no-self-folds}} into account, from now on we will restrict ourselves to the case where no self-folded triangles appear. Although there is a general mechanism to produce QPs from arbitrary triangulations, as described in Section 3 from \cite{LF09}, technical difficulties arise when dealing with self-folded triangles.
 
-Let $T$ be an ideal triangulation of a surface with marked points $(\Sigma, M)$ involving no self-folded triangles. We construct a quiver $Q$ following these steps:
+Let $T$ be an ideal triangulation of a surface with marked points $(\Sigma, M)$. We construct a quiver $Q$ following these steps:
 \begin{enumerate}
 \item Draw a vertex $v_i$ for each edge $e_i$ in the triangulation $T$ that does not belong to the boundary of $\Sigma$.
 \item Draw an arrow between two vertices $v_i, v_j$ if $e_i$ and $e_j$ are edges of the same triangle.
 \item \textcolor{red}{Orient/orientate} all arrows according to the already existing orientation on the surface.
 \end{enumerate}
 
-Note that every triangle without edges on the boundary of the surface adds a 3-cycle to the quiver. We define the potential $P$ as the sum of all of these 3-cyles, plus all other cycles that circle a puncture. Notice that the potential is well defined up to cyclic equivalence. Thus, it makes sense to speak of the Jacobian algebra associated to the ideal triangulation $T$.
+Note that every triangle without edges on the boundary of the surface adds a 3-cycle to the quiver. Consider the set $X$ formed by all of these 3-cyles and all other cycles that circle a puncture, and pick a scalar $\lambda_x$ in the field $k$ for each cycle $x\in X$. We thus define the potential $P$ arising from this choice of scalars as
+\[P=\sum_{x\in X} \lambda_x x.\]
+Notice that this construction is well defined up to cyclic equivalence. Thus, it makes sense to speak of the Jacobian algebra associated from the QP one constructs from the ideal triangulation $T$. From now on, we will only consider the potential formed by setting all scalars $\lambda_x=1$, which we will call \emph{the} potential associated to $T$, unless we specify otherwise.
 
 \begin{exmp} Consider the following triangulation of the torus with a single puncture:
 \[

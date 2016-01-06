@@ -571,7 +571,7 @@ which is of length $3n-4$, the result follows.
 \end{lemma}
 \begin{proof} We write our path as $B_{k+1}R_k\dots R_2 B_2 R_1 B_1$, where the paths $R_i$ are contained in a same region and the paths $B_j$ are non-trivial (except possibly for $B_1$ and $B_{k+1}$) and contained in bands.
 
-Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow belonging to the cycle associated to the region, which we will call $x_0$ following the notation employed in the proof of \hyperref[long-band-paths]{Lemma \ref*{long-band-paths}}.\note{esto no está particularmente claro...} Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
+Let $1<j<k+1$. The path $B_j$ starts and ends at the boundary of our region of interest. Therefore, it must pass through both of the endpoints of a same arrow, which we will call $x_0$, belonging to the cycle associated to the region, since otherwise it would be sufficiently long as to reduce to zero, by \hyperref[long-band-paths]{Lemma \ref*{long-band-paths}}. Therefore, using the relation induced by $\partial_{x_0}(P_g)$, we can replace some of the arrows in $B_j$ with a path entirely contained in the region.
 After applying this argument repeatedly, we can then suppose our path is of the form $B_2 R_1 B_1$. The proof now follows from \hyperref[long-band-paths]{Lemmas \ref*{long-band-paths}} and \ref{long-region-paths}, since if our path is non-zero, then $|B_1|<10$, $|B_2|<10$ and $|R_1|<3n-3$, where $n$ is the number of sides of the region.
 \end{proof}
 
@@ -729,6 +729,34 @@ Total rules: 53
 \end{lstlisting}
 As we can see, these results agree with our computations.
 \end{section}
+
+\begin{section}{Scalars in the polygonal case}
+We recall that, so far, we have only considered potentials in which all scalars involved were set to 1. One of the main results from Sefi Ladkani's paper \cite{Lad12} states:
+\begin{thm} Let $(\Sigma, M)$ be a surface with marked points and empty boundary.
+\begin{enumerate}
+\item If $(\Sigma, M)$ is not a sphere with 4 punctures, then for any choice of scalars the Jacobian algebra associated to the QP arising from any ideal triangulation of $(\Sigma, M)$ is finite-dimensional.
+\item If $(\Sigma, M)$ is a sphere with 4 punctures, then the same conclusion holds provided that the product of the scalars is not equal to 1.
+\end{enumerate}
+\end{thm}
+
+The family of pyramids studied in the previous section shows that this result does not hold for polygonal subdivions in general. Keeping the notation previously used, consider the potential $P$ which arises by asigning the scalar 1 to cycles of the form $a^{n+1}$ and $bdc$, and the scalar $-1$ to cycles of the form $b^{n+1}$ and $acd$. The cyclic derivatives of this potential are then
+\begin{align*}
+\partial_a(P) &= a^{n-1} - cd\\
+\partial_b(P) &= -b^{n-1} + dc\\
+\partial_c(P) &= bd - da\\
+\partial_d(P) &= -ac + cb
+\end{align*}
+
+Therefore, the obvious rewriting system
+\begin{align*}
+cd &\leadsto a^{n-1}\tag{$\partial_a$}\\
+dc &\leadsto b^{n-1}\tag{$\partial_b$}\\
+bd &\leadsto da\tag{$\partial_c$}\\
+ac &\leadsto cb\tag{$\partial_d$}
+\end{align*}
+turns out to be confluent. In fact, exactly the same computation as in the previous section holds if we delete all the minus signs from it. Therefore, the Jacobian algebra associated to this potential is infinite-dimensional, since for instance cycles of the form $a^{kn}$ and $b^{kn}$ are irreducible for all natural $k$. Nevertheless, we have already seen that for even values of $n$, the Jacobian algebra arising from the standard potential is finite-dimensional.
+\end{section}
+
 \begin{section}{Prisms and antiprisms}
 In this section we will introduce two families of convex polyhedra, which are polygonal subdivisions of the sphere. We will then show confluent rewriting systems for their respective Jacobian algebras, so as to have more examples in which we may compute invariants in the following chapter.
 
