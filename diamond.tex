@@ -1,9 +1,9 @@
 \begin{chapter}{The diamond lemma}
-Suppose $A$ is a $k$-algebra given by generators and relations, that is $A=\FA/R$ for some ideal $R$. A question that arises immediately is that of how to compute in $A$. Ideally, one should be able to provide a family of normal or canonical forms for monomials, such that every monomial is equal to a unique canonical form after passing to the quotient. In this way, one may compute the product of two monomials in $A$ by reducing them to their respective canonical forms, taking their product and reducing once again. This procedure may obviously be extended to arbitrary elements in $A$ by linearity.
+Suppose $A$ is a $k$-algebra given by a finite number of generators and relations, that is $A=\FA/\langle R\rangle$. A question that arises immediately is that of how to compute in $A$. Ideally, one should be able to provide a family of normal or canonical forms for monomials, such that every monomial is equal to a unique canonical form after passing to the quotient. In this way, if one knew how to multiply two elements in normal form, one would be able to compute the product of two arbitrary monomials in $A$ by reducing them to their respective canonical forms, taking their product and reducing once again. This procedure would obviously be extendable to arbitrary elements in $A$ by linearity.
 
-Notice that in order to be able to reduce elements into canonical forms, one should be able to test for equality in $A$; in particular, one should be able to distinguish if a certain element is zero or not. Experience tells us that this problem may very well be untractable: it is in fact the word problem for algebras, which is known to be undecidable in its full generality. \note{insertar referencia y revisar}
+In order to be able to reduce elements into canonical forms, one should be able to test for equality in $A$; in particular, one should be able to distinguish if a certain element is zero or not. Experience tells us that this problem may very well be untractable: it is in fact the word problem for algebras, which is known to be undecidable in its full generality. \note{insertar referencia y revisar}
 
-Nonetheless, under some relatively mild hypotheses on the ideal $R$, this kind of argument may be succesfully carried out. Essentially, one asks $R$ to define a confluent rewriting system for monomials. In that case, Bergman's diamond lemma, presented on his seminal paper \cite{Ber78}, states that not only there exists a set of normal forms, but that they actually form a basis for $A$ as a $k$-algebra.
+Nonetheless, under some relatively mild hypotheses on the presentation $R$ of the ideal being quotiented out, this kind of argument may be succesfully carried out. Essentially, one asks $R$ to define a confluent rewriting system for monomials. In that case, Bergman's diamond lemma, presented on his seminal paper \cite{Ber78}, states that not only there exists a set of normal forms, but that they actually form a basis for $A$ as a $k$-algebra.
 
 \begin{section}{Bergman's diamond lemma}
  Let $X$ be a set and let $\mon$ denote the free monoid on $X$. A \emph{monomial order} on $\mon$ is a partial order $\preceq$ on $\mon$ such that:
@@ -150,7 +150,7 @@ The problem is solved if we consider the rewriting system $S'$ composed of the r
 \sigma &= yx \rightsquigarrow xy\\
 \tau_n &= zx^ny \rightsquigarrow yzx^n
 \end{align*}
-for all $n\in\NN_0$. As we can see, the rewriting system $S'$ is compatible with the grlex monomial order, and since the identities $zx^ny=yzx^n$ hold in $A$, we have that $I_{S'} = (xy-yx, yzx^n-zx^ny)=(xy-yx, yz-zy)$.\note{explicar mejor por qué} The rules $\tau_j$ and $\tau_k$ do not overlap or contain each other for any choice of $j$ and $k$, so the only overlapping ambiguities are of the form $(\tau_n,\sigma,zx^n,y,x)$, for $n\in\NN_0$. We now check that these ambiguities are resolvable:
+for all $n\in\NN_0$. As we can see, the rewriting system $S'$ is compatible with the grlex monomial order, and since the identities $zx^ny=yzx^n$ hold in $A$, we have that $I_{S'} = (xy-yx, yzx^n-zx^ny)=(xy-yx, yz-zy)$. The rules $\tau_j$ and $\tau_k$ do not overlap or contain each other for any choice of $j$ and $k$, so the only overlapping ambiguities are of the form $(\tau_n,\sigma,zx^n,y,x)$, for $n\in\NN_0$. We now check that these ambiguities are resolvable:
 \[
 \begin{tikzpicture}
 \node (1) at (0,0) {$zx^nyx$};
@@ -186,7 +186,7 @@ This procedure, of course, does not \emph{always} work, but is good enough as to
 \end{section}
 \begin{section}{A diamond lemma for path algebras}
 \label{path-diamond}
-As seen in the previous section, Bergman's diamond lemma applies over quotients of free algebras. However, we will only apply it on a particular family of algebras, namely quotients of path algebras. As though obviously path algebras are themselves quotients of free algebras, applying Bergman's diamond lemma can be quite cumbersome. For example, consider the following quiver, which we will name $Q$:
+As seen in the previous section, Bergman's diamond lemma is a statement about certain quotients of free algebras. However, we will only apply it on a particular family of algebras, namely quotients of path algebras. As though obviously path algebras are themselves quotients of free algebras, using Bergman's diamond lemma can be quite cumbersome in this case. For example, consider the following quiver, which we will name $Q$:
 \[
 \begin{tikzpicture}[->,node distance=1cm, thick]
 \tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
@@ -275,10 +275,11 @@ Consider the algebra $A=\kQ/(\delta\gamma-\beta\alpha, \varepsilon\beta, \zeta\d
 \sigma_2 &= \varepsilon\beta \rightsquigarrow 0\\
 \sigma_3 &= \zeta\delta \rightsquigarrow 0
 \end{align*}\note{de nuevo mal alineadas}
-\end{exmp}
+
 In this case, the rewriting system is not confluent, since the ambiguity $(\sigma_3, \sigma_1, \zeta, \delta, \gamma)$ is unresolvable. However, after enlarging the system as to contain the rule
 \[\sigma_4 = \zeta\beta\alpha\rightsquigarrow 0,\]
 we achieve confluence. Thus, a basis is given by the $S$-irreducible monomials.
+\end{exmp}
 \end{section}
 
 \begin{section}{A topological diamond lemma}

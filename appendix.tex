@@ -2,9 +2,9 @@
 \label{appendix}
 We have developed a \texttt{SageMath} class to deal with the long and tedious process of checking the hypotheses of the diamond lemma, and to automatically generate bases and compute some invariants of the Jacobian algebra associated to a polygonal subdivision, with the only input being the subdivision itself. We now present the source code, which we will then discuss in more detail:
 \lstinputlisting{rewsystems.py}
-We will explain how the program works by following an example execution, in which we will compute some invariants of pyramids, as studied in \hyperref[pyramids]{Section \ref*{pyramids}}.
+We will explain how the program works by following an example execution in which we will compute some invariants of pyramids, as studied in \hyperref[pyramids]{Section \ref*{pyramids}}.
 
-An instance of the \texttt{Rewriting\_System} class is constructed from an undirected graph representing a triangulation of the sphere. The associated quiver and standard potential will be automatically generated. We only implemented this feature for triangulations of the sphere since it relies on finding a planar embedding of the graph on the surface, and \texttt{SageMath} only provides such an algorithm for this case.
+An instance of the \texttt{Rewriting\_System} class is constructed from an undirected graph representing a polygonal subdivison of the sphere. The associated quiver and standard potential will be automatically generated. We only implemented this feature for the spherical case since an enumeration of the faces of the polygonal subdivision is carried out by finding a planar embedding of the graph on the surface, and \texttt{SageMath} only provides such an algorithm for the sphere.
 
 We would like to generate the rewriting system associated to a pyramid with an odd-sided base. In order to do that, we use the following snippet, which produces a pyramid with an $n$-sided base:
 \begin{lstlisting}

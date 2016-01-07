@@ -45,20 +45,20 @@ Let $Q=(Q_0, Q_1, s, t)$ be a quiver and consider the $k$-vector spaces $R=k^{Q_
 \[
 \kQ = \bigoplus_{n=0}^\infty A^{\otimes_R n},
 \]
-where we set $A^{\otimes_R 0}=R$. For the sake of simplicity we will usually notate $A^{\otimes_R n}$ as $A^n$ and an elementary tensor $\alpha_n\otimes\dots\otimes \alpha_1$ as $\alpha_n\dots\alpha_1$. Notice that a non-zero element of the form $\alpha_n\dots\alpha_1$ consists of a sequence of \emph{concatenable} arrows $\alpha_i$, that is, arrows such that $s(\alpha_{i+1})=t(\alpha_i)$. We will call such an element a \emph{path of length n}. It is worth observing that the collection of all paths of length $n$ form a basis of $A^n$ as a $k$-vector space. Since $Q_0$ is a basis of $A^0=R$, we will refer to elements of $Q_0$ as \emph{paths of length 0}, which we will usually call \emph{trivial} or \emph{stationary} paths. Considering $Q_0$ and $Q_1$ are in bijection with paths of length 0 and 1 respectively, we will denote the set of paths of length $n$ as $Q_n$ and the set of all paths as $Q_*$. We can now define source and target functions $s,t:Q_*\to Q_0$ as follows: if $u=\alpha_n\dots\alpha_0\in Q_n$ with $n>0$, then $s(u)=s(\alpha_0)$ and $t(u)=t(\alpha_n)$. Otherwise, if $u=r\in Q_0$ then $s(u)=t(u)=r$. Thus, one easily checks that if $a,b\in Q_0$, the space spanned by paths with source $a$ and target $b$ is exactly $b\kQ a$.
+where we set $A^{\otimes_R 0}=R$. For the sake of simplicity we will usually notate $A^{\otimes_R n}$ as $A^n$ and an elementary tensor $\alpha_n\otimes\dots\otimes \alpha_1$ as $\alpha_n\dots\alpha_1$. Notice that a non-zero element of the form $\alpha_n\dots\alpha_1$ consists of a sequence of \emph{concatenable} arrows $\alpha_i$, that is, arrows such that $s(\alpha_{i+1})=t(\alpha_i)$. We will call such an element a \emph{path of length n}. It is worth observing that the collection of all paths of length $n$ form a basis of $A^n$ as a $k$-vector space. Since $Q_0$ is a basis of $A^0=R$, we will refer to elements of $Q_0$ as \emph{paths of length 0}, which we will usually call \emph{trivial} or \emph{stationary} paths. Considering the fact that $Q_0$ and $Q_1$ are in bijection with paths of length 0 and 1 respectively, we will denote the set of paths of length $n$ as $Q_n$ and the set of all paths as $Q_*$. We can now define source and target functions $s,t:Q_*\to Q_0$ as follows: if $u=\alpha_n\dots\alpha_0\in Q_n$ with $n>0$, then $s(u)=s(\alpha_0)$ and $t(u)=t(\alpha_n)$. Otherwise, if $u=r\in Q_0$ then $s(u)=t(u)=r$. Thus, one easily checks that if $a,b\in Q_0$, the space spanned by paths with source $a$ and target $b$ is exactly $b\kQ a$.
 
 The path algebra satisfies the following useful universal property:
 
 \begin{prop} Let $Q$ be a quiver and $\Lambda$ be an associative $k$-algebra with unit. Suppose $f_0:Q_0\to \Lambda$, $f_1:Q_1\to\Lambda$ are maps satisfying:
 \begin{enumerate}
-\item $\sum_{r\in Q_0} f_0(r)=1$.
+\item $\sum_{a\in Q_0} f_0(a)=1$.
 \item If $a\in Q_0$, then $f_0^2(a)=f_0(a)$.
-\item If $a\neq b\in Q_0$, then $f_0(a)f_0(b)=0$.
+\item If $a\neq b$, with $a,b\in Q_0$, then $f_0(a)f_0(b)=0$.
 \item If $\alpha:a\to b$ is an arrow in $Q_1$, then $f_1(\alpha) = f_0(b) f_1(\alpha) f_0(a)$.
 \end{enumerate}
 Then, there exists a unique $k$-algebra morphism $f:\kQ\to \Lambda$ extending $f_0$ and $f_1$.
 \end{prop}
-\begin{proof} If $n\geq 1$, define $f(\alpha_n\dots\alpha_1)=f_1(\alpha_n)\dots f_1(\alpha_0)$ and let $f(r)=f_0(r)$ for $r\in Q_0$. As the set of all paths forms a basis of $\kQ$ as a vector space, this defines a $k$-linear map $f:\kQ\to \Lambda$. Condition 1 guarantees that such a map preserves the unit and conditions 2, 3 and 4 guarantee that it preserves products involving stationary paths. Since by definition $f$ preserves products of non-trivial paths, we conclude that $f$ is a $k$-algebra morphism extending $f_0$ and $f_1$. As for uniqueness, consider another extension $g:\kQ\to\Lambda$. Since $g$ is a $k$-algebra morphism, we have that $g(\alpha_n\dots\alpha_1)= g(\alpha_n)\dots g(\alpha_1)= f_1(\alpha_n)\dots f_1(\alpha_1)=f(\alpha_n\dots\alpha_1)$ for $n\geq 1$ and $g(r)=f_0(r)=f(r)$ for all $r\in Q_0$. Thus $g$ agrees with $f$ in a basis, and so $g=f$ as wanted.
+\begin{proof} If $n\geq 1$, define $f(\alpha_n\dots\alpha_1)=f_1(\alpha_n)\dots f_1(\alpha_0)$ and let $f(r)=f_0(r)$ for $r\in Q_0$. As the set of all paths forms a basis of $\kQ$ as a vector space, this defines a $k$-linear map $f:\kQ\to \Lambda$. Condition 1 guarantees that such a map preserves the unit and conditions 2, 3 and 4 guarantee that it preserves products involving stationary paths. Since by definition $f$ preserves products of paths of positive length, we conclude that $f$ is a $k$-algebra morphism extending $f_0$ and $f_1$. As for uniqueness, consider another extension $g:\kQ\to\Lambda$. Since $g$ is a $k$-algebra morphism, we have that $g(\alpha_n\dots\alpha_1)= g(\alpha_n)\dots g(\alpha_1)= f_1(\alpha_n)\dots f_1(\alpha_1)=f(\alpha_n\dots\alpha_1)$ for $n\geq 1$ and $g(r)=f_0(r)=f(r)$ for all $r\in Q_0$. Thus $g$ agrees with $f$ in a basis, and so $g=f$ as wanted.
 \end{proof}
 Let us now consider some examples:
 \begin{exmp} Let $Q$ be the quiver with vertices $\{1,\dots,n\}$ and no arrows:
@@ -115,16 +115,17 @@ Conversely, if $Q$ contains a cycle $u$, then $\{u,u^2,u^3,\dots\}$ is an infini
 \end{section}
 
 \begin{section}{Completions}
-\note{estoy mintiendo al no hablar de topologia sobre $k$?}
+In this section we will outline the construction of the completion of a path algebra. For a more detailed treatment of this subject, the reader may consult \cite{SAV15}.
+
 Given a quiver $Q$, the path algebra $\kQ$ admits a $k$-algebra norm $\vert \cdot \vert$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. In fact, this is not just a norm but an \emph{ultranorm}, which means we have a stronger triangle inequality, namely \[|x+y|\leq \max\{|x|,|y|\}.\] This ultranorm plays nicely with multiplication as well, since \[|xy|=e^{-\nu(xy)}=e^{-\nu(x)-\nu(y)} = e^{-\nu(x)}e^{-\nu(y)}=|x|\cdot|y|.\]
 
 It is thus straightforward to check that the $k$-algebra operations of $\kQ$ are continuous in the topology induced by this ultranorm. These operations extend to the completion of $\kQ$ as a metric space, making it a $k$-algebra itself, which we will call the \emph{complete path algebra} $\KQ$.
 
-Suppose $(x_n)$ is a Cauchy sequence in $\kQ$. If $x_n=\sum_{u\in Q_*} \lambda_u^n u$, we have that the sequence $(\lambda_u^n)$ is eventually constant, since $|x_n-x_m|<e^{-|u|}$ for big enough $n,m$. Therefore, we may identify the Cauchy sequence $(x_n)$ with its termwise limit $x=\sum_{u\in Q_*} \lambda_u u$, where \textcolor{red}{$\lambda_u^n \to \lambda_u$}. One can now check that $\KQ$ may be identified with the $k$-algebra $\prod_{n=0}^\infty A^n$, where, as before, $A^n$ stands for the $k$-vector spanned by paths of length $n$. The norm $|\cdot|$ extends naturally to this algebra, and it is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
+Suppose $(x_n)$ is a Cauchy sequence in $\kQ$. If $x_n=\sum_{u\in Q_*} \lambda_u^n u$, we have that the sequence $(\lambda_u^n)$ is eventually constant, since $|x_n-x_m|<e^{-|u|}$ for big enough $n,m$. Therefore, we may identify the Cauchy sequence $(x_n)$ with its termwise limit $x=\sum_{u\in Q_*} \lambda_u u$, where $\lambda_u$ denotes the constant value the sequence $(\lambda_u^n)$ eventually takes. Notice that the termwise limit $x$ is not necessarily finitely supported. One can now check that $\KQ$ may be identified with the $k$-algebra $\prod_{n=0}^\infty A^n$, where, as before, $A^n$ stands for the $k$-vector spanned by paths of length $n$. The norm $|\cdot|$ extends naturally to this algebra, and it is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
 
 We now consider the completions of the examples of path algebras mentioned previously:
 
-\begin{exmp}Let $Q$ be an acyclic quiver. As we proved in \hyperref[acyclic-fin-dim]{Proposition \ref*{acyclic-fin-dim}}, the associated path algebra $\kQ$ is finite-dimensional, and so $A^n=0$ for big enough $n$. Therefore, $\bigoplus A^n=\prod A^n$ and thus the path algebra coincides with its completion.
+\begin{exmp}Let $\kQ$ be a finite-dimensional path algebra. Since we must have $A^n=0$ for big enough $n$, we conclude that $\bigoplus A^n=\prod A^n$ and thus the path algebra coincides with its completion. As we proved in \hyperref[acyclic-fin-dim]{Proposition \ref*{acyclic-fin-dim}}, this may only happen if the quiver $Q$ is acyclic.
 \end{exmp}
 
 \begin{exmp}Let $Q$ be the quiver from \hyperref[several-loops]{Example \ref*{several-loops}}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between the respective completions $\KQ\simeq k\langle\!\langle x_1,\dots,x_n\rangle\!\rangle$, where the right-hand side term denotes the algebra of non-commutative formal power series in $n$ variables.
@@ -145,11 +146,11 @@ Let $\KQ=\prod A^n$ be the complete path algebra associated to a quiver $Q$. For
 \[
 A^n_{\cyc} = \bigoplus_{r\in Q_0} rA^nr,
 \]
-that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $S$ is an element of the closed \note{por qué $\KQ_{\cyc}$ es cerrado?} $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
+that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $P$ is an element of the closed $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
 \[
-\KQ_{\cyc}=\prod_{n=1}^\infty A^n_{\cyc}
+\KQ_{\cyc}=\prod_{n=1}^\infty A^n_{\cyc}.
 \]
-In other words, a potential is a possibly infinitely supported linear combination of cycles. We will call a pair $(Q,S)$ a \emph{quiver with potential}, or \emph{QP} for short.
+In other words, a potential is a possibly infinitely supported linear combination of cycles. We will call a pair $(Q,P)$ a \emph{quiver with potential}, or \emph{QP} for short.
 
 In their work \cite{RSS80}, Rota, Sagan and Stein introduced a notion of derivative for non-commutative algebras, called the \emph{cyclic derivative}. Here we will work with this concept within the context of the complete path algebra of a quiver. Given an arrow $\alpha\in Q_1$, the cyclic derivative with respect to $\alpha$ is the morphism $\partial_\alpha:\KQ_\cyc\to \KQ$ defined for a cycle $u=\alpha_n\dots\alpha_1$ as
 \[
@@ -157,14 +158,14 @@ In their work \cite{RSS80}, Rota, Sagan and Stein introduced a notion of derivat
 \]
 and extended linearly and continuously.
 
-We are now able to introduce the \emph{Jacobian algebra} associated to a QP, which is one of the main objects of study in this thesis. Given a QP $(Q,S)$, the \emph{Jacobian ideal} $J(S)$ is the closed ideal in $\KQ$ generated by the set of all cyclic derivatives of the potential, that is, $\{\delta_\alpha(S) : \alpha\in Q_1\}$. The Jacobian algebra $P(Q,S)$ is then the quotient $\KQ/J(S)$.
+We are now able to introduce the \emph{Jacobian algebra} associated to a QP, which is the main algebraic object of study in this work. Given a QP $(Q,P)$, the \emph{Jacobian ideal} $J(P)$ is the closed ideal in $\KQ$ generated by the set of all cyclic derivatives of the potential, that is, $\{\delta_\alpha(P) : \alpha\in Q_1\}$. The Jacobian algebra $J(Q,P)$ is then the quotient $\KQ/J(P)$.
 
-\begin{exmp} As in \hyperref[one-loop]{Example \ref*{one-loop}}, consider the quiver $Q$ with a single vertex and a unique arrow from that vertex to itself. As we have seen, the complete path algebra $\KQ$ is isomorphic to the algebra of formal power series $k\llbracket x\rrbracket$. Identifying $x$ with the only arrow in the quiver, we see that any potential for Q is of the form $\sum_{n=1}^\infty \lambda_n x^n$ for some choice of scalars $\lambda_n\in k$. For example, let us consider the potential $S=x^n$. Since $x$ is the only arrow in the quiver, we just have to compute $\partial_x(x^n)$, which turns out to be $nx^{n-1}$ (happily coinciding with the usual, commutative notion of derivation). Therefore, the Jacobian algebra is $k\llbracket x\rrbracket/(nx^{n-1})$, which is isomorphic to the truncated polynomial algebra $k[x]/(x^{n-1})$.
+\begin{exmp} As in \hyperref[one-loop]{Example \ref*{one-loop}}, consider the quiver $Q$ with a single vertex and a unique arrow from that vertex to itself. As we have seen, the complete path algebra $\KQ$ is isomorphic to the algebra of formal power series $k\llbracket x\rrbracket$. Identifying $x$ with the only arrow in the quiver, we see that any potential for Q is of the form $\sum_{n=1}^\infty \lambda_n x^n$ for some choice of scalars $\lambda_n\in k$. For example, let us consider the potential $P=x^n$. Since $x$ is the only arrow in the quiver, we just have to compute $\partial_x(x^n)$, which turns out to be $nx^{n-1}$ (happily coinciding with the usual, commutative notion of derivation). Therefore, the Jacobian algebra is $k\llbracket x\rrbracket/(nx^{n-1})$, which is isomorphic to the truncated polynomial algebra $k[x]/(x^{n-1})$.
 \end{exmp}
 
-Two potentials $S$ and $S'$ are said to be \emph{cyclically equivalent} if their difference $S-S'$ lies in the closed $k$-subspace spanned by elements of the form $\alpha_n\dots\alpha_1 - \alpha_1\alpha_n\dots\alpha_2$ where $\alpha_n\dots\alpha_1$ is a cycle, or equivalently, if every term of $S$ is a cyclic permutation of the factors of a term of $S'$. It is easily checked that if $S$ and $S'$ are cyclically equivalent, then $\partial_\alpha(S)$ is just a reordering of the summands of $\partial_\alpha(S')$, and so they coincide. This in turn implies that $S$ and $S'$ induce both the same Jacobian ideal and the same Jacobian algebra.
+Two potentials $P$ and $P'$ are said to be \emph{cyclically equivalent} if their difference $P-P'$ lies in the closed $k$-subspace spanned by elements of the form $\alpha_n\dots\alpha_1 - \alpha_1\alpha_n\dots\alpha_2$ where $\alpha_n\dots\alpha_1$ is a cycle, or equivalently, if every term of $P$ is a cyclic permutation of the factors of a term of $P'$. It is easily checked that if $P$ and $P'$ are cyclically equivalent, then $\partial_\alpha(P)$ is just a reordering of the summands of $\partial_\alpha(P')$, and so they coincide. This in turn implies that $P$ and $P'$ induce both the same Jacobian ideal and the same Jacobian algebra.
 
-If $(Q,S)$ and $(Q', S')$ are QPs sharing the same set of vertices, we say that $(Q,S)$ is \emph{right-equivalent} to $(Q',S')$ if there exists a $k$-algebra isomorphism $\varphi:\KQ\to k\langle\!\langle Q'\rangle\!\rangle$ fixing the set of vertices and such that $\varphi(S)$ is cyclically equivalent to $S'$. This will be our concept of isomorphism for QPs, since a right-equivalence induces an isomorphism between the respective Jacobian algebras, as seen in Proposition 3.7 from \cite{DWZ08}.
+\textcolor{red}{If $(Q,P)$ and $(Q', P')$ are QPs sharing the same set of vertices, we say that $(Q,P)$ is \emph{right-equivalent} to $(Q',P')$ if there exists a $k$-algebra isomorphism $\varphi:\KQ\to k\langle\!\langle Q'\rangle\!\rangle$ fixing the set of vertices and such that $\varphi(P)$ is cyclically equivalent to $P'$. This will be our concept of isomorphism for QPs, since a right-equivalence induces an isomorphism between the respective Jacobian algebras, as seen in Proposition 3.7 from \cite{DWZ08}.}\note{nunca uso este concepto}
 
 \begin{exmp} Let $Q$ be the quiver with vertices 1 and 2, and arrows $\alpha:1\to 2$, $\beta:2\to1$:
 \[
@@ -177,14 +178,14 @@ If $(Q,S)$ and $(Q', S')$ are QPs sharing the same set of vertices, we say that 
 \draw (2.200) -- (1.340) node[midway, below, fill=white] {$\beta$};
 \end{tikzpicture}
 \]
-Any potential for $Q$ is of the form $\sum_{n=1}^\infty \lambda_n (\alpha\beta)^n + \mu_n (\beta\alpha)^n$ for some scalars $\lambda_n, \mu_n\in k$. For instance, the cyclically equivalent potentials $S=(\alpha\beta)^n$ and $S'=(\beta\alpha)^n$ give rise to the same Jacobian ideal, which is $(\partial_\alpha(S), \partial_\beta(S)) = (n(\beta\alpha)^{n-1}\beta, n(\alpha\beta)^{n-1}\alpha)$. As any path of length at least $n$ has either $(\beta\alpha)^{n-1}\beta$ or $(\alpha\beta)^{n-1}\alpha$ as factors, the Jacobian ideal contains $A^d$ for $d\geq n$. Therefore, the Jacobian algebra $P(Q,S)$ turns out to be finite-dimensional.
+Any potential for $Q$ is of the form $\sum_{n=1}^\infty \lambda_n (\alpha\beta)^n + \mu_n (\beta\alpha)^n$ for some scalars $\lambda_n, \mu_n\in k$. For instance, the cyclically equivalent potentials $P=(\alpha\beta)^n$ and $P'=(\beta\alpha)^n$ give rise to the same Jacobian ideal, which is $(\partial_\alpha(P), \partial_\beta(P)) = (n(\beta\alpha)^{n-1}\beta, n(\alpha\beta)^{n-1}\alpha)$. As any path of length at least $n$ has either $(\beta\alpha)^{n-1}\beta$ or $(\alpha\beta)^{n-1}\alpha$ as factors, the Jacobian ideal contains $A^d$ for $d\geq n$. Therefore, the Jacobian algebra $J(Q,P)$ turns out to be finite-dimensional.
 \end{exmp}
 
 In the context of Jacobian algebras, having finite dimension is a highly desirable attribute. A usual method for proving this, as seen in the works of \cites{LF09, Lad12, TVD12}, consists in showing that enough cycles are contained in the Jacobian ideal, just as we did in the toy example above. We will make use of the diamond lemma in order to produce this kind of arguments in a streamlined fashion.
 \end{section}
 
 \begin{section}{Ideal triangulations of surfaces}
-In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation (and more generally, on a arbitrary polygonal subdivision) of a \textcolor{red}{Riemann?} surface. In order to do this, we start with some basic definitions regarding our geometric objects.
+In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation of a \textcolor{red}{Riemann?} surface, as described in \cite{LF09}. In order to do this, we start with some basic definitions regarding our geometric objects.
 
 Throughout the text, we will refer to compact, connected, oriented \textcolor{red}{2-manifolds/Riemann surfaces?} with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:
 
@@ -327,7 +328,7 @@ An ideal triangulation divides the surface $\Sigma$ into \emph{ideal triangles}.
 \caption{The three possible kinds of ideal triangles: the usual \emph{triangle} and the self-folded ones, which are the \emph{monogon} and the \emph{digon}.}
 \end{figure}
 
-As one may observe, every ideal triangulation of the square pictured in \hyperref[square-triangs]{Figure \ref*{square-triangs}} consists of exactly 4 arcs. Indeed, the number of arcs in a triangulation is an invariant of the marked surface, which we call its \emph{rank}. More precisely, we have:
+As one may observe, every ideal triangulation of the square pictured in \hyperref[square-triangs]{Figure \ref*{square-triangs}} consists of exactly 4 arcs. Indeed, the number of arcs in a triangulation is an invariant of the marked surface. More precisely, we have:
 
 \begin{prop}[{\cite{FST08}*{Proposition 2.10}}] Any ideal triangulation of a surface with marked points $(\Sigma, M)$ consists of exactly
 \[
@@ -375,7 +376,7 @@ Let $T$ be an ideal triangulation of a surface with marked points $(\Sigma, M)$.
 
 Note that every triangle without edges on the boundary of the surface adds a 3-cycle to the quiver. Consider the set $X$ formed by all of these 3-cyles and all other cycles that circle a puncture, and pick a scalar $\lambda_x$ in the field $k$ for each cycle $x\in X$. We thus define the potential $P$ arising from this choice of scalars as
 \[P=\sum_{x\in X} \lambda_x x.\]
-Notice that this construction is well defined up to cyclic equivalence. Thus, it makes sense to speak of the Jacobian algebra associated from the QP one constructs from the ideal triangulation $T$. From now on, we will only consider the potential formed by setting all scalars $\lambda_x=1$, which we will call \emph{the} potential associated to $T$, unless we specify otherwise.
+Notice that this construction is well defined up to cyclic equivalence. Thus, it makes sense to speak of the Jacobian algebra associated from the QP. From now on, we will only consider the potential formed by setting all scalars $\lambda_x=1$, which we will call \emph{the} potential associated to the triangulation $T$, unless we specify otherwise. Moreover, we will refer to the Jacobian algebra induced by the triangulation as the one that is construced from this specific QP.
 
 \begin{exmp} Consider the following triangulation of the torus with a single puncture:
 \[
@@ -420,9 +421,10 @@ Keep in mind that, since opposing sides of the square are identified, the two tr
 \end{tikzpicture}
 \]
 Here we have two 3-cycles arising from the two triangles, which are $\gamma_1\beta_1\alpha_1$ and $\gamma_2\beta_2\alpha_2$, and a single 6-cycle that goes around the puncture, which is $\gamma_2\beta_2\alpha_2\gamma_1\beta_1\alpha_1$. Therefore, the associated potential is
-\[P = \gamma_1\beta_1\alpha_1+\gamma_2\beta_2\alpha_2+\gamma_2\beta_2\alpha_2\gamma_1\beta_1\alpha_1.\]
+\[P = \gamma_1\beta_1\alpha_1+\gamma_2\beta_2\alpha_2+\gamma_2\beta_2\alpha_2\gamma_1\beta_1\alpha_1\]
+up to cyclic equivalence.
 \end{exmp}
-\begin{exmp} Let us now consider a triangulation of a surface with non-empty boundary. The following is a triangulation of the square with a single puncture:
+\begin{exmp} Let us now consider a triangulation of a surface with non-empty boundary. The following is a triangulation of the square with a single puncture, placed on its center:
 \[
 \begin{tikzpicture}[scale=0.8]
 \draw (-2,-2) to (-2,2);
@@ -448,7 +450,7 @@ Every triangle shares an edge with the boundary of the square, so each triangle 
 \draw[->, red, very thick] (0.9, 1) to node[above] {$d$} (-0.9, 1);
 \end{tikzpicture}
 \]
-Since there are no 3-cycles coming from any triangle, the potential $P$ consists simply of the 4-cycle that circles the puncture, which is $dcba$. Notice that we could have chosen $cbad$, $badc$ or $adcb$ as well, since they all define right-equivalent potentials.
+Since there are no 3-cycles coming from any triangle, the potential $P$ consists simply of the 4-cycle that circles the puncture, which is $dcba$. Notice that we could have chosen $cbad$, $badc$ or $adcb$ as well, since they all define cyclically equivalent potentials.
 \end{exmp}
 \end{section}
 \end{chapter}

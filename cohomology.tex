@@ -1,9 +1,11 @@
 \begin{chapter}{Cohomological properties}
-In the previous chapter, we produced confluent rewriting systems for several Jacobian algebras. As we have noted, such a rewriting system provides a basis for the algebra as a $k$-vector space, which is given by the irreducible monomials. In this chapter, we will make use of these bases to compute some invariants of the families of algebras considered previously. These invariants are closely related to the first two Hochschild cohomology modules of those algebras, which we will now introduce.
+In the previous chapter, we produced confluent rewriting systems for several Jacobian algebras. By the diamond lemma, such a rewriting system provides a basis for the algebra as a $k$-vector space, which is given by the irreducible monomials. In this chapter, we will make use of these bases to compute some invariants of the families of algebras considered previously. These invariants are closely related to the first two Hochschild cohomology modules of those algebras, which we will now introduce.
 
 Given an associative $k$-algebra $A$, we define its \emph{enveloping algebra} as $A^e=A\otimes_k A^{\mathrm{opp}}$. The product on $A^e$ is given by $(a\otimes b)(c\otimes d)=ac\otimes db$.
 There is a natural equivalence between the category of $A$-$A$-bimodules and the category of left $A^e$-modules, which we will consider an identification. Therefore, if $M$ is an $A$-$A$-bimodule, it makes sense to compute $\Ext^\bullet_{A^e}(A,M)$, which we will call the \emph{Hochschild cohomology of $A$ with coefficients in $M$} and denote $H^\bullet(A,M)$.
 If $M=A$, this module will be plainly called the \emph{Hochschild cohomology of $A$}, and will be denoted as $HH^\bullet(A)$.
+
+We refer the reader to \cite{Wei94}*{Chapter 9} for a detailed introduction to Hochschild cohomology.
 
 \begin{section}{The center}
 Let $A$ be an associative $k$-algebra. The \emph{center} of $A$, denoted as $\mathcal{Z}(A)$, is the subset of all elements $x\in A$ such that $xa=ax$ for all $a\in A$, and is in fact a subalgebra of $A$. An algebra is called \emph{central} if $\mathcal{Z}(A)=k$. For example, the matrix algebra $M_n(k)$ is a central $k$-algebra.
@@ -13,7 +15,7 @@ Let $A$ be an associative $k$-algebra. The \emph{center} of $A$, denoted as $\ma
 \begin{proof} See \cite{Red01}.
 \end{proof}
 
-We will now compute the center of the Jacobian algebras associated to pyramids, prisms and antiprisms. In order todo so, we first make a useful observation:
+We will now compute the center of the Jacobian algebras associated to pyramids, prisms and antiprisms. In order to do so, we first make a useful observation:
 
 \begin{obs}\label{central-endpoints} Let $x$ be a central element in a Jacobian algebra $A$. Then $x$ is a linear combination of \emph{loops}, that is, paths with identical source and target.
 \end{obs}
@@ -26,13 +28,13 @@ The scalar corresponding to $p_j$ in the left hand side of the equation is $\lam
 
 We remark that, by definition, stationary paths are loops. Moreover, it is easy to see that any loop commutes with all stationary paths.
 
-As a consequence of the diamond lemma, we know that given a confluent rewriting system for a Jacobian algebra, the set of irreducible monomials forms a basis for it. This will be an essential tool to compute its center. In what follows, we will maintain the notation for paths used in the previous chapter.
+As a consequence of the diamond lemma, we know that given a confluent rewriting system for a Jacobian algebra, the set of irreducible monomials forms a basis for it. This will be an essential tool to compute its center. For the remainder of this chapter, we will use the labeling of arrows presented in the previous chapter for the quivers associated to each polygonal subdivision.
 
 \begin{prop} The Jacobian algebra associated to a pyramid with $n$-sided base, where $n>3$, is central.
 \end{prop}
 \begin{proof} Suppose first that $n$ is even. The confluent rewriting system found previously induces the basis of irreducible paths 
 \[B=\{e_v,a^k,b^k,cb^j, da^j\},\] 
-where $v$ runs through the set of vertices $Q_0$, $1\leq k\leq 2n-3$ and $0\leq j\leq n-2$.\note{modificar el texto de las derivaciones para que no quede tan redundante} Notice that the label $a^k$ denotes $n$ different cycles, each starting at a different vertex. We will enumerate those vertices from $0$ to $n-1$, in such a way that if $i+1=j \mod n$ then there exists an $a$ arrow starting at vertex $i$ and ending at vertex $j$. We will denote the path starting at vertex $k$ consisting of $j$ arrows labeled $a$ as $a_k^j$. For example, using this notation, we have that $a_1a_0=a_0^2$. Notice that $a_k^n$ both starts and ends at $k$, since it is a cycle. We will use the same idea to name the $n$ different cycles of the form $b^n$.
+where $v$ runs through the set of vertices $Q_0$, $1\leq k\leq 2n-3$ and $0\leq j\leq n-2$.\note{modificar el texto de las derivaciones para que no quede tan redundante} Notice that the label $a^k$ denotes $n$ different cycles, each starting at a different vertex. We will enumerate those vertices from $0$ to $n-1$, in such a way that if $i+1=j \mod n$ then there exists an $a$ arrow such that $a:i\to j$. We will denote the path starting at vertex $k$ consisting of $j$ arrows labeled $a$ as $a_k^j$. For example, using this notation, we have that $a_1a_0=a_0^2$. Notice that $a_k^n$ both starts and ends at $k$, since it is a cycle. We will use the same idea to name the $n$ different cycles of the form $b^n$.
 
 Now, the only irreducible loops are of the form $e_v$, $a^n$ or $b^n$, and so if we write a central element $x$ in terms of our basis $B$, by \hyperref[central-endpoints]{Observation \ref*{central-endpoints}} we get that
 \[x = \sum_{v\in Q_0} \lambda_v e_v + \sum_{i\in \ZZ/n\ZZ}(\mu_i a_i^n + \eta_i b_i^n),\]
@@ -49,7 +51,7 @@ The case where $n$ is odd is entirely analogous. The only minor difficulty is th
 
 \begin{prop} Let $A$ be the Jacobian algebra associated to a prism with $n$-sided base, where $n>3$. Then, $\mathcal{Z}(A) = \langle 1, a^n, b^n, edcf\rangle$, where 1 stands for the identity element of $A$.
 \end{prop}
-\begin{proof} First of all, we notice that any cycle $x$ of the form $a^n$, $b^n$ or $edcf$ is central. Indeed, they commute with stationary paths since they are loops, and if $y$ is a path of positive length then the rewriting system shows that $yx=xy=0$.
+\begin{proof} First of all, we notice that any cycle $x$ of the form $a^n$, $b^n$ or $edcf$ is central. Indeed, they commute with stationary paths since they are loops, and if $y$ is any path of positive length then the rewriting system shows that $yx=xy=0$.
 
 Since the only irreducible loops are either stationary or of the form $a^n$, $b^n$ or $edcf$, an arbitrary central element $x$ can be written down as 
 \[x = \sum_{v\in Q_0} \lambda_v e_v + y,\]
@@ -66,7 +68,7 @@ Now, in this case, the irreducible loops are stationary or of the form $a^n$, $b
 \[x = \sum_{v\in Q_0} \lambda_v e_v + y + z,\]
 where $y\in\langle a^n, b^n\rangle$ and $z\in\langle egaf, dbch\rangle\subseteq \mathcal{Z}(A)$. Using the same argument as in the pyramidal case, namely multiplying by $a$, $b$ on the left and right, we see that $y=0$.
 
-Since $x$ and $z$ is central, so is $x-z= \sum_{v\in Q_0} \lambda_v e_v$, and once again a connection argument shows that $x-z$ must be a scalar multiple of the identity. Therefore, $x=\lambda 1 + z$, as we wanted.
+Since $x$ and $z$ are central, so is $x-z= \sum_{v\in Q_0} \lambda_v e_v$, and once again a connection argument shows that $x-z$ must be a scalar multiple of the identity. Therefore, $x=\lambda 1 + z$, as we wanted.
 \end{proof}
 \end{section}
 
@@ -75,11 +77,11 @@ Let $A$ be a $k$-algebra. A \emph{derivation} of $A$ is a $k$-linear morphism $f
 \[f(ab)=f(a)b+af(b).\]
 The set of derivations of $A$, which we will denote as $D(A)$, is a Lie algebra with Lie bracket given by the commutator
 \[[f,g] = f\circ g - g\circ f.\]
-If $x\in A$, the map $f_x(y) = xy-yx$ is a derivation. The set of such maps, which we call \emph{inner derivations}, is denoted $\Inn(A)$, and it is actually a $k$-subspace of $D(A)$. Our main interest in derivations relies on the following fact:
+If $x\in A$, the map $f_x(y) = xy-yx$ is a derivation. The set of such maps, which we call \emph{inner derivations}, is denoted $\Inn(A)$, and is actually a $k$-subspace of $D(A)$. Our main interest in derivations relies on the following fact:
 
 \begin{lemma} Let $A$ be an associative $k$-algebra. Then $HH^1(A) = D(A)/\Inn(A)$.
 \end{lemma}
-\begin{proof} See \cite{Red01}.
+\begin{proof} See \cite{Red01} or \cite{Wei94}*{Lemma 9.2.1}.
 \end{proof}
 
 Recall that, given a quiver $Q$, we denote its vertex span $k^{Q_0}$ as $R$. Since a Jacobian algebra $A$ is an $R$-bimodule, it makes sense to consider the Lie subalgebra of $R$-linear derivations of $A$, which we will denote $D_R(A)$. The following easy observations will greatly simplify our work:
@@ -105,10 +107,10 @@ for some scalars $\lambda_q\in k$. Let $x, y\in R$ be the source and the target 
 \[\sum_{q\in B} \lambda_q q=f(p)=f(ypx) = yf(p)x =\sum_{q\in B} \lambda_q yqx,\]
 and so $\lambda_q=0$ if $q$ has different endpoints than $p$.
 \end{proof}
-From now on, we will refer to $R$-linear derivations plainly as derivations. We will also maintain the labeling of arrows presented in the previous chapter for the quivers associated to each polygonal subdivision.
+From now on, we will refer to $R$-linear derivations plainly as derivations.
 
 \begin{subsection}{Pyramids with an even-sided base}
-Let $n$ be an even number greater than 3. In \hyperref[pyramids]{Section \ref*{pyramids}}, we proved that the Jacobian algebra $A$ associated with a pyramid having an $n$-sided base is finite-dimensional. Following the notation used in that section, a basis of irreducible monomials for the rewriting system we found is given by
+Let $n$ be an even number greater than 3. In \hyperref[pyramids]{Section \ref*{pyramids}}, we proved that the Jacobian algebra $A$ associated with a pyramid having an $n$-sided base is finite-dimensional. Following the notation used in that section, a basis of irreducible monomials for the corresponding rewriting system we found is given by
 \[B=\{e_v,a^k,b^k,cb^j, da^j\},\] 
 where $v$ runs through the set of vertices $Q_0$, $1\leq k\leq 2n-3$ and $0\leq j\leq n-2$. Once again, we are abusing notation, since for instance $a$ denotes several different paths of length 1. For simplicity, we will only study derivations $f$ that assign the same value to all paths sharing the same name. Thus, we may speak of the value of $f(a)$ in an unambigous manner.
 
@@ -163,7 +165,7 @@ g(b^k) &=\sum_{m=0}^{k-1}b^mg(b)b^{k-1-m}=k(\alpha b^k + \hat\beta b^{n+k})\\
 g(cb^j) &= g(c)b^j + cg(b^j) = (\gamma+j\alpha) cb^j \\
 g(da^j) &= g(d)a^j + dg(a^j) = (\delta+j\alpha) da^j = \left((n+j+1)\alpha-\gamma\right)da^j
 \end{align*}
-It is clear that these derivations make up a vector space $V$ of dimension 4. A basis for this space is given by $\{\alpha^*, \gamma^*, \hat\alpha^*, \hat\beta^*\}$, where $\alpha^*$ stands for the map defined by setting $\alpha=1$ and $\hat\alpha=\beta=\gamma=0$, and the other maps are defined analogously. We now write down the image of the basis $B$ in terms of these maps to ease computation:
+It is clear that these derivations make up a vector space $V$ of dimension 4. A basis for this space is given by $\{\alpha^*, \gamma^*, \hat\alpha^*, \hat\beta^*\}$, where $\alpha^*$ stands for the map defined by setting $\alpha=1$ and $\hat\alpha=\beta=\gamma=0$, and the other maps are defined analogously. We now write down the image of the basis $B$ by these maps to ease computation:
 \begin{center}
 \begin{tabular}{ c | c | c | c | c }
 	& 	$\alpha^*$ 		& $\gamma^*$	& $\hat\alpha^*$	& $\hat\beta^*$	\\
@@ -243,10 +245,10 @@ gf+dbc	&	&\eta+\zeta				&=\delta+\beta+\gamma
 \end{align*} 
 The linear system of equations on the right column imposes the following constraints:
 \begin{align*}
-\alpha=\beta=0\\
-\delta=-\gamma-\varepsilon\\
-\eta=-\varepsilon-\zeta\\
-\theta=-\varepsilon
+\alpha&=\beta=0\\
+\delta&=-\gamma-\varepsilon\\
+\eta&=-\varepsilon-\zeta\\
+\theta&=-\varepsilon
 \end{align*}
 Any solution for this system of equations induces a derivation of the Jacobian algebra of the antiprism in the usual manner. We thus obtain five linearly independent derivations: $\hat\alpha^*$, $\hat\beta^*$, $\gamma^*$, $\varepsilon^*$ and $\zeta^*$, which values on the set of paths of length 1 we present on the following table:
 \begin{center}
