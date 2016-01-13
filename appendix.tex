@@ -133,9 +133,9 @@ sage: odd_rs.basis(5)[-1]
  [9, 2, 4, 6, 8],
  [9, 7, 1, 0, 3]]
 \end{lstlisting}
-The name of this method is \texttt{basis()} since the set of all irreducible paths of length $n$ is actually a basis of the homogeneous component of degree $n$ of the associated graded algebra, as we discussed in \hyperref[graded-alg]{Section \ref*{graded-alg}}. We may compute its Hilbert series up to a certain degree as well:
+The \texttt{irred\_paths()} method counts the number of irreducible paths up to a specified length:
 \begin{lstlisting}
-sage: odd_rs.hilbert_series(15)
+sage: odd_rs.irred_paths(15)
 [10, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
 \end{lstlisting}
 

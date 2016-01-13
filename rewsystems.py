@@ -109,7 +109,7 @@ class Rewriting_System:
         return (len(next_term) > self.zero_depth) or (len(next_term) == 0)
             
     def null_n_paths(self, n):
-        return [tuple(path) for path in self.n_paths(n) if self.is_zero(Term(tuple(path),1))]
+        return [tuple(path) for path in self.n_paths(n) if self.is_zero(Term(tuple(path), 1))]
         
     def ambiguities(self):
         forbidden_terms = self.rules.keys()
@@ -196,5 +196,5 @@ class Rewriting_System:
             homogeneous_bases.append(sorted(admissible_paths))
         return homogeneous_bases
                
-    def hilbert_series(self, max_degree):
+    def irred_paths(self, max_degree):
         return map(len, self.basis(max_degree))
