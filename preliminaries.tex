@@ -41,18 +41,18 @@ One can represent a quiver graphically as an oriented graph allowing loops and m
 \draw [->] (\from) -- (\to);
 \end{tikzpicture}
 \]
-Let $Q=(Q_0, Q_1, s, t)$ be a quiver and consider the $k$-vector spaces $R=k^{Q_0}$ and $A=k^{Q_1}$, which we will call the \emph{vertex span} and \emph{arrow span} of $Q$, respectively. The space $R$ is a commutative $k$-algebra with the product given by pointwise multiplication. Thus, we can consider an $R$-bimodule structure on $A$ given as follows: if $r\in Q_0$, $\alpha\in Q_1$ then we define $r\alpha = \delta_{r,t(\alpha)} \alpha$ and analogously $\alpha r = \delta_{r, s(\alpha)}\alpha$, and extend the action linearly. Therefore, a vertex $r$ acts as the identity on the left (right) of an arrow $\alpha$ if the target (source) of $\alpha$ is $r$, and otherwise acts as zero. The \emph{path algebra} $\kQ$ associated to the quiver $Q$ is the graded tensor algebra
+Let $Q=(Q_0, Q_1, s, t)$ be a quiver and consider the $k$-vector spaces $R=k^{Q_0}$ and $A=k^{Q_1}$, which we will call the \emph{vertex span} and \emph{arrow span} of $Q$, respectively. The space $R$ is a commutative $k$-algebra with the product given by pointwise multiplication. We can consider an $R$-bimodule structure on $A$ given as follows: if $r\in Q_0$, $\alpha\in Q_1$ then we define $r\alpha = \delta_{r,t(\alpha)} \alpha$ and analogously $\alpha r = \delta_{r, s(\alpha)}\alpha$, and extend the action linearly. A vertex $r$ acts as the identity on the left (right) of an arrow $\alpha$ if the target (source) of $\alpha$ is $r$, and otherwise it acts as zero. The \emph{path algebra} $\kQ$ associated to the quiver $Q$ is the graded tensor algebra
 \[
 \kQ = \bigoplus_{n=0}^\infty A^{\otimes_R n},
 \]
-where we set $A^{\otimes_R 0}=R$. For the sake of simplicity we will usually notate $A^{\otimes_R n}$ as $A^n$ and an elementary tensor $\alpha_n\otimes\dots\otimes \alpha_1$ as $\alpha_n\dots\alpha_1$. Notice that a non-zero element of the form $\alpha_n\dots\alpha_1$ consists of a sequence of \emph{concatenable} arrows $\alpha_i$, that is, arrows such that $s(\alpha_{i+1})=t(\alpha_i)$. We will call such an element a \emph{path of length n}. It is worth observing that the collection of all paths of length $n$ form a basis of $A^n$ as a $k$-vector space. Since $Q_0$ is a basis of $A^0=R$, we will refer to elements of $Q_0$ as \emph{paths of length 0}, which we will usually call \emph{trivial} or \emph{stationary} paths. Considering the fact that $Q_0$ and $Q_1$ are in bijection with paths of length 0 and 1 respectively, we will denote the set of paths of length $n$ as $Q_n$ and the set of all paths as $Q_*$. We can now define source and target functions $s,t:Q_*\to Q_0$ as follows: if $u=\alpha_n\dots\alpha_0\in Q_n$ with $n>0$, then $s(u)=s(\alpha_0)$ and $t(u)=t(\alpha_n)$. Otherwise, if $u=r\in Q_0$ then $s(u)=t(u)=r$. Thus, one easily checks that if $a,b\in Q_0$, the space spanned by paths with source $a$ and target $b$ is exactly $b\kQ a$.
+where we set $A^{\otimes_R 0}=R$. For the sake of simplicity we will usually notate $A^{\otimes_R n}$ as $A^n$ and an elementary tensor $\alpha_n\otimes\dots\otimes \alpha_1$ as $\alpha_n\dots\alpha_1$. Notice that a non-zero element of the form $\alpha_n\dots\alpha_1$ consists of a sequence of \emph{concatenable} arrows $\alpha_i$, that is, arrows such that $s(\alpha_{i+1})=t(\alpha_i)$. We will call such an element a \emph{path of length n}. It is worth observing that the collection of all paths of length $n$ form a basis of $A^n$ as a $k$-vector space. Since $Q_0$ is a basis of $A^0=R$, we will refer to elements of $Q_0$ as \emph{paths of length 0}, which we will usually call \emph{trivial} or \emph{stationary} paths. Considering the fact that $Q_0$ and $Q_1$ are in bijection with paths of length 0 and 1 respectively, we will denote the set of paths of length $n$ as $Q_n$ and the set of all paths as $Q_*$. We can now define source and target functions $s,t:Q_*\to Q_0$ as follows: if $u=\alpha_n\dots\alpha_0\in Q_n$ with $n>0$, then $s(u)=s(\alpha_0)$ and $t(u)=t(\alpha_n)$. Otherwise, if $u=r\in Q_0$ then $s(u)=t(u)=r$. One easily checks that if $a,b\in Q_0$, the space spanned by paths with source $a$ and target $b$ is exactly $b\kQ a$.
 
 The path algebra satisfies the following useful universal property:
 
 \begin{prop} Let $Q$ be a quiver and $\Lambda$ be an associative $k$-algebra with unit. Suppose $f_0:Q_0\to \Lambda$, $f_1:Q_1\to\Lambda$ are maps satisfying:
 \begin{enumerate}
 \item $\sum_{a\in Q_0} f_0(a)=1$.
-\item If $a\in Q_0$, then $f_0^2(a)=f_0(a)$.
+\item If $a\in Q_0$, then $f_0(a)^2=f_0(a)$.
 \item If $a\neq b$, with $a,b\in Q_0$, then $f_0(a)f_0(b)=0$.
 \item If $\alpha:a\to b$ is an arrow in $Q_1$, then $f_1(\alpha) = f_0(b) f_1(\alpha) f_0(a)$.
 \end{enumerate}
@@ -100,7 +100,7 @@ The path algebra $\kQ$ has a basis given by $\{e_1, \alpha, \alpha^2, \dots\}$. 
 \path (1) edge [in=300, out=330, loop] node {$\alpha_n$} (1);
 \end{tikzpicture}
 \]
-Then, the path algebra $\kQ$ is isomorphic to the free algebra on $n$ generators $k\langle x_1,\dots, x_n\rangle$, via the map sending $\alpha_i\mapsto x_i$ and $1\mapsto 1$.
+The path algebra $\kQ$ is isomorphic to the free algebra on $n$ generators $k\langle x_1,\dots, x_n\rangle$, via the map sending $\alpha_i\mapsto x_i$ and $1\mapsto 1$.
 \end{exmp}
 
 A path $u\in Q_n$ with $n>1$ such that $s(u)=t(u)$ is called a \emph{cycle}, and a quiver containing no cycles is said to be \emph{acyclic}. As we can infer from the previous examples, the existence of cycles in the quiver is closely related to the dimension of the path algebra. More precisely, we have:
@@ -131,8 +131,6 @@ We now consider the completions of the examples of path algebras mentioned previ
 \begin{exmp}Let $Q$ be the quiver from \hyperref[several-loops]{Example \ref*{several-loops}}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between the respective completions $\KQ\simeq k\langle\!\langle x_1,\dots,x_n\rangle\!\rangle$, where the right-hand side term denotes the algebra of non-commutative formal power series in $n$ variables.
 \end{exmp}
 
-The construction we carried out on $\kQ$ relied on the fact that it is a metric space. With greater generality, one may construct the completion of a topological $k$-algebra, as described in \cite{AM69} and \cite{Bou98}. While the result is the same for $\kQ$, we chose to work with the metric space structure since the construction is much less technically involved in that case.
-
 We end this section with a trivial remark that will be used extensively later:
 
 \begin{obs}\label{arbitrarily-long} Let $I$ be a closed ideal in $\KQ$. Suppose $x$ is a path such that, for all $n\in \NN$, there exists a path $x_n$ of length at least $n$ such that $x=x_n$ in $\KQ/I$. Then, $x=0$ in $\KQ/I$.
@@ -158,14 +156,12 @@ In their work \cite{RSS80}, Rota, Sagan and Stein introduced a notion of derivat
 \]
 and extended linearly and continuously.
 
-We are now able to introduce the \emph{Jacobian algebra} associated to a QP, which is the main algebraic object of study in this work. Given a QP $(Q,P)$, the \emph{Jacobian ideal} $J(P)$ is the closed ideal in $\KQ$ generated by the set of all cyclic derivatives of the potential, that is, $\{\delta_\alpha(P) : \alpha\in Q_1\}$. The Jacobian algebra $J(Q,P)$ is then the quotient $\KQ/J(P)$.
+We are now able to introduce the \emph{Jacobian algebra} associated to a QP, which is the main algebraic object of study in this work. Given a QP $(Q,P)$, the \emph{Jacobian ideal} $J(P)$ is the \emph{closed} ideal in $\KQ$ generated by the set of all cyclic derivatives of the potential, that is, $\{\partial_\alpha(P) : \alpha\in Q_1\}$. The Jacobian algebra $J(Q,P)$ is then the quotient $\KQ/J(P)$.
 
 \begin{exmp} As in \hyperref[one-loop]{Example \ref*{one-loop}}, consider the quiver $Q$ with a single vertex and a unique arrow from that vertex to itself. As we have seen, the complete path algebra $\KQ$ is isomorphic to the algebra of formal power series $k\llbracket x\rrbracket$. Identifying $x$ with the only arrow in the quiver, we see that any potential for Q is of the form $\sum_{n=1}^\infty \lambda_n x^n$ for some choice of scalars $\lambda_n\in k$. For example, let us consider the potential $P=x^n$. Since $x$ is the only arrow in the quiver, we just have to compute $\partial_x(x^n)$, which turns out to be $nx^{n-1}$ (happily coinciding with the usual, commutative notion of derivation). Therefore, the Jacobian algebra is $k\llbracket x\rrbracket/(nx^{n-1})$, which is isomorphic to the truncated polynomial algebra $k[x]/(x^{n-1})$.
 \end{exmp}
 
-Two potentials $P$ and $P'$ are said to be \emph{cyclically equivalent} if their difference $P-P'$ lies in the closed $k$-subspace spanned by elements of the form $\alpha_n\dots\alpha_1 - \alpha_1\alpha_n\dots\alpha_2$ where $\alpha_n\dots\alpha_1$ is a cycle, or equivalently, if every term of $P$ is a cyclic permutation of the factors of a term of $P'$. It is easily checked that if $P$ and $P'$ are cyclically equivalent, then $\partial_\alpha(P)$ is just a reordering of the summands of $\partial_\alpha(P')$, and so they coincide. This in turn implies that $P$ and $P'$ induce both the same Jacobian ideal and the same Jacobian algebra.
-
-\textcolor{red}{If $(Q,P)$ and $(Q', P')$ are QPs sharing the same set of vertices, we say that $(Q,P)$ is \emph{right-equivalent} to $(Q',P')$ if there exists a $k$-algebra isomorphism $\varphi:\KQ\to k\langle\!\langle Q'\rangle\!\rangle$ fixing the set of vertices and such that $\varphi(P)$ is cyclically equivalent to $P'$. This will be our concept of isomorphism for QPs, since a right-equivalence induces an isomorphism between the respective Jacobian algebras, as seen in Proposition 3.7 from \cite{DWZ08}.}\note{nunca uso este concepto}
+A direct computation shows that cyclic derivatives vanish on the subspace $V$ of $\KQ_\cyc$ generated by all commutators. Suppose now that $P$ and $P'$ are two potentials. If every term of $P$ is a cyclic permutation of the factors of a term of $P'$ then the difference $P-P'$ lies in $V$ and so $\partial_\alpha(P-P')$ vanishes for any arrow $\alpha$. This in turn implies that $P$ and $P'$ induce both the same Jacobian ideal and the same Jacobian algebra. In this case, we will say that $P$ and $P'$ are \emph{cyclically equivalent}.
 
 \begin{exmp} Let $Q$ be the quiver with vertices 1 and 2, and arrows $\alpha:1\to 2$, $\beta:2\to1$:
 \[
@@ -185,9 +181,9 @@ In the context of Jacobian algebras, having finite dimension is a highly desirab
 \end{section}
 
 \begin{section}{Ideal triangulations of surfaces}
-In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation of a \textcolor{red}{Riemann?} surface, as described in \cite{LF09}. In order to do this, we start with some basic definitions regarding our geometric objects.
+In this thesis we will focus primarily on a family of QPs (and their associated Jacobian algebras) arising from a particular procedure carried out on a triangulation of a Riemann surface, as described in \cite{LF09}. In order to do this, we start with some basic definitions regarding our geometric objects.
 
-Throughout the text, we will refer to compact, connected, oriented \textcolor{red}{2-manifolds/Riemann surfaces?} with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:
+Throughout the text, we will refer to compact, connected, oriented Riemann surface with boundary simply as \emph{surfaces}. We now state a classical result in combinatorial topology that completely classifies these objects:
 
 \begin{prop}\label{surf-classification} Let $\Sigma$ be a surface with a number $b$ of boundary components. Then $\Sigma$ is homeomorphic to either a sphere with $b$ open disks removed or to a $g$-holed torus with $b$ open disks removed.
 \end{prop}
@@ -371,7 +367,7 @@ Let $T$ be an ideal triangulation of a surface with marked points $(\Sigma, M)$.
 \begin{enumerate}
 \item Draw a vertex $v_i$ for each edge $e_i$ in the triangulation $T$ that does not belong to the boundary of $\Sigma$.
 \item Draw an arrow between two vertices $v_i, v_j$ if $e_i$ and $e_j$ are edges of the same triangle.
-\item \textcolor{red}{Orient/orientate} all arrows according to the already existing orientation on the surface.
+\item Orient all arrows according to the already existing orientation on the surface.
 \end{enumerate}
 
 Note that every triangle without edges on the boundary of the surface adds a 3-cycle to the quiver. Consider the set $X$ formed by all of these 3-cyles and all other cycles that circle a puncture, and pick a scalar $\lambda_x$ in the field $k$ for each cycle $x\in X$. We thus define the potential $P$ arising from this choice of scalars as

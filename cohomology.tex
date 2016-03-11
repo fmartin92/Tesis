@@ -30,6 +30,16 @@ We remark that, by definition, stationary paths are loops. Moreover, it is easy 
 
 As a consequence of the diamond lemma, we know that given a confluent rewriting system for a Jacobian algebra, the set of irreducible monomials forms a basis for it. This will be an essential tool to compute its center. For the remainder of this chapter, we will use the labeling of arrows presented in the previous chapter for the quivers associated to each polygonal subdivision.
 
+We will start by proving an useful fact about the quiver associated to a polygonal subdivision that will be particularly useful in this situation:
+
+\begin{lemma} The quiver $Q$ associated to a polygonal subdivision of a surface $\Sigma$ is \emph{strongly connected}, that is, given any pair of vertices $v_1, v_2$ in $Q$ there exists a path with source $v_1$ and target $v_2$.
+\end{lemma}
+\begin{proof} Given two faces $X,Y$ of the subdivision of $\Sigma$, let $d(X,Y)$ be the minimum $n\in \NN$ such that there exists a sequence $Z_0,\dots,Z_n$ with $X=Z_0$, $Y=Z_n$ and such that $Z_i$ shares an edge with $Z_{i+1}$ for all $0\leq i\leq n-1$. The fact that the surface is connected guarantees that $d(X,Y)$ is well defined.
+
+Let $v_1,v_2$ be vertices in $Q$ and pick $F_1, F_2$ faces of the subdivision such that $v_1$ (resp. $v_2$)  is a vertex which corresponds to an edge of $F_i$ (resp. $F_2$). If $d(F_1, F_2)=0$, then $F_1=F_2$ and so there is a path going from $v_1$ to $v_2$, since there is a cycle in the quiver joining all of the vertices arising from the same face. If $d(F_1,F_2)=1$ such a path exists as well, since there is an arrow in $Q$ with source $v_1$ which is part of the cycle corresponding to $F_2$, since $F_1$ and $F_2$ are contiguous. Since $d(F_1,F_2)$ is a finite number and we have already shown that we can connect vertices from neighbouring faces, an easy inductive argument finishes the proof.
+
+\end{proof}
+
 \begin{prop} The Jacobian algebra associated to a pyramid with $n$-sided base, where $n>3$, is central.
 \end{prop}
 \begin{proof} Suppose first that $n$ is even. The confluent rewriting system found previously induces the basis of irreducible paths 

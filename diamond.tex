@@ -1,12 +1,12 @@
 \begin{chapter}{The diamond lemma}
 Suppose $A$ is a $k$-algebra given by a finite number of generators and relations, that is $A=\FA/\langle R\rangle$. A question that arises immediately is that of how to compute in $A$. Ideally, one should be able to provide a family of normal or canonical forms for monomials, such that every monomial is equal to a unique canonical form after passing to the quotient. In this way, if one knew how to multiply two elements in normal form, one would be able to compute the product of two arbitrary monomials in $A$ by reducing them to their respective canonical forms, taking their product and reducing once again. This procedure would obviously be extendable to arbitrary elements in $A$ by linearity.
 
-In order to be able to reduce elements into canonical forms, one should be able to test for equality in $A$; in particular, one should be able to distinguish if a certain element is zero or not. Experience tells us that this problem may very well be untractable: it is in fact the word problem for algebras, which is known to be undecidable in its full generality. \note{insertar referencia y revisar}
+In order to be able to reduce elements into canonical forms, one should be able to test for equality in $A$; in particular, one should be able to distinguish if a certain element is zero or not. Experience tells us that this problem may very well be untractable: it is in fact the word problem for algebras, which is known to be undecidable in its full generality (see \cite{Sti82}).
 
 Nonetheless, under some relatively mild hypotheses, this kind of argument may be succesfully carried out. In that case, Bergman's diamond lemma, presented on his seminal paper \cite{Ber78}, states that not only there exists a set of normal forms, but that they actually form a basis for $A$ as a $k$-algebra.
 
 \begin{section}{Bergman's diamond lemma}
- Let $X$ be a set and let $\mon$ denote the free monoid on $X$. A \emph{monomial order} on $\mon$ is a partial order $\preceq$ on $\mon$ such that:
+Let $X$ be a set and let $\mon$ denote the free monoid on $X$. A \emph{monomial order} on $\mon$ is a partial order $\preceq$ on $\mon$ such that:
 \begin{itemize}
 \item $1\preceq v$ for all $v\in \mon$, and
 \item for all $u,v,v',w\in \mon$, if $v\preceq v'$, then $uvw\preceq uv'w$.
@@ -20,7 +20,7 @@ We will use the notation $u\prec v$ for strict inequalities.
 In other words, monomials are sorted first by length and then lexicographically according to the total order $\leq$.
 \end{exmp}
 
-A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_{n+1}< p_n$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_{n+1} \leq p_n$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
+A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_{n+1}< p_n$ for all $n$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_{n+1} \leq p_n$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
 
 \begin{lemma}\label{noeth} Let $(X,\leq)$ be a finite, totally ordered set. Then, the graded lexicographical order on $\mon$ satisfies the descending chain condition.
 \end{lemma}
@@ -36,7 +36,7 @@ Thus, the map $\hat{r}$ replaces the word $uw_\sigma v$ with $uf_\sigma v$ and l
 An element $x\in k\mon$ is said to be:
 \begin{itemize}
 \item \emph{$S$-irreducible} if $\hat{r}(x)=x$ for any reduction $r\in\langle B_S\rangle$.
-\item \emph{reduction-finite under $S$} if every time $(r_n)$ is a sequence of reductions, there exists some $i_0$ such that $\hat{r_i}$ acts trivally on $\widehat{({r_{i-1}}\dots r_1)}(x)$ for all $i\geq i_0$.
+\item \emph{reduction-finite under $S$} if every time $(r_n)$ is a sequence of reductions, there exists some $i_0$ such that $\hat{r_i}$ acts trivally on $(r_{i-1}\dots r_1)\,\widehat{\,}\,(x) $ for all $i\geq i_0$.
 \item \emph{reduction-unique under $S$} if it is reduction-finite under $S$ and there exists some $r_S(x)\in k\mon$ such that if $\hat{r}(x)$ is $S$-irreducible, then $\hat{r}(x) = r_S(x)$.
 \end{itemize}
 
@@ -59,13 +59,13 @@ If any of these conditions hold, the rewriting system $S$ is said to be $\emph{c
 
 Let us illustrate how the diamond lemma is used in some examples:
 
-\begin{exmp} Consider the polynomial algebra $A=k[x,y]$, which is presented by generators and relations as $A=k\langle x,y\rangle/(xy-yx)$. If we order our variables $x$ and $y$ such that $x<y$, then the associated graded lexicographical order on $\langle x,y\rangle$ satisfies the descending chain condition by \hyperref[noeth]{Lemma \ref*{noeth}}. Consider the terms in the unique relation $xy-yx$ and sort them using the grlex order. We have that $xy\preceq yx$, and so the rewriting rule $\sigma=yx\rightsquigarrow xy$ is compatible with our chosen monomial order. Thus, the rewriting system $S$ consiting of the unique rewriting rule $\sigma$ is such that:
+\begin{exmp} Consider the polynomial algebra $A=k[x,y]$, which is presented by generators and relations as $A=k\langle x,y\rangle/(xy-yx)$. If we order our variables $x$ and $y$ such that $x<y$, then the associated graded lexicographical order on $\langle x,y\rangle$ satisfies the descending chain condition by \hyperref[noeth]{Lemma \ref*{noeth}}. Consider the terms in the unique relation $xy-yx$ and sort them using the grlex order. We have that $xy\preceq yx$, and so the rewriting rule $\sigma=yx\rightsquigarrow xy$ is compatible with our chosen monomial order. Thus, the rewriting system $S$ consisting of the unique rewriting rule $\sigma$ is such that:
 \begin{itemize}
 \item the grlex order $\preceq$ is compatible with $S$,
 \item the associated ideal $I_S$ is $\langle xy-yx\rangle$,
 \item there are no ambiguities in $S$, since the monomial $yx$ does not overlap with itself in any non-trivial way.
 \end{itemize}
-Therefore, the diamond lemma guarantees that a basis for $k[x,y]$ is given by the $S$-irreducible monomials. Now, a monomial is $S$-irreducible iff it does not contain $yx$ as a factor, and thus the $S$-irreducible monomials are exactly the set $\{x^iy^j:i,j\in\NN_0\}$, that is, the set of ordered monomials.
+The diamond lemma guarantees that a basis for $k[x,y]$ is given by the $S$-irreducible monomials. Now, a monomial is $S$-irreducible iff it does not contain $yx$ as a factor, and thus the $S$-irreducible monomials are exactly the set $\{x^iy^j:i,j\in\NN_0\}$, that is, the set of ordered monomials.
 Moreover, taking an arbitrary element in $k\langle x,y\rangle$ into its corresponding normal form in $A$ is trivial: it suffices to order the letters in each monomial term lexicographically.
 \end{exmp}
 \begin{exmp} Consider the Weyl algebra $A_1 = k\langle x,y\rangle/(yx-xy-1)$. The reasoning carried out in the previous example holds almost verbatim: this time, our unique rewriting rule is $yx\rightsquigarrow xy + 1$, and once again there are no ambiguities. Therefore, the set of ordered monomials is a basis for $A_1$. Notice that taking an element into its irreducible normal form is not as easy as in the previous example. For instance, 
@@ -79,7 +79,7 @@ Once again we consider the standard lexicographical order $x<y<z$ and the induce
 \sigma_2 &= zx \rightsquigarrow xz\\
 \sigma_3 &= zy \rightsquigarrow yz
 \end{align*}
-Now, the rewriting system $S=\{\sigma_1, \sigma_2, \sigma_3\}$ is compatible with our monomial order and its associated ideal $I_S$ is exactly $(xy-yx, xz-zx, yz-zy)$. It remains to show that all of the ambiguities of $S$ are resolvable. There is in fact a unique overlap ambiguity, which is $(\sigma_3, \sigma_1, z, y, x)$, since the monomial $zyx$ may be reduced using both the reduction associated to $\sigma_1$ and the one associated to $\sigma_3$. The following diagram shows that this ambiguity is indeed resolvable and illustrates why the diamond lemma is called that way:
+The rewriting system $S=\{\sigma_1, \sigma_2, \sigma_3\}$ is compatible with our monomial order and its associated ideal $I_S$ is exactly $(xy-yx, xz-zx, yz-zy)$. It remains to show that all of the ambiguities of $S$ are resolvable. There is in fact a unique overlap ambiguity, which is $(\sigma_3, \sigma_1, z, y, x)$, since the monomial $zyx$ may be reduced using both the reduction associated to $\sigma_1$ and the one associated to $\sigma_3$. The following diagram shows that this ambiguity is indeed resolvable and illustrates why the diamond lemma is called that way:
 \[
 \begin{tikzpicture}
 \node (1) at (0,0) {$zyx$};
@@ -96,7 +96,7 @@ Now, the rewriting system $S=\{\sigma_1, \sigma_2, \sigma_3\}$ is compatible wit
 \draw[->] (b1) to node[left, font=\footnotesize]{$\sigma_1$} (c);
 \draw[->] (b2) to node[right, font=\footnotesize]{$\sigma_3$} (c);
 \end{tikzpicture}
-\]\note{needs to be squigglified}
+\]
 Now that we have checked that the only ambiguity is resolvable, by the diamond lemma we know that the set of $S$-irreducible monomials form a basis for $k[x,y,z]$, and once again those turn out to be the set of ordered monomials $\{x^iy^jz^k:i,j,k\in\NN_0\}$. Similar arguments hold for polynomial algebras with an arbitrary number $n$ of variables, although the amount of ambiguities that one needs to deal with grows with $n$.
 \end{exmp}
 \begin{exmp} Consider the $k$-algebra $A=k\langle x,y,z\rangle/(xy-yx, yz-zy)$. As usual, we consider the usual lexicographical order $x<y<z$ and the grlex monomial order it induces on $\langle x,y,z\rangle$, which satisfies the descending chain condition. Once again, the relations $xy-yx$ and $yz-zy$ naturally induce the following rewriting rules:
@@ -104,7 +104,7 @@ Now that we have checked that the only ambiguity is resolvable, by the diamond l
 \sigma_1 &= yx \rightsquigarrow xy\\
 \sigma_2 &= zy \rightsquigarrow yz
 \end{align*}
-Thus, the rewriting system $S=\{\sigma_1, \sigma_2\}$ is compatible with the grlex monomial order and the associated ideal $I_S$ is precisely $(xy-yx, yz-zy)$. All that remains to check is that all ambiguities are resolvable.
+The rewriting system $S=\{\sigma_1, \sigma_2\}$ is compatible with the grlex monomial order and the associated ideal $I_S$ is precisely $(xy-yx, yz-zy)$. All that remains to check is that all ambiguities are resolvable.
 
 In fact, there is only one ambiguity, which is $(\sigma_2,\sigma_1,z,y,x)$: in other words, the monomial $zyx$ may be reduced in two different ways, as the following diagram shows:
 \[
@@ -160,7 +160,7 @@ for all $n\in\NN_0$. As we can see, the rewriting system $S'$ is compatible with
 
 \draw[->] (1) to node[above, font=\footnotesize]{$\tau_n$} (a1);
 \draw[->] (1) to node[above, font=\footnotesize]{$\sigma$} (a2);
-\draw[->] (a2) to node[below, font=\footnotesize]{$\tau_{n+1}$} (b);
+\draw[->] (a2) to node[right, font=\footnotesize]{$\tau_{n+1}$} (b);
 \draw[double] (a1) to (b);
 \end{tikzpicture}
 \]\note{arreglar formato del dibujo}
@@ -181,12 +181,12 @@ which are all compatible with the monomial order $\preceq$ and are such that the
 Treating $a-b$ as another relation, we can follow the steps 1 and 2 as to produce a new rule that will solve the previous ambiguity, but may generate new ones.
 \item Repeat step 3 until the system is confluent.
 \end{enumerate}
-This procedure, of course, does not \emph{always} work, but is good enough as to solve most of the cases that arise throughout this thesis.
+This procedure, of course, does not always terminate in a finite number of steps, but is good enough as to solve most of the cases that arise throughout this thesis.
 \end{heur}
 \end{section}
 \begin{section}{A diamond lemma for path algebras}
 \label{path-diamond}
-As seen in the previous section, Bergman's diamond lemma is a statement about certain quotients of free algebras. However, we will only apply it on a particular family of algebras, namely quotients of path algebras. As though obviously path algebras are themselves quotients of free algebras, using Bergman's diamond lemma can be quite cumbersome in this case. For example, consider the following quiver, which we will name $Q$:
+As seen in the previous section, Bergman's diamond lemma is a statement about certain quotients of free algebras. However, we will only apply it on a particular family of algebras, namely quotients of path algebras. Even though obviously path algebras are themselves quotients of free algebras, using Bergman's diamond lemma can be quite cumbersome in this case. For example, consider the following quiver, which we will name $Q$:
 \[
 \begin{tikzpicture}[->,node distance=1cm, thick]
 \tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
@@ -232,7 +232,7 @@ We will make use of the diamond lemma to produce a basis for the algebra $A=\kQ/
 \sigma_1 &= \delta\gamma \rightsquigarrow \beta\alpha\\
 \sigma_2 &= \varepsilon\beta \rightsquigarrow 0\\
 \sigma_3 &= \varepsilon\delta \rightsquigarrow 0
-\end{align*}\note{quedaron mal alineadas}
+\end{align*}
 Thus, the rewriting system $S=\{\sigma_1,\sigma_2,\sigma_3\}$ presents a unique ambiguity, which is $(\sigma_3,\sigma_1, \varepsilon,\delta,\gamma)$. The following diagram shows that this ambiguity is resolvable:
 \[
 \begin{tikzpicture}
@@ -247,7 +247,7 @@ Thus, the rewriting system $S=\{\sigma_1,\sigma_2,\sigma_3\}$ presents a unique 
 \draw[double] (a1) to (b);
 \end{tikzpicture}
 \]
-Therefore, the rewriting system $S$ is confluent, and then our algebra $A$ has a basis given by the $S$-irreducible paths, which are
+The rewriting system $S$ is confluent, and our algebra $A$ has a basis given by the $S$-irreducible paths, which are
 \[\{e_u, e_v, e_w, e_x, e_y, \alpha,\beta,\gamma,\delta,\varepsilon, \beta\alpha \},\]
 where $e_a$ stands for the stationary path at the vertex $a$.
 \end{exmp}
@@ -274,7 +274,7 @@ Consider the algebra $A=\kQ/(\delta\gamma-\beta\alpha, \varepsilon\beta, \zeta\d
 \sigma_1 &= \delta\gamma \rightsquigarrow \beta\alpha\\
 \sigma_2 &= \varepsilon\beta \rightsquigarrow 0\\
 \sigma_3 &= \zeta\delta \rightsquigarrow 0
-\end{align*}\note{de nuevo mal alineadas}
+\end{align*}
 
 In this case, the rewriting system is not confluent, since the ambiguity $(\sigma_3, \sigma_1, \zeta, \delta, \gamma)$ is unresolvable. However, after enlarging the system as to contain the rule
 \[\sigma_4 = \zeta\beta\alpha\rightsquigarrow 0,\]
@@ -298,14 +298,14 @@ Once again, if any of these conditions hold, the rewriting system $S$ is said to
 
 A similar statement for quotients of complete path algebras may be produced as well. Indeed, one may modify the statement of \hyperref[quiver-diamond-lemma]{Theorem \ref*{quiver-diamond-lemma}} replacing "descending chain condition" by "descending chain condition in norm" and all algebraic objects by their complete counterparts (algebras and their completions, ideals and closed ideals, submodules and closed submodules, etc.) to obtain the result.
 
-Given a total order $\leq$ on a set $X$, the \emph{reverse graded lexicographical order}, or \emph{grevlex} for short, is the monomial order $\preceq$ defined on $\mon$ as follows: given $u,v\in \mon$, we have $u\preceq v$ if
+Given a total order $\leq$ on a set $X$, the \emph{reverse graded lexicographical order}, or \emph{revglex} for short, is the monomial order $\preceq$ defined on $\mon$ as follows: given $u,v\in \mon$, we have $u\preceq v$ if
 \begin{itemize}
 \item $|u| > |v|$ or
 \item $|u| = |v|$ and $u=wau'$, $v=wbv'$, with $w,u',v'\in \mon$, $a,b\in X$ and $a\leq b$.
 \end{itemize}
-Therefore, monomials are sorted first by length (but this time longer terms are smaller with respect to $\preceq$) and then lexicographically according to the total order $\leq$. Analogously one defines the grevlex order for paths on a quiver. This will be our preferred order when dealing with completions, since we have that:
+Therefore, monomials are sorted first by length (but this time longer terms are smaller with respect to $\preceq$) and then lexicographically according to the total order $\leq$. Analogously one defines the revglex order for paths on a quiver. This will be our preferred order when dealing with completions, since we have that:
 
-\begin{lemma}\label{noeth-norm}Let $(X,\leq)$ be a finite, totally ordered set. Then, the grevlex order on $\mon$ satisfies the descending chain condition in norm.
+\begin{lemma}\label{noeth-norm}Let $(X,\leq)$ be a finite, totally ordered set. Then, the revglex order on $\mon$ satisfies the descending chain condition in norm.
 \end{lemma}
 \begin{proof} Let $(x_n)$ be a strictly decreasing sequence in $\mon$ and $k$ be the cardinality of $X$. There are exactly $j=\sum_{l=0}^d k^l$ words in $\mon$ of length at most $d$, and so $x_{j+1}$ must be of length at least $d+1$, since the sequence $(x_n)$ is strictly decreasing. Thus, in $k\llangle X\rrangle$ we have that $\Vert x_{n}\Vert\leq e^{-d-1}$ for all $n\geq j+1$ and so $x_n\rightarrow 0$ as we wanted.
 \end{proof}
