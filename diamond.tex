@@ -20,7 +20,7 @@ We will use the notation $u\prec v$ for strict inequalities.
 In other words, monomials are sorted first by length and then lexicographically according to the total order $\leq$.
 \end{exmp}
 
-A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_{n+1}< p_n$ for all $n$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_{n+1} \leq p_n$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
+A poset $(P,\leq)$ is said to satisfy the \emph{descending chain condition} if there is no sequence $(p_n)\subseteq P$ such that $p_{n+1}< p_n$ for all $n\in\NN$. Equivalently, $(P,\leq)$ satisfies the descending chain condition if any sequence $(p_n)$ such that $p_{n+1} \leq p_n$ for all $n\in\NN$ eventually stabilizes, that is, there exists some $k$ such that $p_j = p_k$ for all $j>k$.
 
 \begin{lemma}\label{noeth} Let $(X,\leq)$ be a finite, totally ordered set. Then, the graded lexicographical order on $\mon$ satisfies the descending chain condition.
 \end{lemma}
@@ -106,7 +106,7 @@ Now that we have checked that the only ambiguity is resolvable, by the diamond l
 \end{align*}
 The rewriting system $S=\{\sigma_1, \sigma_2\}$ is compatible with the grlex monomial order and the associated ideal $I_S$ is precisely $(xy-yx, yz-zy)$. All that remains to check is that all ambiguities are resolvable.
 
-In fact, there is only one ambiguity, which is $(\sigma_2,\sigma_1,z,y,x)$: in other words, the monomial $zyx$ may be reduced in two different ways, as the following diagram shows:
+In fact, there is only one ambiguity, which is $(\sigma_2,\sigma_1,z,y,x)$. In other words, the monomial $zyx$ may be reduced in two different ways, as the following diagram shows:
 \[
 \begin{tikzpicture}
 \node (1) at (0,0) {$zyx$};
@@ -233,7 +233,7 @@ We will make use of the diamond lemma to produce a basis for the algebra $A=\kQ/
 \sigma_2 &= \varepsilon\beta \rightsquigarrow 0\\
 \sigma_3 &= \varepsilon\delta \rightsquigarrow 0
 \end{align*}
-Thus, the rewriting system $S=\{\sigma_1,\sigma_2,\sigma_3\}$ presents a unique ambiguity, which is $(\sigma_3,\sigma_1, \varepsilon,\delta,\gamma)$. The following diagram shows that this ambiguity is resolvable:
+The rewriting system $S=\{\sigma_1,\sigma_2,\sigma_3\}$ presents a unique ambiguity, which is $(\sigma_3,\sigma_1, \varepsilon,\delta,\gamma)$. The following diagram shows that this ambiguity is resolvable:
 \[
 \begin{tikzpicture}
 \node (1) at (0,0) {$\varepsilon\delta\gamma$};
@@ -316,7 +316,7 @@ Once again, an analogous result holds for quivers and complete path algebras.
 
 Since we know that $(x^2-x)=(x)\cap(x-1)$ and the ideals $(x)$ and $(x-1)$ are coprime, by the chinese remainder theorem we have that
 \[A=\frac{k\langle x\rangle}{(x^2-x)}\simeq \frac{k\langle x\rangle}{(x)} \times \frac{k\langle x\rangle}{(x-1)}\simeq k\times k.\]
-We now study $B$ using the diamond lemma. The rewriting system $S=\{x\rightsquigarrow x^2\}$ is compatible with the reverse graded path order and is obviously confluent, since the monomial $x$ does not overlap with itself in any non-trivial way. We see that the only $S$-irreducible monomials are the constant ones, and so a basis for $B$ is given by $\{[1]\}$, and thus $B\simeq k$.
+We now study $B$ using the diamond lemma. The rewriting system $S=\{x\rightsquigarrow x^2\}$ is compatible with the reverse graded path order and is obviously confluent, since the monomial $x$ does not overlap with itself in any non-trivial way. We see that the only $S$-irreducible monomials are the constant ones, so a basis for $B$ is given by $\{[1]\}$, and thus $B\simeq k$.
 
 More generally, if $I=(x^n-x)$, we have that
 \[\frac{k\langle x\rangle}{(x^n-x)} \simeq \frac{k\langle x\rangle}{(x)}\times \frac{k\langle x\rangle}{(x^{n-1}-1)}\simeq k \times \frac{k\langle x\rangle}{(x^{n-1})},\]

@@ -196,5 +196,5 @@ class Rewriting_System:
             homogeneous_bases.append(sorted(admissible_paths))
         return homogeneous_bases
                
-    def irred_paths(self, max_degree):
+    def generating_function(self, max_degree):
         return map(len, self.basis(max_degree))

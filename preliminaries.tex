@@ -58,7 +58,7 @@ The path algebra satisfies the following useful universal property:
 \end{enumerate}
 Then, there exists a unique $k$-algebra morphism $f:\kQ\to \Lambda$ extending $f_0$ and $f_1$.
 \end{prop}
-\begin{proof} If $n\geq 1$, define $f(\alpha_n\dots\alpha_1)=f_1(\alpha_n)\dots f_1(\alpha_0)$ and let $f(r)=f_0(r)$ for $r\in Q_0$. As the set of all paths forms a basis of $\kQ$ as a vector space, this defines a $k$-linear map $f:\kQ\to \Lambda$. Condition 1 guarantees that such a map preserves the unit and conditions 2, 3 and 4 guarantee that it preserves products involving stationary paths. Since by definition $f$ preserves products of paths of positive length, we conclude that $f$ is a $k$-algebra morphism extending $f_0$ and $f_1$. As for uniqueness, consider another extension $g:\kQ\to\Lambda$. Since $g$ is a $k$-algebra morphism, we have that $g(\alpha_n\dots\alpha_1)= g(\alpha_n)\dots g(\alpha_1)= f_1(\alpha_n)\dots f_1(\alpha_1)=f(\alpha_n\dots\alpha_1)$ for $n\geq 1$ and $g(r)=f_0(r)=f(r)$ for all $r\in Q_0$. Thus $g$ agrees with $f$ in a basis, and so $g=f$ as wanted.
+\begin{proof} For $n\geq 1$, define $f(\alpha_n\dots\alpha_1)=f_1(\alpha_n)\dots f_1(\alpha_0)$ and let $f(r)=f_0(r)$ for $r\in Q_0$. As the set of all paths forms a basis of $\kQ$ as a vector space, this defines a $k$-linear map $f:\kQ\to \Lambda$. Condition 1 guarantees that such a map preserves the unit and conditions 2, 3 and 4 guarantee that it preserves products involving stationary paths. Since by definition $f$ preserves products of paths of positive length, we conclude that $f$ is a $k$-algebra morphism extending $f_0$ and $f_1$. As for uniqueness, consider another extension $g:\kQ\to\Lambda$. Since $g$ is a $k$-algebra morphism, we have that $g(\alpha_n\dots\alpha_1)= g(\alpha_n)\dots g(\alpha_1)= f_1(\alpha_n)\dots f_1(\alpha_1)=f(\alpha_n\dots\alpha_1)$ for $n\geq 1$ and $g(r)=f_0(r)=f(r)$ for all $r\in Q_0$. Thus $g$ agrees with $f$ in a basis, and so $g=f$ as wanted.
 \end{proof}
 Let us now consider some examples:
 \begin{exmp} Let $Q$ be the quiver with vertices $\{1,\dots,n\}$ and no arrows:
@@ -108,7 +108,7 @@ A path $u\in Q_n$ with $n>1$ such that $s(u)=t(u)$ is called a \emph{cycle}, and
 \begin{prop}\label{acyclic-fin-dim}
 Let $Q$ be a quiver and $\kQ$ its associated path algebra. Then $\kQ$ is finite-dimensional iff $Q$ is acyclic.
 \end{prop}
-\begin{proof} Suppose $\kQ$ is infinite-dimensional. Then the set of all paths $Q_*$, which is a basis for $\kQ$, must be infinite. Since the quiver has only a finite number of arrows, there's only a finite number of paths of less than a fixed length. Therefore, if the set of paths $Q_*$ is infinite, then there exist arbitrarily long paths. Let $n$ be the number of vertices in $Q_0$ and pick a path $\alpha_m\dots\alpha_1$ with $m>n$. Then $s(\alpha_i) = t(\alpha_j)$ for some $1\leq i < j\leq m$ and so $\alpha_j\dots\alpha_i$ is a cycle in $Q$.
+\begin{proof} Suppose $\kQ$ is infinite-dimensional. Then the set of all paths $Q_*$, which is a basis for $\kQ$, must be infinite. Since the quiver has only a finite number of arrows, there is only a finite number of paths of less than a fixed length. Therefore, if the set of paths $Q_*$ is infinite, then there exist arbitrarily long paths. Let $n$ be the number of vertices in $Q_0$ and pick a path $\alpha_m\dots\alpha_1$ with $m>n$. Then $s(\alpha_i) = t(\alpha_j)$ for some $1\leq i < j\leq m$ and so $\alpha_j\dots\alpha_i$ is a cycle in $Q$.
 
 Conversely, if $Q$ contains a cycle $u$, then $\{u,u^2,u^3,\dots\}$ is an infinite linearly independent set, and so $\kQ$ is infinite-dimensional.
 \end{proof}
@@ -144,7 +144,7 @@ Let $\KQ=\prod A^n$ be the complete path algebra associated to a quiver $Q$. For
 \[
 A^n_{\cyc} = \bigoplus_{r\in Q_0} rA^nr,
 \]
-that is, the $R$-submodule spanned by cycles of length $n$. A \emph{potential} $P$ is an element of the closed $R$-submodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
+that is, the $R$-subbimodule spanned by cycles of length $n$. A \emph{potential} $P$ is an element of the closed $R$-subbimodule $\KQ_{\cyc}\subseteq \KQ$, which we define as
 \[
 \KQ_{\cyc}=\prod_{n=1}^\infty A^n_{\cyc}.
 \]
@@ -324,9 +324,21 @@ An ideal triangulation divides the surface $\Sigma$ into \emph{ideal triangles}.
 \caption{The three possible kinds of ideal triangles: the usual \emph{triangle} and the self-folded ones, which are the \emph{monogon} and the \emph{digon}.}
 \end{figure}
 
+Most surfaces may be triangulated without using self-folded triangles. In fact, we have the following result:
+
+\begin{prop}[{\cite{FST08}*{Proposition 2.13}}]\label{no-self-folds} Let $(\Sigma, M)$ be any surface with marked points different from:
+\begin{enumerate}
+\item A sphere with one, two or three punctures.
+\item An unpunctured or once-punctured monogon.
+\item An unpunctured digon.
+\item An unpunctured triangle.
+\end{enumerate}
+Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
+\end{prop}
+
 As one may observe, every ideal triangulation of the square pictured in \hyperref[square-triangs]{Figure \ref*{square-triangs}} consists of exactly 4 arcs. Indeed, the number of arcs in a triangulation is an invariant of the marked surface. More precisely, we have:
 
-\begin{prop}[{\cite{FST08}*{Proposition 2.10}}] Any ideal triangulation of a surface with marked points $(\Sigma, M)$ consists of exactly
+\begin{prop}[{\cite{FST08}*{Proposition 2.10}}] Any ideal triangulation of a surface with marked points $(\Sigma, M)$ involving no self-folded triangles consists of exactly
 \[
 n=6g+3b+3p+c-6
 \]
@@ -344,18 +356,6 @@ On the other hand, we can compute the Euler characteristic of the surface regard
 \end{align*}
 The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and solving for $n$.
 \end{proof}
-
-Most surfaces may be triangulated without using self-folded triangles. In fact, we have the following result:
-
-\begin{prop}[{\cite{FST08}*{Proposition 2.13}}]\label{no-self-folds} Let $(\Sigma, M)$ be any surface with marked points different from:
-\begin{enumerate}
-\item A sphere with one, two or three punctures.
-\item An unpunctured or once-punctured monogon.
-\item An unpunctured digon.
-\item An unpunctured triangle.
-\end{enumerate}
-Then $(\Sigma, M)$ admits an ideal triangulation involving no self-folded triangles. \hfill\qedsymbol
-\end{prop}
 \end{section}
 
 \begin{section}{The QP associated to an ideal triangulation}\label{qp}
@@ -400,7 +400,7 @@ The puncture is placed at the corners of the square, which are all identified. W
 \draw[->, red, very thick] (0, -0.1) to (0, -0.9); %f
 \end{tikzpicture}
 \]
-Keep in mind that, since opposing sides of the square are identified, the two triangles of the triangulation share all of their sides, and so this is actually a quiver with three vertices, which we will call $Q$ and draw as:
+Keep in mind that, since opposing sides of the square are identified, the two triangles of the triangulation share all of their sides, and so this is actually a quiver with three vertices, which we will draw as:
 \[
 \begin{tikzpicture}[scale=1.2, ->, thick]
 \tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
@@ -446,7 +446,9 @@ Every triangle shares an edge with the boundary of the square, so each triangle 
 \draw[->, red, very thick] (0.9, 1) to node[above] {$d$} (-0.9, 1);
 \end{tikzpicture}
 \]
-Since there are no 3-cycles coming from any triangle, the potential $P$ consists simply of the 4-cycle that circles the puncture, which is $dcba$. Notice that we could have chosen $cbad$, $badc$ or $adcb$ as well, since they all define cyclically equivalent potentials.
+Since there are no 3-cycles coming from any triangle, the potential $P$ consists simply of the 4-cycle that circles the puncture, which is
+\[P=dcba.\]
+Notice that we could have chosen $cbad$, $badc$ or $adcb$ as well, since they all define cyclically equivalent potentials.
 \end{exmp}
 \end{section}
 \end{chapter}
