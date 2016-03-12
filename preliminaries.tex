@@ -7,7 +7,7 @@ $t(\alpha)\in Q_0$. We will usually abbreviate the fact that an arrow $\alpha\in
 One can represent a quiver graphically as an oriented graph allowing loops and multiple arrows between the same pair of vertices. The following are some examples of quivers:
 \[
 \begin{tikzpicture}[->, node distance=1cm, thick, auto]
-\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, draw=black, thin]
 \tikzset{every loop/.style={looseness=15}}
 \node (a) at (0:1) {};
 \node (b) at (120:1) {};
@@ -28,7 +28,7 @@ One can represent a quiver graphically as an oriented graph allowing loops and m
 \]
 \[
 \begin{tikzpicture}[->,node distance=1cm, thick]
-\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, draw=black, thin]
 \node (1) {};
 \node (2) [right=of 1] {};
 \node (3) [right=of 2] {};
@@ -64,11 +64,11 @@ Let us now consider some examples:
 \begin{exmp} Let $Q$ be the quiver with vertices $\{1,\dots,n\}$ and no arrows:
 \[
 \begin{tikzpicture}[node distance=1cm, auto, thick]
-\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm, draw=black, thin]
 \node (1) {1};
 \node (2) [right=of 1] {2};
 \node (3) [right=of 2] {3};
-\node (4) [right=of 3, fill=white] {...};
+\node (4) [right=of 3, fill=white, draw=white] {...};
 \node (5) [right=of 4] {n};
 \end{tikzpicture}
 \]
@@ -79,7 +79,7 @@ The path algebra $\kQ$ is then isomorphic to $k^n = ke_1\oplus\dots\oplus ke_n$,
 \[
 \begin{tikzpicture}[->, thick]
 \tikzset{every loop/.style={looseness=15}}
-\node[circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]  (1) {1};
+\node[circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm, draw=black, thin]  (1) {1};
 \path (1) edge [loop above] node {$\alpha$} (1);
 \end{tikzpicture}
 \]
@@ -89,7 +89,7 @@ The path algebra $\kQ$ has a basis given by $\{e_1, \alpha, \alpha^2, \dots\}$. 
 \[
 \begin{tikzpicture}[->, auto, thick]
 \tikzset{every loop/.style={looseness=15}}
-\node[circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]  (1) {1};
+\node[circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm, draw=black, thin]  (1) {1};
 \node[circle, fill=white] (2) at +(270: 1) {...};
 \path (1) edge [loop left] node {$\alpha_5$} (1);
 \path (1) edge [loop above] node {$\alpha_3$} (1);
@@ -167,8 +167,8 @@ A direct computation shows that cyclic derivatives vanish on the subspace $V$ of
 \[
 \begin{tikzpicture}[->,node distance=1cm, thick]
 \tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
-\node (1) {1};
-\node (2) [right=of 1] {2};
+\node (1) [draw=black, thin] {1};
+\node (2) [draw=black, thin, right=of 1] {2};
 \foreach \from/\to in {2/1, 1/2}
 \draw (1.20) -- (2.160) node[midway, above, fill=white] {$\alpha$};
 \draw (2.200) -- (1.340) node[midway, below, fill=white] {$\beta$};
@@ -403,7 +403,7 @@ The puncture is placed at the corners of the square, which are all identified. W
 Keep in mind that, since opposing sides of the square are identified, the two triangles of the triangulation share all of their sides, and so this is actually a quiver with three vertices, which we will draw as:
 \[
 \begin{tikzpicture}[scale=1.2, ->, thick]
-\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
+\tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm, draw=black, thin]
 \node (1) at (-1.5,0) {1};
 \node (2) at (1.5, 0) {2};
 \node (3) at (0, 2) {3};
