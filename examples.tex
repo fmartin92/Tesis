@@ -48,7 +48,7 @@ We start by constructing the quiver associated to the tetrahedron, which looks l
 \]
 In the figure, the edges of the triangulation are gray, while arrows in the quiver are black. The outermost 3-cycle corresponds to the bottom face of the tetrahedron. We observe that this quiver appears in {\cite{VD14}*{Example 1.4.4}}, as an example of what the author calls a quiver with an infinite \emph{cyclic sequence}. The potential, as we may recall from \hyperref[qp]{Section \ref*{qp}}, is the sum of the four 3-cycles coming from the triangular faces of the tetrahedron and the four 3-cycles around each puncture of the sphere.
 
-While this triangulation is very simple, studying its associated Jacobian algebra can be quite troublesome. Our strategy is to name all arrows, sort paths using the revglex order and try to apply the diamond lemma in order to produce a basis for it. However, the fact that there are 12 edges in the quiver makes calculation by hand difficult. Since every edge induces a different cyclic derivative, and therefore a different relation in the Jacobian algebra, we have 12 rewriting rules that overlap themselves in various ways. Therefore, it is not clear at all if the system is confluent or not, and checking that would imply a sizeable number of verifications. Moreover, if it turns out \emph{not} to be confluent, we may apply \hyperref[heuristic]{Heuristic \ref*{heuristic}} as to enlarge the rule set and try to achieve confluence, but this only increases the number of verifications one needs to perform.
+While this triangulation is very simple, studying its associated Jacobian algebra can be quite troublesome. Our strategy is to name all arrows, sort paths using the revglex order and try to apply the diamond lemma in order to produce a basis for it. However, the fact that there are 12 edges in the quiver makes calculation by hand difficult. Since every edge induces a different cyclic derivative, and therefore a different relation in the Jacobian algebra, we have 12 rewriting rules that overlap themselves in various ways. It is not clear at all if the system is confluent or not, and checking that would imply a sizeable number of verifications. Moreover, if it turns out \emph{not} to be confluent, we may apply \hyperref[heuristic]{Heuristic \ref*{heuristic}} as to enlarge the rule set and try to achieve confluence, but this only increases the number of verifications one needs to perform.
 
 The problem is then too large to deal with by hand, but it looks reasonable enough to try to solve it using a computer. Perhaps the most suitable existing software package for this is \texttt{bergman} (freely available at \url{http://servus.math.su.se/bergman/}), which is a general purpose Gröbner basis calculator for the non-commutative setting. However, while \texttt{bergman} operates with arbitrary quotients of free algebras, we are dealing with a very specialized problem: our algebra is a quotient of a complete path algebra. Imitating the process we described in \hyperref[path-diamond]{Section \ref*{path-diamond}}, we can present complete path algebras as quotients of the completion of free algebras, but this introduces a huge number of relations that greatly slows down computation. Thus it makes sense to program our own piece of software to deal with this particular situation.
 
@@ -87,7 +87,7 @@ sage: tetrahedron.rules
  (5, 2, 1): -(5, 3, 1),
  (5, 2, 4): -(5, 3, 4)}
 \end{lstlisting}
-Paths are described as lists of vertices, meant to be read from left to right. For instance, $(0,1,2)$ is the path of length 2 obtained by concatenating the arrow with source 0 and target 1 to the arrow with source 1 and target 2. Rewriting rules are described as pairs of paths, where the leftmost path is the one that is replaced by the rightmost. For instance, following our previous notation, the rule $(0, 1, 2): -(0, 4, 2)$ may be represented as $(0,1,2) \rightsquigarrow -(0,4,2)$.
+Paths are described as lists of vertices, meant to be read from left to right. For example, $(0,2,1)$ is the path of length 2 obtained by concatenating the arrow with source 0 and target 2 to the arrow with source 2 and target 1. Rewriting rules are described as pairs of paths, where the leftmost path is the one that is replaced by the rightmost. For instance, following our previous notation, the rule $(0, 2, 1): -(0, 3, 1)$ may be represented as $(0,2,1) \rightsquigarrow -(0,3,1)$.
 
 Since the rewriting system is confluent, a basis for the Jacobian algebra is given by the set of irreducible paths, which are exactly the ones that do not contain any of the 12 paths that appear in the left side of the rewriting system. We will now draw a different quiver, called $Q'$, having the arrows of our old quiver as vertices and we will place an arrow joining two of them if the path of length 2 formed by concatenating those arrows is irreducible:
 
@@ -230,14 +230,14 @@ Suppose now that $X$ is an infinite subset of $B$ composed of non-zero paths, al
 
 Choose any path of length 2 contained in a single face and name it $x_2$. One may concatenate any path with exactly two arrows: one which lies on the same face as the last one and one which does not. If the two last arrows of $x_k$ lie on the same face, let $x_{k+1}$ be the path obtained from $x_k$ by concatenating the arrow lying on a different face. Otherwise, let $x_{k+1}$ be the path obtained from $x_k$ by concatenating the arrow lying on the same face as $x_k$'s last arrow. Since this process may be carried out indefinitely, we obtain a sequence $X=(x_k)_{k\geq 2}$ of paths, all of them of different lengths. Notice that every path $x_k$ is contained in $B$, since by construction it contains at most 2 consecutive arrows on the same face or around the same vertex, and $n-1 > 2$ by hypothesis. In fact, this construction can not be carried out if $n=3$, since in that case $B$ is the $k$-vector space spanned by paths of length $0$ and $1$.
 
-This settles the case $n>3$ and now turn to the study of the case $n=3$. By \hyperref[euler-regular]{Equation (\ref*{euler-regular})}, we know that $f=(4g-4)/(3-4)= 4-4g$. Since the number of faces in the subdivision must be positive, it follows that $g=0$, and so a 3-regular division of a surface must necessarily be a triangulation of a sphere consisting of 4 faces, or in other words a tetrahedron. We have already determined that the Jacobian algebra associated to the tetrahedron is infinite-dimensional in \hyperref[tetra]{Section \ref*{tetra}}, and so the proof is now complete.
+This settles the case $n>3$ and now we turn to the study of the case $n=3$. By \hyperref[euler-regular]{Equation (\ref*{euler-regular})}, we know that $f=(4g-4)/(3-4)= 4-4g$. Since the number of faces in the subdivision must be positive, it follows that $g=0$, and so a 3-regular division of a surface must necessarily be a triangulation of a sphere consisting of 4 faces, or in other words a tetrahedron. We have already determined that the Jacobian algebra associated to the tetrahedron is infinite-dimensional in \hyperref[tetra]{Section \ref*{tetra}}, and so the proof is now complete.
 \end{proof}
 \end{section}
 
 \begin{section}{A family of finite-dimensional examples}
 We now turn to the study of another family of polygonal subdivisions, this time inducing finite-dimensional algebras. Let us start by showing that closed surfaces of any genus admit a particular decomposition.
 
-A \emph{loop} $f$ on a surface $\Sigma$ is a smooth embedding $f:S^1\to \Sigma$. We will identify a loop with its image on $\Sigma$. A \emph{handle} is a torus with a disk removed. We recall that a closed surface of genus $g>0$ can be obtained starting with a disk with $g-1$ holes and gluing handles along each hole and the boundary of the disk. \textcolor{red}{[citation needed]}
+A \emph{loop} $f$ on a surface $\Sigma$ is a smooth embedding $f:S^1\to \Sigma$. We will identify a loop with its image on $\Sigma$. A \emph{handle} is a torus with a disk removed. We recall that, by the classification theorem, a closed surface of genus $g>0$ can be obtained starting with a disk with $g-1$ holes and gluing handles along each hole and the boundary of the disk. 
 
 \begin{figure}[h]
 \centering
@@ -260,6 +260,7 @@ The case in which $g=0$ (the sphere) is easily dealt with by choosing a single l
 For the cases in which $g>0$, we will make use of the handle decomposition we mentioned previously. We will draw a handle as a square (with opposite edges identified) having a gray hole in its center. Consider the following configuration:
 
 \begin{figure}[h]
+\label{divided-handle}
 \[
 \begin{tikzpicture}
 \draw (0,0) node[minimum size=6cm,draw] {};
@@ -281,12 +282,12 @@ For the cases in which $g>0$, we will make use of the handle decomposition we me
 \draw[blue, very thick] (0,0) circle (2cm);
 \end{tikzpicture}
 \]
+\caption{}
 \end{figure}
 
 We first deal with the case in which $g=1$. If we glue such a handle to the boundary of the following disk, we obtain a torus with a single red loop $r_1$ and a single blue loop $b_1$:
 
 \begin{figure}[h]
-\label{divided-handle}
 \[
 \begin{tikzpicture}
 
