@@ -35,7 +35,6 @@ If the \texttt{zero\_rules\_flag} is set to \texttt{True}, the following heurist
 \item If a path $x$ is equal to a path of length greater than \texttt{zero\_depth}, add the rewriting rule $x\rightsquigarrow 0$.
 \item If no path was found to reduce to zero, increase $n$ by 1 and repeat steps 2 to 5.
 \end{enumerate}
-This may be formalized by a \textcolor{red}{pumping lemma argument} if we choose a high enough value for \texttt{zero\_depth}.
 \end{heur}
 
 We now generate the rewriting system associated to our pyramid:

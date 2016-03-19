@@ -617,9 +617,11 @@ After proving all these lemmas, the main result of this section now follows easi
 \begin{section}{Pyramids}
 \label{pyramids}
 A \emph{pyramid} is a polyhedron formed by placing a regular polygon (called the \emph{base}) and a single point (called the \emph{apex}) in different parallel planes, and then taking their convex hull. One immediately checks that if the base is an $n$-sided polygon, then the pyramid has exactly $n+1$ faces, $n$ of them triangles and the last one being the base itself.
+Any pyramid is a polygonal subdivision of the sphere, so we now study the properties of its associated Jacobian algebra. We first label the arrows in the associated quiver as shown in 
+\hyperref[pyramid-quiver]{Figure \ref*{pyramid-quiver}}.
 
-Any pyramid is a polygonal subdivision of the sphere, so we now study the properties of its associated Jacobian algebra. We first label the arrows in the associated quiver as in the following figure:
 \begin{figure}[h]
+\label{pyramid-quiver}
 \[
 \begin{tikzpicture}[scale=0.8]
 \foreach \x in {0,90,...,270}
@@ -650,7 +652,7 @@ The 4-cycle placed outside of the square is the cycle corresponding to the base,
 \end{thm}
 \begin{proof} The case $n=3$ has already been covered in \hyperref[tetra]{Section \ref*{tetra}}, since a pyramid with a 3-sided base is just a tetrahedron. We will then suppose that $n> 3$.
 
-We call $(Q,P)$ the QP associated to the pyramid and $A$ its Jacobian algebra. We will study $A$ making heavy use of the diamond lemma. To do so, we will order terms according first to length (longer terms being smaller) and then lexicographically from right to left. For instance, $a^5 \prec bd$ and $bda \prec b^3$. This is a minor modification of the usual revglex order (since words are sorted lexicoghraphically but from right to left), and the same argument as in \hyperref[noeth-norm]{Lemma \ref*{noeth-norm}} proves that it satisfies the descending chain condition in norm.
+We call $(Q,P)$ the QP associated to the pyramid and $A$ its Jacobian algebra. We will study $A$ making heavy use of the diamond lemma. To do so, we will order terms according first to length (longer terms being smaller) and then lexicographically from right to left. For instance, $a^5 \prec bd$ and $bda \prec b^3$. This is a minor modification of the usual revglex order (since words are sorted lexicographically but from right to left), and the same argument as in \hyperref[noeth-norm]{Lemma \ref*{noeth-norm}} proves that it satisfies the descending chain condition in norm.
 
 The careful reader will note that, a priori, we are not under the hypotheses of the diamond lemma, since we have not specified a term order for the entire set of paths, but rather we have given an equivalence relation on the set of paths (where two paths are considered to be equal if they are given the same label) and then ordered the set of equivalence classes. This is of course no obstruction, since we may number the arrows carrying the same label and sort them first by their labels and then by their numbering. For instance, two different paths of the form $a^3$ may be numbered as, say, $a_2a_1a_0$ and $a_3a_2a_1$.
 
@@ -728,11 +730,11 @@ b^{2n-2} &\leadsto 0
 \end{align*}
 We remark that this system is compatible with our term order. Moreover, the ideal $I_{\Gamma'}$ coincides with the Jacobian ideal as well, since the new rules come from identities holding in the Jacobian algebra $A$. It suffices to check that $\Gamma'$ is indeed a confluent system in order to be in the hypotheses of the diamond lemma. The set of ambiguities is now slightly larger: it contains all of the old ones (which are now resolvable, thanks to the rules $da^{n-1} \leadsto 0$ and $cb^{n-1} \leadsto 0$) plus the ambiguities arising from the following set of monomials:
 \[bda^{n-1}, cda^{n-1}, acb^{n-1}, dcb^{n-1}, da^{n-1}c, cb^{n-1}d, da^{2n-2}, cb^{2n-2}, a^{2n-2}c, b^{2n-2}d\]
-After a straightforward but somewhat tedious check one sees that all of these ambiguities are resolvable (in fact, rather easily, since every term reduces to zero).Once again by the diamond lemma, we know that the set of irreducible paths forms a basis for the Jacobian algebra $A$. We will now prove that there are no irreducible paths of length $>2n-2$, which in turn implies the finite-dimensionality of $A$.
+After a straightforward but somewhat tedious check one sees that all of these ambiguities are resolvable (in fact, rather easily, since every term reduces to zero). Once again by the diamond lemma, we know that the set of irreducible paths forms a basis for the Jacobian algebra $A$. We will now prove that there are no irreducible paths of length greater than $2n-2$, which in turn implies the finite-dimensionality of $A$.
 
 Indeed, suppose $x$ is an irreducible path starting with an $a$ arrow. As we see in \hyperref[pyramid]{Figure \ref*{pyramid}}, an $a$ arrow is only concatenable with another $a$ arrow or with a $d$ arrow. Since $da$ is a reducible path, it follows that any irreducible path starting with an $a$ arrow is of the form $a^k$, and since $a^{2n-2}$ is reducible, that $k<2n-2$. The same argument holds for paths starting with a $b$ arrow.
 
-Finally, we notice that an irreducible path starting with a $c$ arrow must be $c$ itself, since the only possible successors are $a$ or $d$, and both $ac$ and $dc$ are reducible. Using the same idea we see that $d$ is the only irreducible path starting with a $d$ arrow, and thus there is no irreducible path of length $>2n-2$, concluding the proof.
+Finally, we notice that an irreducible path starting with a $c$ arrow must be $c$ itself, since the only possible successors are $a$ or $d$, and both $ac$ and $dc$ are reducible. Using the same idea we see that $d$ is the only irreducible path starting with a $d$ arrow, and thus there is no irreducible path of length greater than $2n-2$, concluding the proof.
 \end{proof}
 Since we used the same heuristic as our software does, we may now check our computation against it. We will try to see if our rewriting system produces the same number of irreducible monomials of each length. 
 If $n$ is odd, the only reducible monomials are $ac$, $bd$, $cd$ and $dc$, so the irreducible monomials of positive length are of the form $a^k$, $b^k$, $da^{k-1}$ or $cb^{k-1}$ for $k\geq 1$, and there are exactly $n$ paths with each of these names. Therefore, there are $4n$ paths of each possible positive length (and $2n$ stationary paths).
@@ -889,7 +891,6 @@ Our labeling of the arrows in the quiver will be:
 }
 \end{tikzpicture}
 \]
-\note{acá también, labels corridos}
 
 Once again, the polyhedron is assembled by identifying the left and right sides of the figure. Arrows labeled $a$ (resp $b$) correspond to the top (resp. bottom) $n$-cycle. Arrows inside a triangle sharing a side with the top (resp. bottom) face are labeled $f$, $g$ or $h$ (resp. $c$, $d$, $e$), in such a way that a 3-cycle having a vertex from the top (resp. bottom) face as source is labeled $fhg$ (resp. $ced$).
 
