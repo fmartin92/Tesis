@@ -188,7 +188,23 @@ Suppose now that $n\neq 4$. Then
 \label{euler-regular}f=\frac{4g-4}{n-4},
 \end{equation}and so $g$ must be such that this quotient is integral. Moreover, since $n$ faces meet at every vertex, there must be at the very least $n$ faces, and so $n(n-4)\leq 4(g-1)$. Therefore, we have that $g\in \Omega(n^2)$.\note{no se si vale la pena observar esto}
 
-All of these are \emph{necessary} conditions for an $n$-regular subdivision to exist. We have already shown an infinite number of examples of these objects in the torus, but we do not know if these subdivisions exist for any genus (or even for arbitrarily high genera).
+All of these are \emph{necessary} conditions for an $n$-regular subdivision to exist. We have already shown an infinite number of examples of these objects, but we do not know if these subdivisions exist for any genus (or even for arbitrarily high genera).
+
+\begin{exmp} Consider the complete graph $K_8$ with vertex set $\{1,2,\dots,8\}$. One may glue eight heptagons having the rows of the following matrix as edges:
+\begin{center}
+\begin{tabular}{ c  c  c  c  c  c  c }
+1 &  2 &  3 &  4 &  5 &  6 &  7\\
+2 &  1 &  3 &  7 &  5 &  8 &  6\\
+3 &  2 &  4 &  1 &  6 &  8 &  7\\
+4 &  3 &  5 &  2 &  7 &  8 &  1\\
+5 &  4 &  6 &  3 &  1 &  8 &  2\\
+6 &  5 &  7 &  4 &  2 &  8 &  3\\
+7 &  6 &  1 &  5 &  3 &  8 &  4\\
+1 &  7 &  2 &  6 &  4 &  8 &  5
+\end{tabular}
+\end{center}
+In this way, we obtain an orientable, closed surface of genus seven, such that exactly seven heptagonal faces meet at every vertex; in other words, a 7-regular surface.
+\end{exmp}
 
 Our main interest in the concept of $n$-regularity lies in the following fact:
 
