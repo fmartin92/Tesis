@@ -581,13 +581,13 @@ En $k\langle\!\langle \hat{Q}\rangle\!\rangle$, si notamos $x$ a la única flech
 \begin{frame}
 \begin{exampleblock}{Definición}
 Dado un quiver con potencial $(Q,P)$, el \emph{álgebra Jacobiana asociada} es
-\[J(Q,P) = \frac{\KQ}{\overline{\left( \partial_\alpha(P)\right)}} \]
+\[J(Q,P) = \frac{\KQ}{\,\,\,\overline{\left( \partial_\alpha(P)\right)}\,\,\,} \]
 \end{exampleblock}
 \pause
 \bigskip
 \begin{exampleblock}{Ejemplo}
 Con la notación previa, si en $\hat{Q}$ consideramos $P=x^n$,
-\[J(\hat{Q},P) = k[x]/(x^n) \]
+\[J(\hat{Q},P) = k[x]/(x^{n-1}) \]
 \end{exampleblock}
 \end{frame}
 
@@ -607,7 +607,7 @@ Si cualquiera de estas condiciones se cumple, el sistema $S$ es \emph{confluente
 \section{Subdivisiones de superficies}
 \begin{frame}
 \begin{exampleblock}{Definición}
-Una \emph{superficie} es una variedad diferencial sin borde, compacta, orientable y de dimensión 2.
+Una \emph{superficie} es una variedad diferencial sin borde, compacta, conexa, orientable y de dimensión 2.
 \end{exampleblock}
 \bigskip
 \pause
@@ -941,13 +941,85 @@ Además A es un ideal, y tenemos $I\subseteq A$. Luego, para ver que $\kQ/I$ es 
 \end{frame}
 
 \begin{frame}
-Otros resultados obtenidos:
-\bigskip
+\frametitle{Otros resultados obtenidos}
 \begin{itemize}
-\pause
 \item Construimos subdivisiones poligonales no triangulares con álgebra Jacobiana asociada de dimensión finita en cualquier género.
-\pause
-\medskip
+\bigskip\pause
+\[
+\begin{tikzpicture}[scale=0.6]
+\draw (-5,1) -- (5,1);
+\draw (-5,-1) -- (5,-1);
+
+\foreach \x in {-4,-2,...,4}
+\draw (\x,1) -- (\x,-1);
+
+\foreach \x in {-4,-2,...,2}
+\draw (\x,-1) -- (\x+2, 1);
+\end{tikzpicture}
+\]
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Otros resultados obtenidos}
+\[
+\begin{tikzpicture}[scale=0.5]
+\draw (0,0) node[minimum size=3cm,draw] {};
+
+\fill [black,opacity=.15] circle (2cm);
+
+\draw[red, very thick] (-3,1) -- (-1.73,1);
+\draw[red, very thick] (-3,-1) -- (-1.73,-1);
+
+\draw[red, very thick] (3,1) -- (1.73,1);
+\draw[red, very thick] (3,-1) -- (1.73,-1);
+
+\draw[red, very thick] (1,-3) -- (1,-1.73);
+\draw[red, very thick] (-1,-3) -- (-1,-1.73);
+
+\draw[red, very thick] (1,3) -- (1,1.73);
+\draw[red, very thick] (-1,3) -- (-1,1.73);
+
+\draw[blue, very thick] (0,0) circle (2cm);
+\end{tikzpicture}
+\]
+
+\[
+\begin{tikzpicture}[scale=0.5]
+\draw[red, very thick] (-5.44, 0.5) -- (-3.87, 0.5);
+\draw[red, very thick] (-5.44, -0.5) -- (-3.87, -0.5);
+\draw[red, very thick] (5.44, 0.5) -- (3.87, 0.5);
+\draw[red, very thick] (5.44, -0.5) -- (3.87, -0.5);
+
+\draw[red, very thick] (-3.5,0.87) -- (-3.5,2.7);
+\draw[red, very thick] (-3.5,-0.87) -- (-3.5,-2.7);
+\draw[red, very thick] (3.5,0.87) -- (3.5,2.7);
+\draw[red, very thick] (3.5,-0.87) -- (3.5,-2.7);
+
+\draw[red, very thick] (-2.137, 0.5) -- (-0.863, 0.5);
+\draw[red, very thick] (-2.137, -0.5) -- (-0.863, -0.5);
+\draw[red, very thick] (2.137, 0.5) -- (0.863, 0.5);
+\draw[red, very thick] (2.137, -0.5) -- (0.863, -0.5);
+
+\draw[red, very thick] (-2.5,0.87) to [bend left=40] (-0.5,0.87);
+\draw[red, very thick] (2.5,0.87) to [bend right=40] (0.5,0.87);
+\draw[red, very thick] (-2.5,-0.87) to [bend right=40] (-0.5,-0.87);
+\draw[red, very thick] (2.5,-0.87) to [bend left=40] (0.5,-0.87);
+
+\draw[blue, very thick] (0,0) ellipse (5.5cm and 3.5cm);
+\draw[blue, very thick] (0,0) circle (1cm);
+\draw[blue, very thick] (-3,0) circle (1cm);
+\draw[blue, very thick] (3,0) circle (1cm);
+\fill [black,opacity=.15] (-3,0) circle (1cm);
+\fill [black,opacity=.15] (0,0) circle (1cm);
+\fill [black,opacity=.15] (3,0) circle (1cm);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{Otros resultados obtenidos}
+\begin{itemize}
 \item Calculamos bases monomiales explícitas para las álgebras asociadas a familias de poliedros: pirámides, prismas, antiprismas.
 \pause
 \medskip
