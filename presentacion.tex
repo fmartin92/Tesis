@@ -12,7 +12,7 @@
 \\ 
 Universidad de Buenos Aires
 }
-\date{??/03/2016}
+\date{30/03/2016}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Mathematical packages and others%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{xy}
@@ -27,7 +27,7 @@ Universidad de Buenos Aires
 \usetikzlibrary{arrows,positioning,through,decorations.pathmorphing, decorations.markings}
 
 \usepackage{latexsym}
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{listings}
 \usepackage{graphicx}%poner [dvips] para gr�ficos
 \usepackage{float}  %Este packete permite controlar la flotacion de figuras al poner [H] o [h] como opcion de \begin{figure}
@@ -89,10 +89,7 @@ stringstyle=\color{orange}}
 \end{beamercolorbox}}
 
 \setbeamertemplate{footline}
-{\begin{beamercolorbox}{section in head/foot}
-\vskip2pt\insertshortauthor[width={12cm},center]
-\hskip2pt\insertframenumber\vskip2pt
-\end{beamercolorbox}}
+{}
 
 \setbeamercovered{dynamic}
 
@@ -241,7 +238,7 @@ stringstyle=\color{orange}}
 
 \begin{frame}
  \frametitle{Motivación}
-Sea $k$ un cuerpo de característica cero.
+Sea $k$ un cuerpo.
 \[
  A=k\langle x_1,\dots,x_n\rangle/\left(R\right).
 \]
@@ -258,7 +255,7 @@ Sea $k$ un cuerpo de característica cero.
 \end{frame}
 \begin{frame}
 \frametitle{Motivación}
-\begin{exampleblock}{Ejemplo}
+\begin{exampleblock}{Ejemplo (Álgebra de Weyl)}
 Sea $A=k\langle x,y\rangle/\left(yx-xy-1\right)$.
 
 \medskip
@@ -273,7 +270,11 @@ Como $yx=xy+1$ en $A$, podemos reducir $yx \rightsquigarrow xy+1$ para escribir 
 
 \medskip
 \pause
-\[y^2x =y(yx) \pause  \rightsquigarrow y(xy+1) = (yx)y + y \pause \rightsquigarrow (xy+1)y + y = xy^2 + 2y\]
+\begin{align*}
+y^2x &=y(yx)\\
+ &\pause  \rightsquigarrow y(xy+1)\\&= (yx)y + y\\
+&\pause \rightsquigarrow (xy+1)y + y \\&= xy^2 + 2y
+\end{align*}
 \end{frame}
 
 
@@ -292,7 +293,7 @@ Sea $X$ un conjunto. Un \emph{orden monomial} sobre $\langle X\rangle$ es un ord
 Por ejemplo, el orden graduado lexicográfico sobre $\langle x, y, z\rangle$:
 \medskip
 \begin{itemize}
-\item $xy^2 \preceq y^4$
+\item $zxy \preceq y^4$
 \item $yz \preceq zy$
 \end{itemize}
 \end{frame}
@@ -320,7 +321,7 @@ En el ejemplo anterior, $yx\rightsquigarrow xy+1$ es compatible con el orden gra
 
 \begin{frame}
 \begin{exampleblock}{Definición}
-Supongamos que $S$ es un sistema de reescritura y $u, v, w$ son monomios de modo que existen reglas $uv \rightsquigarrow f_1$ y $vw \rightsquigarrow f_2$ en $S$.
+Supongamos que $S$ es un sistema de reescritura y $u, v, w$ son monomios de modo que existen reglas $\sigma=(uv \rightsquigarrow f_1)$ y $\tau=(vw \rightsquigarrow f_2)$ en $S$.
 
 La 5-upla $(u,v,w,\sigma,\tau)$ es una \emph{ambigüedad} en $S$.
 \end{exampleblock}
@@ -371,7 +372,7 @@ Sea $X$ un conjunto, $S$ un sistema de reescritura en $X$ y $\preceq$ un orden m
 \item Los monomios $S$-irreducibles forman una base monomial para $k\langle X\rangle/I_S$.
 \item Todo elemento de $k\langle X\rangle$ es de reducción única y finita para $S$.
 \end{itemize}
-Si cualquiera de estas condiciones se cumple, el sistema $S$ es \emph{confluente}.
+Si estas condiciones se cumplen, el sistema $S$ es \emph{confluente}.
 \end{block}
 
 \end{frame}
@@ -382,7 +383,13 @@ Consideremos el orden graduado lexicográfico para
 
 \pause
 
-El sistema $\left\{\sigma_1=(yx\rightsquigarrow xy), \sigma_2=(zx\rightsquigarrow xz), \sigma_3=(zy\rightsquigarrow yz)\right\}$ es confluente:
+El sistema 
+\begin{align*}
+\sigma_1&=(yx\rightsquigarrow xy),\\
+\sigma_2&=(zx\rightsquigarrow xz), \\
+\sigma_3&=(zy\rightsquigarrow yz)
+\end{align*}
+es confluente:
 \[
 \begin{tikzpicture}[scale=0.6]
 \node (1) at (0,0) {$zyx$};
@@ -474,6 +481,58 @@ que son compatibles con $\preceq$ y tales que inducen el ideal $(r_1,\dots, r_m)
 \end{exampleblock}
 \end{frame}
 
+\begin{frame}
+\[A=k\langle x,y,z\rangle/\left(yx-y, xz\right).\]
+
+\pause
+
+El sistema 
+\begin{align*}
+\sigma_1&=(yx\rightsquigarrow y),\\
+\sigma_2&=(xz\rightsquigarrow 0)
+\end{align*}
+no es confluente:
+\[
+\begin{tikzpicture}[scale=0.6]
+\node (1) at (0,0) {$yxz$};
+\node (a1) at (-2,-2) {$yz$};
+\node (b1) at (2,-2) {$0$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_1$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_2$} (b1);
+\end{tikzpicture}
+\]
+\bigskip
+\pause
+Agreguemos la regla $\sigma_3 = (yz\rightsquigarrow 0)$.
+\end{frame}
+
+\begin{frame}
+\[A=k\langle x,y,z\rangle/\left(yx-y, xz\right).\]
+
+Ahora el sistema 
+\begin{align*}
+\sigma_1&=(yx\rightsquigarrow y),\\
+\sigma_2&=(xz\rightsquigarrow 0),\\
+\sigma_3&= (yz\rightsquigarrow 0)
+\end{align*}
+sí es confluente:
+\pause
+\[
+\begin{tikzpicture}[scale=0.6]
+\node (1) at (0,0) {$yxz$};
+\node (a1) at (-2,-2) {$yz$};
+\node (b1) at (2,-2) {$0$};
+\node (c) at (0,-4) {$0$};
+
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_1$} (a1);
+\draw[->] (1) to node[above, font=\footnotesize]{$\sigma_2$} (b1);
+\draw[->] (a1) to node[below, font=\footnotesize]{$\sigma_3$} (c);
+\draw[double] (b1) to node[above, font=\footnotesize]{} (c);
+\end{tikzpicture}
+\]
+\end{frame}
+
 \section{Álgebras Jacobianas}
 \begin{frame}
 \frametitle{Álgebras Jacobianas}
@@ -506,7 +565,7 @@ Si $Q_*$ es el conjunto de caminos en $Q$, definimos el \emph{álgebra de camino
 
 \begin{frame}
 \begin{exampleblock}{Ejemplo}
-Si $\Hat{Q}$ es el quiver:
+Si $Q$ es el quiver:
 \[
 \begin{tikzpicture}[->, thick,scale=0.8]
 \tikzset{every loop/.style={looseness=15}}
@@ -514,12 +573,12 @@ Si $\Hat{Q}$ es el quiver:
 \path (1) edge [loop above] node {} (1);
 \end{tikzpicture}
 \]
-entonces \[k\langle \Hat{Q}\rangle \simeq k[x]\]
+entonces \[k\langle Q\rangle \simeq k[x]\]
 \end{exampleblock}
 \pause
 
 \begin{exampleblock}{Ejemplo}
-Si $\tilde{Q}$ es el quiver:
+Si $Q$ es el quiver:
 \[
 \begin{tikzpicture}[->, auto, thick]
 \tikzset{every loop/.style={looseness=15}}
@@ -534,13 +593,13 @@ Si $\tilde{Q}$ es el quiver:
 \path (1) edge [in=300, out=330, loop] node {$\alpha_n$} (1);
 \end{tikzpicture}
 \]
-entonces \[k\langle \tilde{Q}\rangle \simeq k\langle x_1,\dots,x_n\rangle\]
+entonces \[k\langle Q\rangle \simeq k\langle x_1,\dots,x_n\rangle\]
 \end{exampleblock}
 \end{frame}
 
 \begin{frame}
 En $\kQ$ hay una métrica inducida por la norma:
-\[\vert x\vert =  e^{-\nu(x)}\]
+\[\vert x\vert =  2^{-\nu(x)}\]
 donde $\nu(x)$ es el mínimo natural tal que $x$ contiene un monomio de ese grado.
 
 \bigskip
@@ -556,7 +615,7 @@ Así, por ejemplo, $k\langle\!\langle \tilde{Q}\rangle\!\rangle\simeq  k\langle\
 
 Notar que si $(u_n)$ es una sucesión de diferentes caminos en $Q$, en $\KQ$ se tiene
 
-\[\sum_{k=1}^n \lambda_k u_k \longrightarrow \sum_{k=1}^\infty \lambda_k u_k.\]
+\[\sum_{n=1}^k \lambda_n u_n \longrightarrow \sum_{n=1}^\infty \lambda_n u_n.\]
 \end{frame}
 \begin{frame}
 \begin{exampleblock}{Definición}
@@ -573,7 +632,7 @@ Extendiendo $\partial_\alpha$ lineal y continuamente, tenemos definido $\partial
 \end{exampleblock}
 \pause
 \begin{exampleblock}{Ejemplo}
-En $k\langle\!\langle \hat{Q}\rangle\!\rangle$, si notamos $x$ a la única flecha del quiver:
+En el quiver con un único vértice y una única flecha $x$:
 \[\partial_x(x^n)=\onslide<4->{nx^{n-1}}\]
 \end{exampleblock}
 \end{frame}
@@ -581,13 +640,14 @@ En $k\langle\!\langle \hat{Q}\rangle\!\rangle$, si notamos $x$ a la única flech
 \begin{frame}
 \begin{exampleblock}{Definición}
 Dado un quiver con potencial $(Q,P)$, el \emph{álgebra Jacobiana asociada} es
-\[J(Q,P) = \frac{\KQ}{\,\,\,\overline{\left( \partial_\alpha(P)\right)}\,\,\,} \]
+\[J(Q,P) = \frac{\KQ}{\,\,\,\overline{\left( \partial_\alpha(P)\right)}\,\,\,}, \]
+donde el índice $\alpha$ se mueve en el conjunto de flechas del quiver.
 \end{exampleblock}
 \pause
 \bigskip
 \begin{exampleblock}{Ejemplo}
-Con la notación previa, si en $\hat{Q}$ consideramos $P=x^n$,
-\[J(\hat{Q},P) = k[x]/(x^{n-1}) \]
+Si en el quiver con un único vértice y una única flecha $x$ consideramos $P=x^n$,
+\[J(Q,P) = k[x]/(x^{n-1}) \]
 \end{exampleblock}
 \end{frame}
 
@@ -600,7 +660,7 @@ Sea $X$ un conjunto, $Q$ un quiver, $S$ un sistema de reescritura en $X$ y $\pre
 \item El conjunto $B$ de monomios $S$-irreducibles es tal que $\KQ/I_S\simeq k\langle\!\langle B\rangle\!\rangle$.
 \item Todo elemento de $\KQ$ es de reducción única para $S$.
 \end{itemize}
-Si cualquiera de estas condiciones se cumple, el sistema $S$ es \emph{confluente}.
+Si estas condiciones se cumplen, el sistema $S$ es \emph{confluente}.
 \end{block}
 \end{frame}
 
@@ -615,7 +675,7 @@ Una \emph{superficie} es una variedad diferencial sin borde, compacta, conexa, o
 Las superficies están clasificadas por su \emph{género} $g\in\NN_0$:
 \begin{itemize}
 \item La esfera es la superficie de género 0.
-\item Para $g>0$, el toro con $g$ agujeros es la superficie de género $g$.
+\item Para $g>0$, el toro con $g$ manijas es la superficie de género $g$.
 \end{itemize}
 \end{block}
 \end{frame}
@@ -632,12 +692,12 @@ Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con
 En el tetraedro:
 \[
 \begin{tikzpicture}[thick, scale=0.45]
-\tikzstyle{every node} = [circle, fill=blue, minimum size=.05cm, inner sep=0cm]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
 \node (c) at (0,0) {};
 \node (n) at (0,4) {};
 \node (sw) at (210:4) {};
 \node (se) at (330:4) {};
-\draw[blue] (c) -- (sw)
+\draw[lightgray] (c) -- (sw)
 	(c) -- (n)
 	(c) -- (se)
 	(sw) to [bend right = 45] coordinate[midway](m1) (se)
@@ -677,12 +737,12 @@ Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con
 En el tetraedro:
 \[
 \begin{tikzpicture}[thick, scale=0.45]
-\tikzstyle{every node} = [circle, fill=blue, minimum size=.05cm, inner sep=0cm]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
 \node (c) at (0,0) {};
 \node (n) at (0,4) {};
 \node (sw) at (210:4) {};
 \node (se) at (330:4) {};
-\draw[blue] (c) -- (sw)
+\draw[lightgray] (c) -- (sw)
 	(c) -- (n)
 	(c) -- (se)
 	(sw) to [bend right = 45] coordinate[midway](m1) (se)
@@ -722,12 +782,12 @@ Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con
 En el tetraedro:
 \[
 \begin{tikzpicture}[thick, scale=0.45]
-\tikzstyle{every node} = [circle, fill=blue, minimum size=.05cm, inner sep=0cm]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
 \node (c) at (0,0) {};
 \node (n) at (0,4) {};
 \node (sw) at (210:4) {};
 \node (se) at (330:4) {};
-\draw[blue] (c) -- (sw)
+\draw[lightgray] (c) -- (sw)
 	(c) -- (n)
 	(c) -- (se)
 	(sw) to [bend right = 45] coordinate[midway](m1) (se)
@@ -757,6 +817,405 @@ En el tetraedro:
 \end{frame}
 
 \begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de \textcolor{blue}{estos ciclos} más los ciclos que rodean vértices de la subdivisión.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->, blue] (in) -- (onw);
+\draw[->, blue] (onw) -- (isw);
+\draw[->, blue] (isw) -- (in);
+\draw[->] (in) -- (ise);
+\draw[->] (ise) -- (isw);
+\draw[->] (ise) -- (one);
+\draw[->] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de \textcolor{blue}{estos ciclos} más los ciclos que rodean vértices de la subdivisión.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->] (isw) -- (in);
+\draw[->, blue] (in) -- (ise);
+\draw[->] (ise) -- (isw);
+\draw[->, blue] (ise) -- (one);
+\draw[->, blue] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de \textcolor{blue}{estos ciclos} más los ciclos que rodean vértices de la subdivisión.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->] (isw) -- (in);
+\draw[->] (in) -- (ise);
+\draw[->, blue] (ise) -- (isw);
+\draw[->] (ise) -- (one);
+\draw[->] (one) -- (in);
+\draw[->, blue] (isw) -- (os);
+\draw[->, blue] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de \textcolor{blue}{estos ciclos} más los ciclos que rodean vértices de la subdivisión.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->] (isw) -- (in);
+\draw[->] (in) -- (ise);
+\draw[->] (ise) -- (isw);
+\draw[->] (ise) -- (one);
+\draw[->] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->,blue] (one) to [bend left=90, distance=100] (os);
+\draw[->,blue] (onw) to [bend left=90, distance=100] (one);
+\draw[->,blue] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de estos ciclos más los \textcolor{red}{ciclos que rodean vértices de la subdivisión}.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node[red,minimum size=.15cm] (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->, red] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->] (isw) -- (in);
+\draw[->] (in) -- (ise);
+\draw[->] (ise) -- (isw);
+\draw[->] (ise) -- (one);
+\draw[->, red] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->, red] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de estos ciclos más los \textcolor{red}{ciclos que rodean vértices de la subdivisión}.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node[red,minimum size=.15cm] (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->, red] (isw) -- (in);
+\draw[->, red] (in) -- (ise);
+\draw[->, red] (ise) -- (isw);
+\draw[->] (ise) -- (one);
+\draw[->] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de estos ciclos más los \textcolor{red}{ciclos que rodean vértices de la subdivisión}.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node[red,minimum size=.15cm] (sw) at (210:4) {};
+\node (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->, red] (onw) -- (isw);
+\draw[->] (isw) -- (in);
+\draw[->] (in) -- (ise);
+\draw[->] (ise) -- (isw);
+\draw[->] (ise) -- (one);
+\draw[->] (one) -- (in);
+\draw[->, red] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->, red] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+Dada una subdivisión poligonal de una superficie $S$, construimos un quiver con potencial:
+\begin{itemize}
+\item En cada cara de la superficie, colocamos un ciclo orientado.
+\item El potencial está dado por la suma de estos ciclos más los \textcolor{red}{ciclos que rodean vértices de la subdivisión}.
+\end{itemize}
+
+\bigskip
+En el tetraedro:
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node[red,minimum size=.15cm] (se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->] (isw) -- (in);
+\draw[->] (in) -- (ise);
+\draw[->] (ise) -- (isw);
+\draw[->,red] (ise) -- (one);
+\draw[->] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->,red] (os) -- (ise);
+\draw[->, red] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\begin{tikzpicture}[thick, scale=0.45]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
+\node (c) at (0,0) {};
+\node (n) at (0,4) {};
+\node (sw) at (210:4) {};
+\node(se) at (330:4) {};
+\draw[lightgray] (c) -- (sw)
+	(c) -- (n)
+	(c) -- (se)
+	(sw) to [bend right = 45] coordinate[midway](m1) (se)
+	(n) to [bend right = 45] coordinate[midway](m2) (sw)
+	(se) to [bend right = 45] coordinate[midway](m3) (n);
+\tikzstyle{every node} = [circle, fill=black, minimum size=.25cm, inner sep=0cm]
+\node (in) at (0,2) {};
+\node (isw) at (210:2) {};
+\node (ise) at (330:2) {};
+\node (os) at (m1) {};
+\node (onw) at (m2) {};
+\node (one) at (m3) {};
+\draw[->] (in) -- (onw);
+\draw[->] (onw) -- (isw);
+\draw[->, red] (isw) -- (in);
+\draw[->, green] (in) -- (ise);
+\draw[->, red] (ise) -- (isw);
+\draw[->, blue] (ise) -- (one);
+\draw[->, blue] (one) -- (in);
+\draw[->] (isw) -- (os);
+\draw[->] (os) -- (ise);
+\draw[->] (one) to [bend left=90, distance=100] (os);
+\draw[->] (onw) to [bend left=90, distance=100] (one);
+\draw[->] (os) to [bend left=90, distance=100] (onw);
+\end{tikzpicture}
+\]
+\[\partial_{\textcolor{green}{\alpha}}(P) = {\textcolor{red}{x}} + {\textcolor{blue}{y}}\]
+\end{frame}
+
+
+\begin{frame}
 \begin{exampleblock}{Definición}
 El álgebra Jacobiana asociada a una subdivisión poligonal de una superficie es la inducida por el quiver con potencial que describimos.
 \end{exampleblock}
@@ -783,12 +1242,12 @@ Supongamos que $T$ es una triangulación de una superficie.
 
 \[
 \begin{tikzpicture}[thick, scale=0.45]
-\tikzstyle{every node} = [circle, fill=blue, minimum size=.05cm, inner sep=0cm]
+\tikzstyle{every node} = [circle, fill=lightgray, minimum size=.05cm, inner sep=0cm]
 \node (c) at (0,0) {};
 \node (n) at (0,4) {};
 \node (sw) at (210:4) {};
 \node (se) at (330:4) {};
-\draw[blue] (c) -- (sw)
+\draw[lightgray] (c) -- (sw)
 	(c) -- (n)
 	(c) -- (se)
 	(sw) to [bend right = 45] coordinate[midway](m1) (se)
@@ -933,11 +1392,44 @@ Si $A$ es el subespacio de $\kQ$ generado por caminos que tienen factores $(\clu
 \pause
 Además A es un ideal, y tenemos $I\subseteq A$. Luego, para ver que $\kQ/I$ es de dimensión infinita alcanza con ver que $B$ lo es, y esto es sencillo.
 \end{block}
-\bigskip
-\pause
+\end{frame}
+
+\begin{frame}
 \begin{exampleblock}{Problema}
 ¿Existen subdivisiones $n$-regulares para $n$ arbitrariamente grande?
 \end{exampleblock}
+\bigskip
+\pause
+\begin{center}
+\begin{tabular}{ c  c  c  c  c  c  c }
+1 &  2 &  3 &  4 &  5 &  6 &  7\\
+2 &  1 &  3 &  7 &  5 &  8 &  6\\
+3 &  2 &  4 &  1 &  6 &  8 &  7\\
+4 &  3 &  5 &  2 &  7 &  8 &  1\\
+5 &  4 &  6 &  3 &  1 &  8 &  2\\
+6 &  5 &  7 &  4 &  2 &  8 &  3\\
+7 &  6 &  1 &  5 &  3 &  8 &  4\\
+1 &  7 &  2 &  6 &  4 &  8 &  5
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Otros resultados obtenidos}
+\begin{itemize}
+\item Calculamos bases monomiales explícitas para las álgebras asociadas a familias de poliedros: pirámides, prismas, antiprismas.
+\begin{tabular}{c c c}
+      \includegraphics[width=30mm]{pyramid_p.png} &
+      \includegraphics[width=30mm]{prism_p.png} &
+      \includegraphics[width=30mm]{antiprism_p.png} 
+\end{tabular}
+\pause
+\medskip
+\item La familia de pirámides muestra que la finito-dimensionalidad del álgebra depende de la elección de escalares en el caso no triangular.
+\pause
+\medskip
+\item Usamos las bases halladas para calcular invariantes de estas álgebras: centro y derivaciones.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -1015,19 +1507,6 @@ Además A es un ideal, y tenemos $I\subseteq A$. Luego, para ver que $\kQ/I$ es 
 \fill [black,opacity=.15] (3,0) circle (1cm);
 \end{tikzpicture}
 \]
-\end{frame}
-
-\begin{frame}
-\frametitle{Otros resultados obtenidos}
-\begin{itemize}
-\item Calculamos bases monomiales explícitas para las álgebras asociadas a familias de poliedros: pirámides, prismas, antiprismas.
-\pause
-\medskip
-\item La familia de pirámides muestra que la finito-dimensionalidad del álgebra depende de la elección de escalares en el caso no triangular.
-\pause
-\medskip
-\item Usamos las bases halladas para calcular invariantes de estas álgebras: centro y derivaciones.
-\end{itemize}
 \end{frame}
 
 \begin{frame}
