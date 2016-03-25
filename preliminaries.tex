@@ -75,7 +75,7 @@ Let us now consider some examples:
 The path algebra $\kQ$ is then isomorphic to $k^n = ke_1\oplus\dots\oplus ke_n$, where multiplication is given by $e_i e_j = \delta_{i,j} e_i$ and extended linearly.
 \end{exmp}
 
-\begin{exmp}\label{one-loop} Let $Q$ be the quiver with a single vertex $1$ and a single arrow $\alpha:1\to 1$:
+\begin{exmp}\label{one-loop} Let $Q$ be the quiver with a single vertex $1$ and a single arrow $\alpha:1\to 1$.
 \[
 \begin{tikzpicture}[->, thick]
 \tikzset{every loop/.style={looseness=15}}
@@ -85,7 +85,7 @@ The path algebra $\kQ$ is then isomorphic to $k^n = ke_1\oplus\dots\oplus ke_n$,
 \]
 The path algebra $\kQ$ has a basis given by $\{e_1, \alpha, \alpha^2, \dots\}$. It is easily seen that $\kQ$ is isomorphic to the polynomial algebra $k[x]$, via the map sending $\alpha \mapsto x$ and $1\mapsto 1$.
 \end{exmp}
-\begin{exmp}\label{several-loops} More generally, let $Q$ be the quiver with a single vertex $1$ and $n$ arrows $\alpha_n:1\to 1$:
+\begin{exmp}\label{several-loops} More generally, let $Q$ be the quiver with a single vertex $1$ and $n$ arrows $\alpha_n:1\to 1$.
 \[
 \begin{tikzpicture}[->, auto, thick]
 \tikzset{every loop/.style={looseness=15}}
@@ -117,15 +117,15 @@ Conversely, if $Q$ contains a cycle $u$, then $\{u,u^2,u^3,\dots\}$ is an infini
 \begin{section}{Completions}
 In this section we will outline the construction of the completion of a path algebra. For a more detailed treatment of this subject, the reader may consult \cite{SAV15}.
 
-Given a quiver $Q$, the path algebra $\kQ$ admits a $k$-algebra norm $\vert \cdot \vert$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. In fact, this is not just a norm but an \emph{ultranorm}, which means we have a stronger triangle inequality, namely \[|x+y|\leq \max\{|x|,|y|\}.\] This ultranorm plays nicely with multiplication as well, since \[|xy|=e^{-\nu(xy)}=e^{-\nu(x)-\nu(y)} = e^{-\nu(x)}e^{-\nu(y)}=|x|\cdot|y|.\]
+Given a quiver $Q$, the path algebra $\kQ$ admits a $k$-algebra norm $\vert \cdot \vert$ such that for each non-zero $x=\sum_{u\in Q_*} \lambda_u u$ we have $\vert x\vert = e^{-\nu(x)}$, where $\nu(x) = \min\{ i\in \NN_0 : |u| = i \text{ and } \lambda_u \neq 0 \}$. In fact, this is not just a norm but an \emph{ultranorm}, which means we have a stronger triangle inequality, namely \[|x+y|\leq \max\{|x|,|y|\}.\] This ultranorm is compatible with multiplication as well, since \[|xy|=e^{-\nu(xy)}=e^{-\nu(x)-\nu(y)} = e^{-\nu(x)}e^{-\nu(y)}=|x|\cdot|y|.\]
 
 It is thus straightforward to check that the $k$-algebra operations of $\kQ$ are continuous in the topology induced by this ultranorm. These operations extend to the completion of $\kQ$ as a metric space, making it a $k$-algebra itself, which we will call the \emph{complete path algebra} $\KQ$.
 
-Suppose $(x_n)$ is a Cauchy sequence in $\kQ$. If $x_n=\sum_{u\in Q_*} \lambda_u^n u$, we have that the sequence $(\lambda_u^n)$ is eventually constant, since $|x_n-x_m|<e^{-|u|}$ for big enough $n,m$. Therefore, we may identify the Cauchy sequence $(x_n)$ with its termwise limit $x=\sum_{u\in Q_*} \lambda_u u$, where $\lambda_u$ denotes the constant value the sequence $(\lambda_u^n)$ eventually takes. Notice that the termwise limit $x$ is not necessarily finitely supported. One can now check that $\KQ$ may be identified with the $k$-algebra $\prod_{n=0}^\infty A^n$, where, as before, $A^n$ stands for the $k$-vector spanned by paths of length $n$. The norm $|\cdot|$ extends naturally to this algebra, and it is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
+Suppose $(x_n)$ is a Cauchy sequence in $\kQ$. If $x_n=\sum_{u\in Q_*} \lambda_u^n u$, the sequence $(\lambda_u^n)$ is eventually constant, since $|x_n-x_m|<e^{-|u|}$ for big enough $n,m$. Therefore, we may identify the Cauchy sequence $(x_n)$ with its termwise limit $x=\sum_{u\in Q_*} \lambda_u u$, where $\lambda_u$ denotes the constant value the sequence $(\lambda_u^n)$ eventually takes. Notice that the termwise limit $x$ is not necessarily finitely supported. One can now check that $\KQ$ may be identified with the $k$-algebra $\prod_{n=0}^\infty A^n$, where, as before, $A^n$ stands for the $k$-vector spanned by paths of length $n$. The norm $|\cdot|$ extends naturally to this algebra, and it is easy to see that the usual path algebra $\kQ$ is a dense $k$-subalgebra and $R$-subbimodule of $\KQ$.
 
 We now consider the completions of the examples of path algebras mentioned previously:
 
-\begin{exmp}Let $\kQ$ be a finite-dimensional path algebra. Since we must have $A^n=0$ for big enough $n$, we conclude that $\bigoplus A^n=\prod A^n$ and thus the path algebra coincides with its completion. As we proved in \hyperref[acyclic-fin-dim]{Proposition \ref*{acyclic-fin-dim}}, this may only happen if the quiver $Q$ is acyclic.
+\begin{exmp}Let $\kQ$ be a finite-dimensional path algebra. Since we must have $A^n=0$ for big enough $n$, we conclude that $\bigoplus A^n=\prod A^n$ and thus the path algebra coincides with its completion. As we proved in \hyperref[acyclic-fin-dim]{Proposition \ref*{acyclic-fin-dim}}, this can only happen if the quiver $Q$ is acyclic.
 \end{exmp}
 
 \begin{exmp}Consider the quiver $Q$ from \hyperref[several-loops]{Example \ref*{several-loops}}. The isomorphism $\kQ\simeq k\langle x_1,\dots,x_n\rangle$ extends to an isomorphism between the respective completions $\KQ\simeq k\langle\!\langle x_1,\dots,x_n\rangle\!\rangle$, where the right-hand side term denotes the algebra of non-commutative formal power series in $n$ variables.
@@ -135,7 +135,7 @@ We end this section with a trivial remark that will be used extensively later:
 
 \begin{obs}\label{arbitrarily-long} Let $I$ be a closed ideal in $\KQ$. Suppose $x$ is a path such that, for all $n\in \NN$, there exists a path $x_n$ of length at least $n$ such that $x=x_n$ in $\KQ/I$. Then, $x=0$ in $\KQ/I$.
 \end{obs}
-\begin{proof} Let $(x_n)$ be a sequence of paths such that $x=x_n$ in $\KQ/I$ and $x_n$ is of length at least $n$. Then $x-x_n\in I$ and since $|x_n|\leq e^{-n}\to 0$ we have that $x-x_n\to x$. Since the ideal $I$ is closed and the sequence $(x-x_n)$ is contained in $I$, we have that $x\in I$ and therefore $x=0$ in $\KQ/I$.
+\begin{proof} Let $(x_n)$ be a sequence of paths such that $x=x_n$ in $\KQ/I$ and $x_n$ is of length at least $n$. Then $x-x_n\in I$ and since $|x_n|\leq e^{-n}\to 0$ we have that $x-x_n\to x$. Since the ideal $I$ is closed and the sequence $(x-x_n)$ is contained in $I$, then $x\in I$ and therefore $x=0$ in $\KQ/I$.
 \end{proof}
 \end{section}
 
@@ -163,7 +163,7 @@ We are now able to introduce the \emph{Jacobian algebra} associated to a QP, whi
 
 A direct computation shows that cyclic derivatives vanish on the subspace $V$ of $\KQ_\cyc$ generated by all commutators. Suppose now that $P$ and $P'$ are two potentials. If every term of $P$ is a cyclic permutation of the factors of a term of $P'$ then the difference $P-P'$ lies in $V$ and so $\partial_\alpha(P-P')$ vanishes for any arrow $\alpha$. This in turn implies that $P$ and $P'$ induce both the same Jacobian ideal and the same Jacobian algebra. In this case, we will say that $P$ and $P'$ are \emph{cyclically equivalent}.
 
-\begin{exmp} Let $Q$ be the quiver with vertices 1 and 2, and arrows $\alpha:1\to 2$, $\beta:2\to1$:
+\begin{exmp} Let $Q$ be the quiver with vertices 1 and 2, and arrows $\alpha:1\to 2$, $\beta:2\to1$.
 \[
 \begin{tikzpicture}[->,node distance=1cm, thick]
 \tikzstyle{every node} = [circle, fill=gray!30, minimum size=.5cm, inner sep=.07cm]
@@ -174,7 +174,7 @@ A direct computation shows that cyclic derivatives vanish on the subspace $V$ of
 \draw (2.200) -- (1.340) node[midway, below, fill=white] {$\beta$};
 \end{tikzpicture}
 \]
-Any potential for $Q$ is of the form $\sum_{n=1}^\infty \lambda_n (\alpha\beta)^n + \mu_n (\beta\alpha)^n$ for some scalars $\lambda_n, \mu_n\in k$. For instance, the cyclically equivalent potentials $P=(\alpha\beta)^n$ and $P'=(\beta\alpha)^n$ give rise to the same Jacobian ideal, which is $(\partial_\alpha(P), \partial_\beta(P)) = (n(\beta\alpha)^{n-1}\beta, n(\alpha\beta)^{n-1}\alpha)$. As any path of length at least $n$ has either $(\beta\alpha)^{n-1}\beta$ or $(\alpha\beta)^{n-1}\alpha$ as factors, the Jacobian ideal contains $A^d$ for $d\geq n$. Therefore, the Jacobian algebra $J(Q,P)$ turns out to be finite-dimensional.
+Any potential for $Q$ is of the form $\sum_{n=1}^\infty \lambda_n (\alpha\beta)^n + \mu_n (\beta\alpha)^n$ for some scalars $\lambda_n, \mu_n\in k$. For instance, the cyclically equivalent potentials $P=(\alpha\beta)^n$ and $P'=(\beta\alpha)^n$ give rise to the same Jacobian ideal, which is $(\partial_\alpha(P), \partial_\beta(P)) = (n(\beta\alpha)^{n-1}\beta, n(\alpha\beta)^{n-1}\alpha)$. As any path of length at least $2n$ has either $(\beta\alpha)^{n-1}\beta$ or $(\alpha\beta)^{n-1}\alpha$ as factors, the Jacobian ideal contains $A^d$ for $d\geq 2n$. Therefore, the Jacobian algebra $J(Q,P)$ turns out to be finite-dimensional.
 \end{exmp}
 
 In the context of Jacobian algebras, having finite dimension is a highly desirable attribute. A usual method for proving this, as seen in the works of \cites{LF09, Lad12, TVD12}, consists in showing that enough cycles are contained in the Jacobian ideal, just as we did in the toy example above. We will make use of the diamond lemma in order to produce this kind of arguments in a streamlined fashion.
@@ -361,7 +361,7 @@ The result now follows by equating \eqref{euler-ch1} and \eqref{euler-ch2} and s
 \begin{section}{The QP associated to an ideal triangulation}\label{qp}
 We will now introduce a way to produce a QP out of an ideal triangulation, so one may speak of the Jacobian algebra associated to the triangulation.
 
-Taking \hyperref[no-self-folds]{Proposition \ref*{no-self-folds}} into account, from now on we will restrict ourselves to the case where no self-folded triangles appear. Although there is a general mechanism to produce QPs from arbitrary triangulations, as described in Section 3 from \cite{LF09}, technical difficulties arise when dealing with self-folded triangles.
+Taking \hyperref[no-self-folds]{Proposition \ref*{no-self-folds}} into account, from now on we will restrict ourselves to the case where no self-folded triangles appear. Although there is a general mechanism to produce QPs from arbitrary triangulations, as described in Section 3 of \cite{LF09}, technical difficulties arise when dealing with self-folded triangles.
 
 Let $T$ be an ideal triangulation of a surface with marked points $(\Sigma, M)$. We construct a quiver $Q$ following these steps:
 \begin{enumerate}
