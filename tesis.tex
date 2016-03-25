@@ -7,6 +7,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{listings}
 \usepackage[colorlinks=true, pagebackref=true]{hyperref}
 \usepackage[alphabetic]{amsrefs}
 \usepackage{mathtools}
@@ -15,7 +16,6 @@
 \usepackage{stmaryrd} %double brackets
 \usepackage{tikz}
 \usepackage[toc,page]{appendix}
-\usepackage{listings}
 %\usepackage{showlabels}
 \usepackage{geometry}
 \usepackage[margin=1.2cm]{caption}
@@ -118,11 +118,17 @@ stringstyle=\color{orange}}
 \newtheorem{exmp}[prop]{Example}
 \newtheorem{heur}[prop]{Heuristic}
 
+\hyphenation{fun-cio-na-mien-to}
 \begin{document}
+\frontmatter
+\setcounter{page}{-3}
 \input{./caratula.tex}
+
+\thispagestyle{empty}
 \tableofcontents
 \input{./introduccion.tex}
 \input{./introduction.tex}
+\mainmatter
 \input{./preliminaries.tex}
 \input{./diamond.tex}
 \input{./examples.tex}
@@ -130,6 +136,8 @@ stringstyle=\color{orange}}
 \begin{appendix}
 \input{./appendix.tex}
 \end{appendix}
+
+\backmatter
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{References}

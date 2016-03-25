@@ -5,7 +5,7 @@ One may ask if the result does not hold in that case or if only Ladkani's proof 
 
 We then introduce a procedure to generate a QP, and correspondingly a Jacobian algebra, from an arbitrary polygonal subdivision of a surface. We find that in this situation, there are both infinite families of subdivisions with finite-dimensional Jacobian algebra and infinite families with infinite-dimensional ones, so the situation is considerably more complicated than in the triangulated case.
 
-Another result from \cite{Lad12} states that in the triangulated setting the finite-dimensionality of the Jacobian algebra does not depend on the choice of scalars for the potential. As we will show in this section, this does not generalize to the polygonal case.
+Another result from \cite{Lad12} states that in the triangulated setting the finite-dimen\-sionality of the Jacobian algebra does not depend on the choice of scalars for the potential. As we will show in this section, this does not generalize to the polygonal case.
 
 Finally, we will make use of the diamond lemma to produce confluent rewriting system for three families of polyhedra: pyramids, prisms and antiprisms. These examples will be further studied in the next section.
 
@@ -66,10 +66,11 @@ As we anticipated, there are 12 rewriting rules, but the program finishes its ex
 sage: tetrahedron.quiver.show()
 \end{lstlisting}
 The output of this line of code is shown on \hyperref[quiverfigure]{Figure \ref*{quiverfigure}}.
-\begin{figure}[h] \label{quiverfigure}
+\begin{figure}[h] 
 \centering
 \includegraphics[width=0.5\textwidth]{tetra_quiver.png}
 \caption{}
+\label{quiverfigure}
 \end{figure}
 Notice that it is exactly the same quiver as we have drawn before. We will call it $Q$. Let us now display the set of rewriting rules produced:
 \begin{lstlisting}
@@ -276,7 +277,6 @@ The case in which $g=0$ (the sphere) is easily dealt with by choosing a single l
 For the cases in which $g>0$, we will make use of the handle decomposition we mentioned previously. We will draw a handle as a square (with opposite edges identified) having a gray hole in its center. Consider the following configuration:
 
 \begin{figure}[h]
-\label{divided-handle}
 \[
 \begin{tikzpicture}
 \draw (0,0) node[minimum size=6cm,draw] {};
@@ -299,6 +299,7 @@ For the cases in which $g>0$, we will make use of the handle decomposition we me
 \end{tikzpicture}
 \]
 \caption{}
+\label{divided-handle}
 \end{figure}
 
 We first deal with the case in which $g=1$. If we glue such a handle to the boundary of the following disk, we obtain a torus with a single red loop $r_1$ and a single blue loop $b_1$:
@@ -621,7 +622,6 @@ Any pyramid is a polygonal subdivision of the sphere, so we now study the proper
 \hyperref[pyramid-quiver]{Figure \ref*{pyramid-quiver}}.
 
 \begin{figure}[h]
-\label{pyramid-quiver}
 \[
 \begin{tikzpicture}[scale=0.8]
 \foreach \x in {0,90,...,270}
@@ -644,6 +644,7 @@ Any pyramid is a polygonal subdivision of the sphere, so we now study the proper
 \]
 \caption{The quiver arising from a pyramid with a square base.}
 \label{pyramid}
+\label{pyramid-quiver}
 \end{figure}
 
 The 4-cycle placed outside of the square is the cycle corresponding to the base, and each 3-cycle inside of the square corresponds to a triangular face of the pyramid. We will name the arrows of the base as $a$ and the arrows surrounding the apex as $b$. The rest of the arrows corresponding to triangular faces are named $c$ and $d$ in such a way that $dcb$ is the only path of length 3 taking place in a single triangle.

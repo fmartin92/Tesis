@@ -1,0 +1,26 @@
+\contentsline {chapter}{\numberline {1}Preliminaries}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}The path algebra of a quiver}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Completions}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}The Jacobian algebra of a quiver with potential}{5}{section.1.3}
+\contentsline {section}{\numberline {1.4}Ideal triangulations of surfaces}{6}{section.1.4}
+\contentsline {section}{\numberline {1.5}The QP associated to an ideal triangulation}{9}{section.1.5}
+\contentsline {chapter}{\numberline {2}The diamond lemma}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Bergman's diamond lemma}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}A diamond lemma for path algebras}{20}{section.2.2}
+\contentsline {section}{\numberline {2.3}A topological diamond lemma}{22}{section.2.3}
+\contentsline {chapter}{\numberline {3}Jacobian algebras from polygonal subdivisions}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}The tetrahedron}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}Polygonal subdivisions of surfaces}{30}{section.3.2}
+\contentsline {section}{\numberline {3.3}A family of infinite-dimensional examples}{31}{section.3.3}
+\contentsline {section}{\numberline {3.4}A family of finite-dimensional examples}{34}{section.3.4}
+\contentsline {section}{\numberline {3.5}Pyramids}{42}{section.3.5}
+\contentsline {section}{\numberline {3.6}Scalars in the polygonal case}{46}{section.3.6}
+\contentsline {section}{\numberline {3.7}Prisms and antiprisms}{47}{section.3.7}
+\contentsline {chapter}{\numberline {4}Cohomological properties}{53}{chapter.4}
+\contentsline {section}{\numberline {4.1}The center}{53}{section.4.1}
+\contentsline {section}{\numberline {4.2}Derivations}{57}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Pyramids with an even-sided base}{58}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Prisms}{61}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Antiprisms}{62}{subsection.4.2.3}
+\contentsline {chapter}{\numberline {A}A path algebra SageMath class}{65}{appendix.A}
+\contentsline {chapter}{References}{75}{section*.40}
