@@ -606,10 +606,6 @@ donde $\nu(x)$ es el mínimo natural tal que $x$ contiene un monomio de ese grad
 \pause
 La \emph{completación} $\KQ$ es simplemente la completación métrica de $\kQ$. Como álgebras, si $\kQ = \bigoplus A_n$ entonces $\KQ = \prod A_n$.
 
-\medskip
-
-Así, por ejemplo, $k\langle\!\langle \tilde{Q}\rangle\!\rangle\simeq  k\langle\!\langle x_1,\dots,x_n\rangle\!\rangle$.
-
 \bigskip
 \pause
 
@@ -618,13 +614,14 @@ Notar que si $(u_n)$ es una sucesión de diferentes caminos en $Q$, en $\KQ$ se 
 \[\sum_{n=1}^k \lambda_n u_n \longrightarrow \sum_{n=1}^\infty \lambda_n u_n.\]
 \end{frame}
 \begin{frame}
+A partir de ahora, $k$ será un cuerpo de característica cero.
 \begin{exampleblock}{Definición}
 Dado un quiver $Q$, un \emph{potencial} $P$ es una combinación lineal (posiblemente infinita) de ciclos en $\KQ$.
 \end{exampleblock}
 \pause
 
 \begin{exampleblock}{Definición}
-Dados un quiver con potencial $(Q,P)$, una flecha $\alpha\in Q$ y un ciclo $u=\alpha_n\dots\alpha_1$, la \emph{derivada cíclica de $u$ respecto a $\alpha$} es
+Dados un quiver con potencial $(Q,P)$, una flecha $\alpha\in Q$ y un ciclo $u=\alpha_1\dots\alpha_n$, la \emph{derivada cíclica de $u$ respecto a $\alpha$} es
 \[
 \partial_\alpha(u) = \sum_{k=1}^n \delta_{\alpha, \alpha_k}\alpha_{k+1}\dots\alpha_n\alpha_1\dots\alpha_{k-1}
 \]
@@ -647,14 +644,14 @@ donde el índice $\alpha$ se mueve en el conjunto de flechas del quiver.
 \bigskip
 \begin{exampleblock}{Ejemplo}
 Si en el quiver con un único vértice y una única flecha $x$ consideramos $P=x^n$,
-\[J(Q,P) = k[x]/(x^{n-1}) \]
+\[J(Q,P) \simeq k[x]/(x^{n-1}) \]
 \end{exampleblock}
 \end{frame}
 
 \begin{frame}
 
 \begin{block}{Teorema (Suárez-Álvarez, Vivas -- 2015)}
-Sea $X$ un conjunto, $Q$ un quiver, $S$ un sistema de reescritura en $X$ y $\preceq$ un orden de caminos en $Q_*$ noetheriano en norma y compatible con $S$. Sea  $I_S = \overline{(w_\sigma -f_\sigma)}_{\sigma\in S}$ el ideal cerrado inducido por las reglas de $S$. Son equivalentes:
+Sea $Q$ un quiver, $S$ un sistema de reescritura en $Q_*$ y $\preceq$ un orden de caminos en $Q_*$ noetheriano en norma y compatible con $S$. Sea  $I_S = \overline{(w_\sigma -f_\sigma)}_{\sigma\in S}$ el ideal cerrado inducido por las reglas de $S$. Son equivalentes:
 \begin{itemize}
 \item Toda ambigüedad en $S$ es resoluble.
 \item El conjunto $B$ de monomios $S$-irreducibles es tal que $\KQ/I_S\simeq k\langle\!\langle B\rangle\!\rangle$.
@@ -1425,7 +1422,7 @@ Además A es un ideal, y tenemos $I\subseteq A$. Luego, para ver que $\kQ/I$ es 
 \end{tabular}
 \pause
 \medskip
-\item La familia de pirámides muestra que la finito-dimensionalidad del álgebra depende de la elección de escalares en el caso no triangular.
+\item La familia de pirámides muestra que la dimensión del álgebra depende de la elección de escalares en el caso no triangular.
 \pause
 \medskip
 \item Usamos las bases halladas para calcular invariantes de estas álgebras: centro y derivaciones.

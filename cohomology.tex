@@ -36,9 +36,7 @@ We will start by proving an useful fact about the quiver associated to a polygon
 \end{lemma}
 \begin{proof} Given two faces $X,Y$ of the subdivision of $\Sigma$, let $d(X,Y)$ be the minimum $n\in \NN$ such that there exists a sequence $Z_0,\dots,Z_n$ with $X=Z_0$, $Y=Z_n$ and such that $Z_i$ shares an edge with $Z_{i+1}$ for all $0\leq i\leq n-1$. The fact that the surface is connected guarantees that $d(X,Y)$ is well defined.
 
-Let $v_1,v_2$ be vertices in $Q$ and pick $F_1, F_2$ faces of the subdivision such that $v_1$ (resp. $v_2$)  is a vertex which corresponds to an edge of $F_i$ (resp. $F_2$). If $d(F_1, F_2)=0$, then $F_1=F_2$ and so there is a path going from $v_1$ to $v_2$, since there is a cycle in the quiver joining all of the vertices arising from the same face. If $d(F_1,F_2)=1$ such a path exists as well, since there is an arrow in $Q$ with source $v_1$ which is part of the cycle corresponding to $F_2$, since $F_1$ and $F_2$ are contiguous. Since $d(F_1,F_2)$ is a finite number and we have already shown that we can connect vertices from neighbouring faces, an easy inductive argument finishes the proof.
-
-\end{proof}
+Let $v_1,v_2$ be vertices in $Q$ and pick $F_1, F_2$ faces of the subdivision such that $v_1$ (resp. $v_2$)  is a vertex which corresponds to an edge of $F_i$ (resp. $F_2$). If $d(F_1, F_2)=0$, then $F_1=F_2$ and so there is a path going from $v_1$ to $v_2$, since there is a cycle in the quiver joining all of the vertices arising from the same face. If $d(F_1,F_2)=1$ such a path exists as well, since there is an arrow in $Q$ with source $v_1$ which is part of the cycle corresponding to $F_2$, since $F_1$ and $F_2$ are contiguous. Since $d(F_1,F_2)$ is a finite number and we have already shown that we can connect vertices from neighbouring faces, an easy inductive argument finishes the proof.\end{proof}
 
 \begin{prop} The Jacobian algebra associated to a pyramid with $n$-sided base, where $n>3$, is central.
 \end{prop}
@@ -165,7 +163,7 @@ Relation \eqref{eq-c} implies
 \end{align*}
 and thus we get the equation $\alpha=\beta$ again. Relation \eqref{eq-d} implies the same identity as well.
 
-Now, if $g$ is a derivation of $\kQ$ satisfying the set of equations \eqref{pyramid-equations}, its values on $a,b,c$ and $d$ completely determine it, since any path is either a stationary path (which is mapped to zero by \hyperref[derivation-vertices]{Observation \ref*{derivation-vertices}}) or equal to a unique product of $a,b,c$ and $d$, and thus its image is uniquely determined by the Leibniz rule. Moreover, as we have just seen, if $\alpha=\beta$ and $\gamma+\delta=(n+1)\alpha$ then the image of a set of generators of $I$ by $g$ is contained in $I$, and so $g$ induces a derivation of the Jacobian algebra \note{decir por qué esta bien hacerlo desde el álgebra sin completar} by \hyperref[derivation-quotient]{Observation \ref*{derivation-quotient}}.
+Now, if $g$ is a derivation of $\kQ$ satisfying the set of equations \eqref{pyramid-equations}, its values on $a,b,c$ and $d$ completely determine it, since any path is either a stationary path (which is mapped to zero by \hyperref[derivation-vertices]{Observation \ref*{derivation-vertices}}) or equal to a unique product of $a,b,c$ and $d$, and thus its image is uniquely determined by the Leibniz rule. Moreover, as we have just seen, if $\alpha=\beta$ and $\gamma+\delta=(n+1)\alpha$ then the image of a set of generators of $I$ by $g$ is contained in $I$, and so $g$ induces a derivation of the Jacobian algebra \note{decir por qué esta bien hacerlo desde el álgebra sin completar}by \hyperref[derivation-quotient]{Observation \ref*{derivation-quotient}}.
 
 We now write the values of a generic derivation of the form we described in terms of the basis $B$:
 \begin{align*}

@@ -1,7 +1,7 @@
 \begin{chapter}{Jacobian algebras from polygonal subdivisions}
 We have now introduced all of the definitions and tools needed to start studying Jacobian algebras arising from triangulations of surfaces. Perhaps the simplest invariant one can study is their dimension. As shown in \cite{Lad12}, all Jacobian algebras arising from surfaces with empty boundary are finite-dimensional, with perhaps the exception of the sphere with 4 punctures, which is not discussed. 
 
-One may ask if the result does not hold in that case or if only Ladkani's proof does not apply but the result holds nevertheless. We start off studying the tetrahedron, which is a \emph{nice} triangulation of the sphere with 4 punctures, in the sense that it does not involve self-folded triangles and determine that its associated Jacobian algebra is infinite-dimensional.
+One may ask if the result does not hold in that case or if only Ladkani's proof does not apply but the result holds nevertheless. We start off studying the tetrahedron, which is a \emph{nice} triangulation of the sphere with 4 punctures, in the sense that it does not involve self-folded triangles, and determine that its associated Jacobian algebra is infinite-dimensional.
 
 We then introduce a procedure to generate a QP, and correspondingly a Jacobian algebra, from an arbitrary polygonal subdivision of a surface. We find that in this situation, there are both infinite families of subdivisions with finite-dimensional Jacobian algebra and infinite families with infinite-dimensional ones, so the situation is considerably more complicated than in the triangulated case.
 
@@ -182,7 +182,7 @@ Let $n>2$. We say that a polygonal subdivision of a surface with empty boundary 
 Obviously, in this way one can produce an infinite number of these examples on the torus.
 
 The existence of an $n$-regular subdivision imposes strong conditions on the surface. In fact, suppose we have an $n$-regular subdivision of a surface and let $v, e$ and $f$ denote its number of vertices, edges and faces respectively. Since every face contains exactly $n$ vertices and every vertex belongs to exactly $n$ faces, we have that $v=f$. Moreover, every face contains $n$ edges and any edge belongs to exactly 2 faces, so $e=nf/2$.
-Recalling the fact that the Euler characteristic of a surface of genus $g$ is $2-2g$, we have that $2-2g=v-e+f=(2-n/2)f$, or equivalently $4g-4 = (n-4)f$. If $n=4$, the right hand vanishes, and so $g=1$. Therefore, the only surface that can admit a $4$-regular subdivision is the torus (and in fact we have already shown there are an infinite number of them).
+Recalling the fact that the Euler characteristic of a surface of genus $g$ is $2-2g$, we have that $2-2g=v-e+f=(2-n/2)f$, or equivalently $4g-4 = (n-4)f$. If $n=4$, the right hand side of the equation vanishes, and so $g=1$. Therefore, the only surface that can admit a $4$-regular subdivision is the torus (and in fact we have already shown there are an infinite number of them).
 
 Suppose now that $n\neq 4$. Then
 \begin{equation}
@@ -274,7 +274,7 @@ A \emph{loop} $f$ on a surface $\Sigma$ is a smooth embedding $f:S^1\to \Sigma$.
 
 The case in which $g=0$ (the sphere) is easily dealt with by choosing a single loop $r_1$ as the equator, since both hemispheres are homeomorphic to a disk and the other conditions are vacuously true.
 
-For the cases in which $g>0$, we will make use of the handle decomposition we mentioned previously. We will draw a handle as a square (with opposite edges identified) having a gray hole in its center. Consider the following configuration:
+For the cases in which $g>0$, we will make use of the handle decomposition we mentioned previously. We will draw a handle as a square (with opposite edges identified) having a gray hole in its center.
 
 \begin{figure}[h]
 \[
@@ -298,13 +298,13 @@ For the cases in which $g>0$, we will make use of the handle decomposition we me
 \draw[blue, very thick] (0,0) circle (2cm);
 \end{tikzpicture}
 \]
-\caption{}
+\caption{A decomposed handle.}
 \label{divided-handle}
 \end{figure}
 
-We first deal with the case in which $g=1$. If we glue such a handle to the boundary of the following disk, we obtain a torus with a single red loop $r_1$ and a single blue loop $b_1$:
+We first deal with the case in which $g=1$. If we glue a handle decomposed as in \hyperref[divided-handle]{Figure \ref*{divided-handle}} to the boundary of the disk pictured in \hyperref[divided-handle]{Figure \ref*{divided-disk}}, we obtain a torus with a single red loop $r_1$ and a single blue loop $b_1$.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \[
 \begin{tikzpicture}
 
@@ -316,11 +316,13 @@ We first deal with the case in which $g=1$. If we glue such a handle to the boun
 \draw[blue, very thick] (0,0) circle (3cm);
 \end{tikzpicture}
 \]
+\caption{A decomposed disk.}
+\label{divided-disk}
 \end{figure}
 
 Once again, the intersection conditions are vacuous. Finally, we observe that the blue loop cuts the torus into a disk and a handle, so one can check condition $3$ in both objects separately. One sees at once that the disk gets cut up into 5 smaller disks, while the handle is divided into $3$ disks, as we wanted.
 
-While the solution to the case $g=1$ may be easier to draw directly on a square instead of considering a handle decomposition, the latter helps to illustrate the general case, which we now consider. For the case $g>1$, we regard our surface as a disk with $g-1$ holes, with a handle divided as in \hyperref[divided-handle]{Figure \ref*{divided-handle}} attached to its boundary and to each of its holes. We now exemplify the configuration on the disk with holes for $g=4$:
+While the solution to the case $g=1$ may be easier to draw directly on a square instead of considering a handle decomposition, the latter helps to illustrate the general case, which we now consider. For the case $g>1$, we regard our surface as a disk with $g-1$ holes, with a handle divided as in \hyperref[divided-handle]{Figure \ref*{divided-handle}} attached to its boundary and to each of its holes. We exemplify the configuration on the disk with holes for $g=4$ in \hyperref[holed-up-disk]{Figure \ref*{holed-up-disk}}.
 
 \begin{figure}[h]
 \[
@@ -354,6 +356,8 @@ While the solution to the case $g=1$ may be easier to draw directly on a square 
 \fill [black,opacity=.15] (3,0) circle (1cm);
 \end{tikzpicture}
 \]
+\caption{A decomposed disk with holes.}
+\label{holed-up-disk}
 \end{figure}
 
 The following is an outline for the construction of the previous figure for general $g$:
@@ -808,8 +812,9 @@ A \emph{prism} is a polyhedron composed of two parallel copies of an $n$-sided p
 \caption{A prism with a pentagonal base.}
 \end{figure}
 
-We now give a labeling of the arrows in the quiver associated to a prism, similar to the one we produced for pyramids, in order to help us simplify the description of the rewriting system:
+We will label the arrows in the quiver associated to a prism in a similar way as we did for pyramids, in order to help us simplify the description of the rewriting system. This is illustrated in \hyperref[prism-quiver]{Figure \ref*{prism-quiver}}, where we have drawn the prism as a planar figure in which the left and right sides are identified. In the drawing, the black edges represent the edges of the prism and the red arrows are the ones from the associated quiver. Arrows labeled $a$ (resp. $b$) correspond to the $n$-cycle inside the top (resp. bottom) base face. The arrows corresponding to 4-cycles inside parallelograms are labeled as $c$, $d$, $e$ or $f$, in such a way that a 4-cycle having a vertex from the top base as source is labeled $dcfe$.
 
+\begin{figure}
 \[
 \begin{tikzpicture}[text width=1.5mm, font=\footnotesize]
 \draw (-4, 0) -- (4, 0);
@@ -835,8 +840,9 @@ We now give a labeling of the arrows in the quiver associated to a prism, simila
 }
 \end{tikzpicture}
 \]
-
-We have drawn the prism as a planar figure in which the left and right sides are identified. In the drawing, the black edges represent the edges of the prism and the red arrows are the ones from the associated quiver. Arrows labeled $a$ (resp. $b$) correspond to the $n$-cycle inside the top (resp. bottom) base face. The arrows corresponding to 4-cycles inside parallelograms are labeled as $c$, $d$, $e$ or $f$, in such a way that a 4-cycle having a vertex from the top base as source is labeled $dcfe$.
+\caption{The quiver associated to a prism.}
+\label{prism-quiver}
+\end{figure}
 
 After naming the arrows in this way, a confluent rewriting system for the associated Jacobian algebra in the case $n>3$ is given by the rules:
 \begin{align*}
@@ -925,7 +931,6 @@ sage: Rewriting_System(prism(7), True).generating_function(9)
 105 rules added.
 Total rules: 231
 [21, 42, 42, 42, 21, 14, 14, 14, 0]
-
 sage: Rewriting_System(antiprism(7), True).generating_function(13)
 98 rules added.
 48 rules added.
